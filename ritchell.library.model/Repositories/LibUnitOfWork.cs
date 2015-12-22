@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ritchell.library.infrastructure;
+using ritchell.library.model.Interfaces;
+
+namespace ritchell.library.model.Repositories
+{
+    public class LibUnitOfWork : IUnitOfWork
+    {
+        private DbContext _Context;
+        private ISectionRepository _SectionRepository;
+        private IBookInfoRepository _BookInfoRepository;
+        private IBookCopyRepository _BookCopyRepository;
+
+        public IBookCopyRepository BookCopyRepository
+        {
+            get { return _BookCopyRepository=_BookCopyRepository?? new BookCopyRepository(_Context); }
+        }
+
+        public LibUnitOfWork(DbContext context)
+        {
+            _Context = context;
+        }
+
+        public LibUnitOfWork()
+        {
+            _Context = new LibraryContext();
+        }
+
+        public ISectionRepository SectionRepository
+        {
+            get
+            {
+                _SectionRepository = _SectionRepository ?? new SectionRepository(_Context);
+                return _SectionRepository;
+            }
+        }
+
+        public IBookInfoRepository BookInfoRepository
+        {
+            get
+            {
+                _BookInfoRepository = _BookInfoRepository ?? new BookInfoRepository(_Context);
+                return _BookInfoRepository;
+            }
+        }
+
+        public void SaveChanges()
+        {
+            _Context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _Context.Dispose();
+        }
+    }
+}

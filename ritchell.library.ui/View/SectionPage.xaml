@@ -1,0 +1,33 @@
+﻿<Page x:Class="ritchell.library.ui.View.SectionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="431.868"
+      Title="SectionPage"
+      DataContext="{Binding SectionPageViewModel, Source= {StaticResource Locator}}">
+
+    <Grid>
+        <DockPanel>
+            <ListBox x:Name="BookListBox"
+                     MinWidth="200"
+                     ItemsSource="{Binding ItemsCollectionView}"
+                     IsSynchronizedWithCurrentItem="True"
+                     DisplayMemberPath="Name"/>
+
+            <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                <TextBlock>Section Name</TextBlock>
+                <TextBox Text="{Binding ItemsCollectionView/Name}" />
+                <TextBlock>Max days allowed for borrowing</TextBlock>
+                <TextBox Text="{Binding ItemsCollectionView/MaxDaysAllowedForBorrowing}" />
+                <TextBlock>Late returning fee</TextBlock>
+                <TextBox Text="{Binding ItemsCollectionView/LateReturningFee}" />
+                <Button Command="{Binding NewItemCommand}">New</Button>
+                <Button>Edit</Button>
+                <Button>Delete</Button>
+                <Button Command="{Binding SaveItemCommand}">Save</Button>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Page>
