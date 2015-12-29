@@ -21,14 +21,16 @@
 
     <Grid>
         <DockPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,5,0,0" >
                 <Button Content="Book Sections" 
                     Command="{Binding NavigateToPageCommand}" 
-                    CommandParameter="SectionPage.xaml"/>
+                    CommandParameter="SectionPage.xaml" Margin="5,0"/>
                 <Button Content="Books" 
                         Command="{Binding NavigateToPageCommand}" 
-                        CommandParameter="BookPage.xaml"/>
-                <Button Content="RFID" />
+                        CommandParameter="BookPage.xaml" Margin="0,0,5,0"/>
+                <Button Content="Users" 
+                        Command="{Binding NavigateToPageCommand}"
+                        CommandParameter="UsersPage.xaml" Margin="0,0,5,0" />
             </StackPanel>
             <Frame DockPanel.Dock="Bottom" x:Name="LayoutRoot" NavigationUIVisibility="Hidden"/>
         </DockPanel>

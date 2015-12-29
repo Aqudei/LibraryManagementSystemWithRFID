@@ -4,17 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="293.407" d:DesignWidth="404.396"
+      d:DesignHeight="337.407" d:DesignWidth="502.396"
       Title="BookPage"
       DataContext="{Binding BookPageViewModel, Source={StaticResource Locator}}">
 
     <Grid>
         <DockPanel>
-            <ListBox MinWidth="200" 
+            <ListBox MinWidth="300" 
                      DockPanel.Dock="Left" 
                      ItemsSource="{Binding ItemsCollectionView}"
                      IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="BookTitle"/>
+                     DisplayMemberPath="BookTitle" Margin="0,-1,0,1"/>
 
             <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
 
@@ -39,10 +39,11 @@
                 <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN13,
                     UpdateSourceTrigger=PropertyChanged}"/>
 
-                <Button Command="{Binding NewItemCommand}">New</Button>
-                <Button>Edit</Button>
-                <Button>Delete</Button>
-                <Button Command="{Binding SaveItemCommand}">Save</Button>
+                <Button Command="{Binding NewItemCommand}">New Book</Button>
+                <Button>Edit Selected</Button>
+                <Button>Remove Selected</Button>
+                <Button Command="{Binding SaveItemCommand}">Save Current</Button>
+                <Button Command="{Binding ManageRFIDCommand}" Content="Manage Book's RFID"/>
 
             </StackPanel>
         </DockPanel>

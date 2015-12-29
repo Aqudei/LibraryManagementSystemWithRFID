@@ -1,0 +1,48 @@
+﻿<Page x:Class="ritchell.library.ui.View.UsersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="468.657" d:DesignWidth="640.299"
+	  Title="UsersPage"
+      DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" 
+                 ItemsSource="{Binding ItemsCollectionView}"
+                 IsSynchronizedWithCurrentItem="True"
+                 DisplayMemberPath="Fullname"/>
+
+        <GridSplitter Grid.Column="1" 
+                      Width="5" 
+                      HorizontalAlignment="Stretch"/>
+
+        <StackPanel Orientation="Vertical" Grid.Column="2">
+            <TextBlock>First Name</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Middle Name</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Last Name</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Birthday</TextBlock>
+            <DatePicker></DatePicker>
+            <TextBlock>UserRFIDTag</TextBlock>
+            <TextBox IsReadOnly="True"></TextBox>
+
+            <TextBlock>Username</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Password</TextBlock>
+            <TextBox></TextBox>
+            <TextBlock>Confirm Password</TextBlock>
+            <TextBox></TextBox>
+        </StackPanel>
+
+    </Grid>
+</Page>

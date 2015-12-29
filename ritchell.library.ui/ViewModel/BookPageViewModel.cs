@@ -9,6 +9,9 @@ using System.Windows.Data;
 using GalaSoft.MvvmLight;
 using ritchell.library.model;
 using ritchell.library.model.Services;
+using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Views;
+using ritchell.library.ui.View.DialogInterface;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -16,12 +19,17 @@ namespace ritchell.library.ui.ViewModel
     {
         private BookService _BookService;
         private SectionService _SectionService;
+        private RelayCommand _ManageRFIDCommand;
+        private IRFIDManagerDialog _RFIDDialogService;
 
         public BookPageViewModel(BookService bookService,
-            SectionService sectionService)
+            SectionService sectionService, IRFIDManagerDialog rfidDialogService)
         {
             _BookService = bookService;
             _SectionService = sectionService;
+            _RFIDDialogService = rfidDialogService;
+
+
 
             items = new ObservableCollection<BookInfo>(_BookService.GetBooks());
             ItemsCollectionView = (ICollectionView)CollectionViewSource.GetDefaultView(items);
@@ -51,6 +59,25 @@ namespace ritchell.library.ui.ViewModel
         protected override void SaveItemCommandHandler()
         {
             _BookService.EnrollOrUpdateBook(ItemsCollectionView.CurrentItem as BookInfo);
+        }
+
+
+
+        /// <summary>
+        /// Gets the ManageRFIDCommand.
+        /// </summary>
+        public RelayCommand ManageRFIDCommand
+        {
+            get
+            {
+                return _ManageRFIDCommand
+                    ?? (_ManageRFIDCommand = new RelayCommand(
+                    () =>
+                    {
+                        _RFIDDialogService.Manage(this.ItemsCollectionView.CurrentItem as BookInfo);
+                    },
+                    () => this.ItemsCollectionView.CurrentItem != null));
+            }
         }
     }
 }

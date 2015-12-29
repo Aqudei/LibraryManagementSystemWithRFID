@@ -15,10 +15,16 @@ namespace ritchell.library.model.Repositories
         private ISectionRepository _SectionRepository;
         private IBookInfoRepository _BookInfoRepository;
         private IBookCopyRepository _BookCopyRepository;
+        private ILibraryUserRepository _LibraryUserRepository;
+
+        public ILibraryUserRepository LibraryUserRepository
+        {
+            get { return _LibraryUserRepository = _LibraryUserRepository ?? new LibraryUserRepository(_Context); }
+        }
 
         public IBookCopyRepository BookCopyRepository
         {
-            get { return _BookCopyRepository=_BookCopyRepository?? new BookCopyRepository(_Context); }
+            get { return _BookCopyRepository = _BookCopyRepository ?? new BookCopyRepository(_Context); }
         }
 
         public LibUnitOfWork(DbContext context)

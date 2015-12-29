@@ -12,6 +12,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
 
 namespace ritchell.library.ui.ViewModel
@@ -36,12 +37,15 @@ namespace ritchell.library.ui.ViewModel
             else
             {
                 SimpleIoc.Default.Register<BookService>();
+                SimpleIoc.Default.Register<BookCopyService>();
                 SimpleIoc.Default.Register<SectionService>();
             }
-
+            SimpleIoc.Default.Register<UsersPageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SectionPageViewModel>();
             SimpleIoc.Default.Register<BookPageViewModel>();
+            SimpleIoc.Default.Register<BookCopyPageViewModel>();
+            SimpleIoc.Default.Register<IRFIDReader, ShortRangeRFID>();
         }
 
         /// <summary>
@@ -55,6 +59,23 @@ namespace ritchell.library.ui.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public UsersPageViewModel UsersPageViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<UsersPageViewModel>();
+            }
+        }
+
+
+        public BookCopyPageViewModel BookCopyPageViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<BookCopyPageViewModel>();
             }
         }
 

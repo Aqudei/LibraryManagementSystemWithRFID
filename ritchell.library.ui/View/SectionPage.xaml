@@ -4,30 +4,39 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="431.868"
+      d:DesignHeight="368" d:DesignWidth="1258.868"
       Title="SectionPage"
       DataContext="{Binding SectionPageViewModel, Source= {StaticResource Locator}}">
 
     <Grid>
         <DockPanel>
             <ListBox x:Name="BookListBox"
-                     MinWidth="200"
+                     MinWidth="300"
                      ItemsSource="{Binding ItemsCollectionView}"
                      IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="Name"/>
+                     DisplayMemberPath="Name" Margin="10"/>
+            <Grid>
+            	<Grid.RowDefinitions>
+            		<RowDefinition Height="2*"/>
+            		<RowDefinition/>
+            	</Grid.RowDefinitions>
 
-            <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
-                <TextBlock>Section Name</TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/Name}" />
-                <TextBlock>Max days allowed for borrowing</TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/MaxDaysAllowedForBorrowing}" />
-                <TextBlock>Late returning fee</TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/LateReturningFee}" />
-                <Button Command="{Binding NewItemCommand}">New</Button>
-                <Button>Edit</Button>
-                <Button>Delete</Button>
-                <Button Command="{Binding SaveItemCommand}">Save</Button>
-            </StackPanel>
+            	<StackPanel Orientation="Vertical" Grid.Row="0">
+            		<TextBlock Height="15.96"><Run Text="Section Name"/></TextBlock>
+            		<TextBox Text="{Binding ItemsCollectionView/Name}" />
+            		<TextBlock Height="15.96"><Run Text="Max days allowed for borrowing"/></TextBlock>
+            		<TextBox Text="{Binding ItemsCollectionView/MaxDaysAllowedForBorrowing}" />
+            		<TextBlock Height="15.96"><Run Text="Late returning fee"/></TextBlock>
+            		<TextBox Text="{Binding ItemsCollectionView/LateReturningFee}" Height="21.96" />
+            	</StackPanel>
+            	
+				<StackPanel Orientation="Horizontal" Grid.Row="1">
+            		<Button Command="{Binding NewItemCommand}" Content="New" Margin="0,0,5,0" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" />
+            		<Button Content="Edit" Margin="0,0,5,0" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" />
+            		<Button Content="Delete" Margin="0,0,5,0" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" />
+            		<Button Command="{Binding SaveItemCommand}" Content="Save" Margin="0,0,5,0" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" />
+            	</StackPanel>
+            </Grid>
         </DockPanel>
     </Grid>
 </Page>

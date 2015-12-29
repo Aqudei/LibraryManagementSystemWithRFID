@@ -13,12 +13,6 @@ namespace ritchell.library.ui.ViewModel
 {
     public abstract class WithEditableItems<T> : ViewModelBase where T : class
     {
-
-        public WithEditableItems()
-        {
-            
-        }
-
         public ICollectionView ItemsCollectionView { get; set; }
 
         protected ObservableCollection<T> items;

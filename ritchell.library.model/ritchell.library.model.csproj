@@ -42,6 +42,10 @@
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RijndaelEncryptDecrypt, Version=1.0.0.24384, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RijndaelEncryptDecrypt.1.0.0.24384\lib\net40\RijndaelEncryptDecrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -60,17 +64,21 @@
     <Compile Include="BookInfo.cs" />
     <Compile Include="Interfaces\IBookCopyRepository.cs" />
     <Compile Include="Interfaces\IBookInfoRepository.cs" />
+    <Compile Include="Interfaces\ILibraryUserRepository.cs" />
     <Compile Include="Interfaces\ISectionRepository.cs" />
     <Compile Include="ISBN.cs" />
     <Compile Include="LibraryContext.cs" />
+    <Compile Include="LibraryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookCopyRepository.cs" />
     <Compile Include="Repositories\BookInfoRepository.cs" />
+    <Compile Include="Repositories\LibraryUserRepository.cs" />
     <Compile Include="Repositories\LibUnitOfWork.cs" />
     <Compile Include="Repositories\SectionRepository.cs" />
     <Compile Include="Section.cs" />
     <Compile Include="Services\BookCopyService.cs" />
     <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\LibraryUserService.cs" />
     <Compile Include="Services\SectionService.cs" />
   </ItemGroup>
   <ItemGroup>

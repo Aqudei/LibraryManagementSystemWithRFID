@@ -12,9 +12,6 @@ namespace ritchell.library.model.Repositories
     {
         public BookInfoRepository(System.Data.Entity.DbContext _Context)
             : base(_Context)
-        {
-            // TODO: Complete member initialization
-            this._Context = _Context;
-        }
+        {}
     }
 }
