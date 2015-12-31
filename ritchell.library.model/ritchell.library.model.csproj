@@ -72,6 +72,8 @@
     <Compile Include="Interfaces\ISectionRepository.cs" />
     <Compile Include="ISBN.cs" />
     <Compile Include="LibraryContext.cs" />
+    <Compile Include="LibraryTransactions\BorrowBookTransaction.cs" />
+    <Compile Include="LibraryTransactions\ILibraryTransaction.cs" />
     <Compile Include="LibraryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookCopyRepository.cs" />

@@ -7,6 +7,9 @@ using ritchell.library.infrastructure;
 
 namespace ritchell.library.model.Interfaces
 {
-    public interface IBookCopyRepository : IRepository<BookCopy> , IDisposable
-    {}
+    public interface IBookCopyRepository : IRepository<BookCopy>, IDisposable
+    {
+        BookCopy FindByShortRangeRFId(string shortRangeRFId);
+        BookCopy FindByLongRangeRFId(string shortLongRFId);
+    }
 }

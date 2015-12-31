@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using ritchell.library.model;
 using ritchell.library.model.Services;
+using ritchell.library.model.Repositories;
+using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.tests
 {
@@ -82,7 +84,7 @@ namespace ritchell.library.tests
         [Test]
         public void CanAuthenticateByUsernameAndPassword()
         {
-            LibraryUser user = libUserService.FindUserByUsernameAndPassword("kiko", "pass");
+            LibraryUser user = libUserService.GetAuthenticatedUser("kiko", "pass");
 
             Assert.That(user, Is.Not.Null);
             Assert.That(user.FirstName, Is.EqualTo("Francis"));
@@ -92,15 +94,22 @@ namespace ritchell.library.tests
         public void BorrowBookTest()
         {
             var book = bookService.GetBooks().First();
-            var bookCopy = BookCopy.MakeCopy(book, "short123", "long123");
+            var bookCopy = BookCopy.MakeCopy(book, "short001", "long001");
             bookCopyService.AddBookCopy(bookCopy);
 
-            librarianService.BorrowBook(sampleUser, "short123");
+            BorrowBookTransaction borrowBookTrans = new BorrowBookTransaction();
+            borrowBookTrans.BookTag = "short001";
+            borrowBookTrans.LibraryUserId = sampleUser.Id;
+            borrowBookTrans.Execute();
 
-            var bc = bookCopyService.FindByShortRange(bookCopy.BookTagShort);
-            Assert.That(bc.IsBorrowed, Is.EqualTo(true));
+            var retrievedCopy = bookCopyService.FindByShortRange("short001");
+            Assert.That(retrievedCopy.IsBorrowed, Is.True);
 
-
+            using (var bookTrans = new BookTransactionInfoRepository())
+            {
+                var lastBookTrans = bookTrans.LastBookTransaction(bookCopy.Id);
+                Assert.That(lastBookTrans.ExpectedReturnDate.Date, Is.EqualTo(DateTime.Now.Date.AddDays(sampleSection.MaxDaysAllowedForBorrowing)));
+            }
         }
     }
 }

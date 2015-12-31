@@ -15,7 +15,12 @@ namespace ritchell.library.model.Repositories
         { }
 
         public BookInfoRepository() : this(new LibraryContext())
-        {}
+        { }
+
+        public BookInfo BookInfoOf(BookCopy bookCopy)
+        {
+            return _Context.Set<BookInfo>().Where(b => b.Id.Equals(bookCopy.BookInfoId)).SingleOrDefault();
+        }
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
@@ -52,6 +57,6 @@ namespace ritchell.library.model.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
-        #endregion
+        #endregion IDisposable Support
     }
 }

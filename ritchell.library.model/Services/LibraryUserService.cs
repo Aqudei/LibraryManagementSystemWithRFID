@@ -11,7 +11,7 @@ namespace ritchell.library.model.Services
 {
     public class LibraryUserService
     {
-        public LibraryUser FindUserByUsernameAndPassword(string username, string password)
+        public LibraryUser GetAuthenticatedUser(string username, string password)
         {
             using (var uow = new LibUnitOfWork())
             {

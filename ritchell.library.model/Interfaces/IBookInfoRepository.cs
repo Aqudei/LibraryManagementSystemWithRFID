@@ -8,5 +8,7 @@ using ritchell.library.infrastructure;
 namespace ritchell.library.model.Interfaces
 {
     public interface IBookInfoRepository : IRepository<BookInfo>, IDisposable
-    {}
+    {
+        BookInfo BookInfoOf(BookCopy bookCopy);
+    }
 }

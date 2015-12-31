@@ -20,9 +20,10 @@ namespace ritchell.library.model.Services
             bookCopyService = new BookCopyService();
             sectionService = new SectionService();
             bookService = new BookService();
+
         }
 
-        public void BorrowBook(LibraryUser sampleUser, string bookTag)
+        public void BorrowBook(LibraryUser libraryUser, string bookTag)
         {
             var bookCopy = bookCopyService.FindByShortRange(bookTag);
 
@@ -35,7 +36,7 @@ namespace ritchell.library.model.Services
             BookTransactionInfo bookTransaction = new BookTransactionInfo();
 
             bookTransaction.BookCopyId = bookCopy.Id;
-            bookTransaction.LibraryUserId = sampleUser.Id;
+            bookTransaction.LibraryUserId = libraryUser.Id;
             bookTransaction.IsTransactionDone = false;
             bookTransaction.BorrowDate = DateTime.Now;
 
@@ -48,8 +49,33 @@ namespace ritchell.library.model.Services
             using (var uow = new LibUnitOfWork())
             {
                 //save transaction info to db
+                uow.BookTransactionInfoRepository.Add(bookTransaction);
                 uow.BookCopyRepository.Update(bookCopy);
                 uow.SaveChanges();
+            }
+        }
+
+        public void ReturnBook(string bookTag, DateTime returnDateTime, double amountPaid = 0)
+        {
+            var bookCopy = bookCopyService.FindByShortRange(bookTag);
+            if (bookCopy.IsBorrowed == false)
+                throw new InvalidOperationException("You are trying to return a book that is not 'borrowed'");
+
+            bookCopy.IsBorrowed = false;
+
+            using (var uow = new LibUnitOfWork())
+            {
+                var lastTrans = uow.BookTransactionInfoRepository.LastBookTransaction(bookCopy.Id);
+                if (lastTrans == null)
+                    throw new InvalidOperationException("Message for developer:\nBook is borrowed but no transaction record found. Why?");
+
+                lastTrans.IsTransactionDone = true;
+                lastTrans.ReturnDate = returnDateTime;
+
+                if (lastTrans.ExpectedReturnDate.Date < returnDateTime.Date)
+                {
+
+                }
             }
         }
     }

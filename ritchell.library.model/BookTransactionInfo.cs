@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model
 {
-    public class BookTransactionInfo : EntityBase<Guid>
+    public class BookTransactionInfo : EntityBase<Guid>, IComparable<BookTransactionInfo>
     {
         public Guid BookCopyId { get; internal set; }
         public Guid LibraryUserId { get; internal set; }
@@ -22,5 +22,9 @@ namespace ritchell.library.model
             Id = Guid.NewGuid();
         }
 
+        public int CompareTo(BookTransactionInfo other)
+        {
+            return this.BorrowDate.Value.CompareTo(other.BorrowDate);
+        }
     }
 }

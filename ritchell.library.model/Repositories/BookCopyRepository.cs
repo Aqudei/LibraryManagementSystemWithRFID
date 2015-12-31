@@ -10,12 +10,29 @@ namespace ritchell.library.model.Repositories
 {
     public class BookCopyRepository : RepositoryBase<BookCopy>, IBookCopyRepository
     {
+
+
         public BookCopyRepository(System.Data.Entity.DbContext context)
             : base(context)
         { }
 
         public BookCopyRepository() : this(new LibraryContext())
-        {}
+        { }
+
+        public BookCopy FindByShortRangeRFId(string shortRangeRFId)
+        {
+            return _Context.Set<BookCopy>().Where(b => b.BookTagShort == shortRangeRFId).FirstOrDefault();
+        }
+
+        public BookCopy FindByLongRangeRFId(string longRangeRFId)
+        {
+            return _Context.Set<BookCopy>().Where(b => b.BookTagLong == longRangeRFId).FirstOrDefault();
+        }
+
+        public BookInfo BookInfoOf(BookCopy bookCopy)
+        {
+            throw new NotImplementedException();
+        }
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
@@ -52,8 +69,7 @@ namespace ritchell.library.model.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
-        #endregion
-
+        #endregion IDisposable Support
 
     }
 }
