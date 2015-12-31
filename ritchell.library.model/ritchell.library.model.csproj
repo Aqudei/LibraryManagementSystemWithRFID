@@ -62,8 +62,12 @@
   <ItemGroup>
     <Compile Include="BookCopy.cs" />
     <Compile Include="BookInfo.cs" />
+    <Compile Include="BookTransactionInfo.cs" />
+    <Compile Include="Holiday.cs" />
     <Compile Include="Interfaces\IBookCopyRepository.cs" />
     <Compile Include="Interfaces\IBookInfoRepository.cs" />
+    <Compile Include="Interfaces\IBookTransactionInfoRepository.cs" />
+    <Compile Include="Interfaces\IHolidayRepository.cs" />
     <Compile Include="Interfaces\ILibraryUserRepository.cs" />
     <Compile Include="Interfaces\ISectionRepository.cs" />
     <Compile Include="ISBN.cs" />
@@ -72,12 +76,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookCopyRepository.cs" />
     <Compile Include="Repositories\BookInfoRepository.cs" />
+    <Compile Include="Repositories\BookTransactionInfoRepository.cs" />
+    <Compile Include="Repositories\HolidayRepository.cs" />
     <Compile Include="Repositories\LibraryUserRepository.cs" />
     <Compile Include="Repositories\LibUnitOfWork.cs" />
     <Compile Include="Repositories\SectionRepository.cs" />
     <Compile Include="Section.cs" />
     <Compile Include="Services\BookCopyService.cs" />
     <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\HolidayService.cs" />
+    <Compile Include="Services\LibrarianService.cs" />
     <Compile Include="Services\LibraryUserService.cs" />
     <Compile Include="Services\SectionService.cs" />
   </ItemGroup>

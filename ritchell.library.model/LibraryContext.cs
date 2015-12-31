@@ -22,6 +22,8 @@ namespace ritchell.library.model
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Holiday>().HasKey(h => h.Id);
+
             modelBuilder.Entity<LibraryUser>().HasKey(u => u.Id);
             modelBuilder.Entity<LibraryUser>().Ignore(u => u.Password);
             modelBuilder.Entity<LibraryUser>().Ignore(u => u.Fullname);

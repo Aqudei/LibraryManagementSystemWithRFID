@@ -7,7 +7,6 @@ using ritchell.library.infrastructure;
 
 namespace ritchell.library.model.Interfaces
 {
-    public interface IBookCopyRepository : IRepository<BookCopy>
-    {
-    }
+    public interface IBookCopyRepository : IRepository<BookCopy> , IDisposable
+    {}
 }

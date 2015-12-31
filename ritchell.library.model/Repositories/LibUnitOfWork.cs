@@ -12,10 +12,19 @@ namespace ritchell.library.model.Repositories
     public class LibUnitOfWork : IUnitOfWork
     {
         private DbContext _Context;
+
         private ISectionRepository _SectionRepository;
         private IBookInfoRepository _BookInfoRepository;
         private IBookCopyRepository _BookCopyRepository;
         private ILibraryUserRepository _LibraryUserRepository;
+        private IHolidayRepository _HolidayRepository;
+        private IBookTransactionInfoRepository _BookTransactionInfoRepository;
+
+        public IHolidayRepository HolidayRepository
+        {
+            get { return _HolidayRepository = _HolidayRepository ?? new HolidayRepository(_Context); }
+
+        }
 
         public ILibraryUserRepository LibraryUserRepository
         {
@@ -52,6 +61,14 @@ namespace ritchell.library.model.Repositories
             {
                 _BookInfoRepository = _BookInfoRepository ?? new BookInfoRepository(_Context);
                 return _BookInfoRepository;
+            }
+        }
+
+        public IBookTransactionInfoRepository BookTransactionInfoRepository
+        {
+            get
+            {
+                return _BookTransactionInfoRepository = _BookTransactionInfoRepository ?? new BookTransactionInfoRepository(_Context);
             }
         }
 

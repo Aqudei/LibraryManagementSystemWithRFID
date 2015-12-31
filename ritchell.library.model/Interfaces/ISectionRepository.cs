@@ -7,7 +7,7 @@ using ritchell.library.infrastructure;
 
 namespace ritchell.library.model.Interfaces
 {
-    public interface ISectionRepository : IRepository<Section>
+    public interface ISectionRepository : IRepository<Section>,IDisposable
     {
         int GetNumberOfBooks(Guid SectionId);
         IEnumerable<BookInfo> GetBooks(Guid SectionId);

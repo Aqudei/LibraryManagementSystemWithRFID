@@ -10,6 +10,13 @@ namespace ritchell.library.model.Services
 {
     public class SectionService
     {
+        private readonly HolidayService holidayService;
+
+        public SectionService()
+        {
+            holidayService = new HolidayService();
+        }
+
         public void CreateNewSection(Section section)
         {
             using (var uow = new LibUnitOfWork())
@@ -56,6 +63,19 @@ namespace ritchell.library.model.Services
             using (var uow = new LibUnitOfWork())
             {
                 return uow.SectionRepository.GetBooks(sectionId);
+            }
+        }
+
+        public DateTime GetBookReturnDateFromNow(BookInfo bookInfo)
+        {
+            using (var sectionRepo = new SectionRepository())
+            {
+                var section = sectionRepo.FindById(bookInfo.SectionId);
+                if (section == null)
+                    throw new InvalidOperationException("I don't know which section does "
+                        + bookInfo.BookTitle + " belongs to.");
+
+                return holidayService.GetNonHolidayDateAfter(DateTime.Now.AddDays(section.MaxDaysAllowedForBorrowing));
             }
         }
     }

@@ -35,5 +35,13 @@ namespace ritchell.library.model.Services
             }
         }
 
+        public void AddLibraryUser(LibraryUser user)
+        {
+            using (var uow = new LibUnitOfWork())
+            {
+                uow.LibraryUserRepository.Add(user);
+                uow.SaveChanges();
+            }
+        }
     }
 }

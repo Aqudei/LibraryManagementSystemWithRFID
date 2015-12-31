@@ -15,6 +15,11 @@ namespace ritchell.library.model
         public string LastName { get; set; }
         public DateTime Birthday { get; set; }
 
+        public LibraryUser()
+        {
+            Id = Guid.NewGuid();
+        }
+
         public string Fullname
         {
             get

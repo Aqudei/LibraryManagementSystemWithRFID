@@ -30,7 +30,7 @@ namespace ritchell.library.model.Services
         {
             using (var uow = new LibUnitOfWork())
             {
-                return uow.BookCopyRepository.Where(bc => bc.BookTag == tag).Single();
+                return uow.BookCopyRepository.Where(bc => bc.BookTagShort == tag).Single();
             }
         }
 
@@ -52,6 +52,14 @@ namespace ritchell.library.model.Services
                     uow.BookCopyRepository.Remove(bookCopy);
                     uow.SaveChanges();
                 }
+            }
+        }
+
+        public BookInfo GetBookInfo(BookCopy bookCopy)
+        {
+            using (var bookInfoRepo = new BookInfoRepository())
+            {
+                return bookInfoRepo.Where(b => b.Id.Equals(bookCopy.BookInfoId)).Single();
             }
         }
     }

@@ -67,7 +67,7 @@ namespace ritchell.library.ui.ViewModel
                     {
                         BookCopy newBookCopy = new BookCopy();
                         newBookCopy.BookInfoId = this.CurrentBook.Id;
-                        newBookCopy.BookTag = RFIDShort;
+                        newBookCopy.BookTagShort = RFIDShort;
                         newBookCopy.BookTagLong = RFIDLong;
 
                         Copies.Add(newBookCopy);

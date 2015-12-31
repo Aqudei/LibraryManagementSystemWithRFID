@@ -65,7 +65,6 @@ namespace AlarmApp
 
         class StopAlarmCommandDef : ICommand
         {
-            public event EventHandler CanExecuteChanged;
             private MainWindow _DC;
 
             public StopAlarmCommandDef(MainWindow dc)
@@ -82,6 +81,9 @@ namespace AlarmApp
             {
                 _DC.mediaPlayer.Stop();
             }
+
+
+            public event EventHandler CanExecuteChanged;
         }
 
 
