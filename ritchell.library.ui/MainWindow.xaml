@@ -5,34 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
-        Height="300"
-        Width="300"
-        Title="MVVM Light Application"
+        Height="371"
+        Width="486"
+        Title="LibManage"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         WindowState="Maximized">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Skins/MainSkin.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
 
     <Grid>
         <DockPanel>
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,5,0,0" >
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        DockPanel.Dock="Top" 
+                        Margin="0,5,0,0">
+
                 <Button Content="Book Sections" 
-                    Command="{Binding NavigateToPageCommand}" 
-                    CommandParameter="SectionPage.xaml" Margin="5,0"/>
+                        Command="{Binding NavigateToPageCommand}" 
+                        CommandParameter="SectionPage.xaml" Margin="5,0" 
+                        Style="{StaticResource MainNavStyle}" />
+
+
                 <Button Content="Books" 
                         Command="{Binding NavigateToPageCommand}" 
-                        CommandParameter="BookPage.xaml" Margin="0,0,5,0"/>
+                        CommandParameter="BookPage.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
                 <Button Content="Users" 
                         Command="{Binding NavigateToPageCommand}"
-                        CommandParameter="UsersPage.xaml" Margin="0,0,5,0" />
+                        CommandParameter="UsersPage.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}" />
+                <Button Content="Holidays" 
+                	Command="{Binding NavigateToPageCommand}" 
+                	CommandParameter="HolidaysPage.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
             </StackPanel>
-            <Frame DockPanel.Dock="Bottom" x:Name="LayoutRoot" NavigationUIVisibility="Hidden"/>
+            <Frame DockPanel.Dock="Bottom"
+                   x:Name="LayoutRoot"
+                   NavigationUIVisibility="Hidden"/>
         </DockPanel>
     </Grid>
 </Window>

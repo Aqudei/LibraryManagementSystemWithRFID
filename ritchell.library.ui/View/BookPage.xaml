@@ -4,48 +4,66 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="337.407" d:DesignWidth="502.396"
+      d:DesignHeight="526.736" d:DesignWidth="769.246"
       Title="BookPage"
       DataContext="{Binding BookPageViewModel, Source={StaticResource Locator}}">
 
     <Grid>
         <DockPanel>
-            <ListBox MinWidth="300" 
-                     DockPanel.Dock="Left" 
-                     ItemsSource="{Binding ItemsCollectionView}"
-                     IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="BookTitle" Margin="0,-1,0,1"/>
+            <StackPanel x:Name="crudStackPanel" Orientation="Horizontal" VerticalAlignment="Top" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="0,10,0,0">
 
-            <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
-
-                <TextBlock Text="Book Title" />
-                <TextBox Text="{Binding ItemsCollectionView/BookTitle, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock>Author(s)</TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/Author, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock  Text="Call Number"/>
-                <TextBox Text="{Binding ItemsCollectionView/CallNumber, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="Section" />
-                <ComboBox ItemsSource="{Binding BookSectionsCollectionView}"
-                          SelectedValuePath="Id" 
-                          IsSynchronizedWithCurrentItem="True"
-                          SelectedValue="{Binding ItemsCollectionView/SectionId}"
-                          DisplayMemberPath="Name"/>
-
-                <TextBlock  Text="ISBN10"/>
-                <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN10, 
-                    UpdateSourceTrigger=PropertyChanged}"/>
-
-                <TextBlock  Text="ISBN13"/>
-                <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN13,
-                    UpdateSourceTrigger=PropertyChanged}"/>
-
-                <Button Command="{Binding NewItemCommand}">New Book</Button>
-                <Button>Edit Selected</Button>
-                <Button>Remove Selected</Button>
-                <Button Command="{Binding SaveItemCommand}">Save Current</Button>
+                <Button Command="{Binding NewItemCommand}" Content="New Book"/>
+                <Button Content="Edit Selected"/>
+                <Button Content="Remove Selected"/>
+                <Button Command="{Binding SaveItemCommand}" Content="Save Current"/>
                 <Button Command="{Binding ManageRFIDCommand}" Content="Manage Book's RFID"/>
 
             </StackPanel>
+            <GroupBox x:Name="groupBox" Header="Book List" Width="300">
+                <ListBox IsSynchronizedWithCurrentItem="True"
+                         DisplayMemberPath="BookTitle"/>
+            </GroupBox>
+
+            <GroupBox DockPanel.Dock="Right" Margin="10,0,0,0" Width="200" HorizontalAlignment="Left" Header="Book Details" Padding="5">
+
+                <StackPanel x:Name="fieldsStackPanel" Orientation="Vertical">
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+
+                        <TextBlock Text="Book Title" />
+                        <TextBox Text="{Binding ItemsCollectionView/BookTitle, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                        <TextBlock><Run Text="Author(s)"/></TextBlock>
+                        <TextBox Text="{Binding ItemsCollectionView/Author, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                        <TextBlock  Text="Call Number"/>
+                        <TextBox Text="{Binding ItemsCollectionView/CallNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                        <TextBlock Text="Section" />
+                        <ComboBox ItemsSource="{Binding BookSectionsCollectionView}"
+                    		SelectedValuePath="Id" 
+                    		IsSynchronizedWithCurrentItem="True"
+                    		SelectedValue="{Binding ItemsCollectionView/SectionId}"
+                    		DisplayMemberPath="Name"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+
+                        <TextBlock  Text="ISBN10"/>
+                        <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN10, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+
+                        <TextBlock  Text="ISBN13"/>
+                        <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN13, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+            </GroupBox>
         </DockPanel>
     </Grid>
 </Page>

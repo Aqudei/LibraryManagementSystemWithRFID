@@ -9,40 +9,44 @@
       DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        <DockPanel>
 
-        <ListBox Grid.Column="0" 
-                 ItemsSource="{Binding ItemsCollectionView}"
-                 IsSynchronizedWithCurrentItem="True"
-                 DisplayMemberPath="Fullname"/>
+            <StackPanel DockPanel.Dock="Bottom" x:Name="crudStackPanel" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Command="{Binding NewItemCommand}" Content="New Book" HorizontalAlignment="Left"/>
+                <Button Content="Edit Selected" HorizontalAlignment="Left"/>
+                <Button Content="Remove Selected" HorizontalAlignment="Left"/>
+                <Button Command="{Binding SaveItemCommand}" Content="Save Current" HorizontalAlignment="Left"/>
+            </StackPanel>
 
-        <GridSplitter Grid.Column="1" 
-                      Width="5" 
-                      HorizontalAlignment="Stretch"/>
+            <GroupBox DockPanel.Dock="Left" x:Name="usersListGroupBox" Header="Users List" d:LayoutOverrides="TopPosition, BottomPosition" Width="300">
+                <ListBox 
+        			ItemsSource="{Binding ItemsCollectionView}"
+        			IsSynchronizedWithCurrentItem="True"
+        			DisplayMemberPath="Fullname"/>
+            </GroupBox>
+            <GroupBox x:Name="detailsGroupBox" Header="User's Info" d:LayoutOverrides="TopPosition, BottomPosition" Width="200" HorizontalAlignment="Left">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock><Run Text="First Name"/></TextBlock>
+                    <TextBox/>
+                    <TextBlock><Run Text="Middle Name"/></TextBlock>
+                    <TextBox/>
+                    <TextBlock><Run Text="Last Name"/></TextBlock>
+                    <TextBox/>
+                    <TextBlock><Run Text="Birthday"/></TextBlock>
+                    <DatePicker/>
+                    <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
+                    <TextBox IsReadOnly="True"/>
 
-        <StackPanel Orientation="Vertical" Grid.Column="2">
-            <TextBlock>First Name</TextBlock>
-            <TextBox></TextBox>
-            <TextBlock>Middle Name</TextBlock>
-            <TextBox></TextBox>
-            <TextBlock>Last Name</TextBlock>
-            <TextBox></TextBox>
-            <TextBlock>Birthday</TextBlock>
-            <DatePicker></DatePicker>
-            <TextBlock>UserRFIDTag</TextBlock>
-            <TextBox IsReadOnly="True"></TextBox>
+                    <TextBlock><Run Text="Username"/></TextBlock>
+                    <TextBox/>
+                    <TextBlock><Run Text="Password"/></TextBlock>
+                    <TextBox/>
+                    <TextBlock><Run Text="Confirm Password"/></TextBlock>
+                    <TextBox/>
+                </StackPanel>
+            </GroupBox>
 
-            <TextBlock>Username</TextBlock>
-            <TextBox></TextBox>
-            <TextBlock>Password</TextBlock>
-            <TextBox></TextBox>
-            <TextBlock>Confirm Password</TextBlock>
-            <TextBox></TextBox>
-        </StackPanel>
+        </DockPanel>
 
     </Grid>
 </Page>
