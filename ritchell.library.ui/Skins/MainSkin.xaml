@@ -12,6 +12,8 @@
         </Setter>
     </Style>
 
+
+
     <Style TargetType="Frame">
         <Setter Property="Padding" Value="10,10,10,10"/>
     </Style>

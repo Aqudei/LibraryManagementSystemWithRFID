@@ -13,6 +13,20 @@ namespace ritchell.library.ui.ViewModel
 {
     public abstract class WithEditableItems<T> : ViewModelBase where T : class
     {
+        #region "UI crud management"
+        private UIState uiState;
+        enum UIState
+        {
+            Standby, Adding, Editing
+        }
+        #endregion "UI crud management"
+
+        public WithEditableItems()
+        {
+            uiState = UIState.Standby;
+        }
+
+
         public ICollectionView ItemsCollectionView { get; set; }
 
         protected ObservableCollection<T> items;
@@ -31,8 +45,9 @@ namespace ritchell.library.ui.ViewModel
                     () =>
                     {
                         SaveItemCommandHandler();
+                        uiState = UIState.Standby;
                     },
-                    () => true));
+                    () => uiState == UIState.Adding || uiState == UIState.Editing));
             }
         }
 
@@ -53,8 +68,29 @@ namespace ritchell.library.ui.ViewModel
                     () =>
                     {
                         NewItemCommandHandler();
-                    }, () => true));
+                        uiState = UIState.Adding;
+                    }, () => uiState == UIState.Standby));
             }
         }
+
+        private RelayCommand _DeleteItemCommand;
+
+        /// <summary>
+        /// Gets the NewItemCommand.
+        /// </summary>
+        public RelayCommand DeleteItemCommand
+        {
+            get
+            {
+                return _DeleteItemCommand
+                    ?? (_DeleteItemCommand = new RelayCommand(
+                    () =>
+                    {
+                        DeleteItemCommandHandler();
+                    }, () => uiState == UIState.Standby));
+            }
+        }
+
+        public abstract void DeleteItemCommandHandler();
     }
 }

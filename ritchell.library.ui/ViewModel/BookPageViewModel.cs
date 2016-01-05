@@ -61,6 +61,11 @@ namespace ritchell.library.ui.ViewModel
             _BookService.EnrollOrUpdateBook(ItemsCollectionView.CurrentItem as BookInfo);
         }
 
+        public override void DeleteItemCommandHandler()
+        {
+            throw new NotImplementedException();
+        }
+
 
 
         /// <summary>

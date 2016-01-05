@@ -37,6 +37,15 @@
                                 </GridViewColumn.CellTemplate>
 
                             </GridViewColumn>
+
+                            <GridViewColumn Header="RFID Long" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding BookTag}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
                         </GridView.Columns>
                     </GridView>
                 </ListView.View>

@@ -10,41 +10,44 @@
 
     <Grid>
         <DockPanel>
+            <Border DockPanel.Dock="Bottom" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" BorderBrush="Black" BorderThickness="1" CornerRadius="2" Margin="0,5,0,0">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFC6FBCB" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
-            <StackPanel DockPanel.Dock="Bottom" x:Name="crudStackPanel" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Command="{Binding NewItemCommand}" Content="New Book" HorizontalAlignment="Left"/>
-                <Button Content="Edit Selected" HorizontalAlignment="Left"/>
-                <Button Content="Remove Selected" HorizontalAlignment="Left"/>
-                <Button Command="{Binding SaveItemCommand}" Content="Save Current" HorizontalAlignment="Left"/>
-            </StackPanel>
-
-            <GroupBox DockPanel.Dock="Left" x:Name="usersListGroupBox" Header="Users List" d:LayoutOverrides="TopPosition, BottomPosition" Width="300">
-                <ListBox 
-        			ItemsSource="{Binding ItemsCollectionView}"
-        			IsSynchronizedWithCurrentItem="True"
-        			DisplayMemberPath="Fullname"/>
-            </GroupBox>
-            <GroupBox x:Name="detailsGroupBox" Header="User's Info" d:LayoutOverrides="TopPosition, BottomPosition" Width="200" HorizontalAlignment="Left">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock><Run Text="First Name"/></TextBlock>
-                    <TextBox/>
-                    <TextBlock><Run Text="Middle Name"/></TextBlock>
-                    <TextBox/>
-                    <TextBlock><Run Text="Last Name"/></TextBlock>
-                    <TextBox/>
-                    <TextBlock><Run Text="Birthday"/></TextBlock>
-                    <DatePicker/>
-                    <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
-                    <TextBox IsReadOnly="True"/>
-
-                    <TextBlock><Run Text="Username"/></TextBlock>
-                    <TextBox/>
-                    <TextBlock><Run Text="Password"/></TextBlock>
-                    <TextBox/>
-                    <TextBlock><Run Text="Confirm Password"/></TextBlock>
-                    <TextBox/>
+                <StackPanel x:Name="crudStackPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <Button Command="{Binding NewItemCommand}" Content="New" HorizontalAlignment="Left" Margin="5,0"/>
+                    <Button Content="Edit" HorizontalAlignment="Left" Margin="5,0"/>
+                    <Button Content="Delete" HorizontalAlignment="Left" Margin="5,0"/>
+                    <Button Command="{Binding SaveItemCommand}" Content="Save" HorizontalAlignment="Left" Margin="5,0"/>
                 </StackPanel>
-            </GroupBox>
+            </Border>
+            <ListBox 
+            	ItemsSource="{Binding ItemsCollectionView}"
+            	IsSynchronizedWithCurrentItem="True"
+            	DisplayMemberPath="Fullname" Margin="0" Width="300"/>
+            <StackPanel Orientation="Vertical" Margin="10,0,0,22.96" Width="300" HorizontalAlignment="Left">
+                <TextBlock><Run Text="First Name"/></TextBlock>
+                <TextBox/>
+                <TextBlock><Run Text="Middle Name"/></TextBlock>
+                <TextBox/>
+                <TextBlock><Run Text="Last Name"/></TextBlock>
+                <TextBox/>
+                <TextBlock><Run Text="Birthday"/></TextBlock>
+                <DatePicker/>
+                <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
+                <TextBox IsReadOnly="True"/>
+
+                <TextBlock><Run Text="Username"/></TextBlock>
+                <TextBox/>
+                <TextBlock><Run Text="Password"/></TextBlock>
+                <TextBox/>
+                <TextBlock><Run Text="Confirm Password"/></TextBlock>
+                <TextBox/>
+            </StackPanel>
 
         </DockPanel>
 

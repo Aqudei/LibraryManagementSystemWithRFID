@@ -53,8 +53,12 @@ namespace ritchell.library.model.Services
         {
             using (var uow = new LibUnitOfWork())
             {
-                uow.SectionRepository.Remove(section);
-                uow.SaveChanges();
+                var sectionToDelete = uow.SectionRepository.FindById(section.Id);
+                if (sectionToDelete != null)
+                {
+                    uow.SectionRepository.Remove(sectionToDelete);
+                    uow.SaveChanges();
+                }
             }
         }
 

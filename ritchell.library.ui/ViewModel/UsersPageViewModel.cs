@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using GalaSoft.MvvmLight;
 using ritchell.library.model;
 
 namespace ritchell.library.ui.ViewModel
@@ -16,6 +17,11 @@ namespace ritchell.library.ui.ViewModel
         /// </summary>
         public UsersPageViewModel()
         {
+        }
+
+        public override void DeleteItemCommandHandler()
+        {
+            throw new NotImplementedException();
         }
 
         protected override void NewItemCommandHandler()

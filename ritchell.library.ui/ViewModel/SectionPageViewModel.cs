@@ -22,6 +22,19 @@ namespace ritchell.library.ui.ViewModel
             ItemsCollectionView = (CollectionView)CollectionViewSource.GetDefaultView(items);
         }
 
+        public override void DeleteItemCommandHandler()
+        {
+            try
+            {
+                _SectionService.DeleteSection(ItemsCollectionView.CurrentItem as Section);
+                items.Remove(ItemsCollectionView.CurrentItem as Section);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         protected override void NewItemCommandHandler()
         {
             var newSection = new Section();
