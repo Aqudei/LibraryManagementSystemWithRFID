@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="ritchell.library.ui.client.Views.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ritchell.library.ui.client.Views"
+      mc:Ignorable="d"  d:DesignHeight="300" d:DesignWidth="300"
+      xmlns:wpf="clr-namespace:ritchell.library.ui.client.WPF"
+      DataContext="{Binding LoginPageViewModel, Source={StaticResource Locator}}">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <ContentPresenter>
+                <ContentPresenter.ContentTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Fullname}"/>
+                    </DataTemplate>
+                </ContentPresenter.ContentTemplate>
+            </ContentPresenter>
+            <TextBlock>Username</TextBlock>
+            <TextBox Text="{Binding Username,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <TextBlock>Password</TextBlock>
+            <PasswordBox wpf:PasswordHelper.Attach="True" 
+                         wpf:PasswordHelper.Password="{Binding Password,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Borrow" Command="{Binding BorrowCommand}"/>
+                <Button Content="Return" Command="{Binding ReturnCommand}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
