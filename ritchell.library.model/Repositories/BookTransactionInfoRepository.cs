@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.model.Repositories
 {

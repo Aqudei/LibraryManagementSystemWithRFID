@@ -8,6 +8,7 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public interface ILibraryTransaction
     {
+        string BookTag { get; set; }
         void Execute();
         DateTime TransactionDate { get; set; }
     }

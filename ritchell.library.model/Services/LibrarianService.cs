@@ -1,4 +1,5 @@
-﻿using ritchell.library.model.Repositories;
+﻿using ritchell.library.model.LibraryTransactions;
+using ritchell.library.model.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

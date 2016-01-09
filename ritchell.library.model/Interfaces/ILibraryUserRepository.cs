@@ -7,12 +7,12 @@ using ritchell.library.infrastructure;
 
 namespace ritchell.library.model.Interfaces
 {
-    public interface ILibraryUserRepository : IRepository<LibraryUser>
+    public interface ILibraryUserRepository : IRepository<LibraryUser>, IDisposable
     {
         LibraryUser FindByUsernameAndEncryptedPassword(string username, string encPass);
 
         LibraryUser FindByUserRFIDTag(string userRFIDTag);
 
-        LibraryUser FindByUsername (string username);
+        LibraryUser FindByUsername(string username);
     }
 }

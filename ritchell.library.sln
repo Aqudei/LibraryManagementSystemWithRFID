@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.model", "ritchell.library.model\ritchell.library.model.csproj", "{99D28668-0517-43E3-9812-235FC8C0F86B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.tests", "ritchell.library.tests\ritchell.library.tests.csproj", "{23E534D8-27DA-42C1-8AB7-990A94E258D1}"
@@ -10,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.ui", "ritchell.library.ui\ritchell.library.ui.csproj", "{3EEE1708-42E1-4726-8ABA-03E19A23C07B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmApp", "AlarmApp\AlarmApp.csproj", "{A6E00BE6-2AED-475A-8C4C-2ECC75FA770F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.ui.client", "ritchell.library.ui.client\ritchell.library.ui.client.csproj", "{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{A6E00BE6-2AED-475A-8C4C-2ECC75FA770F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6E00BE6-2AED-475A-8C4C-2ECC75FA770F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6E00BE6-2AED-475A-8C4C-2ECC75FA770F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

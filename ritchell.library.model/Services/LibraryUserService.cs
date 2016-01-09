@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using RijndaelEncryptDecrypt;
 using ritchell.library.model.Repositories;
-using RijndaelEncryptDecrypt;
 
 namespace ritchell.library.model.Services
 {
