@@ -22,10 +22,6 @@
             <TextBlock>Password</TextBlock>
             <PasswordBox wpf:PasswordHelper.Attach="True" 
                          wpf:PasswordHelper.Password="{Binding Password,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Borrow" Command="{Binding BorrowCommand}"/>
-                <Button Content="Return" Command="{Binding ReturnCommand}"/>
-            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

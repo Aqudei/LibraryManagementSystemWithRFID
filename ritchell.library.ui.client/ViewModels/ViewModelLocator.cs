@@ -12,6 +12,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using ritchell.library.model.Services;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -38,7 +39,7 @@ namespace ritchell.library.ui.client.ViewModels
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<library.model.Services.LibraryUserService>();
+            SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<LoginPageViewModel>();
         }
 
