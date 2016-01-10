@@ -18,6 +18,14 @@ namespace ritchell.library.model.LibraryTransactions
 
         public DateTime TransactionDate { get; set; }
 
+        public static BorrowBookTransaction Create(Guid libUserId, string bookTag)
+        {
+            var bbookTrans = new BorrowBookTransaction();
+            bbookTrans.LibraryUserId = libUserId;
+            bbookTrans.BookTag = bookTag;
+            return bbookTrans;
+        }
+
         public BorrowBookTransaction()
         {
             bookCopyService = new BookCopyService();

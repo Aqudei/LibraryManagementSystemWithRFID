@@ -58,10 +58,15 @@ namespace ritchell.library.ui.ViewModel
 
         protected override void SaveItemCommandHandler()
         {
-            _BookService.EnrollOrUpdateBook(ItemsCollectionView.CurrentItem as BookInfo);
+            _BookService.AddOrUpdateBook(ItemsCollectionView.CurrentItem as BookInfo);
         }
 
         public override void DeleteItemCommandHandler()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void EditItemCommandHandler()
         {
             throw new NotImplementedException();
         }

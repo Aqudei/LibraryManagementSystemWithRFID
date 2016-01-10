@@ -74,6 +74,8 @@
     <Compile Include="LibraryContext.cs" />
     <Compile Include="LibraryTransactions\BorrowBookTransaction.cs" />
     <Compile Include="LibraryTransactions\ILibraryTransaction.cs" />
+    <Compile Include="LibraryTransactions\LibraryTransactionFactory.cs" />
+    <Compile Include="LibraryTransactions\LibraryTransactions.cs" />
     <Compile Include="LibraryTransactions\ReturnBookTransaction.cs" />
     <Compile Include="LibraryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

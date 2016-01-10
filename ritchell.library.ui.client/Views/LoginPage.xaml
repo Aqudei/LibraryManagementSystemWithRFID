@@ -22,6 +22,7 @@
             <TextBlock>Password</TextBlock>
             <PasswordBox wpf:PasswordHelper.Attach="True" 
                          wpf:PasswordHelper.Password="{Binding Password,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button Command="{Binding LoginCommand}">Login</Button>
         </StackPanel>
     </Grid>
 </UserControl>

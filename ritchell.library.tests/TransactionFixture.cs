@@ -51,7 +51,7 @@ namespace ritchell.library.tests
                 SectionId = sampleSectionId
             };
 
-            bookService.EnrollOrUpdateBook(sampleBookInfo);
+            bookService.AddOrUpdateBook(sampleBookInfo);
         }
 
         private void CreateSampleSection()

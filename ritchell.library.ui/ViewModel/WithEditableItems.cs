@@ -92,5 +92,27 @@ namespace ritchell.library.ui.ViewModel
         }
 
         public abstract void DeleteItemCommandHandler();
+
+        private RelayCommand _EditItemCommand;
+
+        public RelayCommand EditItemCommand
+        {
+            get
+            {
+                return _EditItemCommand = _EditItemCommand ?? new RelayCommand(
+                    () =>
+                    {
+                        EditItemCommandHandler();
+                        uiState = UIState.Editing;
+                    }, () => uiState == UIState.Standby && HasSelectedItem());
+            }
+        }
+
+        private bool HasSelectedItem()
+        {
+            return ItemsCollectionView != null && ItemsCollectionView.CurrentItem != null;
+        }
+
+        public abstract void EditItemCommandHandler();
     }
 }

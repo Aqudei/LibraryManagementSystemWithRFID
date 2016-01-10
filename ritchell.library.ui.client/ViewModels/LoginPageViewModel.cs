@@ -33,33 +33,24 @@ namespace ritchell.library.ui.client.ViewModels
         }
 
 
-        private RelayCommand _BorrowCommand;
+        private RelayCommand _LoginCommand;
 
-        public RelayCommand BorrowCommand
+        public RelayCommand LoginCommand
         {
             get
             {
-                return _BorrowCommand = _BorrowCommand ?? new RelayCommand(() =>
+                return _LoginCommand = _LoginCommand ?? new RelayCommand(() =>
                 {
+                    CurrentLibraryUser = _LibraryUserService.GetAuthenticatedUser(Username, Password);
 
-                }, () => HasAuthenticatedUser());
+                }, () => InputFilledUp());
             }
 
         }
 
-
-        private RelayCommand _ReturnCommand;
-
-        public RelayCommand ReturnCommand
+        private bool InputFilledUp()
         {
-            get
-            {
-                return _ReturnCommand = _ReturnCommand ?? new RelayCommand(() =>
-                {
-
-                }, () => HasAuthenticatedUser());
-            }
-
+            return string.IsNullOrEmpty(Username) == false && string.IsNullOrEmpty(Password);
         }
 
         private string _Password;
@@ -71,13 +62,12 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 _Password = value;
                 RaisePropertyChanged(() => Password);
-                AuthenticateUser();
             }
         }
 
         private void AuthenticateUser()
         {
-            CurrentLibraryUser = _LibraryUserService.GetAuthenticatedUser(Username, Password);
+
         }
 
         private string _Username;
@@ -90,7 +80,6 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 _Username = value;
                 RaisePropertyChanged(() => Username);
-                AuthenticateUser();
             }
         }
 

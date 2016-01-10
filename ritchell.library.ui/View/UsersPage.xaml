@@ -3,10 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="468.657" d:DesignWidth="640.299"
-	  Title="UsersPage"
-      DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}">
+      mc:Ignorable="d" d:DesignHeight="468.657" d:DesignWidth="640.299"
+	  Title="UsersPage" DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}">
 
     <Grid>
         <DockPanel>
@@ -20,33 +18,37 @@
 
                 <StackPanel x:Name="crudStackPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                     <Button Command="{Binding NewItemCommand}" Content="New" HorizontalAlignment="Left" Margin="5,0"/>
-                    <Button Content="Edit" HorizontalAlignment="Left" Margin="5,0"/>
-                    <Button Content="Delete" HorizontalAlignment="Left" Margin="5,0"/>
+                    <Button Command="{Binding EditItemCommand}" Content="Edit" HorizontalAlignment="Left" Margin="5,0"/>
+                    <Button Command="{Binding DeleteItemCommand}" Content="Delete" HorizontalAlignment="Left" Margin="5,0"/>
                     <Button Command="{Binding SaveItemCommand}" Content="Save" HorizontalAlignment="Left" Margin="5,0"/>
                 </StackPanel>
             </Border>
-            <ListBox 
-            	ItemsSource="{Binding ItemsCollectionView}"
-            	IsSynchronizedWithCurrentItem="True"
-            	DisplayMemberPath="Fullname" Margin="0" Width="300"/>
+            <ListBox ItemsSource="{Binding ItemsCollectionView}"
+                     IsSynchronizedWithCurrentItem="True"
+                     DisplayMemberPath="Fullname" Margin="0" Width="300" />
             <StackPanel Orientation="Vertical" Margin="10,0,0,22.96" Width="300" HorizontalAlignment="Left">
                 <TextBlock><Run Text="First Name"/></TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding ItemsCollectionView/FirstName, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock><Run Text="Middle Name"/></TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding ItemsCollectionView/MiddleName, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock><Run Text="Last Name"/></TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding ItemsCollectionView/LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock><Run Text="User Type"/></TextBlock>
+                <ComboBox ItemsSource="{Binding UserTypes}"
+                          SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"/>
+
                 <TextBlock><Run Text="Birthday"/></TextBlock>
-                <DatePicker/>
+                <DatePicker SelectedDate="{Binding ItemsCollectionView/Birthday}"/>
                 <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
-                <TextBox IsReadOnly="True"/>
+                <TextBox IsReadOnly="True" 
+                         Text="{Binding ItemsCollectionView/UserRFIDTag, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock><Run Text="Username"/></TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding ItemsCollectionView/Username, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock><Run Text="Password"/></TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding ItemsCollectionView/Password, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock><Run Text="Confirm Password"/></TextBlock>
-                <TextBox/>
+                <TextBox Text="{Binding PasswordCopy, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
         </DockPanel>

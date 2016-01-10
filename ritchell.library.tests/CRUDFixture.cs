@@ -68,7 +68,7 @@ namespace ritchell.library.tests
                 SectionId = section.Id
             };
 
-            bookService.EnrollOrUpdateBook(bookInfo);
+            bookService.AddOrUpdateBook(bookInfo);
 
             Assert.That(sectionService.GetBooks(section.Id).Count() == 1);
         }
@@ -101,7 +101,7 @@ namespace ritchell.library.tests
                 SectionId = section.Id
             };
 
-            bookService.EnrollOrUpdateBook(bookInfo);
+            bookService.AddOrUpdateBook(bookInfo);
 
             BookCopy bookCopy1 = BookCopy.MakeCopy(bookInfo, "bookShortTag1","bookLongTag1");
             BookCopy bookCopy2 = BookCopy.MakeCopy(bookInfo, "bookShortTag2","bookLongTag2");

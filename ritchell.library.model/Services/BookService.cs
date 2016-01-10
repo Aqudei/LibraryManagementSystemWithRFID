@@ -9,7 +9,7 @@ namespace ritchell.library.model.Services
 {
     public class BookService
     {
-        public void EnrollOrUpdateBook(BookInfo bookInfo)
+        public void AddOrUpdateBook(BookInfo bookInfo)
         {
             using (LibUnitOfWork uow = new LibUnitOfWork())
             {

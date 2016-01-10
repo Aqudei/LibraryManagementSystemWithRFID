@@ -14,7 +14,10 @@ namespace ritchell.library.ui.client.ViewModels
 
         public ViewModelBase CurrentViewModel
         {
-            get { return _CurrentViewModel = _CurrentViewModel ?? SimpleIoc.Default.GetInstance<LoginPageViewModel>(); }
+            get
+            {
+                return _CurrentViewModel = _CurrentViewModel ?? SimpleIoc.Default.GetInstance<LoginPageViewModel>();
+            }
             set
             {
                 _CurrentViewModel = value;
@@ -23,7 +26,12 @@ namespace ritchell.library.ui.client.ViewModels
         }
 
         public MainViewModel()
-        { }
+        {
+            MessengerInstance.Register<VMMessages.UserSuccessfullyAuthenticated>(this, (user) =>
+            {
+                CurrentViewModel = SimpleIoc.Default.GetInstance<DashboardPageViewModel>();
+            });
+        }
 
     }
 }

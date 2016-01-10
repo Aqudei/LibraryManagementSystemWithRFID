@@ -35,6 +35,11 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
+        public override void EditItemCommandHandler()
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void NewItemCommandHandler()
         {
             var newSection = new Section();

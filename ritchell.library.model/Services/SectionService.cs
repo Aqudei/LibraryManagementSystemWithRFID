@@ -12,6 +12,21 @@ namespace ritchell.library.model.Services
     {
         private readonly HolidayService holidayService;
 
+        public void AddOrUpdateSection(Section section)
+        {
+            using (LibUnitOfWork uow = new LibUnitOfWork())
+            {
+                var _section = uow.BookInfoRepository.FindById(section.Id);
+
+                if (_section == null)
+                    uow.BookInfoRepository.Add(_section);
+                else
+                    uow.BookInfoRepository.Update(_section);
+
+                uow.SaveChanges();
+            }
+        }
+
         public SectionService()
         {
             holidayService = new HolidayService();

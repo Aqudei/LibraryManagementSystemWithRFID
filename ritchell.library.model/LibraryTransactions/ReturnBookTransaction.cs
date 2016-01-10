@@ -13,9 +13,13 @@ namespace ritchell.library.model.LibraryTransactions
         private string _BookTag;
         private double payment = 0;
 
-        public static ReturnBookTransaction CreateBorrowBookTransaction(string bookTag)
+        public static ReturnBookTransaction Create(string bookTag)
         {
-            return null;
+            return new ReturnBookTransaction
+            {
+                BookTag = bookTag,
+
+            };
         }
 
         public ReturnBookTransaction WithPayment(double payment)

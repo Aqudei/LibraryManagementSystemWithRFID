@@ -93,8 +93,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\BorrowReturnBookPageViewModel.cs" />
     <Compile Include="ViewModels\DashboardPageViewModel.cs" />
     <Compile Include="ViewModels\TransactionPageViewModel.cs" />
+    <Compile Include="ViewModels\VMMessages\UserSuccessfullyAuthenticated.cs" />
+    <Compile Include="Views\BorrowReturnBookPage.xaml.cs">
+      <DependentUpon>BorrowReturnBookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
@@ -102,6 +107,10 @@
       <DependentUpon>TransactionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\PasswordHelper.cs" />
+    <Page Include="Views\BorrowReturnBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DashboardPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,7 +190,8 @@
     xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>xcopy /s /y "$(SolutionDir)ritchell.library.ui\bin\Debug\LibraryContext.sdf" "$(TargetDir)"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

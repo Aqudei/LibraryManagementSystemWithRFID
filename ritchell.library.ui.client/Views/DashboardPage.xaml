@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <Button>Borrow / Return Books</Button>
+            <Button>Transaction History</Button>
+            <Button>Logout</Button>
+        </StackPanel>
+        <GridSplitter Grid.Column="1" 
+                      BorderThickness="1"/>
+        
+        <ContentPresenter Content="{Binding DashboardContent}" 
+                          Grid.Column="2"/>
     </Grid>
 </UserControl>

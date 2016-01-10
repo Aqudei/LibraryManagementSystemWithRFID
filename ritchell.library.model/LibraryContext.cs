@@ -18,7 +18,7 @@ namespace ritchell.library.model
         public DbSet<BookTransactionInfo> BookTransactionInfos { get; set; }
 
         public LibraryContext()
-            : base("LibraryContext")
+            : base("name=LibraryContext")
         { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
