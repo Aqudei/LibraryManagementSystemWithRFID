@@ -8,12 +8,12 @@ namespace ritchell.library.ui.client.ViewModels
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class DashboardPageViewModel : ViewModelBase
+    public class DashboarViewModel : ViewModelBase
     {
         /// <summary>
         /// Initializes a new instance of the DashboardPageViewModel class.
         /// </summary>
-        public DashboardPageViewModel()
+        public DashboarViewModel()
         {
         }
     }

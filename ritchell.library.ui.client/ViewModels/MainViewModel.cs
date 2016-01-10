@@ -10,27 +10,24 @@ namespace ritchell.library.ui.client.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private ViewModelBase _CurrentViewModel;
+        private AuthenticationViewModel _AuthenticationViewModel;
 
-        public ViewModelBase CurrentViewModel
+        public AuthenticationViewModel AuthenticationViewModel
         {
             get
             {
-                return _CurrentViewModel = _CurrentViewModel ?? SimpleIoc.Default.GetInstance<LoginPageViewModel>();
+                return _AuthenticationViewModel = _AuthenticationViewModel ?? SimpleIoc.Default.GetInstance<AuthenticationViewModel>();
             }
             set
             {
-                _CurrentViewModel = value;
-                RaisePropertyChanged(() => CurrentViewModel);
+                _AuthenticationViewModel = value;
+                RaisePropertyChanged(() => AuthenticationViewModel);
             }
         }
 
         public MainViewModel()
         {
-            MessengerInstance.Register<VMMessages.UserSuccessfullyAuthenticated>(this, (user) =>
-            {
-                CurrentViewModel = SimpleIoc.Default.GetInstance<DashboardPageViewModel>();
-            });
+           
         }
 
     }

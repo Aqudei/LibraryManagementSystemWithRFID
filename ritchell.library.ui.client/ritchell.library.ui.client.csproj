@@ -93,8 +93,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\BorrowReturnBookPageViewModel.cs" />
-    <Compile Include="ViewModels\DashboardPageViewModel.cs" />
+    <Compile Include="ViewModels\BorrowReturnBookViewModel.cs" />
+    <Compile Include="ViewModels\DashboarViewModel.cs" />
     <Compile Include="ViewModels\TransactionPageViewModel.cs" />
     <Compile Include="ViewModels\VMMessages\UserSuccessfullyAuthenticated.cs" />
     <Compile Include="Views\BorrowReturnBookPage.xaml.cs">
@@ -127,7 +127,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\AuthenticationViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">

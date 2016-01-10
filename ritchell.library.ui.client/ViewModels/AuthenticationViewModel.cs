@@ -13,13 +13,17 @@ namespace ritchell.library.ui.client.ViewModels
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class LoginPageViewModel : ViewModelBase
+    public class AuthenticationViewModel : ViewModelBase
     {
         private LibraryUser _CurrentLibraryUser;
-
-        private bool HasAuthenticatedUser()
+        private string _Username;
+        private readonly LibraryUserService _LibraryUserService;
+        private RelayCommand _LoginCommand;
+        private RelayCommand _LogoutCommand;
+        private string _Password;
+        public bool HasAuthenticatedUser
         {
-            return _CurrentLibraryUser != null;
+            get { return _CurrentLibraryUser != null; }
         }
 
         public LibraryUser CurrentLibraryUser
@@ -28,12 +32,13 @@ namespace ritchell.library.ui.client.ViewModels
             set
             {
                 _CurrentLibraryUser = value;
+
                 RaisePropertyChanged(() => CurrentLibraryUser);
+                RaisePropertyChanged(() => LoginCommand);
+                RaisePropertyChanged(() => LogoutCommand);
+                RaisePropertyChanged(() => HasAuthenticatedUser);
             }
         }
-
-
-        private RelayCommand _LoginCommand;
 
         public RelayCommand LoginCommand
         {
@@ -48,12 +53,26 @@ namespace ritchell.library.ui.client.ViewModels
 
         }
 
+
+     
+        public RelayCommand LogoutCommand
+        {
+            get
+            {
+                return _LogoutCommand = _LogoutCommand ?? new RelayCommand(() =>
+                {
+                    CurrentLibraryUser = null;
+                }, () => HasAuthenticatedUser);
+            }
+
+        }
+
         private bool InputFilledUp()
         {
             return string.IsNullOrEmpty(Username) == false && string.IsNullOrEmpty(Password);
         }
 
-        private string _Password;
+     
 
         public string Password
         {
@@ -65,14 +84,7 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-        private void AuthenticateUser()
-        {
-
-        }
-
-        private string _Username;
-        private readonly LibraryUserService _LibraryUserService;
-
+      
         public string Username
         {
             get { return _Username; }
@@ -86,7 +98,7 @@ namespace ritchell.library.ui.client.ViewModels
         /// <summary>
         /// Initializes a new instance of the LoginPageViewModel class.
         /// </summary>
-        public LoginPageViewModel(LibraryUserService libUserService)
+        public AuthenticationViewModel(LibraryUserService libUserService)
         {
             _LibraryUserService = libUserService;
         }

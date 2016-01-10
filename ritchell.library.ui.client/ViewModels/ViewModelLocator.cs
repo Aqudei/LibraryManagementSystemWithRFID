@@ -38,11 +38,11 @@ namespace ritchell.library.ui.client.ViewModels
                 // SimpleIoc.Default.Register<IDataService, DataService>();
             }
 
-            SimpleIoc.Default.Register<BorrowReturnBookPageViewModel>();
+            SimpleIoc.Default.Register<BorrowReturnBookViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LibraryUserService>();
-            SimpleIoc.Default.Register<DashboardPageViewModel>();
-            SimpleIoc.Default.Register<LoginPageViewModel>();
+            SimpleIoc.Default.Register<DashboarViewModel>();
+            SimpleIoc.Default.Register<AuthenticationViewModel>();
         }
 
         /// <summary>
@@ -59,27 +59,27 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-        public LoginPageViewModel LoginPageViewModel
+        public AuthenticationViewModel LoginPageViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<LoginPageViewModel>();
+                return ServiceLocator.Current.GetInstance<AuthenticationViewModel>();
             }
         }
 
-        public DashboardPageViewModel DashboardPageViewModel
+        public DashboarViewModel DashboardPageViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<DashboardPageViewModel>();
+                return ServiceLocator.Current.GetInstance<DashboarViewModel>();
             }
         }
 
-        public BorrowReturnBookPageViewModel BorrowReturnBookPageViewModel
+        public BorrowReturnBookViewModel BorrowReturnBookPageViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<BorrowReturnBookPageViewModel>();
+                return ServiceLocator.Current.GetInstance<BorrowReturnBookViewModel>();
             }
         }
     }

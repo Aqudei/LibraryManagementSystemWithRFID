@@ -8,7 +8,7 @@
     <Application.Resources>
         <vm:ViewModelLocator x:Key="Locator"/>
 
-        <DataTemplate DataType="{x:Type vm:LoginPageViewModel}">
+        <DataTemplate DataType="{x:Type vm:AuthenticationViewModel}">
             <vw:LoginPage/>
         </DataTemplate>
     </Application.Resources>
