@@ -6,20 +6,35 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model.LibraryTransactions
 {
-    public class LibraryTransactions 
+    public class BatchLibraryTransactions
     {
         List<ILibraryTransaction> _LibraryTransactions;
         private readonly LibraryUser _User;
 
-        private LibraryTransactions(LibraryUser user)
+        public BatchLibraryTransactions(LibraryUser user)
         {
             _User = user;
             _LibraryTransactions = new List<ILibraryTransaction>();
         }
 
-        public void AddTransaction(ILibraryTransaction transaction)
+        public void AddTransaction(string bookTag)
         {
-            _LibraryTransactions.Add(transaction);
+            if (_LibraryTransactions.Where(t => t.BookTag == bookTag).Any() == false)
+                LibraryTransactionFactory.CreateTransaction(_User.Id, bookTag);
+        }
+
+
+        public void ExecuteAll()
+        {
+            foreach (var trans in _LibraryTransactions)
+            {
+                try
+                {
+                    trans.Execute();
+                }
+                catch (Exception)
+                { }
+            }
         }
 
         public void RemoveTransaction(ILibraryTransaction transaction)

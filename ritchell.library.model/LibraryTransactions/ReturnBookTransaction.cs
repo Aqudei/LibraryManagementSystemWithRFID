@@ -13,12 +13,14 @@ namespace ritchell.library.model.LibraryTransactions
         private string _BookTag;
         private double payment = 0;
 
-        public static ReturnBookTransaction Create(string bookTag)
+        public Guid LibraryUserId { get; set; }
+
+        public static ReturnBookTransaction Create(Guid libUserId, string bookTag)
         {
             return new ReturnBookTransaction
             {
                 BookTag = bookTag,
-
+                LibraryUserId = libUserId
             };
         }
 

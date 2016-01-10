@@ -111,5 +111,13 @@ namespace ritchell.library.tests
                 Assert.That(lastBookTrans.ExpectedReturnDate.Date, Is.EqualTo(DateTime.Now.Date.AddDays(sampleSection.MaxDaysAllowedForBorrowing)));
             }
         }
+
+        //[Test]
+        //public void TransactionListTest()
+        //{
+        //    BatchLibraryTransactions libTrans = new BatchLibraryTransactions(sampleUser);
+        //    libTrans.AddTransaction(new BorrowBookTransaction());
+        //    libTrans.AddTransaction(new ReturnBookTransaction());
+        //}
     }
 }
