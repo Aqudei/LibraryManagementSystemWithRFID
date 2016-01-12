@@ -26,6 +26,7 @@ namespace ritchell.library.model
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Holiday>().HasKey(h => h.Id);
+            
 
             modelBuilder.Entity<BookTransactionInfo>().HasKey(bt => bt.Id);
 

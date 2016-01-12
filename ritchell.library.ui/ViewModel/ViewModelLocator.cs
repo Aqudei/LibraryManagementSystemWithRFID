@@ -40,7 +40,10 @@ namespace ritchell.library.ui.ViewModel
                 SimpleIoc.Default.Register<BookCopyService>();
                 SimpleIoc.Default.Register<SectionService>();
                 SimpleIoc.Default.Register<LibraryUserService>();
+                SimpleIoc.Default.Register<HolidayService>();
             }
+
+            SimpleIoc.Default.Register<HolidayPageViewModel>();
             SimpleIoc.Default.Register<UsersPageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SectionPageViewModel>();
@@ -93,6 +96,14 @@ namespace ritchell.library.ui.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<SectionPageViewModel>();
+            }
+        }
+
+        public HolidayPageViewModel HolidayPageViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<HolidayPageViewModel>();
             }
         }
 

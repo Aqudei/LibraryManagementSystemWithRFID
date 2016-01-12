@@ -8,5 +8,7 @@ using ritchell.library.infrastructure;
 namespace ritchell.library.model.Interfaces
 {
     public interface IHolidayRepository : IRepository<Holiday>, IDisposable
-    {}
+    {
+        void AddOrUpdate(Holiday holiday);
+    }
 }

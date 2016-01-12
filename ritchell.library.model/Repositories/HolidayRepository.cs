@@ -23,6 +23,23 @@ namespace ritchell.library.model.Repositories
             return this._Context.Set<Holiday>().ToList().Where(h => h.Day.Date.Equals(date.Date)).Any();
         }
 
+
+        public void AddOrUpdate(Holiday holiday)
+        {
+            var old = _Context.Set<Holiday>().ToList().Where(h => h.Day.Date.Equals(holiday.Day.Date)).FirstOrDefault();
+
+            if (old != null)
+            {
+                var entoty = _Context.Entry(old).Entity;
+                entoty.Day = holiday.Day;
+                entoty.Description = holiday.Description;
+            }
+            else
+            {
+                _Context.Set<Holiday>().Add(holiday);
+            }
+        }
+
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
@@ -58,6 +75,7 @@ namespace ritchell.library.model.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+
         #endregion
 
     }

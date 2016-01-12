@@ -104,6 +104,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\BookCopyPageViewModel.cs" />
     <Compile Include="ViewModel\BookPageViewModel.cs" />
+    <Compile Include="ViewModel\HolidayPageViewModel.cs" />
     <Compile Include="ViewModel\UsersPageViewModel.cs" />
     <Compile Include="View\DialogInterface\IRFIDManagerDialog.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -115,6 +116,9 @@
     </Compile>
     <Compile Include="View\BookPage.xaml.cs">
       <DependentUpon>BookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HolidaysPage.xaml.cs">
+      <DependentUpon>HolidaysPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SectionPage.xaml.cs">
       <DependentUpon>SectionPage.xaml</DependentUpon>
@@ -143,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\BookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HolidaysPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
