@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ritchell.library.ui.client.Views
 {
     /// <summary>
-    /// Interaction logic for DashboardPage.xaml
+    /// Interaction logic for BorrowReturnBookPage.xaml
     /// </summary>
-    public partial class DashboardPage : UserControl
+    public partial class BorrowReturnBookView : UserControl
     {
-        public DashboardPage()
+        public BorrowReturnBookView()
         {
             InitializeComponent();
         }

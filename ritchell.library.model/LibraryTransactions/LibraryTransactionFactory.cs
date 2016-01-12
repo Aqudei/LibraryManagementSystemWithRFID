@@ -9,7 +9,7 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public class LibraryTransactionFactory
     {
-        public static ILibraryTransaction CreateTransaction(Guid libUserId, string bookTag)
+        public static LibraryTransactionBase CreateTransaction(Guid libUserId, string bookTag)
         {
             using (var bookCopyRepo = new BookCopyRepository())
             {
@@ -20,11 +20,11 @@ namespace ritchell.library.model.LibraryTransactions
 
                 if (bookCopy.IsBorrowed == true)
                 {
-                    return ReturnBookTransaction.Create(libUserId, bookTag);
+                    return new ReturnBookTransaction(libUserId, bookTag);
                 }
                 else
                 {
-                    return BorrowBookTransaction.Create(libUserId, bookTag);
+                    return new BorrowBookTransaction(libUserId, bookTag);
                 }
             }
         }

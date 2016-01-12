@@ -97,9 +97,7 @@ namespace ritchell.library.tests
             var bookCopy = BookCopy.MakeCopy(book, "short001", "long001");
             bookCopyService.AddBookCopy(bookCopy);
 
-            BorrowBookTransaction borrowBookTrans = new BorrowBookTransaction();
-            borrowBookTrans.BookTag = "short001";
-            borrowBookTrans.LibraryUserId = sampleUser.Id;
+            BorrowBookTransaction borrowBookTrans = new BorrowBookTransaction(sampleUser.Id, "short001");
             borrowBookTrans.Execute();
 
             var retrievedCopy = bookCopyService.FindByShortRange("short001");

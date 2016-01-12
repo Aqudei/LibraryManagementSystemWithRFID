@@ -25,6 +25,18 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
+        private DashboardViewModel _DashboardViewModel;
+
+        public DashboardViewModel DashboardViewModel
+        {
+            get { return _DashboardViewModel = _DashboardViewModel ?? SimpleIoc.Default.GetInstance<DashboardViewModel>(); }
+            set
+            {
+                _DashboardViewModel = value;
+                RaisePropertyChanged(() => DashboardViewModel);
+            }
+        }
+
         public MainViewModel()
         {
            

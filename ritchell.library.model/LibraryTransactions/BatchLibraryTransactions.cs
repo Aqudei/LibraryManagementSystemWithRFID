@@ -9,16 +9,16 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public class BatchLibraryTransactions
     {
-        private ObservableCollection<ILibraryTransaction> _LibraryTransactions;
+        private ObservableCollection<LibraryTransactionBase> _LibraryTransactions;
         private readonly LibraryUser _User;
 
         public BatchLibraryTransactions(LibraryUser user)
         {
             _User = user;
-            LibraryTransactions = new ObservableCollection<ILibraryTransaction>();
+            LibraryTransactions = new ObservableCollection<LibraryTransactionBase>();
         }
 
-        public ObservableCollection<ILibraryTransaction> LibraryTransactions
+        public ObservableCollection<LibraryTransactionBase> LibraryTransactions
         {
             get
             {
@@ -51,7 +51,7 @@ namespace ritchell.library.model.LibraryTransactions
             }
         }
 
-        public void RemoveTransaction(ILibraryTransaction transaction)
+        public void RemoveTransaction(LibraryTransactionBase transaction)
         {
             LibraryTransactions.Remove(transaction);
         }

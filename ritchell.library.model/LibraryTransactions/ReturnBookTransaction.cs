@@ -7,21 +7,14 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model.LibraryTransactions
 {
-    public class ReturnBookTransaction : ILibraryTransaction
+    public class ReturnBookTransaction : LibraryTransactionBase
     {
-        private DateTime _TransactionDate;
-        private string _BookTag;
-        private double payment = 0;
+        private double payment;
 
-        public Guid LibraryUserId { get; set; }
-
-        public static ReturnBookTransaction Create(Guid libUserId, string bookTag)
+        public ReturnBookTransaction(Guid libUserId, string bookTag)
+            : base(libUserId, bookTag)
         {
-            return new ReturnBookTransaction
-            {
-                BookTag = bookTag,
-                LibraryUserId = libUserId
-            };
+            payment = 0;
         }
 
         public ReturnBookTransaction WithPayment(double payment)
@@ -30,33 +23,25 @@ namespace ritchell.library.model.LibraryTransactions
             return this;
         }
 
-        public string BookTag
+        public override string TransactionType
         {
-            get { return _BookTag; }
-            set { _BookTag = value; }
+            get
+            {
+                return "Return";
+            }
         }
 
-        public DateTime TransactionDate
-        {
-            get { return _TransactionDate; }
-            set { _TransactionDate = value; }
-        }
-
-        public void Execute()
+        public override void Execute()
         {
             using (var uow = new LibUnitOfWork())
             {
-                var bookCopy = uow.BookCopyRepository.FindByShortRangeRFId(BookTag);
-                if (bookCopy == null)
-                    throw new InvalidOperationException("Unknown book");
-
-                var lastTransaction = uow.BookTransactionInfoRepository.LastBookTransaction(bookCopy.Id);
+                var lastTransaction = uow.BookTransactionInfoRepository.LastBookTransaction(BookCopy.Id);
                 if (lastTransaction == null)
                     throw new InvalidOperationException("The book has no known transactions.");
 
-                if (bookCopy.IsBorrowed)
+                if (BookCopy.IsBorrowed)
                 {
-                    bookCopy.IsBorrowed = false;
+                    BookCopy.IsBorrowed = false;
                     lastTransaction.IsTransactionDone = true;
                     lastTransaction.ReturnDate = DateTime.Now;
                     lastTransaction.AmountPaid = payment;

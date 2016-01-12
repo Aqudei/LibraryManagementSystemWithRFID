@@ -8,55 +8,52 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model.LibraryTransactions
 {
-    public class BorrowBookTransaction : ILibraryTransaction
+    public class BorrowBookTransaction : LibraryTransactionBase
     {
         private readonly BookCopyService bookCopyService;
         private readonly HolidayService holidayService;
 
         public Guid LibraryUserId { get; set; }
-        public string BookTag { get; set; }
 
-        public DateTime TransactionDate { get; set; }
-
-        public static BorrowBookTransaction Create(Guid libUserId, string bookTag)
+        public override string TransactionType
         {
-            var bbookTrans = new BorrowBookTransaction();
-            bbookTrans.LibraryUserId = libUserId;
-            bbookTrans.BookTag = bookTag;
-            return bbookTrans;
+            get
+            {
+                return "Borrow";
+            }
         }
 
-        public BorrowBookTransaction()
+
+        public BorrowBookTransaction(Guid libUserId, string bookTag)
+            : base(libUserId, bookTag)
         {
             bookCopyService = new BookCopyService();
             holidayService = new HolidayService();
-            TransactionDate = DateTime.Now;
+
         }
 
-
-        public void Execute()
+        public override void Execute()
         {
             using (var uow = new LibUnitOfWork())
             {
-                var bookCopy = uow.BookCopyRepository.FindByShortRangeRFId(BookTag);
-                if (bookCopy.IsBorrowed)
+                if (BookCopy.IsBorrowed)
                     throw new InvalidOperationException("Book already borrowed");
 
-                bookCopy.IsBorrowed = true;
+                BookCopy.IsBorrowed = true;
 
-                var bookInfo = uow.BookInfoRepository.BookInfoOf(bookCopy);
+                var bookInfo = uow.BookInfoRepository.BookInfoOf(BookCopy);
                 var section = uow.SectionRepository.Where(s => s.Id.Equals(bookInfo.SectionId)).Single();
 
                 BookTransactionInfo bookTransInfo = new BookTransactionInfo
                 {
-                    BookCopyId = bookCopy.Id,
+                    BookCopyId = BookCopy.Id,
                     BorrowDate = TransactionDate,
                     IsTransactionDone = false,
                     LibraryUserId = LibraryUserId,
                     ExpectedReturnDate = holidayService.GetNonHolidayDateAfter(TransactionDate.AddDays(section.MaxDaysAllowedForBorrowing))
                 };
 
-                uow.BookCopyRepository.Update(bookCopy);
+                uow.BookCopyRepository.Update(BookCopy);
                 uow.BookTransactionInfoRepository.Add(bookTransInfo);
                 uow.SaveChanges();
             }

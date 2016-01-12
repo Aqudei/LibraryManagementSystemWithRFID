@@ -14,29 +14,15 @@ namespace ritchell.library.ui.client.ViewModels
 {
     public class BorrowReturnBookViewModel : ViewModelBase
     {
-        private BatchLibraryTransactions _LibraryTransactions;
+        private BatchLibraryTransactions _BatchLibraryTransactions;
+        private RelayCommand _ResetTransactionsCommand;
 
         public BorrowReturnBookViewModel()
         {
             var user = SimpleIoc.Default.GetInstance<AuthenticationViewModel>().CurrentLibraryUser;
 
-            LibraryTransactions = new BatchLibraryTransactions(user);
+            BatchLibraryTransactions = new BatchLibraryTransactions(user);
         }
-
-        public BatchLibraryTransactions LibraryTransactions
-        {
-            get
-            {
-                return _LibraryTransactions;
-            }
-
-            set
-            {
-                _LibraryTransactions = value;
-            }
-        }
-
-        private RelayCommand _ResetTransactionsCommand;
 
         public RelayCommand ResetTransactionsCommand
         {
@@ -45,9 +31,9 @@ namespace ritchell.library.ui.client.ViewModels
                 return _ResetTransactionsCommand = _ResetTransactionsCommand ?? new RelayCommand(
                     () =>
                     {
-                        LibraryTransactions.Reset();
+                        BatchLibraryTransactions.Reset();
                     },
-                    () => LibraryTransactions != null);
+                    () => BatchLibraryTransactions != null);
             }
         }
 
@@ -64,11 +50,23 @@ namespace ritchell.library.ui.client.ViewModels
                     ?? (_ProceedCommand = new RelayCommand(
                     () =>
                     {
-                        LibraryTransactions.ExecuteAll();
+                        BatchLibraryTransactions.ExecuteAll();
                     },
-                    () => LibraryTransactions != null));
+                    () => BatchLibraryTransactions != null));
             }
         }
 
+        public BatchLibraryTransactions BatchLibraryTransactions
+        {
+            get
+            {
+                return _BatchLibraryTransactions;
+            }
+
+            set
+            {
+                _BatchLibraryTransactions = value;
+            }
+        }
     }
 }

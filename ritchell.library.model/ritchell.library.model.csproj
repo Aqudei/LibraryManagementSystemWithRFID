@@ -73,7 +73,7 @@
     <Compile Include="ISBN.cs" />
     <Compile Include="LibraryContext.cs" />
     <Compile Include="LibraryTransactions\BorrowBookTransaction.cs" />
-    <Compile Include="LibraryTransactions\ILibraryTransaction.cs" />
+    <Compile Include="LibraryTransactions\LibraryTransactionBase.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionFactory.cs" />
     <Compile Include="LibraryTransactions\BatchLibraryTransactions.cs" />
     <Compile Include="LibraryTransactions\ReturnBookTransaction.cs" />

@@ -9,7 +9,16 @@
         <vm:ViewModelLocator x:Key="Locator"/>
 
         <DataTemplate DataType="{x:Type vm:AuthenticationViewModel}">
-            <vw:LoginPage/>
+            <vw:AuthenticationView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:BorrowReturnBookViewModel}">
+            <vw:BorrowReturnBookView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+            <vw:DashboardView/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

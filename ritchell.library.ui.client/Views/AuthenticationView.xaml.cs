@@ -18,9 +18,9 @@ namespace ritchell.library.ui.client.Views
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : UserControl
+    public partial class AuthenticationView : UserControl
     {
-        public LoginPage()
+        public AuthenticationView()
         {
             InitializeComponent();
         }

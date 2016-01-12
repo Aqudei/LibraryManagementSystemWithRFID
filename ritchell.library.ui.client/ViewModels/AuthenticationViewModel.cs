@@ -15,12 +15,13 @@ namespace ritchell.library.ui.client.ViewModels
     /// </summary>
     public class AuthenticationViewModel : ViewModelBase
     {
-        private LibraryUser _CurrentLibraryUser;
+        private LibraryUser _CurrentLibraryUser = null;
         private string _Username;
         private readonly LibraryUserService _LibraryUserService;
         private RelayCommand _LoginCommand;
         private RelayCommand _LogoutCommand;
         private string _Password;
+
         public bool HasAuthenticatedUser
         {
             get { return _CurrentLibraryUser != null; }
@@ -33,7 +34,6 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 _CurrentLibraryUser = value;
 
-                RaisePropertyChanged(() => CurrentLibraryUser);
                 RaisePropertyChanged(() => LoginCommand);
                 RaisePropertyChanged(() => LogoutCommand);
                 RaisePropertyChanged(() => HasAuthenticatedUser);
@@ -48,13 +48,11 @@ namespace ritchell.library.ui.client.ViewModels
                 {
                     CurrentLibraryUser = _LibraryUserService.GetAuthenticatedUser(Username, Password);
 
-                }, () => InputFilledUp());
+                }, () => IsInputFilledUp());
             }
 
         }
 
-
-     
         public RelayCommand LogoutCommand
         {
             get
@@ -67,12 +65,11 @@ namespace ritchell.library.ui.client.ViewModels
 
         }
 
-        private bool InputFilledUp()
+        private bool IsInputFilledUp()
         {
-            return string.IsNullOrEmpty(Username) == false && string.IsNullOrEmpty(Password);
+            return string.IsNullOrEmpty(Username) == false && string.IsNullOrEmpty(Password) == false;
         }
 
-     
 
         public string Password
         {
@@ -84,7 +81,7 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-      
+
         public string Username
         {
             get { return _Username; }
@@ -102,7 +99,6 @@ namespace ritchell.library.ui.client.ViewModels
         {
             _LibraryUserService = libUserService;
         }
-
 
     }
 }

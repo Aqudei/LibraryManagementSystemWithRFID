@@ -6,7 +6,24 @@
         xmlns:local="clr-namespace:ritchell.library.ui.client"
         mc:Ignorable="d" Title="MainWindow" Height="350" Width="525"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
     <Grid>
-        <ContentPresenter Content="{Binding CurrentViewModel, Mode=TwoWay}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ContentControl Content="{Binding AuthenticationViewModel, Mode=TwoWay}" 
+                        Grid.Row="0"/>       
+
+            <ContentControl Grid.Row="1" HorizontalAlignment="Left"
+                            Content="{Binding DashboardViewModel}" 
+                            IsEnabled="{Binding AuthenticationViewModel.HasAuthenticatedUser}" />
+      
+
+
+
     </Grid>
 </Window>

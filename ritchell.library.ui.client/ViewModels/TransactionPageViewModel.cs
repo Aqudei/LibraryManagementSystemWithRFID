@@ -13,9 +13,9 @@ namespace ritchell.library.ui.client.ViewModels
     public class TransactionPageViewModel : ViewModelBase
     {
 
-        private ObservableCollection<ILibraryTransaction> _LibraryTransactions;
+        private ObservableCollection<LibraryTransactionBase> _LibraryTransactions;
 
-        public ObservableCollection<ILibraryTransaction> LibraryTransactions
+        public ObservableCollection<LibraryTransactionBase> LibraryTransactions
         {
             get { return _LibraryTransactions; }
             set
@@ -30,7 +30,7 @@ namespace ritchell.library.ui.client.ViewModels
         /// </summary>
         public TransactionPageViewModel()
         {
-            LibraryTransactions = new ObservableCollection<ILibraryTransaction>();
+            LibraryTransactions = new ObservableCollection<LibraryTransactionBase>();
         }
     }
 }

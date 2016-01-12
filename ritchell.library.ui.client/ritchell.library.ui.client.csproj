@@ -94,28 +94,28 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\BorrowReturnBookViewModel.cs" />
-    <Compile Include="ViewModels\DashboarViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\TransactionPageViewModel.cs" />
     <Compile Include="ViewModels\VMMessages\UserSuccessfullyAuthenticated.cs" />
-    <Compile Include="Views\BorrowReturnBookPage.xaml.cs">
-      <DependentUpon>BorrowReturnBookPage.xaml</DependentUpon>
+    <Compile Include="Views\BorrowReturnBookView.xaml.cs">
+      <DependentUpon>BorrowReturnBookView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DashboardPage.xaml.cs">
-      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    <Compile Include="Views\DashboardView.xaml.cs">
+      <DependentUpon>DashboardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TransactionPage.xaml.cs">
       <DependentUpon>TransactionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\PasswordHelper.cs" />
-    <Page Include="Views\BorrowReturnBookPage.xaml">
+    <Page Include="Views\BorrowReturnBookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DashboardPage.xaml">
+    <Page Include="Views\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginPage.xaml">
+    <Page Include="Views\AuthenticationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,8 +130,8 @@
     <Compile Include="ViewModels\AuthenticationViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="Views\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
+    <Compile Include="Views\AuthenticationView.xaml.cs">
+      <DependentUpon>AuthenticationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
