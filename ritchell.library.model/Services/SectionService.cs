@@ -49,6 +49,8 @@ namespace ritchell.library.model.Services
             }
         }
 
+
+
         public void SaveSection(Section section)
         {
             using (var uow = new LibUnitOfWork())
@@ -77,7 +79,7 @@ namespace ritchell.library.model.Services
             }
         }
 
-        public IEnumerable<BookInfo> GetBooks(Guid sectionId)
+        public IEnumerable<BookInfo> GetBooksUnderSection(Guid sectionId)
         {
             using (var uow = new LibUnitOfWork())
             {
@@ -96,6 +98,29 @@ namespace ritchell.library.model.Services
 
                 return holidayService.GetNonHolidayDateAfter(DateTime.Now.AddDays(section.MaxDaysAllowedForBorrowing));
             }
+        }
+
+        public Section GetBookSection(BookInfo bookInfo)
+        {
+            using (var sectionRepo = new SectionRepository())
+            {
+                return sectionRepo.GetBookSection(bookInfo);
+            }
+        }
+
+        public double GetChargePerDayForLateReturning(BookCopy bookCopy)
+        {
+            var bookCopyService = new BookCopyService();
+
+            var bookInfo = bookCopyService.GetBookInfo(bookCopy);
+
+            if (bookInfo == null)
+                throw new InvalidOperationException("Book copy has no known book information");
+            var section = GetBookSection(bookInfo);
+            if (section == null)
+                throw new InvalidOperationException();
+
+            return section.LateReturningFee;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ritchell.library.model.Repositories;
+using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,6 @@ namespace ritchell.library.model.LibraryTransactions
             _LastBookTransaction = lastBookTrans;
 
             
-
             //(_LastBookTransaction.ExpectedReturnDate - DateTime.Now).Days
         }
 
