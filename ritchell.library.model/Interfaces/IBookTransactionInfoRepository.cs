@@ -10,6 +10,6 @@ namespace ritchell.library.model.Interfaces
 {
     public interface IBookTransactionInfoRepository : IRepository<BookTransactionInfo>, IDisposable
     {
-        BookTransactionInfo LastBookTransaction(Guid BookCopyId);
+        BookTransactionInfo GetLastBookTransaction(Guid BookCopyId);
     }
 }

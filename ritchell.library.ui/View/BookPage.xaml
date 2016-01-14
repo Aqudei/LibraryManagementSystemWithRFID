@@ -6,24 +6,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="526.736" d:DesignWidth="769.246"
       Title="BookPage"
-      DataContext="{Binding BookPageViewModel, Source={StaticResource Locator}}">
+        DataContext="{Binding BookPageViewModel, Source={StaticResource Locator}}">
 
     <Grid>
         <DockPanel>
             <Border DockPanel.Dock="Bottom" Margin="0,5,0,0" BorderBrush="Black" BorderThickness="1" CornerRadius="2">
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFF1F1F1"/>
+                        <GradientStop Color="#FFF5D6D6"/>
                         <GradientStop Color="#FFF7A2A2" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <StackPanel x:Name="crudStackPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
 
-                    <Button Command="{Binding NewItemCommand}" Content="New" Margin="5,0"/>
-                    <Button Content="Edit" Margin="5,0"/>
-                    <Button Content="Delete" Margin="5,0"/>
-                    <Button Command="{Binding SaveItemCommand}" Content="Save" Margin="5,0"/>
-                    <Button Command="{Binding ManageRFIDCommand}" Content="Manage Book's RFID" Margin="5,0"/>
+                    <Button Command="{Binding NewItemCommand}" 
+                            Content="New" Margin="5,0" 
+                            Style="{DynamicResource CrudButtonStyle}"/>
+
+                    <Button Content="Edit" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                    <Button Content="Delete" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                    <Button Command="{Binding SaveItemCommand}" Content="Save" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                    <Button Command="{Binding ManageRFIDCommand}" Content="Manage Book's RFID" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
 
                 </StackPanel>
             </Border>

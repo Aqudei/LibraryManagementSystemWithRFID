@@ -105,7 +105,7 @@ namespace ritchell.library.tests
 
             using (var bookTrans = new BookTransactionInfoRepository())
             {
-                var lastBookTrans = bookTrans.LastBookTransaction(bookCopy.Id);
+                var lastBookTrans = bookTrans.GetLastBookTransaction(bookCopy.Id);
                 Assert.That(lastBookTrans.ExpectedReturnDate.Date, Is.EqualTo(DateTime.Now.Date.AddDays(sampleSection.MaxDaysAllowedForBorrowing)));
             }
         }

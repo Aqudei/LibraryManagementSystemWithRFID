@@ -9,17 +9,17 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public class ReturnBookTransaction : LibraryTransactionBase
     {
-        private double payment;
+        private BookTransactionInfo _LastBookTransaction;
 
-        public ReturnBookTransaction(Guid libUserId, string bookTag)
-            : base(libUserId, bookTag)
+        public ReturnBookTransaction(BookTransactionInfo lastBookTrans)
+            : base(lastBookTrans.LibraryUserId, lastBookTrans.BookCopyId)
         {
-            payment = 0;
+            _LastBookTransaction = lastBookTrans;
         }
 
-        public ReturnBookTransaction WithPayment(double payment)
+        public ReturnBookTransaction PayNecessaryFee()
         {
-            this.payment += payment;
+            _LastBookTransaction.AmountPaid = RequiredFee;
             return this;
         }
 
@@ -31,23 +31,26 @@ namespace ritchell.library.model.LibraryTransactions
             }
         }
 
+        public double RequiredFee
+        {
+            get
+            {
+                return 0;
+                //(_LastBookTransaction.ExpectedReturnDate - DateTime.Now).Days
+            }
+        }
+
+
         public override void Execute()
         {
             using (var uow = new LibUnitOfWork())
             {
-                var lastTransaction = uow.BookTransactionInfoRepository.LastBookTransaction(BookCopy.Id);
-                if (lastTransaction == null)
-                    throw new InvalidOperationException("The book has no known transactions.");
+                BookCopy.IsBorrowed = false;
+                _LastBookTransaction.IsTransactionDone = true;
+                _LastBookTransaction.ReturnDate = DateTime.Now;
 
-                if (BookCopy.IsBorrowed)
-                {
-                    BookCopy.IsBorrowed = false;
-                    lastTransaction.IsTransactionDone = true;
-                    lastTransaction.ReturnDate = DateTime.Now;
-                    lastTransaction.AmountPaid = payment;
-                }
-                else
-                    throw new InvalidOperationException("The book is not borrowed");
+                uow.BookTransactionInfoRepository.Update(_LastBookTransaction);
+                uow.BookCopyRepository.Update(BookCopy);
 
                 uow.SaveChanges();
             }

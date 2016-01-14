@@ -19,7 +19,7 @@ namespace ritchell.library.model.Repositories
         public BookTransactionInfoRepository() : this(new LibraryContext())
         { }
 
-        public BookTransactionInfo LastBookTransaction(Guid bookCopyId)
+        public BookTransactionInfo GetLastBookTransaction(Guid bookCopyId)
         {
             var bookTrans = _Context.Set<BookTransactionInfo>()
                 .Where(t => t.BookCopyId.Equals(bookCopyId) && t.IsTransactionDone == false)

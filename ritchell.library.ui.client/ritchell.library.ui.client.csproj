@@ -93,10 +93,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\AdminRequiredViewModel.cs" />
     <Compile Include="ViewModels\BorrowReturnBookViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\TransactionPageViewModel.cs" />
     <Compile Include="ViewModels\VMMessages\UserSuccessfullyAuthenticated.cs" />
+    <Compile Include="ViewServices\IAdminViewDialogService.cs" />
+    <Compile Include="Views\AdminLoginView.xaml.cs">
+      <DependentUpon>AdminLoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BorrowReturnBookView.xaml.cs">
       <DependentUpon>BorrowReturnBookView.xaml</DependentUpon>
     </Compile>
@@ -107,6 +112,10 @@
       <DependentUpon>TransactionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\PasswordHelper.cs" />
+    <Page Include="Views\AdminLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BorrowReturnBookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

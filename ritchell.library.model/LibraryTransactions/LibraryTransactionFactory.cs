@@ -11,20 +11,24 @@ namespace ritchell.library.model.LibraryTransactions
     {
         public static LibraryTransactionBase CreateTransaction(Guid libUserId, string bookTag)
         {
-            using (var bookCopyRepo = new BookCopyRepository())
+            using (var uow = new LibUnitOfWork())
             {
-                var bookCopy = bookCopyRepo.FindByShortRangeRFId(bookTag);
+                var bookCopy = uow.BookCopyRepository.FindByShortRangeRFId(bookTag);
 
                 if (bookCopy == null)
                     throw new InvalidOperationException("Unknown Book!");
 
                 if (bookCopy.IsBorrowed == true)
                 {
-                    return new ReturnBookTransaction(libUserId, bookTag);
+                    var lastBookTrans = uow.BookTransactionInfoRepository.GetLastBookTransaction(bookCopy.Id);
+                    if (lastBookTrans == null)
+                        throw new InvalidOperationException("The book has no known borrowed information.");
+
+                    return new ReturnBookTransaction(lastBookTrans);
                 }
                 else
                 {
-                    return new BorrowBookTransaction(libUserId, bookTag);
+                    return new BorrowBookTransaction(libUserId, bookCopy.Id);
                 }
             }
         }

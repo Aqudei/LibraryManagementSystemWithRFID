@@ -26,11 +26,11 @@
         			Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
 
                     <Button Command="{Binding NewItemCommand}" 
-        				Content="New" Margin="5,0" />
+        				Content="New" Margin="5,0" Style="{DynamicResource CrudButtonStyle}" />
 
-                    <Button Content="Edit" Margin="5,0" />
-                    <Button Content="Delete" Command="{Binding DeleteItemCommand}" Margin="5,0" />
-                    <Button Command="{Binding SaveItemCommand}" Content="Save" Margin="5,0" />
+                    <Button Content="Edit" Margin="5,0" Style="{DynamicResource CrudButtonStyle}" />
+                    <Button Content="Delete" Command="{Binding DeleteItemCommand}" Margin="5,0" Style="{DynamicResource CrudButtonStyle}" />
+                    <Button Command="{Binding SaveItemCommand}" Content="Save" Margin="5,0" Style="{DynamicResource CrudButtonStyle}" />
                 </StackPanel>
 
             </Border>
@@ -43,11 +43,11 @@
 
             <StackPanel Orientation="Vertical" Margin="10,0,0,0" Width="300" HorizontalAlignment="Left">
                 <TextBlock><Run Text="Section Name"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/Name}" />
+                <TextBox Text="{Binding ItemsCollectionView/Name, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock><Run Text="Max days allowed for borrowing"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/MaxDaysAllowedForBorrowing}" />
+                <TextBox Text="{Binding ItemsCollectionView/MaxDaysAllowedForBorrowing,UpdateSourceTrigger=PropertyChanged }" />
                 <TextBlock><Run Text="Late returning fee"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/LateReturningFee}" />
+                <TextBox Text="{Binding ItemsCollectionView/LateReturningFee, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
         </DockPanel>
     </Grid>

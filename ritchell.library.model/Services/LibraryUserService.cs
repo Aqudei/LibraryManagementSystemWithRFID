@@ -26,6 +26,15 @@ namespace ritchell.library.model.Services
             }
         }
 
+        public LibraryUser GetAuthenticatedAdmin(string username, string password)
+        {
+            var libUser = GetAuthenticatedUser(username, password);
+            if (libUser.LibraryUserType == LibraryUser.UserType.Admin)
+                return libUser;
+            else
+                return null;
+        }
+
         public LibraryUser FindUserByRFID(string userTag)
         {
             using (var uow = new LibUnitOfWork())

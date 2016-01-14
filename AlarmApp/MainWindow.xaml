@@ -7,6 +7,6 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Command="{Binding StopAlarmCommand}"></Button>
+        <Button Command="{Binding StopAlarmCommand}" Content="Stop Alarm" FontSize="21.333" FontWeight="Bold"></Button>
     </Grid>
 </Window>

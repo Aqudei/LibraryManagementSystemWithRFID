@@ -43,6 +43,7 @@ namespace ritchell.library.ui.client.ViewModels
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<DashboardViewModel>();
             SimpleIoc.Default.Register<AuthenticationViewModel>();
+            SimpleIoc.Default.Register<AdminRequiredViewModel>();
         }
 
         /// <summary>
@@ -80,6 +81,14 @@ namespace ritchell.library.ui.client.ViewModels
             get
             {
                 return ServiceLocator.Current.GetInstance<BorrowReturnBookViewModel>();
+            }
+        }
+
+        public AdminRequiredViewModel AdminRequiredViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AdminRequiredViewModel>();
             }
         }
     }

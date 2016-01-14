@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model.LibraryTransactions
 {
-    public class BatchLibraryTransactions
+    public class LibraryTransactionsAggregate
     {
         private ObservableCollection<LibraryTransactionBase> _LibraryTransactions;
         private readonly LibraryUser _User;
 
-        public BatchLibraryTransactions(LibraryUser user)
+        public LibraryTransactionsAggregate PayNecessaryFees()
+        {
+            return this;
+        }
+
+        public LibraryTransactionsAggregate(LibraryUser user)
         {
             _User = user;
             LibraryTransactions = new ObservableCollection<LibraryTransactionBase>();
@@ -24,7 +29,6 @@ namespace ritchell.library.model.LibraryTransactions
             {
                 return _LibraryTransactions;
             }
-
             set
             {
                 _LibraryTransactions = value;
@@ -59,6 +63,21 @@ namespace ritchell.library.model.LibraryTransactions
         public void Reset()
         {
             LibraryTransactions.Clear();
+        }
+
+        public double ComputeNecessaryFee()
+        {
+            double necessaryFees = 0;
+            foreach (var trans in LibraryTransactions)
+            {
+                var borrowTrans = trans as ReturnBookTransaction;
+                if (borrowTrans != null)
+                {
+                    
+                }
+            }
+
+            return necessaryFees;
         }
     }
 }

@@ -75,7 +75,7 @@
     <Compile Include="LibraryTransactions\BorrowBookTransaction.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionBase.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionFactory.cs" />
-    <Compile Include="LibraryTransactions\BatchLibraryTransactions.cs" />
+    <Compile Include="LibraryTransactions\LibraryTransactionsAggregate.cs" />
     <Compile Include="LibraryTransactions\ReturnBookTransaction.cs" />
     <Compile Include="LibraryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,7 +90,6 @@
     <Compile Include="Services\BookCopyService.cs" />
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\HolidayService.cs" />
-    <Compile Include="Services\LibrarianService.cs" />
     <Compile Include="Services\LibraryUserService.cs" />
     <Compile Include="Services\SectionService.cs" />
   </ItemGroup>

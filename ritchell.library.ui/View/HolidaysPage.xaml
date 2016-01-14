@@ -5,29 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ritchell.library.ui.View"
              mc:Ignorable="d" 
-             d:DesignHeight="358.824" d:DesignWidth="450.98"
+             d:DesignHeight="358.824" d:DesignWidth="801.98"
              DataContext="{Binding HolidayPageViewModel, Source={StaticResource Locator}}">
     <Grid>
-        <Button x:Name="button" Content="Add Holiday" Margin="225.21,103.08,54.478,0" VerticalAlignment="Top" Command="{Binding AddHoliday, Mode=OneWay}" Height="22.223" CommandParameter="{Binding SelectedDate, ElementName=datePicker}"/>
-        <Button x:Name="button_Copy" Content="Delete" Margin="225.21,75.797,54.478,0" VerticalAlignment="Top" Height="22.223" Command="{Binding DeleteHoliday, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=listView}"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Margin="10,10,0,47.199" Width="210.21" ItemsSource="{Binding Holidays}">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Margin="10,10,0,47.199" Width="300" ItemsSource="{Binding Holidays}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="80" Header="Day" DisplayMemberBinding="{Binding Day, StringFormat=D}"/>
-                    <GridViewColumn  Header="Description" Width="120" DisplayMemberBinding="{Binding Description}"/>
+                    <GridViewColumn Width="120" Header="Day" DisplayMemberBinding="{Binding Day, StringFormat=D}"/>
+                    <GridViewColumn  Header="Description" Width="150" DisplayMemberBinding="{Binding Description}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="textBox" 
-                 Height="23" Margin="225.21,39,46.77,0" TextWrapping="Wrap" 
-                 Text="{Binding HolidayDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <DatePicker x:Name="datePicker" Margin="225.21,10,46.77,0" VerticalAlignment="Top"/>
-        <Button x:Name="button_Copy1" 
-                Content="Mark Weekends as Holiday" 
-                Margin="225.21,130.363,54.478,0" 
-                VerticalAlignment="Top" 
-                Command="{Binding MarkWeekendsAsHolidays, Mode=OneWay}"
-                Height="22.222"/>
+        <StackPanel Margin="315,16,10,0" Orientation="Vertical" VerticalAlignment="Top">
+            <DatePicker x:Name="datePicker" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,0,0,5"/>
+            <TextBox x:Name="textBox" 
+        		Height="23" TextWrapping="Wrap" 
+        		Text="{Binding HolidayDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,0,0,5"/>
+            <Button x:Name="button_Copy" Content="Delete" Margin="0,0,7.708,5" Height="22.223" Command="{Binding DeleteHoliday, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=listView}"/>
+            <Button x:Name="button" Content="Add Holiday" Margin="0,0,7.708,5" Command="{Binding AddHoliday, Mode=OneWay}" Height="22.223" CommandParameter="{Binding SelectedDate, ElementName=datePicker}"/>
+            <Button x:Name="button_Copy1" 
+        		Content="Mark Weekends as Holiday" 
+        		Margin="0,0,7.708,5" 
+        		Command="{Binding MarkWeekendsAsHolidays, Mode=OneWay}"
+        		Height="22.222"/>
+
+        </StackPanel>
 
     </Grid>
 </UserControl>

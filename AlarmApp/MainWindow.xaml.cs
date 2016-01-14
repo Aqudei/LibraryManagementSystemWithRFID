@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ritchell.library.infrastructure.Hardware;
+using ritchell.library.model.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -43,7 +45,9 @@ namespace AlarmApp
                     mediaPlayer.Position = TimeSpan.FromMilliseconds(1);
                 };
 
-                var unborrowedMonitor = new Services.UnborrowedBookMonitor();
+                var unborrowedMonitor = new Services.UnborrowedBookMonitor(
+                    new BookCopyService(),
+                    new LongRangeRFID());
 
                 unborrowedMonitor.UnborrowedIsGoingOut += unborrowedMonitor_UnborrowedIsGoingOut;
             };

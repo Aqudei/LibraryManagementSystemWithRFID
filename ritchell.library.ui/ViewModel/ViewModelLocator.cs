@@ -36,13 +36,14 @@ namespace ritchell.library.ui.ViewModel
             }
             else
             {
-                SimpleIoc.Default.Register<BookService>();
-                SimpleIoc.Default.Register<BookCopyService>();
-                SimpleIoc.Default.Register<SectionService>();
-                SimpleIoc.Default.Register<LibraryUserService>();
-                SimpleIoc.Default.Register<HolidayService>();
+            
             }
 
+            SimpleIoc.Default.Register<BookService>();
+            SimpleIoc.Default.Register<BookCopyService>();
+            SimpleIoc.Default.Register<SectionService>();
+            SimpleIoc.Default.Register<LibraryUserService>();
+            SimpleIoc.Default.Register<HolidayService>();
             SimpleIoc.Default.Register<HolidayPageViewModel>();
             SimpleIoc.Default.Register<UsersPageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();

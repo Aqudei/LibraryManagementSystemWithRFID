@@ -23,9 +23,8 @@ namespace ritchell.library.model.LibraryTransactions
             }
         }
 
-
-        public BorrowBookTransaction(Guid libUserId, string bookTag)
-            : base(libUserId, bookTag)
+        public BorrowBookTransaction(Guid libUserId, Guid booCopyId)
+            : base(libUserId, booCopyId)
         {
             bookCopyService = new BookCopyService();
             holidayService = new HolidayService();

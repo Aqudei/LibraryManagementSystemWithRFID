@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.model", "ritchell.library.model\ritchell.library.model.csproj", "{99D28668-0517-43E3-9812-235FC8C0F86B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.tests", "ritchell.library.tests\ritchell.library.tests.csproj", "{23E534D8-27DA-42C1-8AB7-990A94E258D1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.infrastructure", "ritchell.library.infrastructure\ritchell.library.infrastructure.csproj", "{141A8CB7-66F0-4AF7-A086-0648F5753110}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.ui", "ritchell.library.ui\ritchell.library.ui.csproj", "{3EEE1708-42E1-4726-8ABA-03E19A23C07B}"
@@ -14,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmApp", "AlarmApp\AlarmApp.csproj", "{A6E00BE6-2AED-475A-8C4C-2ECC75FA770F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.ui.client", "ritchell.library.ui.client\ritchell.library.ui.client.csproj", "{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LongRangeTest", "LongRangeTest\LongRangeTest.csproj", "{10E236B8-2118-4B83-A7F2-D817D3B39CB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +23,6 @@ Global
 		{99D28668-0517-43E3-9812-235FC8C0F86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99D28668-0517-43E3-9812-235FC8C0F86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99D28668-0517-43E3-9812-235FC8C0F86B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23E534D8-27DA-42C1-8AB7-990A94E258D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23E534D8-27DA-42C1-8AB7-990A94E258D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23E534D8-27DA-42C1-8AB7-990A94E258D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23E534D8-27DA-42C1-8AB7-990A94E258D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{141A8CB7-66F0-4AF7-A086-0648F5753110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{141A8CB7-66F0-4AF7-A086-0648F5753110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{141A8CB7-66F0-4AF7-A086-0648F5753110}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +39,6 @@ Global
 		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10E236B8-2118-4B83-A7F2-D817D3B39CB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10E236B8-2118-4B83-A7F2-D817D3B39CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10E236B8-2118-4B83-A7F2-D817D3B39CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10E236B8-2118-4B83-A7F2-D817D3B39CB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

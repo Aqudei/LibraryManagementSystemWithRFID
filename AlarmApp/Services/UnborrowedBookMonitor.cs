@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using ritchell.library.model.Services;
+using ritchell.library.infrastructure.Hardware;
 
 namespace AlarmApp.Services
 {
@@ -12,27 +14,28 @@ namespace AlarmApp.Services
         public event EventHandler<Models.BookCopyWithInfo> UnborrowedIsGoingOut;
 
         private DispatcherTimer monitorTimer;
+        private BookCopyService _BookCopyService;
 
-        public UnborrowedBookMonitor()
+        public UnborrowedBookMonitor(BookCopyService bookCopyService,
+            IRFIDReader longRangeReader)
         {
-            monitorTimer = new DispatcherTimer();
-            monitorTimer.Interval = TimeSpan.FromMilliseconds(200);
-            monitorTimer.Tick += monitorTimer_Tick;
-            monitorTimer.IsEnabled = true;
-            monitorTimer.Start();
+            _BookCopyService = bookCopyService;
+            longRangeReader.TagRead += LongRangeReader_TagRead;
         }
 
-        void monitorTimer_Tick(object sender, EventArgs e)
+        private void LongRangeReader_TagRead(object sender, string e)
         {
-            var randomGenerator = new Random(DateTime.Now.Millisecond);
-
-            if ((randomGenerator.Next(100) % 100) == 0)
+            var bookCopy = _BookCopyService.FindByLongRange(e);
+            if (bookCopy != null && bookCopy.IsBorrowed == false)
             {
                 var handler = UnborrowedIsGoingOut;
                 if (handler != null)
                 {
-                    handler(this, null);
-                    Console.WriteLine("Unborrowed Book!");
+                    handler(this, new Models.BookCopyWithInfo
+                    {
+                        BookCopy = bookCopy,
+                        BookInfo = _BookCopyService.GetBookInfo(bookCopy)
+                    });
                 }
             }
         }
