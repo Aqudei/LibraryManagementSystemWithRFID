@@ -31,6 +31,11 @@ namespace ritchell.library.model.Repositories
                 .Single().BookInfos;
         }
 
+        public Section GetBookSection(BookInfo bookInfo)
+        {
+            return _Context.Set<Section>().Where(s => s.Id == bookInfo.SectionId).FirstOrDefault();
+        }
+
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
@@ -66,6 +71,8 @@ namespace ritchell.library.model.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+
+
         #endregion
     }
 }

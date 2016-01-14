@@ -10,11 +10,16 @@ namespace ritchell.library.model.LibraryTransactions
     public class ReturnBookTransaction : LibraryTransactionBase
     {
         private BookTransactionInfo _LastBookTransaction;
+        private double _RequiredFee;
 
         public ReturnBookTransaction(BookTransactionInfo lastBookTrans)
             : base(lastBookTrans.LibraryUserId, lastBookTrans.BookCopyId)
         {
             _LastBookTransaction = lastBookTrans;
+
+            
+
+            //(_LastBookTransaction.ExpectedReturnDate - DateTime.Now).Days
         }
 
         public ReturnBookTransaction PayNecessaryFee()
@@ -31,12 +36,12 @@ namespace ritchell.library.model.LibraryTransactions
             }
         }
 
+
         public double RequiredFee
         {
             get
             {
-                return 0;
-                //(_LastBookTransaction.ExpectedReturnDate - DateTime.Now).Days
+                return _RequiredFee;
             }
         }
 
