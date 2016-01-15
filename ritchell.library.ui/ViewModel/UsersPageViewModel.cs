@@ -24,7 +24,6 @@ namespace ritchell.library.ui.ViewModel
         /// </summary>
         public UsersPageViewModel(LibraryUserService libraryUserService)
         {
-
             _LibraryUserService = libraryUserService;
             using (var repo = new LibraryUserRepository())
             {
@@ -35,10 +34,10 @@ namespace ritchell.library.ui.ViewModel
 
         public override void DeleteItemCommandHandler()
         {
-            using (var uow = new library.model.Repositories.LibUnitOfWork())
+            var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
+            if (currentUser != null)
             {
-                var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
-                uow.LibraryUserRepository.Remove(currentUser);
+                _LibraryUserService.DeleteUser(currentUser);
                 items.Remove(currentUser);
             }
         }
@@ -48,7 +47,38 @@ namespace ritchell.library.ui.ViewModel
             LibraryUser user = new LibraryUser();
             items.Add(user);
             ItemsCollectionView.MoveCurrentTo(user);
+            ItemsCollectionView.Refresh();
         }
+
+        public override bool InputFieldsAreValid()
+        {
+            var current = ItemsCollectionView.CurrentItem as LibraryUser;
+            if (current == null)
+                return false;
+
+            if (string.IsNullOrEmpty(current.Password))
+                return false;
+
+            if (string.IsNullOrEmpty(PasswordCopy))
+                return false;
+
+            return current.Password == PasswordCopy;
+        }
+
+        private string _PasswordCopy;
+
+        public string PasswordCopy
+        {
+            get { return _PasswordCopy; }
+            set
+            {
+                _PasswordCopy = value;
+                RaisePropertyChanged(() => PasswordCopy);
+                SaveItemCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+
 
         protected override void SaveItemCommandHandler()
         {

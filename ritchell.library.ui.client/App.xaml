@@ -6,19 +6,25 @@
              xmlns:vm="clr-namespace:ritchell.library.ui.client.ViewModels"
              xmlns:vw="clr-namespace:ritchell.library.ui.client.Views">
     <Application.Resources>
-        <vm:ViewModelLocator x:Key="Locator"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <vm:ViewModelLocator x:Key="Locator"/>
 
-        <DataTemplate DataType="{x:Type vm:AuthenticationViewModel}">
-            <vw:AuthenticationView/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AuthenticationViewModel}">
+                <vw:AuthenticationView/>
+            </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vm:BorrowReturnBookViewModel}">
-            <vw:BorrowReturnBookView/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:BorrowReturnBookViewModel}">
+                <vw:BorrowReturnBookView/>
+            </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
-            <vw:DashboardView/>
-        </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+                <vw:DashboardView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>

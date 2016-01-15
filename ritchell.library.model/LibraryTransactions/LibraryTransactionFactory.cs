@@ -21,8 +21,12 @@ namespace ritchell.library.model.LibraryTransactions
                 if (bookCopy.IsBorrowed == true)
                 {
                     var lastBookTrans = uow.BookTransactionInfoRepository.GetLastBookTransaction(bookCopy.Id);
+
                     if (lastBookTrans == null)
                         throw new InvalidOperationException("The book has no known borrowed information.");
+
+                    if (lastBookTrans.LibraryUserId != libUserId)
+                        throw new InvalidOperationException("You are not the one who borrowed the book.");
 
                     return new ReturnBookTransaction(lastBookTrans);
                 }

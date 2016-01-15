@@ -56,24 +56,26 @@ namespace ritchell.library.model
 
         public string Username { get; set; }
 
+        string _Password;
         public string Password
         {
             get
             {
-                if (string.IsNullOrEmpty(EncryptedPassword))
-                    return string.Empty;
-
-                return RijndaelEncryptDecrypt.EncryptDecryptUtils.Decrypt(EncryptedPassword, this.Birthday.ToString(),
-                   this.Birthday.ToString(), "SHA1");
+                return _Password;
             }
             set
             {
+                _Password = value;
+                FirePropertyChanged("Password");
+
                 EncryptedPassword = RijndaelEncryptDecrypt.EncryptDecryptUtils.Encrypt(value, this.Birthday.ToString(),
                    this.Birthday.ToString(), "SHA1");
+
             }
         }
 
-        public string EncryptedPassword { get; set; }
+
+
 
         public string MiddleName
         {
@@ -86,6 +88,7 @@ namespace ritchell.library.model
             {
                 _MiddleName = value;
                 FirePropertyChanged("Fullname");
+                FirePropertyChanged("MiddleName");
             }
         }
 
@@ -99,7 +102,26 @@ namespace ritchell.library.model
             set
             {
                 _LastName = value;
+                FirePropertyChanged("LastName");
                 FirePropertyChanged("Fullname");
+            }
+        }
+
+        private string _EncryptedPassword;
+        public string EncryptedPassword
+        {
+            get
+            {
+                return _EncryptedPassword;
+            }
+
+            set
+            {
+                _EncryptedPassword = value;
+                _Password = RijndaelEncryptDecrypt.EncryptDecryptUtils.Decrypt(value, Birthday.ToString(),
+                    Birthday.ToString(), "SHA1");
+                FirePropertyChanged("EncryptedPassword");
+                FirePropertyChanged("Password");
             }
         }
 

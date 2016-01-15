@@ -52,6 +52,15 @@ namespace ritchell.library.model.Services
             }
         }
 
+        public void DeleteUser(LibraryUser currentUser)
+        {
+            using (var uow = new library.model.Repositories.LibUnitOfWork())
+            {
+                uow.LibraryUserRepository.Remove(currentUser);
+                uow.SaveChanges();
+            }
+        }
+
         public void AddOrUpdateLibraryUser(LibraryUser libraryUser)
         {
             using (LibUnitOfWork uow = new LibUnitOfWork())
@@ -59,9 +68,9 @@ namespace ritchell.library.model.Services
                 var libUser = uow.LibraryUserRepository.FindById(libraryUser.Id);
 
                 if (libUser == null)
-                    uow.LibraryUserRepository.Add(libUser);
+                    uow.LibraryUserRepository.Add(libraryUser);
                 else
-                    uow.LibraryUserRepository.Update(libUser);
+                    uow.LibraryUserRepository.Update(libraryUser);
 
                 uow.SaveChanges();
             }

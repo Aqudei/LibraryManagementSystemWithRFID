@@ -30,7 +30,6 @@ namespace ritchell.library.infrastructure.Hardware
                 cardMonitor.CardInserted += cardMonitor_CardInserted;
                 
                 cardMonitor.Start(readers[0]);
-
             }
         }
 

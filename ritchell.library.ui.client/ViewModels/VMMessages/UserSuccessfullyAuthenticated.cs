@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.ui.client.ViewModels.VMMessages
 {
-    public class UserSuccessfullyAuthenticated
+    public class UserSuccessfullyPay
     {
         public LibraryUser AuthenticatedUser { get; set; }
     }

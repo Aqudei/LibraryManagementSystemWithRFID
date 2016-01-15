@@ -71,7 +71,10 @@ namespace ritchell.library.ui.ViewModel
             throw new NotImplementedException();
         }
 
-
+        public override bool InputFieldsAreValid()
+        {
+            return true;
+        }
 
         /// <summary>
         /// Gets the ManageRFIDCommand.

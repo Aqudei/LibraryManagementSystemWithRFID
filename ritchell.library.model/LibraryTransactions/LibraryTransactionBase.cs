@@ -1,13 +1,10 @@
-﻿using ritchell.library.model.Repositories;
+﻿using ritchell.library.infrastructure;
+using ritchell.library.model.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ritchell.library.model.LibraryTransactions
 {
-    public abstract class LibraryTransactionBase
+    public abstract class LibraryTransactionBase : INPCBase
     {
         public abstract string TransactionType { get; }
         public string BookTitle { get; set; }

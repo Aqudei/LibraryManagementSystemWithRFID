@@ -23,7 +23,9 @@ namespace ritchell.library.infrastructure
 
         public void Remove(Ttype item)
         {
-            _Context.Set<Ttype>().Remove(item);
+            var retrievedItem = _Context.Set<Ttype>().Find(item.Id);
+            if (retrievedItem != null)
+                _Context.Set<Ttype>().Remove(retrievedItem);
         }
 
         public void Update(Ttype item)

@@ -26,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -191,6 +192,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RFIDGenratorDebug\RFIDGenratorDebug.csproj">
+      <Project>{44abbf23-d1dc-4189-94e0-b96be19a8c5a}</Project>
+      <Name>RFIDGenratorDebug</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ritchell.library.infrastructure\ritchell.library.infrastructure.csproj">
       <Project>{141a8cb7-66f0-4af7-a086-0648f5753110}</Project>
       <Name>ritchell.library.infrastructure</Name>
@@ -200,7 +205,11 @@
       <Name>ritchell.library.model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Basic.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

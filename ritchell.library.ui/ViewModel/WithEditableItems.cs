@@ -47,8 +47,13 @@ namespace ritchell.library.ui.ViewModel
                         SaveItemCommandHandler();
                         uiState = UIState.Standby;
                     },
-                    () => uiState == UIState.Adding || uiState == UIState.Editing));
+                    () => (uiState == UIState.Adding || uiState == UIState.Editing) && InputFieldsAreValid()));
             }
+        }
+
+        public virtual bool InputFieldsAreValid()
+        {
+            return true;
         }
 
         protected abstract void NewItemCommandHandler();

@@ -12,6 +12,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model;
 using ritchell.library.model.Services;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -26,23 +27,42 @@ namespace ritchell.library.ui.ViewModel
         private string _RFIDShort;
         private RelayCommand _AddBookCopyCommand;
         private RelayCommand _DeleteBookCopyCommand;
+        private ICollectionView _ItemsCollectionView;
+        private ObservableCollection<BookCopy> Copies;
+        private IRFIDReader _ShortRFIDReader;
+        private IRFIDReader _LongRFIDReader;
 
-
-        public BookCopyPageViewModel(BookCopyService bookCopyService,
-            IRFIDReader rfidReader)
+        public BookCopyPageViewModel(BookCopyService bookCopyService)
         {
             this.BookCopyService = bookCopyService;
-            rfidReader.TagRead += rfidReader_TagRead;
+            if (IsInDesignMode == false)
+                SetupRFIDReader();
         }
 
-        void rfidReader_TagRead(object sender, string e)
+        private void SetupRFIDReader()
         {
-            _RFIDShort = e;
-            RaisePropertyChanged(() => RFIDShort);
+            _ShortRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
+            _LongRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("long");
+
+            _ShortRFIDReader.TagRead += _ShortRFIDReader_TagRead;
+            _LongRFIDReader.TagRead += _LongRFIDReader_TagRead;
         }
 
-        ICollectionView _ItemsCollectionView;
-        private ObservableCollection<BookCopy> Copies;
+        private void _LongRFIDReader_TagRead(object sender, string e)
+        {
+            if (RFIDLong != e)
+            {
+                RFIDLong = e;
+            }
+        }
+
+        void _ShortRFIDReader_TagRead(object sender, string e)
+        {
+            if (RFIDShort != e)
+            {
+                RFIDShort = e;
+            }
+        }
 
         public ICollectionView ItemsCollectionView
         {
@@ -117,11 +137,16 @@ namespace ritchell.library.ui.ViewModel
 
         void ItemsCollectionView_CurrentChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         public string RFIDLong
         {
+            set
+            {
+                _RFIDLong = value;
+                RaisePropertyChanged(() => RFIDLong);
+            }
             get
             {
                 return _RFIDLong;
@@ -133,6 +158,11 @@ namespace ritchell.library.ui.ViewModel
             get
             {
                 return _RFIDShort;
+            }
+            set
+            {
+                _RFIDShort = value;
+                RaisePropertyChanged(() => RFIDShort);
             }
         }
     }

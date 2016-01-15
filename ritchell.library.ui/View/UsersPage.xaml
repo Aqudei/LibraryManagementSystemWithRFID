@@ -48,10 +48,10 @@
                 <TextBox Text="{Binding ItemsCollectionView/Username, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock><Run Text="Password"/></TextBlock>
                 <PasswordBox wpf:PasswordHelper.Attach="True" 
-                             wpf:PasswordHelper.Password="{Binding ItemsCollectionView/Password, UpdateSourceTrigger=PropertyChanged}"/>
+                             wpf:PasswordHelper.Password="{Binding ItemsCollectionView/Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 <TextBlock><Run Text="Confirm Password"/></TextBlock>
                 <PasswordBox wpf:PasswordHelper.Attach="True"
-                             wpf:PasswordHelper.Password="{Binding PasswordCopy, UpdateSourceTrigger=PropertyChanged}"/>
+                             wpf:PasswordHelper.Password="{Binding PasswordCopy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
             </StackPanel>
 
         </DockPanel>

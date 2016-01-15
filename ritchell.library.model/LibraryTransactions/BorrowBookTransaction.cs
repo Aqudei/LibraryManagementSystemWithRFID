@@ -11,9 +11,7 @@ namespace ritchell.library.model.LibraryTransactions
     public class BorrowBookTransaction : LibraryTransactionBase
     {
         private readonly BookCopyService bookCopyService;
-        private readonly HolidayService holidayService;
-
-        public Guid LibraryUserId { get; set; }
+        private readonly HolidayService holidayService;        
 
         public override string TransactionType
         {
@@ -28,7 +26,6 @@ namespace ritchell.library.model.LibraryTransactions
         {
             bookCopyService = new BookCopyService();
             holidayService = new HolidayService();
-
         }
 
         public override void Execute()

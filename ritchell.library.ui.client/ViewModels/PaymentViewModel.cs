@@ -10,16 +10,18 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace ritchell.library.ui.client.ViewModels
 {
-    public class AdminRequiredViewModel : ViewModelBase
+    public class PaymentViewModel : ViewModelBase
     {
         private LibraryUserService _LibraryUserService;
+        private string _Username;
+        private string _Password;
+        private RelayCommand _AdminVerifyCommand;
+        private RelayCommand _CancelVerifyAdmin;
 
-        public AdminRequiredViewModel(LibraryUserService libuserservice)
+        public PaymentViewModel(LibraryUserService libuserservice)
         {
             _LibraryUserService = libuserservice;
         }
-
-        private string _Username;
 
         public string Username
         {
@@ -27,15 +29,11 @@ namespace ritchell.library.ui.client.ViewModels
             set { _Username = value; }
         }
 
-        private string _Password;
-
         public string Password
         {
             get { return _Password; }
             set { _Password = value; }
         }
-
-        private RelayCommand _AdminVerifyCommand;
 
         /// <summary>
         /// Gets the AdminVerifyCommand.
@@ -50,13 +48,11 @@ namespace ritchell.library.ui.client.ViewModels
                     {
                         var admin = _LibraryUserService.GetAuthenticatedAdmin(Username, Password);
                         if (admin != null)
-                            Messenger.Default.Send<VMMessages.UserSuccessfullyAuthenticated>(new VMMessages.UserSuccessfullyAuthenticated { AuthenticatedUser = admin });
+                            Messenger.Default.Send<VMMessages.UserSuccessfullyPay>(new VMMessages.UserSuccessfullyPay { AuthenticatedUser = admin });
                     },
                     () => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password)));
             }
         }
-
-        private RelayCommand _CancelVerifyAdmin;
 
         /// <summary>
         /// Gets the CancelVerifyAdmin.

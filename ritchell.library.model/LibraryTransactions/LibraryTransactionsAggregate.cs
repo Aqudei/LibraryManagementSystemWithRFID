@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ritchell.library.infrastructure;
+using ritchell.library.model.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,20 +9,44 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model.LibraryTransactions
 {
-    public class LibraryTransactionsAggregate
+    public class LibraryTransactionsAggregate : INPCBase
     {
         private ObservableCollection<LibraryTransactionBase> _LibraryTransactions;
-        private readonly LibraryUser _User;
-
-        public LibraryTransactionsAggregate PayNecessaryFees()
-        {
-            return this;
-        }
+        private readonly LibraryUser _LibraryUser;
+        private bool _PaymentPaid;
 
         public LibraryTransactionsAggregate(LibraryUser user)
         {
-            _User = user;
             LibraryTransactions = new ObservableCollection<LibraryTransactionBase>();
+            _LibraryUser = user;
+
+            if (_LibraryUser.LibraryUserType == LibraryUser.UserType.Teacher)
+            {
+                PayNecessaryFees();
+            }
+        }
+
+        private void PayNecessaryFees()
+        {
+            foreach (var trans in LibraryTransactions)
+            {
+                var returnBookTrans = trans as ReturnBookTransaction;
+                if (returnBookTrans != null)
+                {
+                    returnBookTrans.CompletePayment();
+                }
+            }
+
+            FirePropertyChanged("RequiredFee");
+        }
+
+        public void PayNecessaryFees(string adminUsername, string adminPassword)
+        {
+            var UserService = new LibraryUserService();
+
+            var admin = UserService.GetAuthenticatedAdmin(adminUsername, adminPassword);
+            if (admin != null)
+                PayNecessaryFees();
         }
 
         public ObservableCollection<LibraryTransactionBase> LibraryTransactions
@@ -35,12 +61,22 @@ namespace ritchell.library.model.LibraryTransactions
             }
         }
 
+        public bool PaymentPaid
+        {
+            get { return _PaymentPaid; }
+            set
+            {
+                _PaymentPaid = value;
+                FirePropertyChanged("PaymentPaid");
+            }
+        }
+
+
         public void AddTransaction(string bookTag)
         {
             if (LibraryTransactions.Where(t => t.BookTag == bookTag).Any() == false)
-                LibraryTransactionFactory.CreateTransaction(_User.Id, bookTag);
+                LibraryTransactionFactory.CreateTransaction(_LibraryUser.Id, bookTag);
         }
-
 
         public void ExecuteAll()
         {
@@ -65,19 +101,23 @@ namespace ritchell.library.model.LibraryTransactions
             LibraryTransactions.Clear();
         }
 
-        public double ComputeNecessaryFee()
+        public double RequiredFee
         {
-            double necessaryFees = 0;
-            foreach (var trans in LibraryTransactions)
+            get
             {
-                var borrowTrans = trans as ReturnBookTransaction;
-                if (borrowTrans != null)
+                double totalFee = 0;
+                foreach (var trans in LibraryTransactions)
                 {
-                    
+                    var returnBookTrans = trans as ReturnBookTransaction;
+                    if (returnBookTrans != null)
+                    {
+                        totalFee += returnBookTrans.RequiredFee;
+                    }
                 }
-            }
 
-            return necessaryFees;
+                return totalFee;
+            }
         }
+
     }
 }

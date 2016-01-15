@@ -76,6 +76,7 @@
     <Compile Include="LibraryTransactions\LibraryTransactionBase.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionFactory.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionsAggregate.cs" />
+    <Compile Include="LibraryTransactions\PaymentService.cs" />
     <Compile Include="LibraryTransactions\ReturnBookTransaction.cs" />
     <Compile Include="LibraryUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,15 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
-using ritchell.library.model;
 using ritchell.library.model.LibraryTransactions;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ritchell.library.ui.client.ViewServices;
+using ritchell.library.model.Services;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -17,17 +10,21 @@ namespace ritchell.library.ui.client.ViewModels
     {
         private LibraryTransactionsAggregate _BatchLibraryTransactions;
         private RelayCommand _ResetTransactionsCommand;
+        private RelayCommand _ProceedCommand;
+        private RelayCommand _PayFeeCommand;
+        private LibraryUserService _LibraryUserService;
+        private string _Username;
+        private string _Password;
 
-        public BorrowReturnBookViewModel(IAdminViewDialogService adminDialog)
+        public BorrowReturnBookViewModel(LibraryUserService libUservice)
         {
-            _AdminDilaog = adminDialog;
+            _LibraryUserService = libUservice;
 
             var user = SimpleIoc.Default.GetInstance<AuthenticationViewModel>().CurrentLibraryUser;
 
             BatchLibraryTransactions = new LibraryTransactionsAggregate(user);
         }
 
-       
         public RelayCommand ResetTransactionsCommand
         {
             get
@@ -40,11 +37,6 @@ namespace ritchell.library.ui.client.ViewModels
                     () => BatchLibraryTransactions != null);
             }
         }
-
-
-
-        private RelayCommand _ProceedCommand;
-        private IAdminViewDialogService _AdminDilaog;
 
         /// <summary>
         /// Gets the ProceedCommand.
@@ -59,11 +51,41 @@ namespace ritchell.library.ui.client.ViewModels
                     {
                         BatchLibraryTransactions.ExecuteAll();
                     },
-                    () => BatchLibraryTransactions != null));
+                    () => BatchLibraryTransactions != null &&
+                    BatchLibraryTransactions.RequiredFee <= 0));
             }
         }
 
-       
+        public RelayCommand PayFeeCommand
+        {
+            get
+            {
+                return _PayFeeCommand = _PayFeeCommand ?? new RelayCommand(() =>
+                {
+                    BatchLibraryTransactions.PayNecessaryFees(Username, Password);
+                }, () => !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password));
+            }
+        }
+
+        public string Password
+        {
+            get { return _Password; }
+            set
+            {
+                _Password = value;
+                RaisePropertyChanged(() => Password);
+            }
+        }
+
+        public string Username
+        {
+            get { return _Username; }
+            set
+            {
+                _Username = value;
+                RaisePropertyChanged(() => Username);
+            }
+        }
 
         public LibraryTransactionsAggregate BatchLibraryTransactions
         {

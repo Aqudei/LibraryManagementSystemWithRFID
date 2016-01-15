@@ -11,6 +11,7 @@ namespace ritchell.library.ui.client.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private AuthenticationViewModel _AuthenticationViewModel;
+        private DashboardViewModel _DashboardViewModel;
 
         public AuthenticationViewModel AuthenticationViewModel
         {
@@ -24,9 +25,7 @@ namespace ritchell.library.ui.client.ViewModels
                 RaisePropertyChanged(() => AuthenticationViewModel);
             }
         }
-
-        private DashboardViewModel _DashboardViewModel;
-
+        
         public DashboardViewModel DashboardViewModel
         {
             get { return _DashboardViewModel = _DashboardViewModel ?? SimpleIoc.Default.GetInstance<DashboardViewModel>(); }

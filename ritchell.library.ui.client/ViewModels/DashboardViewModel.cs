@@ -16,7 +16,7 @@ namespace ritchell.library.ui.client.ViewModels
         private RelayCommand _ByBooksCommand;
         private RelayCommand _BorrowReturnBookCommand;
         private ViewModelBase _ContentRegion;
-
+        private RelayCommand _LogoutCommand;
 
         /// <summary>
         /// Initializes a new instance of the DashboardPageViewModel class.
@@ -42,7 +42,7 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 return _BorrowReturnBookCommand = _BorrowReturnBookCommand ?? new RelayCommand(() =>
                 {
-                    DashboardContent = SimpleIoc.Default.GetInstanceWithoutCaching<BorrowReturnBookViewModel>();
+                    DashboardContent = SimpleIoc.Default.GetInstance<BorrowReturnBookViewModel>();
                 }, () => true);
             }
         }
@@ -58,6 +58,15 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 _ContentRegion = value;
                 RaisePropertyChanged(() => DashboardContent);
+            }
+        }
+
+        public RelayCommand LogoutCommand
+        {
+            get
+            {
+                return _LogoutCommand = _LogoutCommand ?? new RelayCommand(() => { },
+              () => true);
             }
         }
     }

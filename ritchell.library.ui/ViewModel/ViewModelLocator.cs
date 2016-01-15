@@ -9,6 +9,7 @@
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 */
 
+using System;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -36,7 +37,8 @@ namespace ritchell.library.ui.ViewModel
             }
             else
             {
-            
+                //SetupRFIDReaders();
+                SetupDebugRFID();
             }
 
             SimpleIoc.Default.Register<BookService>();
@@ -50,8 +52,34 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<SectionPageViewModel>();
             SimpleIoc.Default.Register<BookPageViewModel>();
             SimpleIoc.Default.Register<BookCopyPageViewModel>();
-            SimpleIoc.Default.Register<IRFIDReader, ShortRangeRFID>();
         }
+
+        private static void SetupDebugRFID()
+        {
+            RFIDGenratorDebug.MainWindow rfidDebugWindow = new RFIDGenratorDebug.MainWindow();
+
+            SimpleIoc.Default.Register<IRFIDReader>(() => rfidDebugWindow.RFIDGeneratorShort, "short");
+            SimpleIoc.Default.Register<IRFIDReader>(() => rfidDebugWindow.RFIDGeneratorLong, "long");
+
+            rfidDebugWindow.Show();
+        }
+
+        private static void SetupRFIDReaders()
+        {
+            try
+            {
+                var shortReader = new ShortRangeRFID();
+                var longReader = new LongRangeRFID();
+                longReader.StartMonitoring();
+
+                SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
+                SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
+            }
+            catch (System.Exception)
+            {
+            }
+        }
+
 
         /// <summary>
         /// Gets the Main property.
@@ -88,7 +116,7 @@ namespace ritchell.library.ui.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<BookPageViewModel>();
+                return SimpleIoc.Default.GetInstanceWithoutCaching<BookPageViewModel>();
             }
         }
 

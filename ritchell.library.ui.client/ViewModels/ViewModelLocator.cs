@@ -12,6 +12,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
 
 namespace ritchell.library.ui.client.ViewModels
@@ -35,6 +36,7 @@ namespace ritchell.library.ui.client.ViewModels
             }
             else
             {
+                SetupRealRFIDReaders();
                 // SimpleIoc.Default.Register<IDataService, DataService>();
             }
 
@@ -43,7 +45,22 @@ namespace ritchell.library.ui.client.ViewModels
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<DashboardViewModel>();
             SimpleIoc.Default.Register<AuthenticationViewModel>();
-            SimpleIoc.Default.Register<AdminRequiredViewModel>();
+            SimpleIoc.Default.Register<PaymentViewModel>();
+        }
+
+        private static void SetupRealRFIDReaders()
+        {
+            try
+            {
+                var shortReader = new ShortRangeRFID();
+                var longReader = new LongRangeRFID();
+                longReader.StartMonitoring();
+
+                SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
+                SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
+            }
+            catch (System.Exception)
+            { }
         }
 
         /// <summary>
@@ -84,11 +101,11 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-        public AdminRequiredViewModel AdminRequiredViewModel
+        public PaymentViewModel AdminRequiredViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<AdminRequiredViewModel>();
+                return ServiceLocator.Current.GetInstance<PaymentViewModel>();
             }
         }
     }

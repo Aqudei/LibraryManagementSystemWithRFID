@@ -13,7 +13,7 @@ namespace ritchell.library.ui
     {
         static App()
         {
-            DispatcherHelper.Initialize();   
+            DispatcherHelper.Initialize();
         }
     }
 }

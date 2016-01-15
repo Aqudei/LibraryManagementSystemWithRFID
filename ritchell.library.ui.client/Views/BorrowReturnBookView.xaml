@@ -4,16 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ritchell.library.ui.client.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             mc:Ignorable="d" xmlns:wpf="clr-namespace:ritchell.library.ui.client.WPF"
+             d:DesignHeight="403.167" d:DesignWidth="887.783"
              DataContext="{Binding BorrowReturnBookViewModel, Source={StaticResource Locator}}">
     <Grid>
         <DockPanel  >
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
-                <Button>Proceed</Button>
-                <Button>Cancel</Button>
-            </StackPanel>
 
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,5">
+                <TextBlock VerticalAlignment="Center" FontSize="21.333">Username</TextBlock>
+                <TextBox Width="150" VerticalAlignment="Center" FontSize="21.333" Margin="0,0,20,0" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock VerticalAlignment="Center" FontSize="21.333">Password</TextBlock>
+                <PasswordBox Width="150" 
+                             wpf:PasswordHelper.Attach="True" 
+                             wpf:PasswordHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             VerticalAlignment="Center" FontSize="21.333" Margin="0,0,20,0"/>
+                <Button Style="{DynamicResource ButtonStyle1}" Margin="5,0" Command="{Binding PayFeeCommand, Mode=OneWay}">Pay</Button>
+                <Button Style="{DynamicResource ButtonStyle1}" Margin="5,0" Command="{Binding ProceedCommand, Mode=OneWay}">Proceed</Button>
+                <Button Style="{DynamicResource ButtonStyle1}" Margin="5,0" Content="Clear Transactions" Command="{Binding ResetTransactionsCommand, Mode=OneWay}"/>
+            </StackPanel>
             <ItemsControl DockPanel.Dock="Top" 
                           ItemsSource="{Binding BatchLibraryTransactions.LibraryTransactions}">
 

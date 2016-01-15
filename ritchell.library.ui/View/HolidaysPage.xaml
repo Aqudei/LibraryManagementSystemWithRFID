@@ -8,7 +8,7 @@
              d:DesignHeight="358.824" d:DesignWidth="801.98"
              DataContext="{Binding HolidayPageViewModel, Source={StaticResource Locator}}">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Margin="10,10,0,47.199" Width="300" ItemsSource="{Binding Holidays}">
+        <ListView x:Name="listView" ItemsSource="{Binding Holidays}" Width="300" HorizontalAlignment="Left">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120" Header="Day" DisplayMemberBinding="{Binding Day, StringFormat=D}"/>
@@ -16,7 +16,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Margin="315,16,10,0" Orientation="Vertical" VerticalAlignment="Top">
+        <StackPanel Margin="315,16,10,0" Orientation="Vertical" VerticalAlignment="Top" Width="300" HorizontalAlignment="Left">
             <DatePicker x:Name="datePicker" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,0,0,5"/>
             <TextBox x:Name="textBox" 
         		Height="23" TextWrapping="Wrap" 

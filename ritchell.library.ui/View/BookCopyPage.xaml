@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="512.088" d:DesignWidth="580.219"
+      d:DesignHeight="497.088" d:DesignWidth="865.219"
         Title="BookCopyPage"
       DataContext="{Binding BookCopyPageViewModel, Source={StaticResource Locator}}">
 
@@ -29,7 +29,8 @@
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header="RFID Short" >
+                            <GridViewColumn Header="RFID Short" Width="200" >
+
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding BookTag}" />
@@ -38,7 +39,8 @@
 
                             </GridViewColumn>
 
-                            <GridViewColumn Header="RFID Long" >
+                            <GridViewColumn Header="RFID Long" Width="250" >
+
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding BookTag}" />
@@ -53,13 +55,13 @@
 
             </ListView>
 
-            <StackPanel Orientation="Vertical" DockPanel.Dock="Right">
-                <TextBlock>RFID Short</TextBlock>
-                <TextBox IsReadOnly="True" Text="{Binding RFIDShort, Mode=OneWay}" />
-                <TextBlock>RFID Long</TextBlock>
-                <TextBox IsReadOnly="True" Text="{Binding RFIDLong, Mode=OneWay}"/>
-                <Button Command="{Binding AddBookCopyCommand}">Add</Button>
-                <Button Command="{Binding DeleteBookCopyCommand}">Delete</Button>
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="10,0">
+                <TextBlock Margin="0,4" FontSize="24">RFID Short</TextBlock>
+                <TextBox IsReadOnly="True" Text="{Binding RFIDShort, Mode=TwoWay}" Margin="0,4" FontSize="24" />
+                <TextBlock Margin="0,4" FontSize="24">RFID Long</TextBlock>
+                <TextBox IsReadOnly="True" Text="{Binding RFIDLong, Mode=TwoWay}" Margin="0,4" FontSize="24"/>
+                <Button Command="{Binding AddBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Add</Button>
+                <Button Command="{Binding DeleteBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Delete</Button>
             </StackPanel>
         </DockPanel>
     </Grid>

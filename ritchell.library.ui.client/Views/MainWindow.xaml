@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.client"
-        mc:Ignorable="d" Title="MainWindow" Height="350" Width="525"
-        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+        mc:Ignorable="d" Title="MainWindow" Height="405.894" Width="1519.473"
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}" WindowState="Maximized" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
@@ -16,12 +16,12 @@
         </Grid.RowDefinitions>
 
         <ContentControl Content="{Binding AuthenticationViewModel, Mode=TwoWay}" 
-                        Grid.Row="0"/>       
+                        Grid.Row="0"/>
 
-            <ContentControl Grid.Row="1" HorizontalAlignment="Left"
+        <ContentControl Grid.Row="1"
                             Content="{Binding DashboardViewModel}" 
-                            IsEnabled="{Binding AuthenticationViewModel.HasAuthenticatedUser}" />
-      
+                            IsEnabled="{Binding AuthenticationViewModel.HasAuthenticatedUser}" HorizontalContentAlignment="Stretch" />
+
 
 
 

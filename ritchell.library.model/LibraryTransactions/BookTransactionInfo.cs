@@ -9,8 +9,8 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public class BookTransactionInfo : EntityBase<Guid>, IComparable<BookTransactionInfo>
     {
-        public Guid BookCopyId { get; internal set; }
-        public Guid LibraryUserId { get; internal set; }
+        public Guid BookCopyId { get;  set; }
+        public Guid LibraryUserId { get;  set; }
         public bool IsTransactionDone { get; set; }
         public DateTime? BorrowDate { get; set; }
         public DateTime? ReturnDate { get; set; }

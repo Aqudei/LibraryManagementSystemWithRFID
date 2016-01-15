@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ritchell.library.ui.client.Properties {
+namespace RFIDGenratorDebug.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

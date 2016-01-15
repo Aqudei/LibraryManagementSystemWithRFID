@@ -36,8 +36,11 @@ namespace ritchell.library.ui.ViewModel
         }
 
         public override void EditItemCommandHandler()
+        { }
+
+        public override bool InputFieldsAreValid()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         protected override void NewItemCommandHandler()

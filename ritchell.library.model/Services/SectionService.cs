@@ -107,20 +107,5 @@ namespace ritchell.library.model.Services
                 return sectionRepo.GetBookSection(bookInfo);
             }
         }
-
-        public double GetChargePerDayForLateReturning(BookCopy bookCopy)
-        {
-            var bookCopyService = new BookCopyService();
-
-            var bookInfo = bookCopyService.GetBookInfo(bookCopy);
-
-            if (bookInfo == null)
-                throw new InvalidOperationException("Book copy has no known book information");
-            var section = GetBookSection(bookInfo);
-            if (section == null)
-                throw new InvalidOperationException();
-
-            return section.LateReturningFee;
-        }
     }
 }
