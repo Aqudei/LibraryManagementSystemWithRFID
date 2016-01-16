@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <ContentControl Content="{Binding AuthenticationViewModel, Mode=TwoWay}" 
-                        Grid.Row="0"/>
+                        Grid.Row="0" HorizontalContentAlignment="Right" HorizontalAlignment="Right" />
 
         <ContentControl Grid.Row="1"
                             Content="{Binding DashboardViewModel}" 

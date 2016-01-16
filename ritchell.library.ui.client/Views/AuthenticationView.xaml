@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ritchell.library.ui.client.Views"
-      mc:Ignorable="d"  d:DesignHeight="65.334" d:DesignWidth="553.917"
+      mc:Ignorable="d"  d:DesignHeight="76.247" d:DesignWidth="679.739"
       xmlns:wpf="clr-namespace:ritchell.library.ui.client.WPF"
       DataContext="{Binding AuthenticationViewModel, Source={StaticResource Locator}}">
 
@@ -17,14 +17,26 @@
                     </DataTemplate>
                 </ContentPresenter.ContentTemplate>
             </ContentPresenter>
-            <TextBlock Margin="6,0" FontSize="16">Username</TextBlock>
-            <TextBox Text="{Binding Username,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                     MinWidth="140" Margin="6,0" FontSize="16"/>
-            <TextBlock Margin="6,0" FontSize="16">Password</TextBlock>
-            <PasswordBox MinWidth="140"
-                         wpf:PasswordHelper.Attach="True" 
-                         wpf:PasswordHelper.Password="{Binding Password,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="6,0" FontSize="16"/>
-            <Button Command="{Binding LoginCommand}" Margin="6,0" FontSize="16" Padding="7,3" Style="{DynamicResource ButtonStyle1}">Login</Button>
+            <StackPanel  Orientation="Horizontal"
+                         Visibility="{Binding HasNoAuthenticatedUser, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" Margin="0,0,5,0">
+                <TextBlock FontSize="16"><Run Text="Username"/></TextBlock>
+                <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            		MinWidth="140" FontSize="16" Margin="5,0,10,0"/>
+                <TextBlock FontSize="16"><Run Text="Password"/></TextBlock>
+                <PasswordBox MinWidth="140"
+                	wpf:PasswordHelper.Attach="True" 
+                	wpf:PasswordHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Margin="5,0,10,0"/>
+                <Button Command="{Binding LoginCommand}" FontSize="16" Padding="7,3" Style="{DynamicResource ButtonStyle1}" Content="Login"/>
+            </StackPanel>
+
+            <TextBlock x:Name="UserToMessage"  
+                       Text="{Binding MessageToUser}" 
+                       FontWeight="Bold" FontSize="18.667"
+                       FontFamily="Century Gothic" Margin="0,0,5,0"/>
+            <Button Command="{Binding LogoutCommand}" 
+                    Visibility="{Binding HasAuthenticatedUser, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"
+                    Margin="5,0" FontSize="16" Padding="7,3" Style="{DynamicResource ButtonStyle1}" Content="Logout"/>
+
         </StackPanel>
     </Grid>
 </UserControl>

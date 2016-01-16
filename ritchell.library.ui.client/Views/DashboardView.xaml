@@ -13,13 +13,14 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
-            <Button Command="{Binding BorrowReturnBookCommand}" Style="{DynamicResource ButtonStyle2}">Borrow / Return Books</Button>
-            <Button Style="{DynamicResource ButtonStyle2}">Transaction History</Button>
-            <Button Style="{DynamicResource ButtonStyle2}">Logout</Button>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Left" Orientation="Vertical" Width="210" Margin="10">
+            <Button Command="{Binding BorrowReturnBookCommand}" Style="{DynamicResource ButtonStyle2}" Height="40" Content="Borrow / Return Books"/>
+            <Button Style="{DynamicResource ButtonStyle2}" Height="63.162" Content="Transaction History&#xD;&#xA;(under construction)"/>
+            <Button Style="{DynamicResource ButtonStyle2}" Height="92.942" Content="Unpaid Fees / &#xD;&#xA;Unreturned Books&#xD;&#xA;(under construction)"/>
         </StackPanel>
 
         <ContentPresenter Content="{Binding DashboardContent}" 
-                          Grid.Column="1"/>
+    		Grid.Column="1"
+    		HorizontalAlignment="Stretch"/>
     </Grid>
 </UserControl>

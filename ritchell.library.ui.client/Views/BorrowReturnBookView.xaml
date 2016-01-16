@@ -23,13 +23,13 @@
                 <Button Style="{DynamicResource ButtonStyle1}" Margin="5,0" Content="Clear Transactions" Command="{Binding ResetTransactionsCommand, Mode=OneWay}"/>
             </StackPanel>
             <ItemsControl DockPanel.Dock="Top" 
-                          ItemsSource="{Binding BatchLibraryTransactions.LibraryTransactions}">
+                          ItemsSource="{Binding LibraryTransactions}">
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding TransactionType}"/>
-                            <TextBlock Text="{Binding BookTitle}"/>
+                            <TextBlock Text="{Binding TransactionType}" FontSize="21.333" Margin="0,0,10,0"/>
+                            <TextBlock Text="{Binding BookTitle}" FontSize="21.333"/>
                         </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

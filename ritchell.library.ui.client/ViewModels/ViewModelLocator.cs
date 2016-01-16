@@ -9,6 +9,7 @@
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 */
 
+using System;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -37,7 +38,6 @@ namespace ritchell.library.ui.client.ViewModels
             else
             {
                 SetupRealRFIDReaders();
-                // SimpleIoc.Default.Register<IDataService, DataService>();
             }
 
             SimpleIoc.Default.Register<BorrowReturnBookViewModel>();
@@ -48,16 +48,17 @@ namespace ritchell.library.ui.client.ViewModels
             SimpleIoc.Default.Register<PaymentViewModel>();
         }
 
+        private static void SetupFakeRFIDReaders()
+        {
+            throw new NotImplementedException();
+        }
+
         private static void SetupRealRFIDReaders()
         {
             try
             {
                 var shortReader = new ShortRangeRFID();
-                var longReader = new LongRangeRFID();
-                longReader.StartMonitoring();
-
                 SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
-                SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
             }
             catch (System.Exception)
             { }

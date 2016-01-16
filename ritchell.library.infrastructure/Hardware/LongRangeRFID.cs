@@ -2,6 +2,7 @@
 using ReaderB;
 using System.ComponentModel;
 using System.Threading;
+using System.Diagnostics;
 
 namespace ritchell.library.infrastructure.Hardware
 {
@@ -41,7 +42,10 @@ namespace ritchell.library.infrastructure.Hardware
         {
             var handler = TagRead;
             if (handler != null)
+            {
                 handler(this, e.UserState.ToString());
+                Debug.WriteLine("LongRangeFired");
+            }
         }
 
         private void Bw_DoWork(object sender, DoWorkEventArgs e)
@@ -54,19 +58,22 @@ namespace ritchell.library.infrastructure.Hardware
                 var fCmdRet = StaticClassReaderB.Inventory_G2(ref _ComAddr, 0, 0, 0, EPCBuffer, ref EPCBufferLen, ref numberOfTags, _PortHandle);
                 if ((fCmdRet == 1) | (fCmdRet == 2) | (fCmdRet == 3) | (fCmdRet == 4) | (fCmdRet == 0xFB))
                 {
-                    int cnt = 0;
-                    for (int i = 0; ;)
+                    if (EPCBufferLen > 0)
                     {
-                        if (cnt == numberOfTags)
-                            break;
-                        var tag = BitConverter.ToString(EPCBuffer, i + 1, EPCBuffer[i]);
-                        (sender as BackgroundWorker)?.ReportProgress(0, tag);
-                        i = i + EPCBuffer[i] + 1;
-                        cnt++;
+                        int cnt = 0;
+                        for (int i = 0; ;)
+                        {
+                            if (cnt == numberOfTags)
+                                break;
+                            var tag = BitConverter.ToString(EPCBuffer, i + 1, EPCBuffer[i]);
+                            (sender as BackgroundWorker)?.ReportProgress(0, tag);
+                            i = i + EPCBuffer[i] + 1;
+                            cnt++;
+                        }
                     }
                 }
 
-                Thread.Sleep(100);
+                Thread.Sleep(250);
             }
         }
 

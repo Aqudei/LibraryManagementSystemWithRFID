@@ -35,8 +35,7 @@ namespace ritchell.library.ui.ViewModel
         public BookCopyPageViewModel(BookCopyService bookCopyService)
         {
             this.BookCopyService = bookCopyService;
-            if (IsInDesignMode == false)
-                SetupRFIDReader();
+            SetupRFIDReader();
         }
 
         private void SetupRFIDReader()
@@ -136,9 +135,7 @@ namespace ritchell.library.ui.ViewModel
         }
 
         void ItemsCollectionView_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
+        { }
 
         public string RFIDLong
         {

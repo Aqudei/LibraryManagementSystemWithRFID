@@ -1,7 +1,9 @@
-﻿using ritchell.library.infrastructure.Hardware;
+﻿using GalaSoft.MvvmLight.Threading;
+using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -25,6 +27,7 @@ namespace AlarmApp
     {
         private MediaPlayer mediaPlayer;
         public ICommand _StopAlarmCommand;
+        private DateTime lastTagReadTime;
 
         public MainWindow()
         {
@@ -35,15 +38,8 @@ namespace AlarmApp
                 DataContext = this;
 
                 mediaPlayer = new MediaPlayer();
-
                 var soundFile = System.IO.Path.Combine(Environment.CurrentDirectory, "Car Alarm 02.wav");
-
                 mediaPlayer.Open(new Uri(soundFile));
-                mediaPlayer.Volume = 100;
-                mediaPlayer.MediaEnded += (ss, ee) =>
-                {
-                    mediaPlayer.Position = TimeSpan.FromMilliseconds(1);
-                };
 
                 var unborrowedMonitor = new Services.UnborrowedBookMonitor(
                     new BookCopyService(),
@@ -64,7 +60,19 @@ namespace AlarmApp
 
         void unborrowedMonitor_UnborrowedIsGoingOut(object sender, Models.BookCopyWithInfo e)
         {
+            //Debug.WriteLine("UnborrowedBookGoindOut");
+            //var now = DateTime.Now;
+            //if ((now - lastTagReadTime).Seconds < 5)
+            //    return;
+
+            //Dispatcher.Invoke(new Action(() =>
+            //{
+            
+
             mediaPlayer.Play();
+
+            //    lastTagReadTime = now;
+            //}));
         }
 
         class StopAlarmCommandDef : ICommand

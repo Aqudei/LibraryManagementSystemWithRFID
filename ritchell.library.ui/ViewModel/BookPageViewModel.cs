@@ -63,12 +63,23 @@ namespace ritchell.library.ui.ViewModel
 
         public override void DeleteItemCommandHandler()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var currentBook = ItemsCollectionView.CurrentItem as BookInfo;
+                if (currentBook != null)
+                {
+                    _BookService.DeleteBook(currentBook);
+                    items.Remove(currentBook);
+                }
+            }
+            catch (Exception)
+            { }
+
         }
 
         public override void EditItemCommandHandler()
         {
-            throw new NotImplementedException();
+            
         }
 
         public override bool InputFieldsAreValid()

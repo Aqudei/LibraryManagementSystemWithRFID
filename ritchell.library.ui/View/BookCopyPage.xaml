@@ -15,7 +15,7 @@
                 <ContentControl Content="{Binding CurrentBook}">
                     <ContentControl.ContentTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding BookTitle}" />
+                            <TextBlock Text="{Binding BookTitle}" FontSize="18.667" FontWeight="Bold" />
                         </DataTemplate>
                     </ContentControl.ContentTemplate>
                 </ContentControl>
@@ -30,10 +30,9 @@
                     <GridView>
                         <GridView.Columns>
                             <GridViewColumn Header="RFID Short" Width="200" >
-
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding BookTag}" />
+                                        <TextBlock Text="{Binding BookTagShort}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
 
@@ -43,7 +42,7 @@
 
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding BookTag}" />
+                                        <TextBlock Text="{Binding BookTagLong}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
 

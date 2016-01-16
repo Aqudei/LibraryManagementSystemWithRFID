@@ -75,7 +75,10 @@ namespace ritchell.library.model.LibraryTransactions
         public void AddTransaction(string bookTag)
         {
             if (LibraryTransactions.Where(t => t.BookTag == bookTag).Any() == false)
-                LibraryTransactionFactory.CreateTransaction(_LibraryUser.Id, bookTag);
+            {
+                var trans = LibraryTransactionFactory.CreateTransaction(_LibraryUser.Id, bookTag);
+                _LibraryTransactions.Add(trans);
+            }
         }
 
         public void ExecuteAll()

@@ -31,5 +31,23 @@ namespace ritchell.library.model.Services
                 return uow.BookInfoRepository.GetAll();
             }
         }
+
+        public void DeleteBook(BookInfo bookInfo)
+        {
+            using (LibUnitOfWork uow = new LibUnitOfWork())
+            {
+                var _bookInfo = uow.BookInfoRepository.FindById(bookInfo.Id);
+                uow.BookInfoRepository.Remove(_bookInfo);
+                uow.SaveChanges();
+            }
+        }
+
+        public BookInfo BookInfoOf(BookCopy bookCopy)
+        {
+            using (var bookInfoRepo = new BookInfoRepository())
+            {
+                return bookInfoRepo.BookInfoOf(bookCopy);
+            }
+        }
     }
 }

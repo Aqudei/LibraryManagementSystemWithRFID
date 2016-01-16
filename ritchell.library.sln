@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.ui.client"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFIDGenratorDebug", "RFIDGenratorDebug\RFIDGenratorDebug.csproj", "{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmAppConsole", "AlarmAppConsole\AlarmAppConsole.csproj", "{0A1E1A9C-555D-435C-90FF-A88649FA06BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

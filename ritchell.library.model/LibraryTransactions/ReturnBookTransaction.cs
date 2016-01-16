@@ -40,6 +40,8 @@ namespace ritchell.library.model.LibraryTransactions
             {
                 return "Return";
             }
+            set
+            { }
         }
 
         public override void Execute()

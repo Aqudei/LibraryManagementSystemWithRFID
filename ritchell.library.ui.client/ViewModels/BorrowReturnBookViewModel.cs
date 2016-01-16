@@ -1,8 +1,11 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Threading;
+using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.LibraryTransactions;
 using ritchell.library.model.Services;
+using System.Collections.ObjectModel;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -16,6 +19,16 @@ namespace ritchell.library.ui.client.ViewModels
         private string _Username;
         private string _Password;
 
+
+        public ObservableCollection<LibraryTransactionBase> LibraryTransactions
+        {
+            get
+            {
+                return _BatchLibraryTransactions.LibraryTransactions;
+            }
+        }
+
+
         public BorrowReturnBookViewModel(LibraryUserService libUservice)
         {
             _LibraryUserService = libUservice;
@@ -23,6 +36,14 @@ namespace ritchell.library.ui.client.ViewModels
             var user = SimpleIoc.Default.GetInstance<AuthenticationViewModel>().CurrentLibraryUser;
 
             BatchLibraryTransactions = new LibraryTransactionsAggregate(user);
+
+            var shortRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
+            shortRFIDReader.TagRead += ShortRFIDReader_TagRead;
+        }
+
+        private void ShortRFIDReader_TagRead(object sender, string e)
+        {
+            DispatcherHelper.CheckBeginInvokeOnUI(() => _BatchLibraryTransactions.AddTransaction(e));
         }
 
         public RelayCommand ResetTransactionsCommand

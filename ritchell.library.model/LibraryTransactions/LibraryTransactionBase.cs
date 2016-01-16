@@ -6,7 +6,7 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public abstract class LibraryTransactionBase : INPCBase
     {
-        public abstract string TransactionType { get; }
+        public abstract string TransactionType { get;  set; }
         public string BookTitle { get; set; }
         public string BookTag { get; set; }
         public DateTime TransactionDate { get; set; }

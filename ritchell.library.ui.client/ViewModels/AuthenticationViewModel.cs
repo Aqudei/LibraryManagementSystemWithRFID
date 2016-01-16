@@ -22,6 +22,11 @@ namespace ritchell.library.ui.client.ViewModels
         private RelayCommand _LogoutCommand;
         private string _Password;
 
+        public bool HasNoAuthenticatedUser
+        {
+            get { return _CurrentLibraryUser == null; }
+        }
+
         public bool HasAuthenticatedUser
         {
             get { return _CurrentLibraryUser != null; }
@@ -36,6 +41,7 @@ namespace ritchell.library.ui.client.ViewModels
 
                 RaisePropertyChanged(() => LoginCommand);
                 RaisePropertyChanged(() => LogoutCommand);
+                RaisePropertyChanged(() => HasNoAuthenticatedUser);
                 RaisePropertyChanged(() => HasAuthenticatedUser);
             }
         }
@@ -47,6 +53,8 @@ namespace ritchell.library.ui.client.ViewModels
                 return _LoginCommand = _LoginCommand ?? new RelayCommand(() =>
                 {
                     CurrentLibraryUser = _LibraryUserService.GetAuthenticatedUser(Username, Password);
+
+                    MessageToUser = "Welcome " + CurrentLibraryUser?.Fullname;
 
                 }, () => IsInputFilledUp());
             }
@@ -60,6 +68,10 @@ namespace ritchell.library.ui.client.ViewModels
                 return _LogoutCommand = _LogoutCommand ?? new RelayCommand(() =>
                 {
                     CurrentLibraryUser = null;
+                    Username = "";
+                    Password = "";
+                    MessageToUser = "";
+
                 }, () => HasAuthenticatedUser);
             }
 
@@ -99,6 +111,19 @@ namespace ritchell.library.ui.client.ViewModels
         {
             _LibraryUserService = libUserService;
         }
+
+        private string _UserToMessage;
+
+        public string MessageToUser
+        {
+            get { return _UserToMessage; }
+            set
+            {
+                _UserToMessage = value;
+                RaisePropertyChanged(() => MessageToUser);
+            }
+        }
+
 
     }
 }

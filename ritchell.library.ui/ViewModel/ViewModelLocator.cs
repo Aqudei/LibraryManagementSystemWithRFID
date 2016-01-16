@@ -15,6 +15,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
+using System.Diagnostics;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -37,8 +38,8 @@ namespace ritchell.library.ui.ViewModel
             }
             else
             {
-                //SetupRFIDReaders();
-                SetupDebugRFID();
+                SetupRFIDReaders();
+                //SetupDebugRFID();
             }
 
             SimpleIoc.Default.Register<BookService>();
@@ -75,8 +76,9 @@ namespace ritchell.library.ui.ViewModel
                 SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
                 SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
+                Debug.WriteLine("Hardware failure\n" + ex.Message);
             }
         }
 

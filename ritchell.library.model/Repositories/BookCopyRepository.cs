@@ -31,7 +31,7 @@ namespace ritchell.library.model.Repositories
 
         public BookInfo BookInfoOf(BookCopy bookCopy)
         {
-            throw new NotImplementedException();
+            return _Context.Set<BookInfo>().Where(b => b.Id == bookCopy.BookInfoId).FirstOrDefault();
         }
 
         #region IDisposable Support
