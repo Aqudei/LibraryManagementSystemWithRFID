@@ -17,7 +17,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -94,30 +94,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\PaymentViewModel.cs" />
-    <Compile Include="ViewModels\BorrowReturnBookViewModel.cs" />
-    <Compile Include="ViewModels\DashboardViewModel.cs" />
-    <Compile Include="ViewModels\TransactionPageViewModel.cs" />
+    <Compile Include="ViewModels\VMMessages\UserEvent.cs" />
+    <Compile Include="ViewModels\VMMessages\UserHasLogin.cs" />
+    <Compile Include="ViewModels\VMMessages\UserHasLogout.cs" />
     <Compile Include="ViewModels\VMMessages\UserSuccessfullyAuthenticated.cs" />
-    <Compile Include="Views\BorrowReturnBookView.xaml.cs">
-      <DependentUpon>BorrowReturnBookView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DashboardView.xaml.cs">
-      <DependentUpon>DashboardView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TransactionPage.xaml.cs">
-      <DependentUpon>TransactionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WPF\PasswordHelper.cs" />
     <Page Include="Dictionary1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\BorrowReturnBookView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DashboardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,10 +125,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\TransactionPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

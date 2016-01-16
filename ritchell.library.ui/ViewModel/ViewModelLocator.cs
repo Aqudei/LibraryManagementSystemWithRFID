@@ -54,17 +54,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<BookPageViewModel>();
             SimpleIoc.Default.Register<BookCopyPageViewModel>();
         }
-
-        private static void SetupDebugRFID()
-        {
-            RFIDGenratorDebug.MainWindow rfidDebugWindow = new RFIDGenratorDebug.MainWindow();
-
-            SimpleIoc.Default.Register<IRFIDReader>(() => rfidDebugWindow.RFIDGeneratorShort, "short");
-            SimpleIoc.Default.Register<IRFIDReader>(() => rfidDebugWindow.RFIDGeneratorLong, "long");
-
-            rfidDebugWindow.Show();
-        }
-
+        
         private static void SetupRFIDReaders()
         {
             try

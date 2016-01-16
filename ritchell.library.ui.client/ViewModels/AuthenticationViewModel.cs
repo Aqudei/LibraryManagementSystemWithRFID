@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using ritchell.library.model;
 using ritchell.library.model.Repositories;
 using ritchell.library.model.Services;
+using ritchell.library.ui.client.ViewModels.VMMessages;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -15,36 +16,12 @@ namespace ritchell.library.ui.client.ViewModels
     /// </summary>
     public class AuthenticationViewModel : ViewModelBase
     {
-        private LibraryUser _CurrentLibraryUser = null;
         private string _Username;
-        private readonly LibraryUserService _LibraryUserService;
+        private string _Password;
         private RelayCommand _LoginCommand;
         private RelayCommand _LogoutCommand;
-        private string _Password;
-
-        public bool HasNoAuthenticatedUser
-        {
-            get { return _CurrentLibraryUser == null; }
-        }
-
-        public bool HasAuthenticatedUser
-        {
-            get { return _CurrentLibraryUser != null; }
-        }
-
-        public LibraryUser CurrentLibraryUser
-        {
-            get { return _CurrentLibraryUser; }
-            set
-            {
-                _CurrentLibraryUser = value;
-
-                RaisePropertyChanged(() => LoginCommand);
-                RaisePropertyChanged(() => LogoutCommand);
-                RaisePropertyChanged(() => HasNoAuthenticatedUser);
-                RaisePropertyChanged(() => HasAuthenticatedUser);
-            }
-        }
+        private readonly LibraryUserService _LibraryUserService;
+        private bool _IsAuthenticated;
 
         public RelayCommand LoginCommand
         {
@@ -52,14 +29,34 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 return _LoginCommand = _LoginCommand ?? new RelayCommand(() =>
                 {
-                    CurrentLibraryUser = _LibraryUserService.GetAuthenticatedUser(Username, Password);
+                    var currentLibraryUser = _LibraryUserService.GetAuthenticatedUser(Username, Password);
 
-                    MessageToUser = "Welcome " + CurrentLibraryUser?.Fullname;
+                    if (currentLibraryUser != null && currentLibraryUser.LibraryUserType != LibraryUser.UserType.Admin)
+                    {
+                        CurrentUser = currentLibraryUser;
+                        MessageToUser = "Welcome " + currentLibraryUser.Fullname;
+                        RaiseUserEvent(UserEvent.UserEventType.Login, CurrentUser);
+                        IsAuthenticated = true;
+                    }
+                    else {
+                        IsAuthenticated = false;
+                        CurrentUser = null;
+                    }
 
-                }, () => IsInputFilledUp());
+                }, () => IsInputFilledUp() && !IsAuthenticated);
             }
-
         }
+
+        private void RaiseUserEvent(UserEvent.UserEventType userEventType, LibraryUser libUser)
+        {
+            var handler = LibraryUserEventHandler;
+            if (handler != null)
+            {
+                handler(this, new UserEvent { LibraryUser = libUser, LibraryUserEventType = userEventType });
+            }
+        }
+
+        public event EventHandler<UserEvent> LibraryUserEventHandler;
 
         public RelayCommand LogoutCommand
         {
@@ -67,14 +64,13 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 return _LogoutCommand = _LogoutCommand ?? new RelayCommand(() =>
                 {
-                    CurrentLibraryUser = null;
                     Username = "";
                     Password = "";
                     MessageToUser = "";
-
-                }, () => HasAuthenticatedUser);
+                    IsAuthenticated = false;
+                    RaiseUserEvent(UserEvent.UserEventType.Login, CurrentUser);
+                }, () => IsAuthenticated);
             }
-
         }
 
         private bool IsInputFilledUp()
@@ -110,6 +106,7 @@ namespace ritchell.library.ui.client.ViewModels
         public AuthenticationViewModel(LibraryUserService libUserService)
         {
             _LibraryUserService = libUserService;
+            IsAuthenticated = false;
         }
 
         private string _UserToMessage;
@@ -124,6 +121,32 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
+        public bool IsAuthenticated
+        {
+            get
+            {
+                return _IsAuthenticated;
+            }
 
+            set
+            {
+                _IsAuthenticated = value;
+                RaisePropertyChanged(() => IsAuthenticated);
+                RaisePropertyChanged(() => IsNotAuthenticated);
+            }
+        }
+
+        public bool IsNotAuthenticated
+        {
+            get { return !IsAuthenticated; }
+            set
+            {
+                IsAuthenticated = !value;
+                RaisePropertyChanged(() => IsNotAuthenticated);
+                RaisePropertyChanged(() => IsAuthenticated);
+            }
+        }
+
+        public LibraryUser CurrentUser { get; internal set; }
     }
 }

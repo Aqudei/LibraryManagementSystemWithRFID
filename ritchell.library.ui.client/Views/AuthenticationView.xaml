@@ -18,7 +18,7 @@
                 </ContentPresenter.ContentTemplate>
             </ContentPresenter>
             <StackPanel  Orientation="Horizontal"
-                         Visibility="{Binding HasNoAuthenticatedUser, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" Margin="0,0,5,0">
+                         Visibility="{Binding IsNotAuthenticated, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" Margin="0,0,5,0">
                 <TextBlock FontSize="16"><Run Text="Username"/></TextBlock>
                 <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             		MinWidth="140" FontSize="16" Margin="5,0,10,0"/>
@@ -34,7 +34,7 @@
                        FontWeight="Bold" FontSize="18.667"
                        FontFamily="Century Gothic" Margin="0,0,5,0"/>
             <Button Command="{Binding LogoutCommand}" 
-                    Visibility="{Binding HasAuthenticatedUser, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"
+                    Visibility="{Binding IsAuthenticated, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}"
                     Margin="5,0" FontSize="16" Padding="7,3" Style="{DynamicResource ButtonStyle1}" Content="Logout"/>
 
         </StackPanel>

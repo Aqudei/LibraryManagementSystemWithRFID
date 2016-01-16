@@ -12,21 +12,33 @@ namespace ritchell.library.model.LibraryTransactions
     public class LibraryTransactionsAggregate : INPCBase
     {
         private ObservableCollection<LibraryTransactionBase> _LibraryTransactions;
-        private readonly LibraryUser _LibraryUser;
-        private bool _PaymentPaid;
+        private LibraryUser _LibraryUser;
 
-        public LibraryTransactionsAggregate(LibraryUser user)
+        public LibraryTransactionsAggregate(LibraryUser user) : this()
         {
-            LibraryTransactions = new ObservableCollection<LibraryTransactionBase>();
             _LibraryUser = user;
 
             if (_LibraryUser.LibraryUserType == LibraryUser.UserType.Teacher)
             {
-                PayNecessaryFees();
+                CompletePayment();
             }
         }
 
-        private void PayNecessaryFees()
+        public LibraryTransactionsAggregate()
+        {
+            LibraryTransactions = new ObservableCollection<LibraryTransactionBase>();
+        }
+
+        public void CompletePayment(string adminUsername, string adminPassword)
+        {
+            var UserService = new LibraryUserService();
+
+            var admin = UserService.GetAuthenticatedAdmin(adminUsername, adminPassword);
+            if (admin != null)
+                CompletePayment();
+        }
+
+        private void CompletePayment()
         {
             foreach (var trans in LibraryTransactions)
             {
@@ -40,13 +52,10 @@ namespace ritchell.library.model.LibraryTransactions
             FirePropertyChanged("RequiredFee");
         }
 
-        public void PayNecessaryFees(string adminUsername, string adminPassword)
+        public void PrepareForNewUser(LibraryUser user)
         {
-            var UserService = new LibraryUserService();
-
-            var admin = UserService.GetAuthenticatedAdmin(adminUsername, adminPassword);
-            if (admin != null)
-                PayNecessaryFees();
+            _LibraryUser = user;
+            Reset();
         }
 
         public ObservableCollection<LibraryTransactionBase> LibraryTransactions
@@ -61,22 +70,11 @@ namespace ritchell.library.model.LibraryTransactions
             }
         }
 
-        public bool PaymentPaid
-        {
-            get { return _PaymentPaid; }
-            set
-            {
-                _PaymentPaid = value;
-                FirePropertyChanged("PaymentPaid");
-            }
-        }
-
-
         public void AddTransaction(string bookTag)
         {
             if (LibraryTransactions.Where(t => t.BookTag == bookTag).Any() == false)
             {
-                var trans = LibraryTransactionFactory.CreateTransaction(_LibraryUser.Id, bookTag);
+                var trans = LibraryTransactionFactory.CreateTransaction(_LibraryUser, bookTag);
                 _LibraryTransactions.Add(trans);
             }
         }

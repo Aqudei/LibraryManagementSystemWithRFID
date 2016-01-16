@@ -24,13 +24,13 @@ namespace ritchell.library.model.LibraryTransactions
         {
             get
             {
-                return _PaymentService.ComputeNecessaryFee(BookCopy) - _LastBookTransaction.AmountPaid;
+                return _PaymentService.ComputeNecessaryFee(BookCopy, _LastBookTransaction) - _LastBookTransaction.AmountPaid;
             }
         }
 
         public void CompletePayment()
         {
-            _LastBookTransaction.AmountPaid = _PaymentService.ComputeNecessaryFee(BookCopy);
+            _LastBookTransaction.AmountPaid = _PaymentService.ComputeNecessaryFee(BookCopy, _LastBookTransaction);
             FirePropertyChanged("RequiredFee");
         }
 
@@ -38,7 +38,7 @@ namespace ritchell.library.model.LibraryTransactions
         {
             get
             {
-                return "Return";
+                return "Return Book";
             }
             set
             { }
@@ -51,7 +51,6 @@ namespace ritchell.library.model.LibraryTransactions
                 BookCopy.IsBorrowed = false;
                 _LastBookTransaction.IsTransactionDone = true;
                 _LastBookTransaction.ReturnDate = DateTime.Now;
-                _LastBookTransaction.AmountPaid = _PaymentService.ComputeNecessaryFee(BookCopy);
                 uow.BookTransactionInfoRepository.Update(_LastBookTransaction);
                 uow.BookCopyRepository.Update(BookCopy);
                 uow.SaveChanges();

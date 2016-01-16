@@ -18,7 +18,7 @@ namespace ritchell.library.model.LibraryTransactions
             _BookInfoService = new BookService();
         }
 
-        public double ComputeNecessaryFee(BookCopy bookCopy)
+        public double ComputeNecessaryFee(BookCopy bookCopy, BookTransactionInfo bookTransInfo)
         {
             var bookCopyService = new BookCopyService();
 
@@ -32,7 +32,10 @@ namespace ritchell.library.model.LibraryTransactions
             if (section == null)
                 throw new InvalidOperationException("The book does not belong to a section.");
 
-            return section.LateReturningFee;
+            if (DateTime.Now.Date <= bookTransInfo.ExpectedReturnDate.Date)
+                return 0;
+
+            return (DateTime.Now.Date - bookTransInfo.ExpectedReturnDate.Date).Days * section.LateReturningFee;
         }
     }
 }

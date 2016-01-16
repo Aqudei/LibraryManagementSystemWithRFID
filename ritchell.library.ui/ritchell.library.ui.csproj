@@ -192,10 +192,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RFIDGenratorDebug\RFIDGenratorDebug.csproj">
-      <Project>{44abbf23-d1dc-4189-94e0-b96be19a8c5a}</Project>
-      <Name>RFIDGenratorDebug</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ritchell.library.infrastructure\ritchell.library.infrastructure.csproj">
       <Project>{141a8cb7-66f0-4af7-a086-0648f5753110}</Project>
       <Name>ritchell.library.infrastructure</Name>

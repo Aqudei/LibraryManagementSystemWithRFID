@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BookCopy.cs" />
     <Compile Include="BookInfo.cs" />
+    <Compile Include="Department.cs" />
     <Compile Include="LibraryTransactions\BookTransactionInfo.cs" />
     <Compile Include="Holiday.cs" />
     <Compile Include="Interfaces\IBookCopyRepository.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="ISBN.cs" />
     <Compile Include="LibraryContext.cs" />
     <Compile Include="LibraryTransactions\BorrowBookTransaction.cs" />
+    <Compile Include="LibraryTransactions\ReturnBookIgnorePaymentTransaction.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionBase.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionFactory.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionsAggregate.cs" />

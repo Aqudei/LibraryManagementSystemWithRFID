@@ -13,9 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmApp", "AlarmApp\AlarmA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.ui.client", "ritchell.library.ui.client\ritchell.library.ui.client.csproj", "{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFIDGenratorDebug", "RFIDGenratorDebug\RFIDGenratorDebug.csproj", "{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmAppConsole", "AlarmAppConsole\AlarmAppConsole.csproj", "{0A1E1A9C-555D-435C-90FF-A88649FA06BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.reporting", "ritchell.library.reporting\ritchell.library.reporting.csproj", "{4015BD09-0CA7-4438-8733-FCA419D08936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +41,10 @@ Global
 		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44ABBF23-D1DC-4189-94E0-B96BE19A8C5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A1E1A9C-555D-435C-90FF-A88649FA06BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4015BD09-0CA7-4438-8733-FCA419D08936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4015BD09-0CA7-4438-8733-FCA419D08936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4015BD09-0CA7-4438-8733-FCA419D08936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4015BD09-0CA7-4438-8733-FCA419D08936}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

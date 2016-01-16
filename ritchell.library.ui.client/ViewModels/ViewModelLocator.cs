@@ -15,6 +15,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
+using System.Diagnostics;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -40,17 +41,9 @@ namespace ritchell.library.ui.client.ViewModels
                 SetupRealRFIDReaders();
             }
 
-            SimpleIoc.Default.Register<BorrowReturnBookViewModel>();
-            SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LibraryUserService>();
-            SimpleIoc.Default.Register<DashboardViewModel>();
+            SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AuthenticationViewModel>();
-            SimpleIoc.Default.Register<PaymentViewModel>();
-        }
-
-        private static void SetupFakeRFIDReaders()
-        {
-            throw new NotImplementedException();
         }
 
         private static void SetupRealRFIDReaders()
@@ -61,7 +54,9 @@ namespace ritchell.library.ui.client.ViewModels
                 SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
             }
             catch (System.Exception)
-            { }
+            {
+                Debug.WriteLine("Error  opening short rfid.");
+            }
         }
 
         /// <summary>
@@ -83,30 +78,6 @@ namespace ritchell.library.ui.client.ViewModels
             get
             {
                 return ServiceLocator.Current.GetInstance<AuthenticationViewModel>();
-            }
-        }
-
-        public DashboardViewModel DashboardViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<DashboardViewModel>();
-            }
-        }
-
-        public BorrowReturnBookViewModel BorrowReturnBookViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<BorrowReturnBookViewModel>();
-            }
-        }
-
-        public PaymentViewModel AdminRequiredViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<PaymentViewModel>();
             }
         }
     }

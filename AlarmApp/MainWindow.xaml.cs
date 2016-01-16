@@ -27,7 +27,7 @@ namespace AlarmApp
     {
         private MediaPlayer mediaPlayer;
         public ICommand _StopAlarmCommand;
-        private DateTime lastTagReadTime;
+        private string soundFileUrl;
 
         public MainWindow()
         {
@@ -38,8 +38,9 @@ namespace AlarmApp
                 DataContext = this;
 
                 mediaPlayer = new MediaPlayer();
-                var soundFile = System.IO.Path.Combine(Environment.CurrentDirectory, "Car Alarm 02.wav");
-                mediaPlayer.Open(new Uri(soundFile));
+                soundFileUrl = System.IO.Path.Combine(Environment.CurrentDirectory, "Car Alarm 02.wav");
+
+
 
                 var unborrowedMonitor = new Services.UnborrowedBookMonitor(
                     new BookCopyService(),
@@ -67,8 +68,8 @@ namespace AlarmApp
 
             //Dispatcher.Invoke(new Action(() =>
             //{
-            
 
+            mediaPlayer.Open(new Uri(soundFileUrl));
             mediaPlayer.Play();
 
             //    lastTagReadTime = now;

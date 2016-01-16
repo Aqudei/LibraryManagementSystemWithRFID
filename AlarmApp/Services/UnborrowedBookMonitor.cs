@@ -16,7 +16,6 @@ namespace AlarmApp.Services
 
         private BookCopyService _BookCopyService;
 
-
         public UnborrowedBookMonitor(BookCopyService bookCopyService,
             IRFIDReader longRangeReader)
         {

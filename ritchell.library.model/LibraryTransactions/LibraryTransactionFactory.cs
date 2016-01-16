@@ -9,7 +9,7 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public class LibraryTransactionFactory
     {
-        public static LibraryTransactionBase CreateTransaction(Guid libUserId, string bookTag)
+        public static LibraryTransactionBase CreateTransaction(LibraryUser libraryUser, string bookTag)
         {
             using (var uow = new LibUnitOfWork())
             {
@@ -25,14 +25,14 @@ namespace ritchell.library.model.LibraryTransactions
                     if (lastBookTrans == null)
                         throw new InvalidOperationException("The book has no known borrowed information.");
 
-                    if (lastBookTrans.LibraryUserId != libUserId)
-                        throw new InvalidOperationException("You are not the one who borrowed the book.");
-
-                    return new ReturnBookTransaction(lastBookTrans);
+                    else if (libraryUser.LibraryUserType == LibraryUser.UserType.Teacher)
+                        return new ReturnBookIgnorePaymentTransaction(lastBookTrans);
+                    else
+                        return new ReturnBookTransaction(lastBookTrans);
                 }
                 else
                 {
-                    return new BorrowBookTransaction(libUserId, bookCopy.Id);
+                    return new BorrowBookTransaction(libraryUser.Id, bookCopy.Id);
                 }
             }
         }

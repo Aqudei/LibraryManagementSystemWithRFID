@@ -50,8 +50,7 @@ namespace ritchell.library.model
                 return string.Format("{0}, {1} {2}", LastName, FirstName, MiddleName);
             }
         }
-
-
+        
         public string UserRFIDTag { get; set; }
 
         public string Username { get; set; }
