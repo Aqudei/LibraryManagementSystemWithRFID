@@ -1,4 +1,5 @@
-﻿using ritchell.library.model.LibraryTransactions;
+﻿using MySql.Data.Entity;
+using ritchell.library.model.LibraryTransactions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model
 {
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class LibraryContext : DbContext
     {
         public DbSet<Section> Sections { get; set; }

@@ -10,6 +10,7 @@ using ritchell.library.infrastructure.Hardware;
 using GalaSoft.MvvmLight.Threading;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Diagnostics;
+using ritchell.library.ui.client.ViewServices;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -17,6 +18,10 @@ namespace ritchell.library.ui.client.ViewModels
     {
         private AuthenticationViewModel _AuthenticationViewModel;
         private LibraryTransactionsAggregate _LibraryTransactionsAggregate;
+        private RelayCommand _PayNowCommand;
+        private RelayCommand _ProceedCommand;
+        private string _AdminUsername;
+        private string _AdminPassword;
 
         public AuthenticationViewModel AuthenticationViewModel
         {
@@ -44,8 +49,10 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-        public MainViewModel()
+        public MainViewModel(IWindowNavigationService windowDlgService)
         {
+            _WindowNaviService = windowDlgService;
+
             LibraryTransactionsAggregate = new LibraryTransactionsAggregate();
 
             var shortRfidReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
@@ -70,8 +77,6 @@ namespace ritchell.library.ui.client.ViewModels
             DispatcherHelper.CheckBeginInvokeOnUI(() => LibraryTransactionsAggregate.AddTransaction(e));
         }
 
-        private RelayCommand _PayNowCommand;
-
         public RelayCommand PayNowCommand
         {
             get
@@ -82,9 +87,6 @@ namespace ritchell.library.ui.client.ViewModels
                 }, () => LibraryTransactionsAggregate.RequiredFee > 0);
             }
         }
-
-
-        private RelayCommand _ProceedCommand;
 
         public RelayCommand ProceedWithTransactionCommand
         {
@@ -108,7 +110,6 @@ namespace ritchell.library.ui.client.ViewModels
         }
 
 
-        private string _AdminUsername;
 
         public string AdminUsername
         {
@@ -120,7 +121,7 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-        private string _AdminPassword;
+
 
         public string AdminPassword
         {
@@ -135,6 +136,8 @@ namespace ritchell.library.ui.client.ViewModels
 
 
         RelayCommand _ClearTransactionsCommand;
+        private IWindowNavigationService _WindowNaviService;
+
         public RelayCommand ClearTransactionsCommand
         {
             get

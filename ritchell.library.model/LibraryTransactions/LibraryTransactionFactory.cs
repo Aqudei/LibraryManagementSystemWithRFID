@@ -27,6 +27,8 @@ namespace ritchell.library.model.LibraryTransactions
 
                     else if (libraryUser.LibraryUserType == LibraryUser.UserType.Teacher)
                         return new ReturnBookIgnorePaymentTransaction(lastBookTrans);
+                    else if (libraryUser.Id != lastBookTrans.LibraryUserId)
+                        throw new InvalidOperationException("Please surrender this book to admin");
                     else
                         return new ReturnBookTransaction(lastBookTrans);
                 }

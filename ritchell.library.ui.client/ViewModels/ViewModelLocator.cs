@@ -44,6 +44,17 @@ namespace ritchell.library.ui.client.ViewModels
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AuthenticationViewModel>();
+
+            SetupWindows();
+        }
+
+
+        private static void SetupWindows()
+        {
+            ViewServices.WindowNavigationService wns = new ViewServices.WindowNavigationService();
+            wns.Add(ViewServices.WindowNames.PaymentWindow, new Views.UnpaidUnreturnedBooks());
+
+            SimpleIoc.Default.Register<ViewServices.IWindowNavigationService>(() => wns);
         }
 
         private static void SetupRealRFIDReaders()

@@ -36,23 +36,35 @@
             </Border>
             <ListBox IsSynchronizedWithCurrentItem="True"
                      DisplayMemberPath="BookTitle" Width="300"
-                     ItemsSource="{Binding ItemsCollectionView}"/>
+                     ItemsSource="{Binding ItemsCollectionView}" FontSize="26.667" FontFamily="Simplified Arabic"/>
 
-            <StackPanel x:Name="fieldsStackPanel" Orientation="Vertical" Margin="10,0,0,32.96" Width="300" HorizontalAlignment="Left">
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+            <StackPanel  Orientation="Vertical" Margin="10,0,0,32.96" Width="300" HorizontalAlignment="Left">
+                <StackPanel.Resources>
+                    <Style  TargetType="TextBox">
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                    <Style  TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                    </Style>
+                    <Style  TargetType="ComboBox">
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Orientation="Vertical">
 
                     <TextBlock Text="Book Title" />
                     <TextBox Text="{Binding ItemsCollectionView/BookTitle, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical">
                     <TextBlock><Run Text="Author(s)"/></TextBlock>
                     <TextBox Text="{Binding ItemsCollectionView/Author, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical">
                     <TextBlock  Text="Call Number"/>
                     <TextBox Text="{Binding ItemsCollectionView/CallNumber, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical">
                     <TextBlock Text="Section" />
                     <ComboBox ItemsSource="{Binding BookSectionsCollectionView}"
             			SelectedValuePath="Id" 
@@ -61,13 +73,13 @@
             			DisplayMemberPath="Name"/>
 
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical">
 
                     <TextBlock  Text="ISBN10"/>
                     <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN10, UpdateSourceTrigger=PropertyChanged}"/>
 
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical">
 
                     <TextBlock  Text="ISBN13"/>
                     <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN13, UpdateSourceTrigger=PropertyChanged}"/>

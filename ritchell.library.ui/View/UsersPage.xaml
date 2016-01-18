@@ -26,8 +26,28 @@
             </Border>
             <ListBox ItemsSource="{Binding ItemsCollectionView}"
                      IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="Fullname" Margin="0" Width="300" />
-            <StackPanel Orientation="Vertical" Margin="10,0,0,22.96" Width="300" HorizontalAlignment="Left">
+                     DisplayMemberPath="Fullname" Margin="0" Width="300" FontFamily="Centaur" FontSize="26.667" />
+            <StackPanel IsEnabled="{Binding EditingEnabled}"
+                        Orientation="Vertical" 
+                        Margin="10,0,0,22.96" Width="300" HorizontalAlignment="Left">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="FontFamily" Value="Centaur"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>      
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="FontFamily" Value="Centaur"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="FontFamily" Value="Centaur"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                    <Style TargetType="{x:Type DatePicker}">
+                        <Setter Property="FontFamily" Value="Centaur"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </StackPanel.Resources>
                 <TextBlock><Run Text="First Name"/></TextBlock>
                 <TextBox Text="{Binding ItemsCollectionView/FirstName, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock><Run Text="Middle Name"/></TextBlock>

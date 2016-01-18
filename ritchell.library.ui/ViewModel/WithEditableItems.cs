@@ -8,16 +8,43 @@ namespace ritchell.library.ui.ViewModel
     public abstract class WithEditableItems<T> : ViewModelBase where T : class
     {
         #region "UI crud management"
-        private UIState uiState;
-        enum UIState
+
+        private UIState userInterfaceState;
+
+        public UIState UserInterfaceState
+        {
+            get
+            {
+                return userInterfaceState;
+            }
+
+            set
+            {
+                userInterfaceState = value;
+                RaisePropertyChanged(() => UserInterfaceState);
+                RaisePropertyChanged(() => EditingEnabled);
+            }
+        }
+
+        public bool EditingEnabled
+        {
+            get
+            {
+                return UserInterfaceState != UIState.Standby;
+            }
+        }
+
+
+        public enum UIState
         {
             Standby, Adding, Editing
         }
+
         #endregion "UI crud management"
 
         public WithEditableItems()
         {
-            uiState = UIState.Standby;
+            UserInterfaceState = UIState.Standby;
         }
 
 
@@ -39,9 +66,9 @@ namespace ritchell.library.ui.ViewModel
                     () =>
                     {
                         SaveItemCommandHandler();
-                        uiState = UIState.Standby;
+                        UserInterfaceState = UIState.Standby;
                     },
-                    () => (uiState == UIState.Adding || uiState == UIState.Editing) && InputFieldsAreValid()));
+                    () => (UserInterfaceState == UIState.Adding || UserInterfaceState == UIState.Editing) && InputFieldsAreValid()));
             }
         }
 
@@ -67,8 +94,8 @@ namespace ritchell.library.ui.ViewModel
                     () =>
                     {
                         NewItemCommandHandler();
-                        uiState = UIState.Adding;
-                    }, () => uiState == UIState.Standby));
+                        UserInterfaceState = UIState.Adding;
+                    }, () => UserInterfaceState == UIState.Standby));
             }
         }
 
@@ -86,7 +113,7 @@ namespace ritchell.library.ui.ViewModel
                     () =>
                     {
                         DeleteItemCommandHandler();
-                    }, () => uiState == UIState.Standby));
+                    }, () => UserInterfaceState == UIState.Standby));
             }
         }
 
@@ -102,10 +129,11 @@ namespace ritchell.library.ui.ViewModel
                     () =>
                     {
                         EditItemCommandHandler();
-                        uiState = UIState.Editing;
-                    }, () => uiState == UIState.Standby && HasSelectedItem());
+                        UserInterfaceState = UIState.Editing;
+                    }, () => UserInterfaceState == UIState.Standby && HasSelectedItem());
             }
         }
+
 
         private bool HasSelectedItem()
         {

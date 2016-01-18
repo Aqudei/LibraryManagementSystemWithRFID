@@ -1,12 +1,15 @@
 ﻿<Window x:Class="AlarmApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" 
+        xmlns:ico="http://www.hardcodet.net/taskbar">
+   
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <Button Command="{Binding StopAlarmCommand}" Content="Stop Alarm" FontSize="21.333" FontWeight="Bold"></Button>
     </Grid>
 </Window>

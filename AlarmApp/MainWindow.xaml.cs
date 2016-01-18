@@ -39,8 +39,7 @@ namespace AlarmApp
 
                 mediaPlayer = new MediaPlayer();
                 soundFileUrl = System.IO.Path.Combine(Environment.CurrentDirectory, "Car Alarm 02.wav");
-
-
+                mediaPlayer.Open(new Uri(soundFileUrl));
 
                 var unborrowedMonitor = new Services.UnborrowedBookMonitor(
                     new BookCopyService(),
@@ -61,19 +60,8 @@ namespace AlarmApp
 
         void unborrowedMonitor_UnborrowedIsGoingOut(object sender, Models.BookCopyWithInfo e)
         {
-            //Debug.WriteLine("UnborrowedBookGoindOut");
-            //var now = DateTime.Now;
-            //if ((now - lastTagReadTime).Seconds < 5)
-            //    return;
-
-            //Dispatcher.Invoke(new Action(() =>
-            //{
-
-            mediaPlayer.Open(new Uri(soundFileUrl));
+            mediaPlayer.Position = new TimeSpan(0, 0, 1);
             mediaPlayer.Play();
-
-            //    lastTagReadTime = now;
-            //}));
         }
 
         class StopAlarmCommandDef : ICommand
@@ -98,8 +86,6 @@ namespace AlarmApp
 
             public event EventHandler CanExecuteChanged;
         }
-
-
     }
 
 
