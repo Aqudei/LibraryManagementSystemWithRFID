@@ -42,26 +42,28 @@ namespace ritchell.library.ui.ViewModel
                 //SetupDebugRFID();
             }
 
+            SimpleIoc.Default.Register<DepartmentService>();
             SimpleIoc.Default.Register<BookService>();
             SimpleIoc.Default.Register<BookCopyService>();
             SimpleIoc.Default.Register<SectionService>();
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<HolidayService>();
+
             SimpleIoc.Default.Register<HolidayPageViewModel>();
             SimpleIoc.Default.Register<UsersPageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SectionPageViewModel>();
             SimpleIoc.Default.Register<BookPageViewModel>();
             SimpleIoc.Default.Register<BookCopyPageViewModel>();
+            SimpleIoc.Default.Register<DepartmentsViewModel>();
         }
-        
+
         private static void SetupRFIDReaders()
         {
             try
             {
                 var shortReader = new ShortRangeRFID();
                 var longReader = new LongRangeRFID();
-                longReader.StartMonitoring();
 
                 SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
                 SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
@@ -91,10 +93,17 @@ namespace ritchell.library.ui.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<UsersPageViewModel>();
+                return SimpleIoc.Default.GetInstanceWithoutCaching<UsersPageViewModel>();
             }
         }
 
+        public DepartmentsViewModel DepartmentsViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DepartmentsViewModel>();
+            }
+        }
 
         public BookCopyPageViewModel BookCopyPageViewModel
         {

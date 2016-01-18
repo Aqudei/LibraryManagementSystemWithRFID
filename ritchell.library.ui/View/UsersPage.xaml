@@ -3,13 +3,19 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" d:DesignHeight="468.657" d:DesignWidth="640.299"
+      mc:Ignorable="d" d:DesignHeight="806.613" d:DesignWidth="759.273"
       xmlns:wpf="clr-namespace:ritchell.library.ui.WPF"
-	  Title="UsersPage" DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}">
+	  Title="UsersPage" DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}"
+      FontSize="24" 
+      FontFamily="Centaur">
 
     <Grid>
         <DockPanel>
-            <Border DockPanel.Dock="Bottom" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" BorderBrush="Black" BorderThickness="1" CornerRadius="2" Margin="0,5,0,0">
+            <Border DockPanel.Dock="Bottom" 
+                    BorderBrush="Black"
+                    BorderThickness="1" 
+                    CornerRadius="2" 
+                    Margin="0,5,0,0">
                 <Border.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFC6FBCB" Offset="0"/>
@@ -24,55 +30,53 @@
                     <Button Command="{Binding SaveItemCommand}" Content="Save" HorizontalAlignment="Left" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
                 </StackPanel>
             </Border>
-            <ListBox ItemsSource="{Binding ItemsCollectionView}"
+            <ListBox x:Name="usersListBox" ItemsSource="{Binding ItemsCollectionView}"
                      IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="Fullname" Margin="0" Width="300" FontFamily="Centaur" FontSize="26.667" />
-            <StackPanel IsEnabled="{Binding EditingEnabled}"
-                        Orientation="Vertical" 
-                        Margin="10,0,0,22.96" Width="300" HorizontalAlignment="Left">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="FontFamily" Value="Centaur"/>
-                        <Setter Property="FontSize" Value="20"/>
-                    </Style>      
-                    <Style TargetType="{x:Type TextBox}">
-                        <Setter Property="FontFamily" Value="Centaur"/>
-                        <Setter Property="FontSize" Value="20"/>
-                    </Style>
-                    <Style TargetType="{x:Type ComboBox}">
-                        <Setter Property="FontFamily" Value="Centaur"/>
-                        <Setter Property="FontSize" Value="20"/>
-                    </Style>
-                    <Style TargetType="{x:Type DatePicker}">
-                        <Setter Property="FontFamily" Value="Centaur"/>
-                        <Setter Property="FontSize" Value="20"/>
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock><Run Text="First Name"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/FirstName, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock><Run Text="Middle Name"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/MiddleName, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock><Run Text="Last Name"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/LastName, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock><Run Text="User Type"/></TextBlock>
-                <ComboBox ItemsSource="{Binding UserTypes}"
-                          SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"/>
+                     DisplayMemberPath="Fullname" 
+                     Width="300"
+                     FontFamily="Centaur" 
+                     FontSize="26.667" />
+            <ScrollViewer Margin="10,0,0,22.96" 
+                          Width="300" 
+                          Height="{Binding ElementName=usersListBox, Path=ActualHeight}"
+                          HorizontalAlignment="Left" 
+                          CanContentScroll="True"
+                          Padding="5,0">
+                <StackPanel IsEnabled="{Binding EditingEnabled}"
+            		Orientation="Vertical" 
+                        Height="713" Width="300">
 
-                <TextBlock><Run Text="Birthday"/></TextBlock>
-                <DatePicker SelectedDate="{Binding ItemsCollectionView/Birthday}"/>
-                <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
-                <TextBox IsReadOnly="True" 
-                         Text="{Binding ItemsCollectionView/UserRFIDTag, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock><Run Text="First Name"/></TextBlock>
+                    <TextBox Text="{Binding ItemsCollectionView/FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock><Run Text="Middle Name"/></TextBlock>
+                    <TextBox Text="{Binding ItemsCollectionView/MiddleName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock><Run Text="Last Name"/></TextBlock>
+                    <TextBox Text="{Binding ItemsCollectionView/LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock><Run Text="User Type"/></TextBlock>
+                    <ComboBox ItemsSource="{Binding UserTypes}"
+            			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"/>
+                    <TextBlock Text="Department"/>
+                    <ComboBox ItemsSource="{Binding UserTypes}"
+            			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"
+            			SelectedValuePath="Id"
+            			DisplayMemberPath="ShortName"/>
+                    <TextBlock><Run Text="Birthday"/></TextBlock>
+                    <DatePicker SelectedDate="{Binding ItemsCollectionView/Birthday}"/>
+                    <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
+                    <TextBox IsReadOnly="True" 
+            			Text="{Binding ItemsCollectionView/UserRFIDTag, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <TextBlock><Run Text="Username"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/Username, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock><Run Text="Password"/></TextBlock>
-                <PasswordBox wpf:PasswordHelper.Attach="True" 
-                             wpf:PasswordHelper.Password="{Binding ItemsCollectionView/Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                <TextBlock><Run Text="Confirm Password"/></TextBlock>
-                <PasswordBox wpf:PasswordHelper.Attach="True"
-                             wpf:PasswordHelper.Password="{Binding PasswordCopy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-            </StackPanel>
+                    <TextBlock><Run Text="Username"/></TextBlock>
+                    <TextBox Text="{Binding ItemsCollectionView/Username, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock><Run Text="Password"/></TextBlock>
+                    <PasswordBox wpf:PasswordHelper.Attach="True" 
+            			wpf:PasswordHelper.Password="{Binding ItemsCollectionView/Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock><Run Text="Confirm Password"/></TextBlock>
+                    <PasswordBox wpf:PasswordHelper.Attach="True"
+            			wpf:PasswordHelper.Password="{Binding PasswordCopy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+            </ScrollViewer>
 
         </DockPanel>
 

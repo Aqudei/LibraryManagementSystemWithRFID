@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Everaldo-Desktoon-Library.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -137,8 +140,12 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\BookCopyPageViewModel.cs" />
     <Compile Include="ViewModel\BookPageViewModel.cs" />
+    <Compile Include="ViewModel\DepartmentsViewModel.cs" />
     <Compile Include="ViewModel\HolidayPageViewModel.cs" />
     <Compile Include="ViewModel\UsersPageViewModel.cs" />
+    <Compile Include="View\DepartmentsView.xaml.cs">
+      <DependentUpon>DepartmentsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DialogInterface\IRFIDManagerDialog.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\WithEditableItems.cs" />
@@ -181,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\BookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DepartmentsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,6 +248,7 @@
     <Content Include="Basic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Everaldo-Desktoon-Library.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

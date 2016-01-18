@@ -17,21 +17,17 @@ namespace ritchell.library.model.LibraryTransactions
         public string BookTitle { get; set; }
         public string BookTag { get; set; }
         public DateTime TransactionDate { get; set; }
-        public Guid LibraryUserId { get; set; }
+        public LibraryUser LibraryUser { get; set; }
         protected BookCopy BookCopy { get; set; }
 
         public abstract void Execute();
 
-        public LibraryTransactionBase(Guid libUserId, Guid bookCopyId)
+        public LibraryTransactionBase(LibraryUser libUser, BookCopy bookCopy)
         {
-            LibraryUserId = libUserId;
+            LibraryUser = libUser;
 
             using (var bookCopyRepo = new BookCopyRepository())
             {
-                BookCopy = bookCopyRepo.FindById(bookCopyId);
-                if (BookCopy == null)
-                    throw new InvalidOperationException("Unknown book: " + BookTag);
-
                 BookTag = BookCopy.BookTagShort;
                 BookTitle = bookCopyRepo.BookInfoOf(BookCopy).BookTitle;
                 TransactionDate = DateTime.Now;

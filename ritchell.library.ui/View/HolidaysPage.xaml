@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ritchell.library.ui.View"
              mc:Ignorable="d" 
              d:DesignHeight="358.824" d:DesignWidth="801.98"
-             DataContext="{Binding HolidayPageViewModel, Source={StaticResource Locator}}">
+             DataContext="{Binding HolidayPageViewModel, Source={StaticResource Locator}}" FontFamily="Centaur" FontSize="18.667">
     <Grid>
         <ListView x:Name="listView" ItemsSource="{Binding Holidays}" Width="300" HorizontalAlignment="Left">
             <ListView.View>
@@ -21,13 +21,34 @@
             <TextBox x:Name="textBox" 
         		Height="23" TextWrapping="Wrap" 
         		Text="{Binding HolidayDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,0,0,5"/>
-            <Button x:Name="button_Copy" Content="Delete" Margin="0,0,7.708,5" Height="22.223" Command="{Binding DeleteHoliday, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=listView}"/>
-            <Button x:Name="button" Content="Add Holiday" Margin="0,0,7.708,5" Command="{Binding AddHoliday, Mode=OneWay}" Height="22.223" CommandParameter="{Binding SelectedDate, ElementName=datePicker}"/>
+            <Button x:Name="button_Copy" Content="Delete" Margin="0,0,7.708,5" Command="{Binding DeleteHoliday, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=listView}" Foreground="#FFB9B0B0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3A3838" Offset="0"/>
+                        <GradientStop Color="#FF0A0A0A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button" Content="Add Holiday" Margin="0,0,7.708,5" Command="{Binding AddHoliday, Mode=OneWay}" CommandParameter="{Binding SelectedDate, ElementName=datePicker}" Foreground="#FFB9B0B0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3A3838" Offset="0"/>
+                        <GradientStop Color="#FF0A0A0A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
             <Button x:Name="button_Copy1" 
         		Content="Mark Weekends as Holiday" 
         		Margin="0,0,7.708,5" 
-        		Command="{Binding MarkWeekendsAsHolidays, Mode=OneWay}"
-        		Height="22.222"/>
+        		Command="{Binding MarkWeekendsAsHolidays, Mode=OneWay}" Foreground="#FFB9B0B0">
+             
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF3A3838" Offset="0"/>
+                        <GradientStop Color="#FF0A0A0A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
 
         </StackPanel>
 

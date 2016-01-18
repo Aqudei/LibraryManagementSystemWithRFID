@@ -18,7 +18,7 @@ namespace ritchell.library.model.LibraryTransactions
             _BookInfoService = new BookService();
         }
 
-        public double ComputeNecessaryFee(BookCopy bookCopy, BookTransactionInfo bookTransInfo)
+        public double ComputeNecessaryFee(BookCopy bookCopy, TransactionInfo bookTransInfo)
         {
             var bookCopyService = new BookCopyService();
 

@@ -9,6 +9,10 @@ namespace ritchell.library.model
 {
     public class Department : EntityBase<Guid>
     {
+        public Department()
+        {
+            Id = Guid.NewGuid();
+        }
         public string LongName { get; set; }
         public string ShortName { get; set; }
     }

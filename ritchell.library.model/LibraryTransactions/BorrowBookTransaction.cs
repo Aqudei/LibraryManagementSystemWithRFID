@@ -16,7 +16,7 @@ namespace ritchell.library.model.LibraryTransactions
         private BookService _BookInfoService;
 
         private string _TransactionType = "Borrow";
-        private BookTransactionInfo bookTransInfo;
+        private TransactionInfo bookTransInfo;
 
         public override string TransactionType
         {
@@ -32,8 +32,8 @@ namespace ritchell.library.model.LibraryTransactions
             }
         }
 
-        public BorrowBookTransaction(Guid libUserId, Guid booCopyId)
-            : base(libUserId, booCopyId)
+        public BorrowBookTransaction(LibraryUser libUser, BookCopy bookCopy)
+            : base(libUser, bookCopy)
         {
             _BookCopyService = new BookCopyService();
             _HolidayService = new HolidayService();
@@ -49,12 +49,11 @@ namespace ritchell.library.model.LibraryTransactions
             if (section.MaxDaysAllowedForBorrowing == 0)
                 TransactionType = "Not Allowed For Borrowing.";
 
-            bookTransInfo = new BookTransactionInfo
+            bookTransInfo = new TransactionInfo
             {
                 BookCopyId = BookCopy.Id,
-                LibraryUserId = LibraryUserId,
+                LibraryUserId = libUser.Id,
                 BorrowDate = TransactionDate,
-                IsTransactionDone = false,
                 ExpectedReturnDate = _HolidayService.GetNonHolidayDateAfter(TransactionDate.AddDays(section.MaxDaysAllowedForBorrowing))
             };
         }

@@ -8,6 +8,7 @@ namespace ritchell.library.infrastructure.Hardware
 {
     public class LongRangeRFID : IRFIDReader
     {
+        private bool ContinueReading;
         private int _Port;
         private byte _ComAddr;
         private byte _Baud;
@@ -16,11 +17,9 @@ namespace ritchell.library.infrastructure.Hardware
         public event EventHandler<string> TagRead;
 
         public LongRangeRFID()
-        {
+        { }
 
-        }
-
-        public void StartMonitoring()
+        public void StartReader()
         {
             _ComAddr = Convert.ToByte("FF", 16);
             _Baud = Convert.ToByte("5", 10);
@@ -53,7 +52,10 @@ namespace ritchell.library.infrastructure.Hardware
             byte[] EPCBuffer = new byte[4096];
             int EPCBufferLen = 0;
             int numberOfTags = 0;
-            while (true)
+
+            ContinueReading = true;
+
+            while (ContinueReading)
             {
                 var fCmdRet = StaticClassReaderB.Inventory_G2(ref _ComAddr, 0, 0, 0, EPCBuffer, ref EPCBufferLen, ref numberOfTags, _PortHandle);
                 if ((fCmdRet == 1) | (fCmdRet == 2) | (fCmdRet == 3) | (fCmdRet == 4) | (fCmdRet == 0xFB))
@@ -79,7 +81,12 @@ namespace ritchell.library.infrastructure.Hardware
 
         public void Dispose()
         {
+            ContinueReading = false;
+        }
 
+        public void StopReader()
+        {
+            throw new NotImplementedException();
         }
     }
 }

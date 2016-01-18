@@ -11,11 +11,15 @@ using GalaSoft.MvvmLight.Threading;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Diagnostics;
 using ritchell.library.ui.client.ViewServices;
+using GalaSoft.MvvmLight.Views;
 
 namespace ritchell.library.ui.client.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private RelayCommand _ClearTransactionsCommand;
+        private IWindowNavigationService _WindowNaviService;
+        private IDialogService _DialogService;
         private AuthenticationViewModel _AuthenticationViewModel;
         private LibraryTransactionsAggregate _LibraryTransactionsAggregate;
         private RelayCommand _PayNowCommand;
@@ -83,7 +87,16 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 return _PayNowCommand = _PayNowCommand ?? new RelayCommand(() =>
                 {
-                    LibraryTransactionsAggregate.CompletePayment(AdminUsername, AdminPassword);
+                    try
+                    {
+                        LibraryTransactionsAggregate.CompletePayment(AdminUsername, AdminPassword);
+                        _DialogService.ShowMessage("Payment Completed", "");
+                    }
+                    catch (Exception ex)
+                    {
+                        _DialogService.ShowMessage(ex.Message, "");
+                    }
+
                 }, () => LibraryTransactionsAggregate.RequiredFee > 0);
             }
         }
@@ -92,7 +105,7 @@ namespace ritchell.library.ui.client.ViewModels
         {
             get
             {
-                return _ProceedCommand = _PayNowCommand ?? new RelayCommand(() =>
+                return _ProceedCommand = _ProceedCommand ?? new RelayCommand(() =>
                 {
                     try
                     {
@@ -100,16 +113,16 @@ namespace ritchell.library.ui.client.ViewModels
                         {
                             transaction.Execute();
                         }
+                        DialogService.ShowMessage("Transaction(s) Completed...","");
                     }
                     catch (Exception ex)
                     {
+                        DialogService.ShowMessage(ex.Message,"");
                         Debug.WriteLine("{0} @ ProceedWithTransactionCommand", ex.Message);
                     }
                 }, () => true);
             }
         }
-
-
 
         public string AdminUsername
         {
@@ -121,8 +134,6 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-
-
         public string AdminPassword
         {
             get { return _AdminPassword; }
@@ -133,10 +144,13 @@ namespace ritchell.library.ui.client.ViewModels
             }
         }
 
-
-
-        RelayCommand _ClearTransactionsCommand;
-        private IWindowNavigationService _WindowNaviService;
+        public IDialogService DialogService
+        {
+            get
+            {
+                return _DialogService = SimpleIoc.Default.GetInstance<IDialogService>();
+            }
+        }
 
         public RelayCommand ClearTransactionsCommand
         {

@@ -50,7 +50,7 @@ namespace ritchell.library.model
                 return string.Format("{0}, {1} {2}", LastName, FirstName, MiddleName);
             }
         }
-        
+
         public string UserRFIDTag { get; set; }
 
         public string Username { get; set; }
@@ -135,5 +135,7 @@ namespace ritchell.library.model
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public Guid DepartmentId { get; set; }
     }
 }

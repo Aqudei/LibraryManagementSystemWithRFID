@@ -3,6 +3,7 @@ using System.Windows;
 using System;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Ioc;
+using System.Windows.Threading;
 
 namespace ritchell.library.ui.client.Views
 {
@@ -30,7 +31,17 @@ namespace ritchell.library.ui.client.Views
 
         public Task ShowMessage(string message, string title)
         {
-            MessageBox.Show(message, title);
+            textBlockMessage.Text = message;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(4);
+            timer.Tick += (s, e) =>
+            {
+                textBlockMessage.Text = "";
+                textBlockMessage.Visibility = Visibility.Collapsed;
+                (s as DispatcherTimer).Stop();
+            };
+            textBlockMessage.Visibility = Visibility.Visible;
+            timer.Start();
             return null;
         }
 

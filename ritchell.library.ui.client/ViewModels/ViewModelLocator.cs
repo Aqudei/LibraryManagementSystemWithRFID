@@ -40,7 +40,7 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 SetupRealRFIDReaders();
             }
-
+            
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AuthenticationViewModel>();

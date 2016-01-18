@@ -10,12 +10,12 @@ namespace ritchell.library.model.LibraryTransactions
     public class ReturnBookIgnorePaymentTransaction : LibraryTransactionBase
     {
         private string _TransactionType;
-        private BookTransactionInfo _LastBookTransaction;
+        private TransactionInfo _LastTransaction;
         
-        public ReturnBookIgnorePaymentTransaction(BookTransactionInfo bookTransInfo)
-            : base(bookTransInfo.LibraryUserId, bookTransInfo.BookCopyId)
+        public ReturnBookIgnorePaymentTransaction(LibraryUser libUser, BookCopy bookCopy, TransactionInfo transInfo)
+            : base(libUser, bookCopy)
         {
-            _LastBookTransaction = bookTransInfo;
+            _LastTransaction = transInfo;
         }
 
         public override string TransactionType
@@ -36,9 +36,9 @@ namespace ritchell.library.model.LibraryTransactions
             using (var uow = new LibUnitOfWork())
             {
                 BookCopy.IsBorrowed = false;
-                _LastBookTransaction.IsTransactionDone = true;
-                _LastBookTransaction.ReturnDate = DateTime.Now.Date;
-                uow.BookTransactionInfoRepository.Update(_LastBookTransaction);
+                _LastTransaction.IsPaid = true;
+                _LastTransaction.ReturnDate = DateTime.Now.Date;
+                uow.BookTransactionInfoRepository.Update(_LastTransaction);
                 uow.BookCopyRepository.Update(BookCopy);
                 uow.SaveChanges();
             }

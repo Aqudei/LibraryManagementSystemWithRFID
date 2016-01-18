@@ -9,7 +9,9 @@ namespace ritchell.library.infrastructure.Hardware
 {
     public class ShortRangeRFID : IDisposable, IRFIDReader
     {
+        private string[] readers;
         private SCardContext cardContext;
+        private SCardMonitor cardMonitor;
 
         public event EventHandler<string> TagRead;
 
@@ -23,13 +25,11 @@ namespace ritchell.library.infrastructure.Hardware
             cardContext = new SCardContext();
             cardContext.Establish(SCardScope.System);
 
-            var readers = cardContext.GetReaders();
+            readers = cardContext.GetReaders();
             if (readers.Length > 0)
             {
-                SCardMonitor cardMonitor = new SCardMonitor(cardContext, SCardScope.System);
+                cardMonitor = new SCardMonitor(cardContext, SCardScope.System);
                 cardMonitor.CardInserted += cardMonitor_CardInserted;
-                
-                cardMonitor.Start(readers[0]);
             }
         }
 
@@ -55,6 +55,17 @@ namespace ritchell.library.infrastructure.Hardware
         {
             cardContext.Release();
             cardContext.Dispose();
+        }
+
+        public void StartReader()
+        {
+            if (readers.Length > 0)
+                cardMonitor.Start(readers[0]);
+        }
+
+        public void StopReader()
+        {
+            cardMonitor.Cancel();
         }
     }
 }

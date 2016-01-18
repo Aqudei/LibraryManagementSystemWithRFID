@@ -2,33 +2,20 @@
 using ritchell.library.model.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
-using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.model.Repositories
 {
-    public class BookTransactionInfoRepository : RepositoryBase<TransactionInfo>, IBookTransactionInfoRepository
+    public class DepartmentRepository : RepositoryBase<Department>, IDepartmentRepository
     {
-
-        public BookTransactionInfoRepository(DbContext context) : base(context)
+        public DepartmentRepository(DbContext context) : base(context)
         { }
 
-        public BookTransactionInfoRepository() : this(new LibraryContext())
+        public DepartmentRepository() : this(new LibraryContext())
         { }
-
-        public TransactionInfo GetLastBookTransaction(Guid bookCopyId)
-        {
-            var bookTrans = _Context.Set<TransactionInfo>()
-                .Where(t => t.BookCopyId.Equals(bookCopyId) && t.ReturnDate.HasValue == false)
-                .ToList()
-                .OrderBy(t => t.BorrowDate)
-                .LastOrDefault();
-
-            return bookTrans;
-        }
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
@@ -52,7 +39,7 @@ namespace ritchell.library.model.Repositories
         }
 
         // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~BookTransactionInfoRepository() {
+        // ~DepartmentRepository() {
         //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
         //   Dispose(false);
         // }

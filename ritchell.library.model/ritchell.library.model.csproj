@@ -72,7 +72,8 @@
     <Compile Include="BookCopy.cs" />
     <Compile Include="BookInfo.cs" />
     <Compile Include="Department.cs" />
-    <Compile Include="LibraryTransactions\BookTransactionInfo.cs" />
+    <Compile Include="Interfaces\IDepartmentRepository.cs" />
+    <Compile Include="LibraryTransactions\TransactionInfo.cs" />
     <Compile Include="Holiday.cs" />
     <Compile Include="Interfaces\IBookCopyRepository.cs" />
     <Compile Include="Interfaces\IBookInfoRepository.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Repositories\BookCopyRepository.cs" />
     <Compile Include="Repositories\BookInfoRepository.cs" />
     <Compile Include="Repositories\BookTransactionInfoRepository.cs" />
+    <Compile Include="Repositories\DepartmentRepository.cs" />
     <Compile Include="Repositories\HolidayRepository.cs" />
     <Compile Include="Repositories\LibraryUserRepository.cs" />
     <Compile Include="Repositories\LibUnitOfWork.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Section.cs" />
     <Compile Include="Services\BookCopyService.cs" />
     <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\DepartmentService.cs" />
     <Compile Include="Services\HolidayService.cs" />
     <Compile Include="Services\LibraryUserService.cs" />
     <Compile Include="Services\SectionService.cs" />

@@ -26,15 +26,15 @@ namespace ritchell.library.model.LibraryTransactions
                         throw new InvalidOperationException("The book has no known borrowed information.");
 
                     else if (libraryUser.LibraryUserType == LibraryUser.UserType.Teacher)
-                        return new ReturnBookIgnorePaymentTransaction(lastBookTrans);
+                        return new ReturnBookIgnorePaymentTransaction(libraryUser, bookCopy, lastBookTrans);
                     else if (libraryUser.Id != lastBookTrans.LibraryUserId)
                         throw new InvalidOperationException("Please surrender this book to admin");
                     else
-                        return new ReturnBookTransaction(lastBookTrans);
+                        return new ReturnBookTransaction(libraryUser, bookCopy, lastBookTrans);
                 }
                 else
                 {
-                    return new BorrowBookTransaction(libraryUser.Id, bookCopy.Id);
+                    return new BorrowBookTransaction(libraryUser, bookCopy);
                 }
             }
         }

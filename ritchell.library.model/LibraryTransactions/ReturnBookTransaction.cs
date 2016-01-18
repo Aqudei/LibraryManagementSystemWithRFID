@@ -10,13 +10,14 @@ namespace ritchell.library.model.LibraryTransactions
 {
     public class ReturnBookTransaction : LibraryTransactionBase
     {
-        private BookTransactionInfo _LastBookTransaction;
+        private TransactionInfo _LastTransaction;
         private PaymentService _PaymentService;
 
-        public ReturnBookTransaction(BookTransactionInfo lastBookTrans)
-            : base(lastBookTrans.LibraryUserId, lastBookTrans.BookCopyId)
+        public ReturnBookTransaction(LibraryUser libUser, BookCopy bookCopy, TransactionInfo transInfo)
+            : base(libUser, bookCopy)
         {
-            _LastBookTransaction = lastBookTrans;
+            _LastTransaction = transInfo;
+            _LastTransaction.AmountToPay = RequiredFee;
             _PaymentService = new PaymentService();
         }
 
@@ -24,14 +25,13 @@ namespace ritchell.library.model.LibraryTransactions
         {
             get
             {
-                return _PaymentService.ComputeNecessaryFee(BookCopy, _LastBookTransaction) - _LastBookTransaction.AmountPaid;
+                return _PaymentService.ComputeNecessaryFee(BookCopy, _LastTransaction);
             }
         }
 
         public void CompletePayment()
         {
-            _LastBookTransaction.AmountPaid = _PaymentService.ComputeNecessaryFee(BookCopy, _LastBookTransaction);
-            FirePropertyChanged("RequiredFee");
+            _LastTransaction.IsPaid = true;
         }
 
         public override string TransactionType
@@ -49,9 +49,8 @@ namespace ritchell.library.model.LibraryTransactions
             using (var uow = new LibUnitOfWork())
             {
                 BookCopy.IsBorrowed = false;
-                _LastBookTransaction.IsTransactionDone = true;
-                _LastBookTransaction.ReturnDate = DateTime.Now;
-                uow.BookTransactionInfoRepository.Update(_LastBookTransaction);
+                _LastTransaction.ReturnDate = DateTime.Now;
+                uow.BookTransactionInfoRepository.Update(_LastTransaction);
                 uow.BookCopyRepository.Update(BookCopy);
                 uow.SaveChanges();
             }

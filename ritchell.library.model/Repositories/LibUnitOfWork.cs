@@ -13,6 +13,7 @@ namespace ritchell.library.model.Repositories
     {
         private DbContext _Context;
 
+        private IDepartmentRepository _DepartmentRepository;
         private ISectionRepository _SectionRepository;
         private IBookInfoRepository _BookInfoRepository;
         private IBookCopyRepository _BookCopyRepository;
@@ -69,6 +70,14 @@ namespace ritchell.library.model.Repositories
             get
             {
                 return _BookTransactionInfoRepository = _BookTransactionInfoRepository ?? new BookTransactionInfoRepository(_Context);
+            }
+        }
+
+        public IDepartmentRepository DepartmentRepository
+        {
+            get
+            {
+                return _DepartmentRepository = _DepartmentRepository ?? new DepartmentRepository(_Context);
             }
         }
 

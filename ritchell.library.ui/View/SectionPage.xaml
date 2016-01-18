@@ -42,13 +42,18 @@
         		DisplayMemberPath="Name"
         		MinWidth="300" FontSize="21.333" FontFamily="Centaur" />
 
-            <StackPanel Orientation="Vertical" Margin="10,0,0,0" Width="300" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical" 
+                        Margin="10,0,0,0" 
+                        Width="300" 
+                        HorizontalAlignment="Left">
                 <TextBlock FontSize="21.333" FontFamily="Centaur"><Run Text="Section Name"/></TextBlock>
                 <TextBox Text="{Binding ItemsCollectionView/Name, UpdateSourceTrigger=PropertyChanged}" FontSize="21.333" FontFamily="Centaur" />
                 <TextBlock FontSize="21.333" FontFamily="Centaur"><Run Text="Max days allowed for borrowing"/></TextBlock>
                 <TextBox Text="{Binding ItemsCollectionView/MaxDaysAllowedForBorrowing,UpdateSourceTrigger=PropertyChanged }" FontSize="21.333" FontFamily="Centaur" />
                 <TextBlock FontSize="21.333" FontFamily="Centaur"><Run Text="Late returning fee"/></TextBlock>
-                <TextBox Text="{Binding ItemsCollectionView/LateReturningFee, UpdateSourceTrigger=PropertyChanged}" FontSize="21.333" FontFamily="Centaur" />
+                <TextBox Text="{Binding ItemsCollectionView/LateReturningFee, UpdateSourceTrigger=PropertyChanged}" 
+                         FontSize="21.333" 
+                         FontFamily="Centaur" />
             </StackPanel>
         </DockPanel>
     </Grid>

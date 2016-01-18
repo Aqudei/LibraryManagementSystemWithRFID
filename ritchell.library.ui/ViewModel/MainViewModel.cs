@@ -46,11 +46,12 @@ namespace ritchell.library.ui.ViewModel
             return SimpleIoc.Default.GetInstance<NavigationService>();
         }
 
-        ////public override void Cleanup()
-        ////{
-        ////    // Clean up if needed
+        //public override void Cleanup()
+        //{
+        //    // Clean up if needed
 
-        ////    base.Cleanup();
-        ////}
+        //    base.Cleanup();
+
+        //}
     }
 }

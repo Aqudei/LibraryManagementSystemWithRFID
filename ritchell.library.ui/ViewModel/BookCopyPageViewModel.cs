@@ -45,6 +45,10 @@ namespace ritchell.library.ui.ViewModel
 
             _ShortRFIDReader.TagRead += _ShortRFIDReader_TagRead;
             _LongRFIDReader.TagRead += _LongRFIDReader_TagRead;
+
+
+            _ShortRFIDReader.StartReader();
+            _LongRFIDReader.StartReader();
         }
 
         private void _LongRFIDReader_TagRead(object sender, string e)
@@ -148,6 +152,13 @@ namespace ritchell.library.ui.ViewModel
             {
                 return _RFIDLong;
             }
+        }
+
+        public override void Cleanup()
+        {
+            base.Cleanup();
+            _ShortRFIDReader.StopReader();
+            _LongRFIDReader.StopReader();
         }
 
         public string RFIDShort

@@ -8,7 +8,7 @@
         xmlns:Themes="clr-namespace:Xceed.Wpf.Toolkit.Themes;assembly=Xceed.Wpf.Toolkit" x:Class="ritchell.library.ui.MainWindow"
         mc:Ignorable="d ignore"
         Height="371"
-        Width="672"
+        Width="722.467"
         Title="LibManage"
         WindowState="Maximized">
 
@@ -107,6 +107,9 @@
                 <Button Content="Payments" 
 					Command="{Binding NavigateToPageCommand}" 
 					CommandParameter="HolidaysPage.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
+                <Button Content="Departments" 
+                	Command="{Binding NavigateToPageCommand}" 
+                	CommandParameter="DepartmentsView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
                 <wpf:DropDownButton Content="Reports" AllowDrop="True" FontSize="20" FontWeight="Bold" FontFamily="Century Gothic" Background="{x:Null}" Style="{DynamicResource ReportDropDownButtonStyle}">
                     <wpf:DropDownButton.DropDownContent>
                         <StackPanel Orientation="Vertical">

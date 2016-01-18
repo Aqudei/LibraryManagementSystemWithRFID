@@ -6,6 +6,7 @@ using ritchell.library.model.Repositories;
 using System.Windows.Data;
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -18,18 +19,25 @@ namespace ritchell.library.ui.ViewModel
     public class UsersPageViewModel : WithEditableItems<LibraryUser>
     {
         private readonly LibraryUserService _LibraryUserService;
+        private ObservableCollection<Department> _DepartmentSource;
+        private string _PasswordCopy;
+        private DepartmentService _DepartmentService;
 
         /// <summary>
         /// Initializes a new instance of the UsersPageViewModel class.
         /// </summary>
-        public UsersPageViewModel(LibraryUserService libraryUserService)
+        public UsersPageViewModel(LibraryUserService libraryUserService,
+            DepartmentService departmentService)
         {
             _LibraryUserService = libraryUserService;
+            _DepartmentService = departmentService;
             using (var repo = new LibraryUserRepository())
             {
                 items = new System.Collections.ObjectModel.ObservableCollection<LibraryUser>(repo.GetAll());
                 ItemsCollectionView = (ICollectionView)CollectionViewSource.GetDefaultView(items);
             }
+
+            DepartmentSource = new ObservableCollection<Department>(_DepartmentService.GetDepartments());
         }
 
         public override void DeleteItemCommandHandler()
@@ -65,7 +73,6 @@ namespace ritchell.library.ui.ViewModel
             return current.Password == PasswordCopy;
         }
 
-        private string _PasswordCopy;
 
         public string PasswordCopy
         {
@@ -77,8 +84,6 @@ namespace ritchell.library.ui.ViewModel
                 SaveItemCommand.RaiseCanExecuteChanged();
             }
         }
-
-
 
         protected override void SaveItemCommandHandler()
         {
@@ -99,5 +104,18 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
+
+        public ObservableCollection<Department> DepartmentSource
+        {
+            get
+            {
+                return _DepartmentSource;
+            }
+            set
+            {
+                _DepartmentSource = value;
+                RaisePropertyChanged(() => DepartmentSource);
+            }
+        }
     }
 }

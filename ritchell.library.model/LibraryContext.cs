@@ -13,11 +13,12 @@ namespace ritchell.library.model
     public class LibraryContext : DbContext
     {
         public DbSet<Section> Sections { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public DbSet<BookInfo> BookInfos { get; set; }
         public DbSet<BookCopy> BookCopies { get; set; }
         public DbSet<LibraryUser> LibraryUsers { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
-        public DbSet<BookTransactionInfo> BookTransactionInfos { get; set; }
+        public DbSet<TransactionInfo> BookTransactionInfos { get; set; }
 
         public LibraryContext()
             : base("name=LibraryContext")
@@ -27,10 +28,12 @@ namespace ritchell.library.model
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Holiday>().HasKey(h => h.Id);
-            
+            modelBuilder.Entity<Department>().HasKey(d => d.Id);
 
-            modelBuilder.Entity<BookTransactionInfo>().HasKey(bt => bt.Id);
+            modelBuilder.Entity<Holiday>().HasKey(h => h.Id);
+
+
+            modelBuilder.Entity<TransactionInfo>().HasKey(bt => bt.Id);
 
             modelBuilder.Entity<LibraryUser>().HasKey(u => u.Id);
             modelBuilder.Entity<LibraryUser>().Ignore(u => u.Password);

@@ -21,7 +21,7 @@ namespace AlarmApp.Services
         {
             _BookCopyService = bookCopyService;
             longRangeReader.TagRead += LongRangeReader_TagRead;
-            (longRangeReader as LongRangeRFID).StartMonitoring();
+            (longRangeReader as LongRangeRFID).StartReader();
         }
 
         private void LongRangeReader_TagRead(object sender, string e)

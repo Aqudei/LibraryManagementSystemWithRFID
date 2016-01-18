@@ -1,5 +1,4 @@
 ﻿using ritchell.library.infrastructure;
-using ritchell.library.model.LibraryTransactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model.Interfaces
 {
-    public interface IBookTransactionInfoRepository : IRepository<TransactionInfo>, IDisposable
+    public interface IDepartmentRepository : IRepository<Department>, IDisposable
     {
-        TransactionInfo GetLastBookTransaction(Guid BookCopyId);
     }
 }

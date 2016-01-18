@@ -38,7 +38,9 @@
                      DisplayMemberPath="BookTitle" Width="300"
                      ItemsSource="{Binding ItemsCollectionView}" FontSize="26.667" FontFamily="Simplified Arabic"/>
 
-            <StackPanel  Orientation="Vertical" Margin="10,0,0,32.96" Width="300" HorizontalAlignment="Left">
+            <StackPanel  Orientation="Vertical"
+                         Margin="10,0,0,32.96" 
+                         Width="300" HorizontalAlignment="Left">
                 <StackPanel.Resources>
                     <Style  TargetType="TextBox">
                         <Setter Property="FontSize" Value="20"/>
