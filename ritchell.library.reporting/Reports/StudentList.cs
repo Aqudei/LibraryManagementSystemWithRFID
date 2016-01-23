@@ -16,14 +16,14 @@ namespace ritchell.library.reporting.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class BookList : ReportClass {
+    public class StudentList : ReportClass {
         
-        public BookList() {
+        public StudentList() {
         }
         
         public override string ResourceName {
             get {
-                return "BookList.rpt";
+                return "StudentList.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ritchell.library.reporting.Reports {
         
         public override string FullResourceName {
             get {
-                return "ritchell.library.reporting.Reports.BookList.rpt";
+                return "ritchell.library.reporting.Reports.StudentList.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace ritchell.library.reporting.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace ritchell.library.reporting.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,33 +82,17 @@ namespace ritchell.library.reporting.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedBookList : Component, ICachedReport {
+    public class CachedStudentList : Component, ICachedReport {
         
-        public CachedBookList() {
+        public CachedStudentList() {
         }
         
         [Browsable(false)]
@@ -145,7 +129,7 @@ namespace ritchell.library.reporting.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            BookList rpt = new BookList();
+            StudentList rpt = new StudentList();
             rpt.Site = this.Site;
             return rpt;
         }

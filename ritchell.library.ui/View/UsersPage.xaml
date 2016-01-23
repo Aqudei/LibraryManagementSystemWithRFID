@@ -36,15 +36,12 @@
                      Width="300"
                      FontFamily="Centaur" 
                      FontSize="26.667" />
-            <ScrollViewer Margin="10,0,0,22.96" 
-                          Width="300" 
-                          Height="{Binding ElementName=usersListBox, Path=ActualHeight}"
+            <ScrollViewer Width="300" 
                           HorizontalAlignment="Left" 
                           CanContentScroll="True"
-                          Padding="5,0">
+                          VerticalScrollBarVisibility="Auto" Padding="0" Margin="5,0">
                 <StackPanel IsEnabled="{Binding EditingEnabled}"
-            		Orientation="Vertical" 
-                        Height="713" Width="300">
+            		Orientation="Vertical">
 
                     <TextBlock><Run Text="First Name"/></TextBlock>
                     <TextBox Text="{Binding ItemsCollectionView/FirstName, UpdateSourceTrigger=PropertyChanged}"/>

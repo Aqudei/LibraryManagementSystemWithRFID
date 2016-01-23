@@ -28,6 +28,25 @@ namespace ritchell.library.ui.client.ViewModels
         private string _AdminUsername;
         private string _AdminPassword;
 
+        private RelayCommand<string> _OpenWindowCommand;
+
+        /// <summary>
+        /// Gets the OpenWindowCommand.
+        /// </summary>
+        public RelayCommand<string> OpenWindowCommand
+        {
+            get
+            {
+                return _OpenWindowCommand
+                    ?? (_OpenWindowCommand = new RelayCommand<string>(
+                    (x) =>
+                    {
+                        if (x.ToLower().Contains("payment"))
+                            _WindowNaviService.ShowPaymentsOf(AuthenticationViewModel.CurrentUser);
+                    }));
+            }
+        }
+
         public AuthenticationViewModel AuthenticationViewModel
         {
             get

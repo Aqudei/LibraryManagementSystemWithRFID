@@ -12,7 +12,6 @@ namespace ritchell.library.model.Repositories
 {
     public class BookTransactionInfoRepository : RepositoryBase<TransactionInfo>, IBookTransactionInfoRepository
     {
-
         public BookTransactionInfoRepository(DbContext context) : base(context)
         { }
 
@@ -26,6 +25,25 @@ namespace ritchell.library.model.Repositories
                 .ToList()
                 .OrderBy(t => t.BorrowDate)
                 .LastOrDefault();
+
+            return bookTrans;
+        }
+
+        public IEnumerable<TransactionInfo> GetPayableTransactions(Guid UserId)
+        {
+            var bookTrans = _Context.Set<TransactionInfo>()
+                 .Where(t => t.LibraryUserId.Equals(UserId) && t.IsPaid == false && t.AmountToPay > 0)
+                .ToList().OrderBy(t => t.BorrowDate);
+
+            return bookTrans;
+        }
+
+        public IEnumerable<TransactionInfo> GetPayableTransactions()
+        {
+            var bookTrans = _Context.Set<TransactionInfo>()
+                 .Where(t => t.IsPaid == false && t.AmountToPay > 0)
+                .ToList()
+                .OrderBy(t => t.BorrowDate);
 
             return bookTrans;
         }
@@ -65,6 +83,8 @@ namespace ritchell.library.model.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+
+
         #endregion
     }
 }

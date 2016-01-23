@@ -1,0 +1,30 @@
+﻿<Page x:Class="ritchell.library.ui.View.PayablesView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ritchell.library.ui.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PayablesView" DataContext="{Binding PayablesViewModel, Source={StaticResource Locator}}">
+
+    <Grid>
+        <ItemsControl x:Name="Payables"
+                      ItemsSource="{Binding Payables}" 
+                      FontFamily="Centaur" 
+                      FontSize="18.667">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding UserInvolved}"/>
+                        <TextBlock Text="{Binding BookInvolved}"/>
+                        <TextBlock Text="{Binding AmountToPay}"/>
+                        <Button HorizontalAlignment="Left"
+                                Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
+                                CommandParameter="{Binding}" >Pay</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Page>

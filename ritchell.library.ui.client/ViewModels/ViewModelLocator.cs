@@ -52,7 +52,7 @@ namespace ritchell.library.ui.client.ViewModels
         private static void SetupWindows()
         {
             ViewServices.WindowNavigationService wns = new ViewServices.WindowNavigationService();
-            wns.Add(ViewServices.WindowNames.PaymentWindow, new Views.UnpaidUnreturnedBooks());
+            wns.Add(ViewServices.WindowNames.PaymentWindow, new Views.PaymentWindow());
 
             SimpleIoc.Default.Register<ViewServices.IWindowNavigationService>(() => wns);
         }

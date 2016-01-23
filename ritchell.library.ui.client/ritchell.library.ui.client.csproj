@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -102,6 +105,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\PayablesViewModel.cs" />
     <Compile Include="ViewModels\VMMessages\ApplicationExiting.cs" />
     <Compile Include="ViewModels\VMMessages\UserEvent.cs" />
     <Compile Include="ViewModels\VMMessages\UserHasLogin.cs" />
@@ -109,8 +113,8 @@
     <Compile Include="ViewModels\VMMessages\UserSuccessfullyAuthenticated.cs" />
     <Compile Include="ViewServices\IWindowNavigationService.cs" />
     <Compile Include="ViewServices\WindowNavigationService.cs" />
-    <Compile Include="Views\UnpaidUnreturnedBooks.xaml.cs">
-      <DependentUpon>UnpaidUnreturnedBooks.xaml</DependentUpon>
+    <Compile Include="Views\PaymentWindow.xaml.cs">
+      <DependentUpon>PaymentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewServices\WindowNames.cs" />
     <Compile Include="WPF\PasswordHelper.cs" />
@@ -140,7 +144,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\UnpaidUnreturnedBooks.xaml">
+    <Page Include="Views\PaymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,6 +191,7 @@
     <Content Include="Basic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="favicon.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

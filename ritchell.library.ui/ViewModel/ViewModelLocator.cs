@@ -16,6 +16,7 @@ using Microsoft.Practices.ServiceLocation;
 using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
 using System.Diagnostics;
+using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -48,6 +49,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<SectionService>();
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<HolidayService>();
+            SimpleIoc.Default.Register<PaymentService>();
 
             SimpleIoc.Default.Register<HolidayPageViewModel>();
             SimpleIoc.Default.Register<UsersPageViewModel>();
@@ -56,6 +58,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<BookPageViewModel>();
             SimpleIoc.Default.Register<BookCopyPageViewModel>();
             SimpleIoc.Default.Register<DepartmentsViewModel>();
+            SimpleIoc.Default.Register<PayablesViewModel>();
         }
 
         private static void SetupRFIDReaders()
@@ -94,6 +97,14 @@ namespace ritchell.library.ui.ViewModel
             get
             {
                 return SimpleIoc.Default.GetInstanceWithoutCaching<UsersPageViewModel>();
+            }
+        }
+
+        public PayablesViewModel PayablesViewModel
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstanceWithoutCaching<PayablesViewModel>();
             }
         }
 

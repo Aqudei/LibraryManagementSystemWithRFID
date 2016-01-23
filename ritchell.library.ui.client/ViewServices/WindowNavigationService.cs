@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ritchell.library.model;
+using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.ui.client.ViewServices
 {
@@ -21,13 +23,13 @@ namespace ritchell.library.ui.client.ViewServices
         }
 
         Dictionary<string, Window> Windows;
-
-
+        private PaymentService _PaymentService;
 
         public event EventHandler<WindowNaviEvent> WindowNaviEventHander;
         public WindowNavigationService()
         {
             Windows = new Dictionary<string, Window>();
+            _PaymentService = new PaymentService();
         }
 
         public void Show(string key)
@@ -63,6 +65,17 @@ namespace ritchell.library.ui.client.ViewServices
         {
             if (Windows.ContainsKey(key) == false)
                 Windows.Add(key, window);
+        }
+
+        public void ShowPaymentsOf(LibraryUser currentUser)
+        {
+            var payables = _PaymentService.GetPayableTransactions(currentUser);
+            var vm = new ViewModels.PayablesViewModel(payables);
+            var payableWindos = new Views.PaymentWindow();
+
+            payableWindos.DataContext = vm;
+            payableWindos.ShowDialog();
+            payableWindos = null;
         }
     }
 }

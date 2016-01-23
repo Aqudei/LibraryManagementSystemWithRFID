@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ritchell.library.infrastructure;
 using RijndaelEncryptDecrypt;
 using System.ComponentModel;
+using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.model
 {
@@ -15,6 +16,8 @@ namespace ritchell.library.model
         private string _MiddleName;
         private string _LastName;
         public DateTime Birthday { get; set; }
+
+        //public ICollection<TransactionInfo> TransactionInfoes { get; set; }
 
         public enum UserType
         {
@@ -40,6 +43,7 @@ namespace ritchell.library.model
 
         public LibraryUser()
         {
+            //TransactionInfo = new List<TransactionInfo>();
             Id = Guid.NewGuid();
         }
 

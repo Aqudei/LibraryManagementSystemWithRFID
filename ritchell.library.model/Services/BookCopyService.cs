@@ -18,6 +18,14 @@ namespace ritchell.library.model.Services
             }
         }
 
+        public BookCopy FindById(object Id)
+        {
+            using (var repo = new BookCopyRepository())
+            {
+                return repo.FindById(Id);
+            }
+        }
+
         public IEnumerable<BookCopy> BookCopiesOf(Guid BookId)
         {
             using (var uow = new LibUnitOfWork())
@@ -59,6 +67,16 @@ namespace ritchell.library.model.Services
         {
             using (var bookInfoRepo = new BookInfoRepository())
             {
+                return bookInfoRepo.Where(b => b.Id.Equals(bookCopy.BookInfoId)).Single();
+            }
+        }
+
+        public BookInfo GetBookInfo(Guid bookCopyId)
+        {
+            using (var bookInfoRepo = new BookInfoRepository())
+            using (var bookCopyRepo = new BookCopyRepository())
+            {
+                var bookCopy = bookCopyRepo.FindById(bookCopyId);
                 return bookInfoRepo.Where(b => b.Id.Equals(bookCopy.BookInfoId)).Single();
             }
         }

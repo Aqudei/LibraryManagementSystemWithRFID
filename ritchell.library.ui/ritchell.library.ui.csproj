@@ -37,7 +37,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Everaldo-Desktoon-Library.ico</ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -138,10 +138,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\IReportDialogParent.cs" />
     <Compile Include="ViewModel\BookCopyPageViewModel.cs" />
     <Compile Include="ViewModel\BookPageViewModel.cs" />
     <Compile Include="ViewModel\DepartmentsViewModel.cs" />
     <Compile Include="ViewModel\HolidayPageViewModel.cs" />
+    <Compile Include="ViewModel\PayablesViewModel.cs" />
     <Compile Include="ViewModel\UsersPageViewModel.cs" />
     <Compile Include="View\DepartmentsView.xaml.cs">
       <DependentUpon>DepartmentsView.xaml</DependentUpon>
@@ -159,6 +161,12 @@
     </Compile>
     <Compile Include="View\HolidaysPage.xaml.cs">
       <DependentUpon>HolidaysPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PayablesView.xaml.cs">
+      <DependentUpon>PayablesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReportViewer.xaml.cs">
+      <DependentUpon>ReportViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SectionPage.xaml.cs">
       <DependentUpon>SectionPage.xaml</DependentUpon>
@@ -196,6 +204,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HolidaysPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PayablesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ReportViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,11 +259,16 @@
       <Project>{99d28668-0517-43e3-9812-235fc8c0f86b}</Project>
       <Name>ritchell.library.model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ritchell.library.reporting\ritchell.library.reporting.csproj">
+      <Project>{4015bd09-0ca7-4438-8733-fca419d08936}</Project>
+      <Name>ritchell.library.reporting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Basic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="favicon.ico" />
     <Resource Include="Everaldo-Desktoon-Library.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

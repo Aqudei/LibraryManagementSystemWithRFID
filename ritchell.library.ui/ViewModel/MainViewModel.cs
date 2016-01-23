@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
+using ritchell.library.ui.Services;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -18,8 +19,18 @@ namespace ritchell.library.ui.ViewModel
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
-        {
+        { }
 
+        RelayCommand<object> _ShowReportCommand;
+        public RelayCommand<object> ShowReportCommand
+        {
+            get
+            {
+                return _ShowReportCommand = _ShowReportCommand ?? new RelayCommand<object>((reportName) =>
+                {
+                    GetReportDialogParent().ShowReport(reportName);
+                }, (reportName) => true);
+            }
         }
 
         private RelayCommand<string> _NavigateToPageCommand;
@@ -40,10 +51,14 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
-
         private NavigationService GetNavService()
         {
             return SimpleIoc.Default.GetInstance<NavigationService>();
+        }
+
+        private IReportDialogParent GetReportDialogParent()
+        {
+            return SimpleIoc.Default.GetInstance<IReportDialogParent>();
         }
 
         //public override void Cleanup()

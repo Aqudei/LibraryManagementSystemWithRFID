@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ritchell.library.ui.client"
         mc:Ignorable="d" Title="Ritchell Library Management System" Height="906.118" Width="1606.386"
         xmlns:pass="clr-namespace:ritchell.library.ui.client.WPF"
+        xmlns:win="clr-namespace:ritchell.library.ui.client.ViewServices"
         xmlns:m="clr-namespace:ritchell.library.model.LibraryTransactions;assembly=ritchell.library.model"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Window.Resources>
@@ -72,9 +73,27 @@
         <ContentControl Content="{Binding AuthenticationViewModel, Mode=TwoWay}" 
                         Grid.Row="0" HorizontalContentAlignment="Right" HorizontalAlignment="Right" />
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,10">
-            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24">Payments</Button>
-            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24">Search Books</Button>
-            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24">Misc</Button>
+            <Button Style="{DynamicResource ClientMenuButtonStyle}" 
+                    FontSize="24" Margin="5,0" 
+                    Command="{Binding OpenWindowCommand, Mode=OneWay}"
+                    CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect> Payments
+            </Button>
+            <Button Style="{DynamicResource ClientMenuButtonStyle}"
+                    FontSize="24" Margin="5,0" 
+                    Command="{Binding OpenWindowCommand, Mode=OneWay}"
+                    CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" >
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect> Search Books
+            </Button>
+            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24" Margin="5,0" Command="{Binding OpenWindowCommand, Mode=OneWay}">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect> Misc
+            </Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1">
             <TextBlock FontSize="26.667" FontWeight="Bold" FontFamily="Times New Roman" Margin="10,0,0,0" Text="Scan a book..."/>

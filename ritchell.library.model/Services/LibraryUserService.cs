@@ -5,11 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using RijndaelEncryptDecrypt;
 using ritchell.library.model.Repositories;
+using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.model.Services
 {
     public class LibraryUserService
     {
+        public LibraryUser FindById(object id)
+        {
+            using (var userRepo = new LibraryUserRepository())
+            {
+                return userRepo.FindById(id);
+            }
+        }
+
         public LibraryUser GetAuthenticatedUser(string username, string password)
         {
             using (var uow = new LibUnitOfWork())
@@ -60,6 +69,8 @@ namespace ritchell.library.model.Services
                 uow.SaveChanges();
             }
         }
+
+
 
         public void AddOrUpdateLibraryUser(LibraryUser libraryUser)
         {

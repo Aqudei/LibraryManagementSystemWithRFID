@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ritchell.library.ui.client.Views
+namespace ritchell.library.ui.View
 {
     /// <summary>
-    /// Interaction logic for UnpaidUnreturnedBooks.xaml
+    /// Interaction logic for ReportViewer.xaml
     /// </summary>
-    public partial class UnpaidUnreturnedBooks : Window
+    public partial class ReportViewer : Window
     {
-        public UnpaidUnreturnedBooks()
+        public ReportViewer()
         {
             InitializeComponent();
         }

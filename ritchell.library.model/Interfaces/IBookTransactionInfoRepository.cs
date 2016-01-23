@@ -11,5 +11,6 @@ namespace ritchell.library.model.Interfaces
     public interface IBookTransactionInfoRepository : IRepository<TransactionInfo>, IDisposable
     {
         TransactionInfo GetLastBookTransaction(Guid BookCopyId);
+        IEnumerable<TransactionInfo> GetPayableTransactions(Guid UserId);
     }
 }
