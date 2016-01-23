@@ -12,13 +12,25 @@
         <ItemsControl x:Name="Payables"
                       ItemsSource="{Binding Payables}" 
                       FontFamily="Centaur" 
+                      FontWeight="Bold"
                       FontSize="18.667">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding UserInvolved}"/>
-                        <TextBlock Text="{Binding BookInvolved}"/>
-                        <TextBlock Text="{Binding AmountToPay}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Fullname"/>
+                            <TextBlock Text="{Binding UserInvolved}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Book"/>
+                            <TextBlock Text="{Binding BookInvolved}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Amount"/>
+                            <TextBlock Text="{Binding AmountToPay}"/>
+                        </StackPanel>
                         <Button HorizontalAlignment="Left"
                                 Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
                                 CommandParameter="{Binding}" >Pay</Button>

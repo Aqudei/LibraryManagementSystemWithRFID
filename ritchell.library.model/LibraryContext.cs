@@ -22,7 +22,10 @@ namespace ritchell.library.model
 
         public LibraryContext()
             : base("name=LibraryContext")
-        { }
+        {
+
+            
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

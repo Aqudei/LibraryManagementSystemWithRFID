@@ -108,10 +108,11 @@ namespace ritchell.library.ui.client.ViewModels
                 try
                 {
                     LibraryTransactionsAggregate.AddTransaction(e);
+                    //_DialogService.ShowMessage("Transaction Completed!", "");
                 }
                 catch (Exception ex)
                 {
-                    _DialogService.ShowMessage(ex.Message, "");
+                    //_DialogService.ShowMessage(ex.Message, "");
                 }
 
                 RaisePropertyChanged(() => LibraryTransactionsAggregate.LibraryTransactions);
@@ -131,11 +132,11 @@ namespace ritchell.library.ui.client.ViewModels
                     try
                     {
                         LibraryTransactionsAggregate.CompletePayment(AdminUsername, AdminPassword);
-                        _DialogService.ShowMessage("Payment Completed", "");
+                        DialogService.ShowMessage("Payment Completed", "");
                     }
                     catch (Exception ex)
                     {
-                        _DialogService.ShowMessage(ex.Message, "");
+                        DialogService.ShowMessage(ex.Message, "");
                     }
 
                 },
@@ -157,11 +158,11 @@ namespace ritchell.library.ui.client.ViewModels
                         {
                             transaction.Execute();
                         }
-                        DialogService.ShowMessage("Transaction(s) Completed...", "");
+                        DialogService.ShowMessageBox("Transaction(s) Completed...", "");
                     }
                     catch (Exception ex)
                     {
-                        DialogService.ShowMessage(ex.Message, "");
+                        DialogService.ShowMessageBox(ex.Message, "");
                         Debug.WriteLine("{0} @ ProceedWithTransactionCommand", ex.Message);
                     }
                 }, () => LibraryTransactionsAggregate.LibraryTransactions.Count > 0);
