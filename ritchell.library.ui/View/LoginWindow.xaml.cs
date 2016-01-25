@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ritchell.library.reporting.Views
+namespace ritchell.library.ui.View
 {
     /// <summary>
-    /// Interaction logic for ReportViewer.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class ReportViewer : UserControl
+    public partial class LoginWindow : Window
     {
-        public ReportViewer()
+        public LoginWindow()
         {
             InitializeComponent();
         }

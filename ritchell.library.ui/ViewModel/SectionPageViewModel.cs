@@ -20,6 +20,12 @@ namespace ritchell.library.ui.ViewModel
 
             items = new ObservableCollection<Section>(_SectionService.GetAllSections());
             ItemsCollectionView = (CollectionView)CollectionViewSource.GetDefaultView(items);
+
+        }
+
+        public override void RestoreOldData()
+        {
+            base.RestoreOldData();
         }
 
         public override void DeleteItemCommandHandler()

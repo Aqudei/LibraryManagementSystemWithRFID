@@ -1,12 +1,10 @@
 ﻿using System.Windows;
-using System.Windows.Navigation;
 using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
 using ritchell.library.ui.View.DialogInterface;
 using ritchell.library.ui.ViewModel;
 using ritchell.library.ui.Services;
-using System;
 using System.Windows.Controls;
+using ritchell.library.reporting;
 
 namespace ritchell.library.ui
 {
@@ -16,7 +14,7 @@ namespace ritchell.library.ui
     public partial class MainWindow : Window,
         IRFIDManagerDialog, IReportDialogParent
     {
-        reporting.Services.ReportViewerService _ReportViewerService;
+        ReportViewerService _ReportViewerService;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -25,13 +23,11 @@ namespace ritchell.library.ui
         {
             InitializeComponent();
 
-            //_ReportViewerService = new reporting.Services.ReportViewerService();
-
             Loaded += (s, e) =>
             {
                 SimpleIoc.Default.Register<IRFIDManagerDialog>(() => this);
                 SimpleIoc.Default.Register<IReportDialogParent>(() => this);
-                SimpleIoc.Default.Register<NavigationService>(() => this.LayoutRoot.NavigationService);
+                SimpleIoc.Default.Register(() => LayoutRoot.NavigationService);
             };
 
             Closing += (s, e) => ViewModelLocator.Cleanup();
@@ -44,28 +40,29 @@ namespace ritchell.library.ui
             dlg.ShowDialog();
         }
 
-        public UserControl Report { get; set; }
+        public ReportViewerService ReportViewerService
+        {
+            get
+            {
+                return _ReportViewerService = _ReportViewerService ?? new ReportViewerService();
+            }
+        }
 
         public void ShowReport(object reportName)
         {
             var rptName = (reportName as string).ToLower();
             if (rptName.Contains("book"))
             {
-                Report = _ReportViewerService.BookListReport();
+                ReportViewerService.ShowBookListReport();
             }
             else if (rptName.Contains("clearance"))
             {
-                Report = _ReportViewerService.ForClearanceReport();
+                ReportViewerService.ShowForClearanceReport();
             }
             else if (rptName.Contains("patron"))
             {
-                Report = _ReportViewerService.PatronsReport();
+                ReportViewerService.ShowPatronsReport();
             }
-
-
-            var newWin = new View.ReportViewer();
-            newWin.DataContext = this;
-            newWin.ShowDialog();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

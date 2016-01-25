@@ -20,29 +20,25 @@ namespace ritchell.library.reporting {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("librarycontext")]
+    [global::System.Xml.Serialization.XmlRootAttribute("librarycontextDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class librarycontext : global::System.Data.DataSet {
+    public partial class librarycontextDataSet : global::System.Data.DataSet {
         
         private @__migrationhistoryDataTable table__migrationhistory;
         
-        private bookcopies1DataTable tablebookcopies1;
+        private bookcopiesDataTable tablebookcopies;
         
-        private bookinfoes1DataTable tablebookinfoes1;
+        private bookinfoesDataTable tablebookinfoes;
         
-        private departments1DataTable tabledepartments1;
+        private departmentsDataTable tabledepartments;
         
         private holidaysDataTable tableholidays;
         
-        private libraryusers1DataTable tablelibraryusers1;
+        private libraryusersDataTable tablelibraryusers;
         
-        private sections1DataTable tablesections1;
+        private sectionsDataTable tablesections;
         
-        private transactioninfoes1DataTable tabletransactioninfoes1;
-        
-        private numberofborrowed1DataTable tablenumberofborrowed1;
-        
-        private numberofcopies1DataTable tablenumberofcopies1;
+        private transactioninfoesDataTable tabletransactioninfoes;
         
         private global::System.Data.DataRelation relationFK_BookCopies_BookInfoes_BookInfoId;
         
@@ -52,7 +48,7 @@ namespace ritchell.library.reporting {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public librarycontext() {
+        public librarycontextDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -63,7 +59,7 @@ namespace ritchell.library.reporting {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected librarycontext(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected librarycontextDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -79,32 +75,26 @@ namespace ritchell.library.reporting {
                 if ((ds.Tables["__migrationhistory"] != null)) {
                     base.Tables.Add(new @__migrationhistoryDataTable(ds.Tables["__migrationhistory"]));
                 }
-                if ((ds.Tables["bookcopies1"] != null)) {
-                    base.Tables.Add(new bookcopies1DataTable(ds.Tables["bookcopies1"]));
+                if ((ds.Tables["bookcopies"] != null)) {
+                    base.Tables.Add(new bookcopiesDataTable(ds.Tables["bookcopies"]));
                 }
-                if ((ds.Tables["bookinfoes1"] != null)) {
-                    base.Tables.Add(new bookinfoes1DataTable(ds.Tables["bookinfoes1"]));
+                if ((ds.Tables["bookinfoes"] != null)) {
+                    base.Tables.Add(new bookinfoesDataTable(ds.Tables["bookinfoes"]));
                 }
-                if ((ds.Tables["departments1"] != null)) {
-                    base.Tables.Add(new departments1DataTable(ds.Tables["departments1"]));
+                if ((ds.Tables["departments"] != null)) {
+                    base.Tables.Add(new departmentsDataTable(ds.Tables["departments"]));
                 }
                 if ((ds.Tables["holidays"] != null)) {
                     base.Tables.Add(new holidaysDataTable(ds.Tables["holidays"]));
                 }
-                if ((ds.Tables["libraryusers1"] != null)) {
-                    base.Tables.Add(new libraryusers1DataTable(ds.Tables["libraryusers1"]));
+                if ((ds.Tables["libraryusers"] != null)) {
+                    base.Tables.Add(new libraryusersDataTable(ds.Tables["libraryusers"]));
                 }
-                if ((ds.Tables["sections1"] != null)) {
-                    base.Tables.Add(new sections1DataTable(ds.Tables["sections1"]));
+                if ((ds.Tables["sections"] != null)) {
+                    base.Tables.Add(new sectionsDataTable(ds.Tables["sections"]));
                 }
-                if ((ds.Tables["transactioninfoes1"] != null)) {
-                    base.Tables.Add(new transactioninfoes1DataTable(ds.Tables["transactioninfoes1"]));
-                }
-                if ((ds.Tables["numberofborrowed1"] != null)) {
-                    base.Tables.Add(new numberofborrowed1DataTable(ds.Tables["numberofborrowed1"]));
-                }
-                if ((ds.Tables["numberofcopies1"] != null)) {
-                    base.Tables.Add(new numberofcopies1DataTable(ds.Tables["numberofcopies1"]));
+                if ((ds.Tables["transactioninfoes"] != null)) {
+                    base.Tables.Add(new transactioninfoesDataTable(ds.Tables["transactioninfoes"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -138,9 +128,9 @@ namespace ritchell.library.reporting {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public bookcopies1DataTable bookcopies1 {
+        public bookcopiesDataTable bookcopies {
             get {
-                return this.tablebookcopies1;
+                return this.tablebookcopies;
             }
         }
         
@@ -148,9 +138,9 @@ namespace ritchell.library.reporting {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public bookinfoes1DataTable bookinfoes1 {
+        public bookinfoesDataTable bookinfoes {
             get {
-                return this.tablebookinfoes1;
+                return this.tablebookinfoes;
             }
         }
         
@@ -158,9 +148,9 @@ namespace ritchell.library.reporting {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public departments1DataTable departments1 {
+        public departmentsDataTable departments {
             get {
-                return this.tabledepartments1;
+                return this.tabledepartments;
             }
         }
         
@@ -178,9 +168,9 @@ namespace ritchell.library.reporting {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public libraryusers1DataTable libraryusers1 {
+        public libraryusersDataTable libraryusers {
             get {
-                return this.tablelibraryusers1;
+                return this.tablelibraryusers;
             }
         }
         
@@ -188,9 +178,9 @@ namespace ritchell.library.reporting {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sections1DataTable sections1 {
+        public sectionsDataTable sections {
             get {
-                return this.tablesections1;
+                return this.tablesections;
             }
         }
         
@@ -198,29 +188,9 @@ namespace ritchell.library.reporting {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public transactioninfoes1DataTable transactioninfoes1 {
+        public transactioninfoesDataTable transactioninfoes {
             get {
-                return this.tabletransactioninfoes1;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public numberofborrowed1DataTable numberofborrowed1 {
-            get {
-                return this.tablenumberofborrowed1;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public numberofcopies1DataTable numberofcopies1 {
-            get {
-                return this.tablenumberofcopies1;
+                return this.tabletransactioninfoes;
             }
         }
         
@@ -266,7 +236,7 @@ namespace ritchell.library.reporting {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            librarycontext cln = ((librarycontext)(base.Clone()));
+            librarycontextDataSet cln = ((librarycontextDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -294,32 +264,26 @@ namespace ritchell.library.reporting {
                 if ((ds.Tables["__migrationhistory"] != null)) {
                     base.Tables.Add(new @__migrationhistoryDataTable(ds.Tables["__migrationhistory"]));
                 }
-                if ((ds.Tables["bookcopies1"] != null)) {
-                    base.Tables.Add(new bookcopies1DataTable(ds.Tables["bookcopies1"]));
+                if ((ds.Tables["bookcopies"] != null)) {
+                    base.Tables.Add(new bookcopiesDataTable(ds.Tables["bookcopies"]));
                 }
-                if ((ds.Tables["bookinfoes1"] != null)) {
-                    base.Tables.Add(new bookinfoes1DataTable(ds.Tables["bookinfoes1"]));
+                if ((ds.Tables["bookinfoes"] != null)) {
+                    base.Tables.Add(new bookinfoesDataTable(ds.Tables["bookinfoes"]));
                 }
-                if ((ds.Tables["departments1"] != null)) {
-                    base.Tables.Add(new departments1DataTable(ds.Tables["departments1"]));
+                if ((ds.Tables["departments"] != null)) {
+                    base.Tables.Add(new departmentsDataTable(ds.Tables["departments"]));
                 }
                 if ((ds.Tables["holidays"] != null)) {
                     base.Tables.Add(new holidaysDataTable(ds.Tables["holidays"]));
                 }
-                if ((ds.Tables["libraryusers1"] != null)) {
-                    base.Tables.Add(new libraryusers1DataTable(ds.Tables["libraryusers1"]));
+                if ((ds.Tables["libraryusers"] != null)) {
+                    base.Tables.Add(new libraryusersDataTable(ds.Tables["libraryusers"]));
                 }
-                if ((ds.Tables["sections1"] != null)) {
-                    base.Tables.Add(new sections1DataTable(ds.Tables["sections1"]));
+                if ((ds.Tables["sections"] != null)) {
+                    base.Tables.Add(new sectionsDataTable(ds.Tables["sections"]));
                 }
-                if ((ds.Tables["transactioninfoes1"] != null)) {
-                    base.Tables.Add(new transactioninfoes1DataTable(ds.Tables["transactioninfoes1"]));
-                }
-                if ((ds.Tables["numberofborrowed1"] != null)) {
-                    base.Tables.Add(new numberofborrowed1DataTable(ds.Tables["numberofborrowed1"]));
-                }
-                if ((ds.Tables["numberofcopies1"] != null)) {
-                    base.Tables.Add(new numberofcopies1DataTable(ds.Tables["numberofcopies1"]));
+                if ((ds.Tables["transactioninfoes"] != null)) {
+                    base.Tables.Add(new transactioninfoesDataTable(ds.Tables["transactioninfoes"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -360,22 +324,22 @@ namespace ritchell.library.reporting {
                     this.table__migrationhistory.InitVars();
                 }
             }
-            this.tablebookcopies1 = ((bookcopies1DataTable)(base.Tables["bookcopies1"]));
+            this.tablebookcopies = ((bookcopiesDataTable)(base.Tables["bookcopies"]));
             if ((initTable == true)) {
-                if ((this.tablebookcopies1 != null)) {
-                    this.tablebookcopies1.InitVars();
+                if ((this.tablebookcopies != null)) {
+                    this.tablebookcopies.InitVars();
                 }
             }
-            this.tablebookinfoes1 = ((bookinfoes1DataTable)(base.Tables["bookinfoes1"]));
+            this.tablebookinfoes = ((bookinfoesDataTable)(base.Tables["bookinfoes"]));
             if ((initTable == true)) {
-                if ((this.tablebookinfoes1 != null)) {
-                    this.tablebookinfoes1.InitVars();
+                if ((this.tablebookinfoes != null)) {
+                    this.tablebookinfoes.InitVars();
                 }
             }
-            this.tabledepartments1 = ((departments1DataTable)(base.Tables["departments1"]));
+            this.tabledepartments = ((departmentsDataTable)(base.Tables["departments"]));
             if ((initTable == true)) {
-                if ((this.tabledepartments1 != null)) {
-                    this.tabledepartments1.InitVars();
+                if ((this.tabledepartments != null)) {
+                    this.tabledepartments.InitVars();
                 }
             }
             this.tableholidays = ((holidaysDataTable)(base.Tables["holidays"]));
@@ -384,34 +348,22 @@ namespace ritchell.library.reporting {
                     this.tableholidays.InitVars();
                 }
             }
-            this.tablelibraryusers1 = ((libraryusers1DataTable)(base.Tables["libraryusers1"]));
+            this.tablelibraryusers = ((libraryusersDataTable)(base.Tables["libraryusers"]));
             if ((initTable == true)) {
-                if ((this.tablelibraryusers1 != null)) {
-                    this.tablelibraryusers1.InitVars();
+                if ((this.tablelibraryusers != null)) {
+                    this.tablelibraryusers.InitVars();
                 }
             }
-            this.tablesections1 = ((sections1DataTable)(base.Tables["sections1"]));
+            this.tablesections = ((sectionsDataTable)(base.Tables["sections"]));
             if ((initTable == true)) {
-                if ((this.tablesections1 != null)) {
-                    this.tablesections1.InitVars();
+                if ((this.tablesections != null)) {
+                    this.tablesections.InitVars();
                 }
             }
-            this.tabletransactioninfoes1 = ((transactioninfoes1DataTable)(base.Tables["transactioninfoes1"]));
+            this.tabletransactioninfoes = ((transactioninfoesDataTable)(base.Tables["transactioninfoes"]));
             if ((initTable == true)) {
-                if ((this.tabletransactioninfoes1 != null)) {
-                    this.tabletransactioninfoes1.InitVars();
-                }
-            }
-            this.tablenumberofborrowed1 = ((numberofborrowed1DataTable)(base.Tables["numberofborrowed1"]));
-            if ((initTable == true)) {
-                if ((this.tablenumberofborrowed1 != null)) {
-                    this.tablenumberofborrowed1.InitVars();
-                }
-            }
-            this.tablenumberofcopies1 = ((numberofcopies1DataTable)(base.Tables["numberofcopies1"]));
-            if ((initTable == true)) {
-                if ((this.tablenumberofcopies1 != null)) {
-                    this.tablenumberofcopies1.InitVars();
+                if ((this.tabletransactioninfoes != null)) {
+                    this.tabletransactioninfoes.InitVars();
                 }
             }
             this.relationFK_BookCopies_BookInfoes_BookInfoId = this.Relations["FK_BookCopies_BookInfoes_BookInfoId"];
@@ -421,38 +373,34 @@ namespace ritchell.library.reporting {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "librarycontext";
+            this.DataSetName = "librarycontextDataSet";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/librarycontextDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.table__migrationhistory = new @__migrationhistoryDataTable();
             base.Tables.Add(this.table__migrationhistory);
-            this.tablebookcopies1 = new bookcopies1DataTable();
-            base.Tables.Add(this.tablebookcopies1);
-            this.tablebookinfoes1 = new bookinfoes1DataTable();
-            base.Tables.Add(this.tablebookinfoes1);
-            this.tabledepartments1 = new departments1DataTable();
-            base.Tables.Add(this.tabledepartments1);
+            this.tablebookcopies = new bookcopiesDataTable();
+            base.Tables.Add(this.tablebookcopies);
+            this.tablebookinfoes = new bookinfoesDataTable();
+            base.Tables.Add(this.tablebookinfoes);
+            this.tabledepartments = new departmentsDataTable();
+            base.Tables.Add(this.tabledepartments);
             this.tableholidays = new holidaysDataTable();
             base.Tables.Add(this.tableholidays);
-            this.tablelibraryusers1 = new libraryusers1DataTable();
-            base.Tables.Add(this.tablelibraryusers1);
-            this.tablesections1 = new sections1DataTable();
-            base.Tables.Add(this.tablesections1);
-            this.tabletransactioninfoes1 = new transactioninfoes1DataTable();
-            base.Tables.Add(this.tabletransactioninfoes1);
-            this.tablenumberofborrowed1 = new numberofborrowed1DataTable();
-            base.Tables.Add(this.tablenumberofborrowed1);
-            this.tablenumberofcopies1 = new numberofcopies1DataTable();
-            base.Tables.Add(this.tablenumberofcopies1);
+            this.tablelibraryusers = new libraryusersDataTable();
+            base.Tables.Add(this.tablelibraryusers);
+            this.tablesections = new sectionsDataTable();
+            base.Tables.Add(this.tablesections);
+            this.tabletransactioninfoes = new transactioninfoesDataTable();
+            base.Tables.Add(this.tabletransactioninfoes);
             this.relationFK_BookCopies_BookInfoes_BookInfoId = new global::System.Data.DataRelation("FK_BookCopies_BookInfoes_BookInfoId", new global::System.Data.DataColumn[] {
-                        this.tablebookinfoes1.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablebookcopies1.BookInfoIdColumn}, false);
+                        this.tablebookinfoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablebookcopies.BookInfoIdColumn}, false);
             this.Relations.Add(this.relationFK_BookCopies_BookInfoes_BookInfoId);
             this.relationFK_BookInfoes_Sections_SectionId = new global::System.Data.DataRelation("FK_BookInfoes_Sections_SectionId", new global::System.Data.DataColumn[] {
-                        this.tablesections1.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tablebookinfoes1.SectionIdColumn}, false);
+                        this.tablesections.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablebookinfoes.SectionIdColumn}, false);
             this.Relations.Add(this.relationFK_BookInfoes_Sections_SectionId);
         }
         
@@ -464,19 +412,19 @@ namespace ritchell.library.reporting {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializebookcopies1() {
+        private bool ShouldSerializebookcopies() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializebookinfoes1() {
+        private bool ShouldSerializebookinfoes() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializedepartments1() {
+        private bool ShouldSerializedepartments() {
             return false;
         }
         
@@ -488,31 +436,19 @@ namespace ritchell.library.reporting {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializelibraryusers1() {
+        private bool ShouldSerializelibraryusers() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializesections1() {
+        private bool ShouldSerializesections() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializetransactioninfoes1() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializenumberofborrowed1() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializenumberofcopies1() {
+        private bool ShouldSerializetransactioninfoes() {
             return false;
         }
         
@@ -527,7 +463,7 @@ namespace ritchell.library.reporting {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            librarycontext ds = new librarycontext();
+            librarycontextDataSet ds = new librarycontextDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -575,31 +511,25 @@ namespace ritchell.library.reporting {
         public delegate void @__migrationhistoryRowChangeEventHandler(object sender, @__migrationhistoryRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void bookcopies1RowChangeEventHandler(object sender, bookcopies1RowChangeEvent e);
+        public delegate void bookcopiesRowChangeEventHandler(object sender, bookcopiesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void bookinfoes1RowChangeEventHandler(object sender, bookinfoes1RowChangeEvent e);
+        public delegate void bookinfoesRowChangeEventHandler(object sender, bookinfoesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void departments1RowChangeEventHandler(object sender, departments1RowChangeEvent e);
+        public delegate void departmentsRowChangeEventHandler(object sender, departmentsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void holidaysRowChangeEventHandler(object sender, holidaysRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void libraryusers1RowChangeEventHandler(object sender, libraryusers1RowChangeEvent e);
+        public delegate void libraryusersRowChangeEventHandler(object sender, libraryusersRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void sections1RowChangeEventHandler(object sender, sections1RowChangeEvent e);
+        public delegate void sectionsRowChangeEventHandler(object sender, sectionsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void transactioninfoes1RowChangeEventHandler(object sender, transactioninfoes1RowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void numberofborrowed1RowChangeEventHandler(object sender, numberofborrowed1RowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void numberofcopies1RowChangeEventHandler(object sender, numberofcopies1RowChangeEvent e);
+        public delegate void transactioninfoesRowChangeEventHandler(object sender, transactioninfoesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -848,7 +778,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -912,7 +842,7 @@ namespace ritchell.library.reporting {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class bookcopies1DataTable : global::System.Data.TypedTableBase<bookcopies1Row> {
+        public partial class bookcopiesDataTable : global::System.Data.TypedTableBase<bookcopiesRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -926,8 +856,8 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1DataTable() {
-                this.TableName = "bookcopies1";
+            public bookcopiesDataTable() {
+                this.TableName = "bookcopies";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -935,7 +865,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal bookcopies1DataTable(global::System.Data.DataTable table) {
+            internal bookcopiesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -952,7 +882,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected bookcopies1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected bookcopiesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1008,59 +938,59 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1Row this[int index] {
+            public bookcopiesRow this[int index] {
                 get {
-                    return ((bookcopies1Row)(this.Rows[index]));
+                    return ((bookcopiesRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookcopies1RowChangeEventHandler bookcopies1RowChanging;
+            public event bookcopiesRowChangeEventHandler bookcopiesRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookcopies1RowChangeEventHandler bookcopies1RowChanged;
+            public event bookcopiesRowChangeEventHandler bookcopiesRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookcopies1RowChangeEventHandler bookcopies1RowDeleting;
+            public event bookcopiesRowChangeEventHandler bookcopiesRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookcopies1RowChangeEventHandler bookcopies1RowDeleted;
+            public event bookcopiesRowChangeEventHandler bookcopiesRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addbookcopies1Row(bookcopies1Row row) {
+            public void AddbookcopiesRow(bookcopiesRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1Row Addbookcopies1Row(System.Guid Id, string BookTagShort, string BookTagLong, bookinfoes1Row parentbookinfoes1RowByFK_BookCopies_BookInfoes_BookInfoId, bool IsBorrowed) {
-                bookcopies1Row rowbookcopies1Row = ((bookcopies1Row)(this.NewRow()));
+            public bookcopiesRow AddbookcopiesRow(System.Guid Id, string BookTagShort, string BookTagLong, bookinfoesRow parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId, bool IsBorrowed) {
+                bookcopiesRow rowbookcopiesRow = ((bookcopiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         BookTagShort,
                         BookTagLong,
                         null,
                         IsBorrowed};
-                if ((parentbookinfoes1RowByFK_BookCopies_BookInfoes_BookInfoId != null)) {
-                    columnValuesArray[3] = parentbookinfoes1RowByFK_BookCopies_BookInfoes_BookInfoId[0];
+                if ((parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId != null)) {
+                    columnValuesArray[3] = parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId[0];
                 }
-                rowbookcopies1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowbookcopies1Row);
-                return rowbookcopies1Row;
+                rowbookcopiesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowbookcopiesRow);
+                return rowbookcopiesRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1Row FindById(System.Guid Id) {
-                return ((bookcopies1Row)(this.Rows.Find(new object[] {
+            public bookcopiesRow FindById(System.Guid Id) {
+                return ((bookcopiesRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                bookcopies1DataTable cln = ((bookcopies1DataTable)(base.Clone()));
+                bookcopiesDataTable cln = ((bookcopiesDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1068,7 +998,7 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new bookcopies1DataTable();
+                return new bookcopiesDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1104,28 +1034,28 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1Row Newbookcopies1Row() {
-                return ((bookcopies1Row)(this.NewRow()));
+            public bookcopiesRow NewbookcopiesRow() {
+                return ((bookcopiesRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new bookcopies1Row(builder);
+                return new bookcopiesRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(bookcopies1Row);
+                return typeof(bookcopiesRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.bookcopies1RowChanged != null)) {
-                    this.bookcopies1RowChanged(this, new bookcopies1RowChangeEvent(((bookcopies1Row)(e.Row)), e.Action));
+                if ((this.bookcopiesRowChanged != null)) {
+                    this.bookcopiesRowChanged(this, new bookcopiesRowChangeEvent(((bookcopiesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1133,8 +1063,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.bookcopies1RowChanging != null)) {
-                    this.bookcopies1RowChanging(this, new bookcopies1RowChangeEvent(((bookcopies1Row)(e.Row)), e.Action));
+                if ((this.bookcopiesRowChanging != null)) {
+                    this.bookcopiesRowChanging(this, new bookcopiesRowChangeEvent(((bookcopiesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1142,8 +1072,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.bookcopies1RowDeleted != null)) {
-                    this.bookcopies1RowDeleted(this, new bookcopies1RowChangeEvent(((bookcopies1Row)(e.Row)), e.Action));
+                if ((this.bookcopiesRowDeleted != null)) {
+                    this.bookcopiesRowDeleted(this, new bookcopiesRowChangeEvent(((bookcopiesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1151,14 +1081,14 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.bookcopies1RowDeleting != null)) {
-                    this.bookcopies1RowDeleting(this, new bookcopies1RowChangeEvent(((bookcopies1Row)(e.Row)), e.Action));
+                if ((this.bookcopiesRowDeleting != null)) {
+                    this.bookcopiesRowDeleting(this, new bookcopiesRowChangeEvent(((bookcopiesRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removebookcopies1Row(bookcopies1Row row) {
+            public void RemovebookcopiesRow(bookcopiesRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1167,7 +1097,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1185,7 +1115,7 @@ namespace ritchell.library.reporting {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "bookcopies1DataTable";
+                attribute2.FixedValue = "bookcopiesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1231,7 +1161,7 @@ namespace ritchell.library.reporting {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class bookinfoes1DataTable : global::System.Data.TypedTableBase<bookinfoes1Row> {
+        public partial class bookinfoesDataTable : global::System.Data.TypedTableBase<bookinfoesRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -1243,16 +1173,14 @@ namespace ritchell.library.reporting {
             
             private global::System.Data.DataColumn columnCopyright;
             
-            private global::System.Data.DataColumn columnISBN_ISBN10;
-            
-            private global::System.Data.DataColumn columnISBN_ISBN13;
+            private global::System.Data.DataColumn columnISBN;
             
             private global::System.Data.DataColumn columnSectionId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1DataTable() {
-                this.TableName = "bookinfoes1";
+            public bookinfoesDataTable() {
+                this.TableName = "bookinfoes";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1260,7 +1188,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal bookinfoes1DataTable(global::System.Data.DataTable table) {
+            internal bookinfoesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1277,7 +1205,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected bookinfoes1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected bookinfoesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1324,17 +1252,9 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ISBN_ISBN10Column {
+            public global::System.Data.DataColumn ISBNColumn {
                 get {
-                    return this.columnISBN_ISBN10;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ISBN_ISBN13Column {
-                get {
-                    return this.columnISBN_ISBN13;
+                    return this.columnISBN;
                 }
             }
             
@@ -1357,62 +1277,61 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1Row this[int index] {
+            public bookinfoesRow this[int index] {
                 get {
-                    return ((bookinfoes1Row)(this.Rows[index]));
+                    return ((bookinfoesRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookinfoes1RowChangeEventHandler bookinfoes1RowChanging;
+            public event bookinfoesRowChangeEventHandler bookinfoesRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookinfoes1RowChangeEventHandler bookinfoes1RowChanged;
+            public event bookinfoesRowChangeEventHandler bookinfoesRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookinfoes1RowChangeEventHandler bookinfoes1RowDeleting;
+            public event bookinfoesRowChangeEventHandler bookinfoesRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event bookinfoes1RowChangeEventHandler bookinfoes1RowDeleted;
+            public event bookinfoesRowChangeEventHandler bookinfoesRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addbookinfoes1Row(bookinfoes1Row row) {
+            public void AddbookinfoesRow(bookinfoesRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1Row Addbookinfoes1Row(System.Guid Id, string BookTitle, string CallNumber, string Author, string Copyright, string ISBN_ISBN10, string ISBN_ISBN13, sections1Row parentsections1RowByFK_BookInfoes_Sections_SectionId) {
-                bookinfoes1Row rowbookinfoes1Row = ((bookinfoes1Row)(this.NewRow()));
+            public bookinfoesRow AddbookinfoesRow(System.Guid Id, string BookTitle, string CallNumber, string Author, string Copyright, string ISBN, sectionsRow parentsectionsRowByFK_BookInfoes_Sections_SectionId) {
+                bookinfoesRow rowbookinfoesRow = ((bookinfoesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         BookTitle,
                         CallNumber,
                         Author,
                         Copyright,
-                        ISBN_ISBN10,
-                        ISBN_ISBN13,
+                        ISBN,
                         null};
-                if ((parentsections1RowByFK_BookInfoes_Sections_SectionId != null)) {
-                    columnValuesArray[7] = parentsections1RowByFK_BookInfoes_Sections_SectionId[0];
+                if ((parentsectionsRowByFK_BookInfoes_Sections_SectionId != null)) {
+                    columnValuesArray[6] = parentsectionsRowByFK_BookInfoes_Sections_SectionId[0];
                 }
-                rowbookinfoes1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowbookinfoes1Row);
-                return rowbookinfoes1Row;
+                rowbookinfoesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowbookinfoesRow);
+                return rowbookinfoesRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1Row FindById(System.Guid Id) {
-                return ((bookinfoes1Row)(this.Rows.Find(new object[] {
+            public bookinfoesRow FindById(System.Guid Id) {
+                return ((bookinfoesRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                bookinfoes1DataTable cln = ((bookinfoes1DataTable)(base.Clone()));
+                bookinfoesDataTable cln = ((bookinfoesDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1420,7 +1339,7 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new bookinfoes1DataTable();
+                return new bookinfoesDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1431,8 +1350,7 @@ namespace ritchell.library.reporting {
                 this.columnCallNumber = base.Columns["CallNumber"];
                 this.columnAuthor = base.Columns["Author"];
                 this.columnCopyright = base.Columns["Copyright"];
-                this.columnISBN_ISBN10 = base.Columns["ISBN_ISBN10"];
-                this.columnISBN_ISBN13 = base.Columns["ISBN_ISBN13"];
+                this.columnISBN = base.Columns["ISBN"];
                 this.columnSectionId = base.Columns["SectionId"];
             }
             
@@ -1449,10 +1367,8 @@ namespace ritchell.library.reporting {
                 base.Columns.Add(this.columnAuthor);
                 this.columnCopyright = new global::System.Data.DataColumn("Copyright", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCopyright);
-                this.columnISBN_ISBN10 = new global::System.Data.DataColumn("ISBN_ISBN10", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnISBN_ISBN10);
-                this.columnISBN_ISBN13 = new global::System.Data.DataColumn("ISBN_ISBN13", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnISBN_ISBN13);
+                this.columnISBN = new global::System.Data.DataColumn("ISBN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnISBN);
                 this.columnSectionId = new global::System.Data.DataColumn("SectionId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSectionId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -1464,28 +1380,28 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1Row Newbookinfoes1Row() {
-                return ((bookinfoes1Row)(this.NewRow()));
+            public bookinfoesRow NewbookinfoesRow() {
+                return ((bookinfoesRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new bookinfoes1Row(builder);
+                return new bookinfoesRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(bookinfoes1Row);
+                return typeof(bookinfoesRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.bookinfoes1RowChanged != null)) {
-                    this.bookinfoes1RowChanged(this, new bookinfoes1RowChangeEvent(((bookinfoes1Row)(e.Row)), e.Action));
+                if ((this.bookinfoesRowChanged != null)) {
+                    this.bookinfoesRowChanged(this, new bookinfoesRowChangeEvent(((bookinfoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1493,8 +1409,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.bookinfoes1RowChanging != null)) {
-                    this.bookinfoes1RowChanging(this, new bookinfoes1RowChangeEvent(((bookinfoes1Row)(e.Row)), e.Action));
+                if ((this.bookinfoesRowChanging != null)) {
+                    this.bookinfoesRowChanging(this, new bookinfoesRowChangeEvent(((bookinfoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1502,8 +1418,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.bookinfoes1RowDeleted != null)) {
-                    this.bookinfoes1RowDeleted(this, new bookinfoes1RowChangeEvent(((bookinfoes1Row)(e.Row)), e.Action));
+                if ((this.bookinfoesRowDeleted != null)) {
+                    this.bookinfoesRowDeleted(this, new bookinfoesRowChangeEvent(((bookinfoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1511,14 +1427,14 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.bookinfoes1RowDeleting != null)) {
-                    this.bookinfoes1RowDeleting(this, new bookinfoes1RowChangeEvent(((bookinfoes1Row)(e.Row)), e.Action));
+                if ((this.bookinfoesRowDeleting != null)) {
+                    this.bookinfoesRowDeleting(this, new bookinfoesRowChangeEvent(((bookinfoesRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removebookinfoes1Row(bookinfoes1Row row) {
+            public void RemovebookinfoesRow(bookinfoesRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1527,7 +1443,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1545,7 +1461,7 @@ namespace ritchell.library.reporting {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "bookinfoes1DataTable";
+                attribute2.FixedValue = "bookinfoesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1591,7 +1507,7 @@ namespace ritchell.library.reporting {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class departments1DataTable : global::System.Data.TypedTableBase<departments1Row> {
+        public partial class departmentsDataTable : global::System.Data.TypedTableBase<departmentsRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -1601,8 +1517,8 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public departments1DataTable() {
-                this.TableName = "departments1";
+            public departmentsDataTable() {
+                this.TableName = "departments";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1610,7 +1526,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal departments1DataTable(global::System.Data.DataTable table) {
+            internal departmentsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1627,7 +1543,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected departments1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected departmentsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1667,54 +1583,54 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public departments1Row this[int index] {
+            public departmentsRow this[int index] {
                 get {
-                    return ((departments1Row)(this.Rows[index]));
+                    return ((departmentsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event departments1RowChangeEventHandler departments1RowChanging;
+            public event departmentsRowChangeEventHandler departmentsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event departments1RowChangeEventHandler departments1RowChanged;
+            public event departmentsRowChangeEventHandler departmentsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event departments1RowChangeEventHandler departments1RowDeleting;
+            public event departmentsRowChangeEventHandler departmentsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event departments1RowChangeEventHandler departments1RowDeleted;
+            public event departmentsRowChangeEventHandler departmentsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Adddepartments1Row(departments1Row row) {
+            public void AdddepartmentsRow(departmentsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public departments1Row Adddepartments1Row(System.Guid Id, string LongName, string ShortName) {
-                departments1Row rowdepartments1Row = ((departments1Row)(this.NewRow()));
+            public departmentsRow AdddepartmentsRow(System.Guid Id, string LongName, string ShortName) {
+                departmentsRow rowdepartmentsRow = ((departmentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         LongName,
                         ShortName};
-                rowdepartments1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowdepartments1Row);
-                return rowdepartments1Row;
+                rowdepartmentsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdepartmentsRow);
+                return rowdepartmentsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public departments1Row FindById(System.Guid Id) {
-                return ((departments1Row)(this.Rows.Find(new object[] {
+            public departmentsRow FindById(System.Guid Id) {
+                return ((departmentsRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                departments1DataTable cln = ((departments1DataTable)(base.Clone()));
+                departmentsDataTable cln = ((departmentsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1722,7 +1638,7 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new departments1DataTable();
+                return new departmentsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1750,28 +1666,28 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public departments1Row Newdepartments1Row() {
-                return ((departments1Row)(this.NewRow()));
+            public departmentsRow NewdepartmentsRow() {
+                return ((departmentsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new departments1Row(builder);
+                return new departmentsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(departments1Row);
+                return typeof(departmentsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.departments1RowChanged != null)) {
-                    this.departments1RowChanged(this, new departments1RowChangeEvent(((departments1Row)(e.Row)), e.Action));
+                if ((this.departmentsRowChanged != null)) {
+                    this.departmentsRowChanged(this, new departmentsRowChangeEvent(((departmentsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1779,8 +1695,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.departments1RowChanging != null)) {
-                    this.departments1RowChanging(this, new departments1RowChangeEvent(((departments1Row)(e.Row)), e.Action));
+                if ((this.departmentsRowChanging != null)) {
+                    this.departmentsRowChanging(this, new departmentsRowChangeEvent(((departmentsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1788,8 +1704,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.departments1RowDeleted != null)) {
-                    this.departments1RowDeleted(this, new departments1RowChangeEvent(((departments1Row)(e.Row)), e.Action));
+                if ((this.departmentsRowDeleted != null)) {
+                    this.departmentsRowDeleted(this, new departmentsRowChangeEvent(((departmentsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1797,14 +1713,14 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.departments1RowDeleting != null)) {
-                    this.departments1RowDeleting(this, new departments1RowChangeEvent(((departments1Row)(e.Row)), e.Action));
+                if ((this.departmentsRowDeleting != null)) {
+                    this.departmentsRowDeleting(this, new departmentsRowChangeEvent(((departmentsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removedepartments1Row(departments1Row row) {
+            public void RemovedepartmentsRow(departmentsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1813,7 +1729,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1831,7 +1747,7 @@ namespace ritchell.library.reporting {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "departments1DataTable";
+                attribute2.FixedValue = "departmentsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2100,7 +2016,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2164,7 +2080,7 @@ namespace ritchell.library.reporting {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class libraryusers1DataTable : global::System.Data.TypedTableBase<libraryusers1Row> {
+        public partial class libraryusersDataTable : global::System.Data.TypedTableBase<libraryusersRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -2188,8 +2104,8 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusers1DataTable() {
-                this.TableName = "libraryusers1";
+            public libraryusersDataTable() {
+                this.TableName = "libraryusers";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2197,7 +2113,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal libraryusers1DataTable(global::System.Data.DataTable table) {
+            internal libraryusersDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2214,7 +2130,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected libraryusers1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected libraryusersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2310,34 +2226,34 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusers1Row this[int index] {
+            public libraryusersRow this[int index] {
                 get {
-                    return ((libraryusers1Row)(this.Rows[index]));
+                    return ((libraryusersRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event libraryusers1RowChangeEventHandler libraryusers1RowChanging;
+            public event libraryusersRowChangeEventHandler libraryusersRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event libraryusers1RowChangeEventHandler libraryusers1RowChanged;
+            public event libraryusersRowChangeEventHandler libraryusersRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event libraryusers1RowChangeEventHandler libraryusers1RowDeleting;
+            public event libraryusersRowChangeEventHandler libraryusersRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event libraryusers1RowChangeEventHandler libraryusers1RowDeleted;
+            public event libraryusersRowChangeEventHandler libraryusersRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addlibraryusers1Row(libraryusers1Row row) {
+            public void AddlibraryusersRow(libraryusersRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusers1Row Addlibraryusers1Row(System.Guid Id, System.DateTime Birthday, int LibraryUserType, string FirstName, string UserRFIDTag, string Username, string MiddleName, string LastName, string EncryptedPassword, System.Guid DepartmentId) {
-                libraryusers1Row rowlibraryusers1Row = ((libraryusers1Row)(this.NewRow()));
+            public libraryusersRow AddlibraryusersRow(System.Guid Id, System.DateTime Birthday, int LibraryUserType, string FirstName, string UserRFIDTag, string Username, string MiddleName, string LastName, string EncryptedPassword, System.Guid DepartmentId) {
+                libraryusersRow rowlibraryusersRow = ((libraryusersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Birthday,
@@ -2349,22 +2265,22 @@ namespace ritchell.library.reporting {
                         LastName,
                         EncryptedPassword,
                         DepartmentId};
-                rowlibraryusers1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowlibraryusers1Row);
-                return rowlibraryusers1Row;
+                rowlibraryusersRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowlibraryusersRow);
+                return rowlibraryusersRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusers1Row FindById(System.Guid Id) {
-                return ((libraryusers1Row)(this.Rows.Find(new object[] {
+            public libraryusersRow FindById(System.Guid Id) {
+                return ((libraryusersRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                libraryusers1DataTable cln = ((libraryusers1DataTable)(base.Clone()));
+                libraryusersDataTable cln = ((libraryusersDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2372,7 +2288,7 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new libraryusers1DataTable();
+                return new libraryusersDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2424,28 +2340,28 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusers1Row Newlibraryusers1Row() {
-                return ((libraryusers1Row)(this.NewRow()));
+            public libraryusersRow NewlibraryusersRow() {
+                return ((libraryusersRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new libraryusers1Row(builder);
+                return new libraryusersRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(libraryusers1Row);
+                return typeof(libraryusersRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.libraryusers1RowChanged != null)) {
-                    this.libraryusers1RowChanged(this, new libraryusers1RowChangeEvent(((libraryusers1Row)(e.Row)), e.Action));
+                if ((this.libraryusersRowChanged != null)) {
+                    this.libraryusersRowChanged(this, new libraryusersRowChangeEvent(((libraryusersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2453,8 +2369,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.libraryusers1RowChanging != null)) {
-                    this.libraryusers1RowChanging(this, new libraryusers1RowChangeEvent(((libraryusers1Row)(e.Row)), e.Action));
+                if ((this.libraryusersRowChanging != null)) {
+                    this.libraryusersRowChanging(this, new libraryusersRowChangeEvent(((libraryusersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2462,8 +2378,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.libraryusers1RowDeleted != null)) {
-                    this.libraryusers1RowDeleted(this, new libraryusers1RowChangeEvent(((libraryusers1Row)(e.Row)), e.Action));
+                if ((this.libraryusersRowDeleted != null)) {
+                    this.libraryusersRowDeleted(this, new libraryusersRowChangeEvent(((libraryusersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2471,14 +2387,14 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.libraryusers1RowDeleting != null)) {
-                    this.libraryusers1RowDeleting(this, new libraryusers1RowChangeEvent(((libraryusers1Row)(e.Row)), e.Action));
+                if ((this.libraryusersRowDeleting != null)) {
+                    this.libraryusersRowDeleting(this, new libraryusersRowChangeEvent(((libraryusersRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removelibraryusers1Row(libraryusers1Row row) {
+            public void RemovelibraryusersRow(libraryusersRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2487,7 +2403,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2505,7 +2421,7 @@ namespace ritchell.library.reporting {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "libraryusers1DataTable";
+                attribute2.FixedValue = "libraryusersDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2551,7 +2467,7 @@ namespace ritchell.library.reporting {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sections1DataTable : global::System.Data.TypedTableBase<sections1Row> {
+        public partial class sectionsDataTable : global::System.Data.TypedTableBase<sectionsRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -2563,8 +2479,8 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1DataTable() {
-                this.TableName = "sections1";
+            public sectionsDataTable() {
+                this.TableName = "sections";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2572,7 +2488,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sections1DataTable(global::System.Data.DataTable table) {
+            internal sectionsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2589,7 +2505,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected sections1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sectionsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2637,55 +2553,55 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1Row this[int index] {
+            public sectionsRow this[int index] {
                 get {
-                    return ((sections1Row)(this.Rows[index]));
+                    return ((sectionsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sections1RowChangeEventHandler sections1RowChanging;
+            public event sectionsRowChangeEventHandler sectionsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sections1RowChangeEventHandler sections1RowChanged;
+            public event sectionsRowChangeEventHandler sectionsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sections1RowChangeEventHandler sections1RowDeleting;
+            public event sectionsRowChangeEventHandler sectionsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sections1RowChangeEventHandler sections1RowDeleted;
+            public event sectionsRowChangeEventHandler sectionsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addsections1Row(sections1Row row) {
+            public void AddsectionsRow(sectionsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1Row Addsections1Row(System.Guid Id, string Name, double LateReturningFee, int MaxDaysAllowedForBorrowing) {
-                sections1Row rowsections1Row = ((sections1Row)(this.NewRow()));
+            public sectionsRow AddsectionsRow(System.Guid Id, string Name, double LateReturningFee, int MaxDaysAllowedForBorrowing) {
+                sectionsRow rowsectionsRow = ((sectionsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         Name,
                         LateReturningFee,
                         MaxDaysAllowedForBorrowing};
-                rowsections1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsections1Row);
-                return rowsections1Row;
+                rowsectionsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsectionsRow);
+                return rowsectionsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1Row FindById(System.Guid Id) {
-                return ((sections1Row)(this.Rows.Find(new object[] {
+            public sectionsRow FindById(System.Guid Id) {
+                return ((sectionsRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sections1DataTable cln = ((sections1DataTable)(base.Clone()));
+                sectionsDataTable cln = ((sectionsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2693,7 +2609,7 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sections1DataTable();
+                return new sectionsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2726,28 +2642,28 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1Row Newsections1Row() {
-                return ((sections1Row)(this.NewRow()));
+            public sectionsRow NewsectionsRow() {
+                return ((sectionsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sections1Row(builder);
+                return new sectionsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sections1Row);
+                return typeof(sectionsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sections1RowChanged != null)) {
-                    this.sections1RowChanged(this, new sections1RowChangeEvent(((sections1Row)(e.Row)), e.Action));
+                if ((this.sectionsRowChanged != null)) {
+                    this.sectionsRowChanged(this, new sectionsRowChangeEvent(((sectionsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2755,8 +2671,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sections1RowChanging != null)) {
-                    this.sections1RowChanging(this, new sections1RowChangeEvent(((sections1Row)(e.Row)), e.Action));
+                if ((this.sectionsRowChanging != null)) {
+                    this.sectionsRowChanging(this, new sectionsRowChangeEvent(((sectionsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2764,8 +2680,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sections1RowDeleted != null)) {
-                    this.sections1RowDeleted(this, new sections1RowChangeEvent(((sections1Row)(e.Row)), e.Action));
+                if ((this.sectionsRowDeleted != null)) {
+                    this.sectionsRowDeleted(this, new sectionsRowChangeEvent(((sectionsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2773,14 +2689,14 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sections1RowDeleting != null)) {
-                    this.sections1RowDeleting(this, new sections1RowChangeEvent(((sections1Row)(e.Row)), e.Action));
+                if ((this.sectionsRowDeleting != null)) {
+                    this.sectionsRowDeleting(this, new sectionsRowChangeEvent(((sectionsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removesections1Row(sections1Row row) {
+            public void RemovesectionsRow(sectionsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2789,7 +2705,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2807,7 +2723,7 @@ namespace ritchell.library.reporting {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sections1DataTable";
+                attribute2.FixedValue = "sectionsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2853,7 +2769,7 @@ namespace ritchell.library.reporting {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class transactioninfoes1DataTable : global::System.Data.TypedTableBase<transactioninfoes1Row> {
+        public partial class transactioninfoesDataTable : global::System.Data.TypedTableBase<transactioninfoesRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -2873,8 +2789,8 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoes1DataTable() {
-                this.TableName = "transactioninfoes1";
+            public transactioninfoesDataTable() {
+                this.TableName = "transactioninfoes";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2882,7 +2798,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal transactioninfoes1DataTable(global::System.Data.DataTable table) {
+            internal transactioninfoesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2899,7 +2815,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected transactioninfoes1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected transactioninfoesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2979,34 +2895,34 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoes1Row this[int index] {
+            public transactioninfoesRow this[int index] {
                 get {
-                    return ((transactioninfoes1Row)(this.Rows[index]));
+                    return ((transactioninfoesRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event transactioninfoes1RowChangeEventHandler transactioninfoes1RowChanging;
+            public event transactioninfoesRowChangeEventHandler transactioninfoesRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event transactioninfoes1RowChangeEventHandler transactioninfoes1RowChanged;
+            public event transactioninfoesRowChangeEventHandler transactioninfoesRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event transactioninfoes1RowChangeEventHandler transactioninfoes1RowDeleting;
+            public event transactioninfoesRowChangeEventHandler transactioninfoesRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event transactioninfoes1RowChangeEventHandler transactioninfoes1RowDeleted;
+            public event transactioninfoesRowChangeEventHandler transactioninfoesRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addtransactioninfoes1Row(transactioninfoes1Row row) {
+            public void AddtransactioninfoesRow(transactioninfoesRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoes1Row Addtransactioninfoes1Row(System.Guid Id, System.Guid BookCopyId, System.Guid LibraryUserId, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ExpectedReturnDate, bool IsPaid, double AmountToPay) {
-                transactioninfoes1Row rowtransactioninfoes1Row = ((transactioninfoes1Row)(this.NewRow()));
+            public transactioninfoesRow AddtransactioninfoesRow(System.Guid Id, System.Guid BookCopyId, System.Guid LibraryUserId, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ExpectedReturnDate, bool IsPaid, double AmountToPay) {
+                transactioninfoesRow rowtransactioninfoesRow = ((transactioninfoesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         BookCopyId,
@@ -3016,22 +2932,22 @@ namespace ritchell.library.reporting {
                         ExpectedReturnDate,
                         IsPaid,
                         AmountToPay};
-                rowtransactioninfoes1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtransactioninfoes1Row);
-                return rowtransactioninfoes1Row;
+                rowtransactioninfoesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtransactioninfoesRow);
+                return rowtransactioninfoesRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoes1Row FindById(System.Guid Id) {
-                return ((transactioninfoes1Row)(this.Rows.Find(new object[] {
+            public transactioninfoesRow FindById(System.Guid Id) {
+                return ((transactioninfoesRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                transactioninfoes1DataTable cln = ((transactioninfoes1DataTable)(base.Clone()));
+                transactioninfoesDataTable cln = ((transactioninfoesDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3039,7 +2955,7 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new transactioninfoes1DataTable();
+                return new transactioninfoesDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3087,28 +3003,28 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoes1Row Newtransactioninfoes1Row() {
-                return ((transactioninfoes1Row)(this.NewRow()));
+            public transactioninfoesRow NewtransactioninfoesRow() {
+                return ((transactioninfoesRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new transactioninfoes1Row(builder);
+                return new transactioninfoesRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(transactioninfoes1Row);
+                return typeof(transactioninfoesRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.transactioninfoes1RowChanged != null)) {
-                    this.transactioninfoes1RowChanged(this, new transactioninfoes1RowChangeEvent(((transactioninfoes1Row)(e.Row)), e.Action));
+                if ((this.transactioninfoesRowChanged != null)) {
+                    this.transactioninfoesRowChanged(this, new transactioninfoesRowChangeEvent(((transactioninfoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3116,8 +3032,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.transactioninfoes1RowChanging != null)) {
-                    this.transactioninfoes1RowChanging(this, new transactioninfoes1RowChangeEvent(((transactioninfoes1Row)(e.Row)), e.Action));
+                if ((this.transactioninfoesRowChanging != null)) {
+                    this.transactioninfoesRowChanging(this, new transactioninfoesRowChangeEvent(((transactioninfoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3125,8 +3041,8 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.transactioninfoes1RowDeleted != null)) {
-                    this.transactioninfoes1RowDeleted(this, new transactioninfoes1RowChangeEvent(((transactioninfoes1Row)(e.Row)), e.Action));
+                if ((this.transactioninfoesRowDeleted != null)) {
+                    this.transactioninfoesRowDeleted(this, new transactioninfoesRowChangeEvent(((transactioninfoesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -3134,14 +3050,14 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.transactioninfoes1RowDeleting != null)) {
-                    this.transactioninfoes1RowDeleting(this, new transactioninfoes1RowChangeEvent(((transactioninfoes1Row)(e.Row)), e.Action));
+                if ((this.transactioninfoesRowDeleting != null)) {
+                    this.transactioninfoesRowDeleting(this, new transactioninfoesRowChangeEvent(((transactioninfoesRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removetransactioninfoes1Row(transactioninfoes1Row row) {
+            public void RemovetransactioninfoesRow(transactioninfoesRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3150,7 +3066,7 @@ namespace ritchell.library.reporting {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
+                librarycontextDataSet ds = new librarycontextDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3168,537 +3084,7 @@ namespace ritchell.library.reporting {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "transactioninfoes1DataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class numberofborrowed1DataTable : global::System.Data.TypedTableBase<numberofborrowed1Row> {
-            
-            private global::System.Data.DataColumn columnBookInfoId;
-            
-            private global::System.Data.DataColumn _column_ofborrowed;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofborrowed1DataTable() {
-                this.TableName = "numberofborrowed1";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal numberofborrowed1DataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected numberofborrowed1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BookInfoIdColumn {
-                get {
-                    return this.columnBookInfoId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn @__ofborrowedColumn {
-                get {
-                    return this._column_ofborrowed;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofborrowed1Row this[int index] {
-                get {
-                    return ((numberofborrowed1Row)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofborrowed1RowChangeEventHandler numberofborrowed1RowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofborrowed1RowChangeEventHandler numberofborrowed1RowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofborrowed1RowChangeEventHandler numberofborrowed1RowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofborrowed1RowChangeEventHandler numberofborrowed1RowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addnumberofborrowed1Row(numberofborrowed1Row row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofborrowed1Row Addnumberofborrowed1Row(System.Guid BookInfoId, long @__ofborrowed) {
-                numberofborrowed1Row rownumberofborrowed1Row = ((numberofborrowed1Row)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        BookInfoId,
-                        @__ofborrowed};
-                rownumberofborrowed1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rownumberofborrowed1Row);
-                return rownumberofborrowed1Row;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                numberofborrowed1DataTable cln = ((numberofborrowed1DataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new numberofborrowed1DataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnBookInfoId = base.Columns["BookInfoId"];
-                this._column_ofborrowed = base.Columns["#ofborrowed"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnBookInfoId = new global::System.Data.DataColumn("BookInfoId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBookInfoId);
-                this._column_ofborrowed = new global::System.Data.DataColumn("#ofborrowed", typeof(long), null, global::System.Data.MappingType.Element);
-                this._column_ofborrowed.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_ofborrowed");
-                this._column_ofborrowed.ExtendedProperties.Add("Generator_UserColumnName", "#ofborrowed");
-                base.Columns.Add(this._column_ofborrowed);
-                this.columnBookInfoId.AllowDBNull = false;
-                this._column_ofborrowed.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofborrowed1Row Newnumberofborrowed1Row() {
-                return ((numberofborrowed1Row)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new numberofborrowed1Row(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(numberofborrowed1Row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.numberofborrowed1RowChanged != null)) {
-                    this.numberofborrowed1RowChanged(this, new numberofborrowed1RowChangeEvent(((numberofborrowed1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.numberofborrowed1RowChanging != null)) {
-                    this.numberofborrowed1RowChanging(this, new numberofborrowed1RowChangeEvent(((numberofborrowed1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.numberofborrowed1RowDeleted != null)) {
-                    this.numberofborrowed1RowDeleted(this, new numberofborrowed1RowChangeEvent(((numberofborrowed1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.numberofborrowed1RowDeleting != null)) {
-                    this.numberofborrowed1RowDeleting(this, new numberofborrowed1RowChangeEvent(((numberofborrowed1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removenumberofborrowed1Row(numberofborrowed1Row row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "numberofborrowed1DataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class numberofcopies1DataTable : global::System.Data.TypedTableBase<numberofcopies1Row> {
-            
-            private global::System.Data.DataColumn columnBookInfoId;
-            
-            private global::System.Data.DataColumn _column_ofcopies;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofcopies1DataTable() {
-                this.TableName = "numberofcopies1";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal numberofcopies1DataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected numberofcopies1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BookInfoIdColumn {
-                get {
-                    return this.columnBookInfoId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn @__ofcopiesColumn {
-                get {
-                    return this._column_ofcopies;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofcopies1Row this[int index] {
-                get {
-                    return ((numberofcopies1Row)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofcopies1RowChangeEventHandler numberofcopies1RowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofcopies1RowChangeEventHandler numberofcopies1RowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofcopies1RowChangeEventHandler numberofcopies1RowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event numberofcopies1RowChangeEventHandler numberofcopies1RowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addnumberofcopies1Row(numberofcopies1Row row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofcopies1Row Addnumberofcopies1Row(System.Guid BookInfoId, long @__ofcopies) {
-                numberofcopies1Row rownumberofcopies1Row = ((numberofcopies1Row)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        BookInfoId,
-                        @__ofcopies};
-                rownumberofcopies1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rownumberofcopies1Row);
-                return rownumberofcopies1Row;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                numberofcopies1DataTable cln = ((numberofcopies1DataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new numberofcopies1DataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnBookInfoId = base.Columns["BookInfoId"];
-                this._column_ofcopies = base.Columns["#ofcopies"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnBookInfoId = new global::System.Data.DataColumn("BookInfoId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBookInfoId);
-                this._column_ofcopies = new global::System.Data.DataColumn("#ofcopies", typeof(long), null, global::System.Data.MappingType.Element);
-                this._column_ofcopies.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column_ofcopies");
-                this._column_ofcopies.ExtendedProperties.Add("Generator_UserColumnName", "#ofcopies");
-                base.Columns.Add(this._column_ofcopies);
-                this.columnBookInfoId.AllowDBNull = false;
-                this._column_ofcopies.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofcopies1Row Newnumberofcopies1Row() {
-                return ((numberofcopies1Row)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new numberofcopies1Row(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(numberofcopies1Row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.numberofcopies1RowChanged != null)) {
-                    this.numberofcopies1RowChanged(this, new numberofcopies1RowChangeEvent(((numberofcopies1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.numberofcopies1RowChanging != null)) {
-                    this.numberofcopies1RowChanging(this, new numberofcopies1RowChangeEvent(((numberofcopies1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.numberofcopies1RowDeleted != null)) {
-                    this.numberofcopies1RowDeleted(this, new numberofcopies1RowChangeEvent(((numberofcopies1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.numberofcopies1RowDeleting != null)) {
-                    this.numberofcopies1RowDeleting(this, new numberofcopies1RowChangeEvent(((numberofcopies1Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removenumberofcopies1Row(numberofcopies1Row row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                librarycontext ds = new librarycontext();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "numberofcopies1DataTable";
+                attribute2.FixedValue = "transactioninfoesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3801,25 +3187,25 @@ namespace ritchell.library.reporting {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class bookcopies1Row : global::System.Data.DataRow {
+        public partial class bookcopiesRow : global::System.Data.DataRow {
             
-            private bookcopies1DataTable tablebookcopies1;
+            private bookcopiesDataTable tablebookcopies;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal bookcopies1Row(global::System.Data.DataRowBuilder rb) : 
+            internal bookcopiesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablebookcopies1 = ((bookcopies1DataTable)(this.Table));
+                this.tablebookcopies = ((bookcopiesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid Id {
                 get {
-                    return ((global::System.Guid)(this[this.tablebookcopies1.IdColumn]));
+                    return ((global::System.Guid)(this[this.tablebookcopies.IdColumn]));
                 }
                 set {
-                    this[this.tablebookcopies1.IdColumn] = value;
+                    this[this.tablebookcopies.IdColumn] = value;
                 }
             }
             
@@ -3828,14 +3214,14 @@ namespace ritchell.library.reporting {
             public string BookTagShort {
                 get {
                     try {
-                        return ((string)(this[this.tablebookcopies1.BookTagShortColumn]));
+                        return ((string)(this[this.tablebookcopies.BookTagShortColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BookTagShort\' in table \'bookcopies1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookTagShort\' in table \'bookcopies\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebookcopies1.BookTagShortColumn] = value;
+                    this[this.tablebookcopies.BookTagShortColumn] = value;
                 }
             }
             
@@ -3844,14 +3230,14 @@ namespace ritchell.library.reporting {
             public string BookTagLong {
                 get {
                     try {
-                        return ((string)(this[this.tablebookcopies1.BookTagLongColumn]));
+                        return ((string)(this[this.tablebookcopies.BookTagLongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BookTagLong\' in table \'bookcopies1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookTagLong\' in table \'bookcopies\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebookcopies1.BookTagLongColumn] = value;
+                    this[this.tablebookcopies.BookTagLongColumn] = value;
                 }
             }
             
@@ -3859,10 +3245,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid BookInfoId {
                 get {
-                    return ((global::System.Guid)(this[this.tablebookcopies1.BookInfoIdColumn]));
+                    return ((global::System.Guid)(this[this.tablebookcopies.BookInfoIdColumn]));
                 }
                 set {
-                    this[this.tablebookcopies1.BookInfoIdColumn] = value;
+                    this[this.tablebookcopies.BookInfoIdColumn] = value;
                 }
             }
             
@@ -3870,18 +3256,18 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBorrowed {
                 get {
-                    return ((bool)(this[this.tablebookcopies1.IsBorrowedColumn]));
+                    return ((bool)(this[this.tablebookcopies.IsBorrowedColumn]));
                 }
                 set {
-                    this[this.tablebookcopies1.IsBorrowedColumn] = value;
+                    this[this.tablebookcopies.IsBorrowedColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1Row bookinfoes1Row {
+            public bookinfoesRow bookinfoesRow {
                 get {
-                    return ((bookinfoes1Row)(this.GetParentRow(this.Table.ParentRelations["FK_BookCopies_BookInfoes_BookInfoId"])));
+                    return ((bookinfoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_BookCopies_BookInfoes_BookInfoId"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_BookCopies_BookInfoes_BookInfoId"]);
@@ -3891,50 +3277,50 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBookTagShortNull() {
-                return this.IsNull(this.tablebookcopies1.BookTagShortColumn);
+                return this.IsNull(this.tablebookcopies.BookTagShortColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBookTagShortNull() {
-                this[this.tablebookcopies1.BookTagShortColumn] = global::System.Convert.DBNull;
+                this[this.tablebookcopies.BookTagShortColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBookTagLongNull() {
-                return this.IsNull(this.tablebookcopies1.BookTagLongColumn);
+                return this.IsNull(this.tablebookcopies.BookTagLongColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBookTagLongNull() {
-                this[this.tablebookcopies1.BookTagLongColumn] = global::System.Convert.DBNull;
+                this[this.tablebookcopies.BookTagLongColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class bookinfoes1Row : global::System.Data.DataRow {
+        public partial class bookinfoesRow : global::System.Data.DataRow {
             
-            private bookinfoes1DataTable tablebookinfoes1;
+            private bookinfoesDataTable tablebookinfoes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal bookinfoes1Row(global::System.Data.DataRowBuilder rb) : 
+            internal bookinfoesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablebookinfoes1 = ((bookinfoes1DataTable)(this.Table));
+                this.tablebookinfoes = ((bookinfoesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid Id {
                 get {
-                    return ((global::System.Guid)(this[this.tablebookinfoes1.IdColumn]));
+                    return ((global::System.Guid)(this[this.tablebookinfoes.IdColumn]));
                 }
                 set {
-                    this[this.tablebookinfoes1.IdColumn] = value;
+                    this[this.tablebookinfoes.IdColumn] = value;
                 }
             }
             
@@ -3943,14 +3329,14 @@ namespace ritchell.library.reporting {
             public string BookTitle {
                 get {
                     try {
-                        return ((string)(this[this.tablebookinfoes1.BookTitleColumn]));
+                        return ((string)(this[this.tablebookinfoes.BookTitleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BookTitle\' in table \'bookinfoes1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookTitle\' in table \'bookinfoes\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebookinfoes1.BookTitleColumn] = value;
+                    this[this.tablebookinfoes.BookTitleColumn] = value;
                 }
             }
             
@@ -3959,14 +3345,14 @@ namespace ritchell.library.reporting {
             public string CallNumber {
                 get {
                     try {
-                        return ((string)(this[this.tablebookinfoes1.CallNumberColumn]));
+                        return ((string)(this[this.tablebookinfoes.CallNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CallNumber\' in table \'bookinfoes1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CallNumber\' in table \'bookinfoes\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebookinfoes1.CallNumberColumn] = value;
+                    this[this.tablebookinfoes.CallNumberColumn] = value;
                 }
             }
             
@@ -3975,14 +3361,14 @@ namespace ritchell.library.reporting {
             public string Author {
                 get {
                     try {
-                        return ((string)(this[this.tablebookinfoes1.AuthorColumn]));
+                        return ((string)(this[this.tablebookinfoes.AuthorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Author\' in table \'bookinfoes1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Author\' in table \'bookinfoes\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebookinfoes1.AuthorColumn] = value;
+                    this[this.tablebookinfoes.AuthorColumn] = value;
                 }
             }
             
@@ -3991,46 +3377,30 @@ namespace ritchell.library.reporting {
             public string Copyright {
                 get {
                     try {
-                        return ((string)(this[this.tablebookinfoes1.CopyrightColumn]));
+                        return ((string)(this[this.tablebookinfoes.CopyrightColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Copyright\' in table \'bookinfoes1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Copyright\' in table \'bookinfoes\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebookinfoes1.CopyrightColumn] = value;
+                    this[this.tablebookinfoes.CopyrightColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ISBN_ISBN10 {
+            public string ISBN {
                 get {
                     try {
-                        return ((string)(this[this.tablebookinfoes1.ISBN_ISBN10Column]));
+                        return ((string)(this[this.tablebookinfoes.ISBNColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ISBN_ISBN10\' in table \'bookinfoes1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ISBN\' in table \'bookinfoes\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablebookinfoes1.ISBN_ISBN10Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ISBN_ISBN13 {
-                get {
-                    try {
-                        return ((string)(this[this.tablebookinfoes1.ISBN_ISBN13Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ISBN_ISBN13\' in table \'bookinfoes1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablebookinfoes1.ISBN_ISBN13Column] = value;
+                    this[this.tablebookinfoes.ISBNColumn] = value;
                 }
             }
             
@@ -4038,18 +3408,18 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid SectionId {
                 get {
-                    return ((global::System.Guid)(this[this.tablebookinfoes1.SectionIdColumn]));
+                    return ((global::System.Guid)(this[this.tablebookinfoes.SectionIdColumn]));
                 }
                 set {
-                    this[this.tablebookinfoes1.SectionIdColumn] = value;
+                    this[this.tablebookinfoes.SectionIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1Row sections1Row {
+            public sectionsRow sectionsRow {
                 get {
-                    return ((sections1Row)(this.GetParentRow(this.Table.ParentRelations["FK_BookInfoes_Sections_SectionId"])));
+                    return ((sectionsRow)(this.GetParentRow(this.Table.ParentRelations["FK_BookInfoes_Sections_SectionId"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_BookInfoes_Sections_SectionId"]);
@@ -4059,83 +3429,71 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBookTitleNull() {
-                return this.IsNull(this.tablebookinfoes1.BookTitleColumn);
+                return this.IsNull(this.tablebookinfoes.BookTitleColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBookTitleNull() {
-                this[this.tablebookinfoes1.BookTitleColumn] = global::System.Convert.DBNull;
+                this[this.tablebookinfoes.BookTitleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCallNumberNull() {
-                return this.IsNull(this.tablebookinfoes1.CallNumberColumn);
+                return this.IsNull(this.tablebookinfoes.CallNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCallNumberNull() {
-                this[this.tablebookinfoes1.CallNumberColumn] = global::System.Convert.DBNull;
+                this[this.tablebookinfoes.CallNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAuthorNull() {
-                return this.IsNull(this.tablebookinfoes1.AuthorColumn);
+                return this.IsNull(this.tablebookinfoes.AuthorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAuthorNull() {
-                this[this.tablebookinfoes1.AuthorColumn] = global::System.Convert.DBNull;
+                this[this.tablebookinfoes.AuthorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCopyrightNull() {
-                return this.IsNull(this.tablebookinfoes1.CopyrightColumn);
+                return this.IsNull(this.tablebookinfoes.CopyrightColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCopyrightNull() {
-                this[this.tablebookinfoes1.CopyrightColumn] = global::System.Convert.DBNull;
+                this[this.tablebookinfoes.CopyrightColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsISBN_ISBN10Null() {
-                return this.IsNull(this.tablebookinfoes1.ISBN_ISBN10Column);
+            public bool IsISBNNull() {
+                return this.IsNull(this.tablebookinfoes.ISBNColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetISBN_ISBN10Null() {
-                this[this.tablebookinfoes1.ISBN_ISBN10Column] = global::System.Convert.DBNull;
+            public void SetISBNNull() {
+                this[this.tablebookinfoes.ISBNColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsISBN_ISBN13Null() {
-                return this.IsNull(this.tablebookinfoes1.ISBN_ISBN13Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetISBN_ISBN13Null() {
-                this[this.tablebookinfoes1.ISBN_ISBN13Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1Row[] GetbookcopiesRows() {
+            public bookcopiesRow[] GetbookcopiesRows() {
                 if ((this.Table.ChildRelations["FK_BookCopies_BookInfoes_BookInfoId"] == null)) {
-                    return new bookcopies1Row[0];
+                    return new bookcopiesRow[0];
                 }
                 else {
-                    return ((bookcopies1Row[])(base.GetChildRows(this.Table.ChildRelations["FK_BookCopies_BookInfoes_BookInfoId"])));
+                    return ((bookcopiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_BookCopies_BookInfoes_BookInfoId"])));
                 }
             }
         }
@@ -4143,25 +3501,25 @@ namespace ritchell.library.reporting {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class departments1Row : global::System.Data.DataRow {
+        public partial class departmentsRow : global::System.Data.DataRow {
             
-            private departments1DataTable tabledepartments1;
+            private departmentsDataTable tabledepartments;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal departments1Row(global::System.Data.DataRowBuilder rb) : 
+            internal departmentsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabledepartments1 = ((departments1DataTable)(this.Table));
+                this.tabledepartments = ((departmentsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid Id {
                 get {
-                    return ((global::System.Guid)(this[this.tabledepartments1.IdColumn]));
+                    return ((global::System.Guid)(this[this.tabledepartments.IdColumn]));
                 }
                 set {
-                    this[this.tabledepartments1.IdColumn] = value;
+                    this[this.tabledepartments.IdColumn] = value;
                 }
             }
             
@@ -4170,14 +3528,14 @@ namespace ritchell.library.reporting {
             public string LongName {
                 get {
                     try {
-                        return ((string)(this[this.tabledepartments1.LongNameColumn]));
+                        return ((string)(this[this.tabledepartments.LongNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LongName\' in table \'departments1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LongName\' in table \'departments\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledepartments1.LongNameColumn] = value;
+                    this[this.tabledepartments.LongNameColumn] = value;
                 }
             }
             
@@ -4186,39 +3544,39 @@ namespace ritchell.library.reporting {
             public string ShortName {
                 get {
                     try {
-                        return ((string)(this[this.tabledepartments1.ShortNameColumn]));
+                        return ((string)(this[this.tabledepartments.ShortNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ShortName\' in table \'departments1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShortName\' in table \'departments\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledepartments1.ShortNameColumn] = value;
+                    this[this.tabledepartments.ShortNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLongNameNull() {
-                return this.IsNull(this.tabledepartments1.LongNameColumn);
+                return this.IsNull(this.tabledepartments.LongNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLongNameNull() {
-                this[this.tabledepartments1.LongNameColumn] = global::System.Convert.DBNull;
+                this[this.tabledepartments.LongNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsShortNameNull() {
-                return this.IsNull(this.tabledepartments1.ShortNameColumn);
+                return this.IsNull(this.tabledepartments.ShortNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetShortNameNull() {
-                this[this.tabledepartments1.ShortNameColumn] = global::System.Convert.DBNull;
+                this[this.tabledepartments.ShortNameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4290,25 +3648,25 @@ namespace ritchell.library.reporting {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class libraryusers1Row : global::System.Data.DataRow {
+        public partial class libraryusersRow : global::System.Data.DataRow {
             
-            private libraryusers1DataTable tablelibraryusers1;
+            private libraryusersDataTable tablelibraryusers;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal libraryusers1Row(global::System.Data.DataRowBuilder rb) : 
+            internal libraryusersRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablelibraryusers1 = ((libraryusers1DataTable)(this.Table));
+                this.tablelibraryusers = ((libraryusersDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid Id {
                 get {
-                    return ((global::System.Guid)(this[this.tablelibraryusers1.IdColumn]));
+                    return ((global::System.Guid)(this[this.tablelibraryusers.IdColumn]));
                 }
                 set {
-                    this[this.tablelibraryusers1.IdColumn] = value;
+                    this[this.tablelibraryusers.IdColumn] = value;
                 }
             }
             
@@ -4316,10 +3674,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Birthday {
                 get {
-                    return ((global::System.DateTime)(this[this.tablelibraryusers1.BirthdayColumn]));
+                    return ((global::System.DateTime)(this[this.tablelibraryusers.BirthdayColumn]));
                 }
                 set {
-                    this[this.tablelibraryusers1.BirthdayColumn] = value;
+                    this[this.tablelibraryusers.BirthdayColumn] = value;
                 }
             }
             
@@ -4327,10 +3685,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int LibraryUserType {
                 get {
-                    return ((int)(this[this.tablelibraryusers1.LibraryUserTypeColumn]));
+                    return ((int)(this[this.tablelibraryusers.LibraryUserTypeColumn]));
                 }
                 set {
-                    this[this.tablelibraryusers1.LibraryUserTypeColumn] = value;
+                    this[this.tablelibraryusers.LibraryUserTypeColumn] = value;
                 }
             }
             
@@ -4339,14 +3697,14 @@ namespace ritchell.library.reporting {
             public string FirstName {
                 get {
                     try {
-                        return ((string)(this[this.tablelibraryusers1.FirstNameColumn]));
+                        return ((string)(this[this.tablelibraryusers.FirstNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'libraryusers1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'libraryusers\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelibraryusers1.FirstNameColumn] = value;
+                    this[this.tablelibraryusers.FirstNameColumn] = value;
                 }
             }
             
@@ -4355,14 +3713,14 @@ namespace ritchell.library.reporting {
             public string UserRFIDTag {
                 get {
                     try {
-                        return ((string)(this[this.tablelibraryusers1.UserRFIDTagColumn]));
+                        return ((string)(this[this.tablelibraryusers.UserRFIDTagColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserRFIDTag\' in table \'libraryusers1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserRFIDTag\' in table \'libraryusers\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelibraryusers1.UserRFIDTagColumn] = value;
+                    this[this.tablelibraryusers.UserRFIDTagColumn] = value;
                 }
             }
             
@@ -4371,14 +3729,14 @@ namespace ritchell.library.reporting {
             public string Username {
                 get {
                     try {
-                        return ((string)(this[this.tablelibraryusers1.UsernameColumn]));
+                        return ((string)(this[this.tablelibraryusers.UsernameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Username\' in table \'libraryusers1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Username\' in table \'libraryusers\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelibraryusers1.UsernameColumn] = value;
+                    this[this.tablelibraryusers.UsernameColumn] = value;
                 }
             }
             
@@ -4387,14 +3745,14 @@ namespace ritchell.library.reporting {
             public string MiddleName {
                 get {
                     try {
-                        return ((string)(this[this.tablelibraryusers1.MiddleNameColumn]));
+                        return ((string)(this[this.tablelibraryusers.MiddleNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MiddleName\' in table \'libraryusers1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MiddleName\' in table \'libraryusers\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelibraryusers1.MiddleNameColumn] = value;
+                    this[this.tablelibraryusers.MiddleNameColumn] = value;
                 }
             }
             
@@ -4403,14 +3761,14 @@ namespace ritchell.library.reporting {
             public string LastName {
                 get {
                     try {
-                        return ((string)(this[this.tablelibraryusers1.LastNameColumn]));
+                        return ((string)(this[this.tablelibraryusers.LastNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastName\' in table \'libraryusers1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastName\' in table \'libraryusers\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelibraryusers1.LastNameColumn] = value;
+                    this[this.tablelibraryusers.LastNameColumn] = value;
                 }
             }
             
@@ -4419,14 +3777,14 @@ namespace ritchell.library.reporting {
             public string EncryptedPassword {
                 get {
                     try {
-                        return ((string)(this[this.tablelibraryusers1.EncryptedPasswordColumn]));
+                        return ((string)(this[this.tablelibraryusers.EncryptedPasswordColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EncryptedPassword\' in table \'libraryusers1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EncryptedPassword\' in table \'libraryusers\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelibraryusers1.EncryptedPasswordColumn] = value;
+                    this[this.tablelibraryusers.EncryptedPasswordColumn] = value;
                 }
             }
             
@@ -4434,108 +3792,108 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid DepartmentId {
                 get {
-                    return ((global::System.Guid)(this[this.tablelibraryusers1.DepartmentIdColumn]));
+                    return ((global::System.Guid)(this[this.tablelibraryusers.DepartmentIdColumn]));
                 }
                 set {
-                    this[this.tablelibraryusers1.DepartmentIdColumn] = value;
+                    this[this.tablelibraryusers.DepartmentIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFirstNameNull() {
-                return this.IsNull(this.tablelibraryusers1.FirstNameColumn);
+                return this.IsNull(this.tablelibraryusers.FirstNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFirstNameNull() {
-                this[this.tablelibraryusers1.FirstNameColumn] = global::System.Convert.DBNull;
+                this[this.tablelibraryusers.FirstNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsUserRFIDTagNull() {
-                return this.IsNull(this.tablelibraryusers1.UserRFIDTagColumn);
+                return this.IsNull(this.tablelibraryusers.UserRFIDTagColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUserRFIDTagNull() {
-                this[this.tablelibraryusers1.UserRFIDTagColumn] = global::System.Convert.DBNull;
+                this[this.tablelibraryusers.UserRFIDTagColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsUsernameNull() {
-                return this.IsNull(this.tablelibraryusers1.UsernameColumn);
+                return this.IsNull(this.tablelibraryusers.UsernameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUsernameNull() {
-                this[this.tablelibraryusers1.UsernameColumn] = global::System.Convert.DBNull;
+                this[this.tablelibraryusers.UsernameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMiddleNameNull() {
-                return this.IsNull(this.tablelibraryusers1.MiddleNameColumn);
+                return this.IsNull(this.tablelibraryusers.MiddleNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMiddleNameNull() {
-                this[this.tablelibraryusers1.MiddleNameColumn] = global::System.Convert.DBNull;
+                this[this.tablelibraryusers.MiddleNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLastNameNull() {
-                return this.IsNull(this.tablelibraryusers1.LastNameColumn);
+                return this.IsNull(this.tablelibraryusers.LastNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLastNameNull() {
-                this[this.tablelibraryusers1.LastNameColumn] = global::System.Convert.DBNull;
+                this[this.tablelibraryusers.LastNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsEncryptedPasswordNull() {
-                return this.IsNull(this.tablelibraryusers1.EncryptedPasswordColumn);
+                return this.IsNull(this.tablelibraryusers.EncryptedPasswordColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEncryptedPasswordNull() {
-                this[this.tablelibraryusers1.EncryptedPasswordColumn] = global::System.Convert.DBNull;
+                this[this.tablelibraryusers.EncryptedPasswordColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sections1Row : global::System.Data.DataRow {
+        public partial class sectionsRow : global::System.Data.DataRow {
             
-            private sections1DataTable tablesections1;
+            private sectionsDataTable tablesections;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sections1Row(global::System.Data.DataRowBuilder rb) : 
+            internal sectionsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesections1 = ((sections1DataTable)(this.Table));
+                this.tablesections = ((sectionsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid Id {
                 get {
-                    return ((global::System.Guid)(this[this.tablesections1.IdColumn]));
+                    return ((global::System.Guid)(this[this.tablesections.IdColumn]));
                 }
                 set {
-                    this[this.tablesections1.IdColumn] = value;
+                    this[this.tablesections.IdColumn] = value;
                 }
             }
             
@@ -4544,14 +3902,14 @@ namespace ritchell.library.reporting {
             public string Name {
                 get {
                     try {
-                        return ((string)(this[this.tablesections1.NameColumn]));
+                        return ((string)(this[this.tablesections.NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'sections1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'sections\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesections1.NameColumn] = value;
+                    this[this.tablesections.NameColumn] = value;
                 }
             }
             
@@ -4559,10 +3917,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public double LateReturningFee {
                 get {
-                    return ((double)(this[this.tablesections1.LateReturningFeeColumn]));
+                    return ((double)(this[this.tablesections.LateReturningFeeColumn]));
                 }
                 set {
-                    this[this.tablesections1.LateReturningFeeColumn] = value;
+                    this[this.tablesections.LateReturningFeeColumn] = value;
                 }
             }
             
@@ -4570,33 +3928,33 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int MaxDaysAllowedForBorrowing {
                 get {
-                    return ((int)(this[this.tablesections1.MaxDaysAllowedForBorrowingColumn]));
+                    return ((int)(this[this.tablesections.MaxDaysAllowedForBorrowingColumn]));
                 }
                 set {
-                    this[this.tablesections1.MaxDaysAllowedForBorrowingColumn] = value;
+                    this[this.tablesections.MaxDaysAllowedForBorrowingColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
-                return this.IsNull(this.tablesections1.NameColumn);
+                return this.IsNull(this.tablesections.NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNameNull() {
-                this[this.tablesections1.NameColumn] = global::System.Convert.DBNull;
+                this[this.tablesections.NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1Row[] GetbookinfoesRows() {
+            public bookinfoesRow[] GetbookinfoesRows() {
                 if ((this.Table.ChildRelations["FK_BookInfoes_Sections_SectionId"] == null)) {
-                    return new bookinfoes1Row[0];
+                    return new bookinfoesRow[0];
                 }
                 else {
-                    return ((bookinfoes1Row[])(base.GetChildRows(this.Table.ChildRelations["FK_BookInfoes_Sections_SectionId"])));
+                    return ((bookinfoesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_BookInfoes_Sections_SectionId"])));
                 }
             }
         }
@@ -4604,25 +3962,25 @@ namespace ritchell.library.reporting {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class transactioninfoes1Row : global::System.Data.DataRow {
+        public partial class transactioninfoesRow : global::System.Data.DataRow {
             
-            private transactioninfoes1DataTable tabletransactioninfoes1;
+            private transactioninfoesDataTable tabletransactioninfoes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal transactioninfoes1Row(global::System.Data.DataRowBuilder rb) : 
+            internal transactioninfoesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletransactioninfoes1 = ((transactioninfoes1DataTable)(this.Table));
+                this.tabletransactioninfoes = ((transactioninfoesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid Id {
                 get {
-                    return ((global::System.Guid)(this[this.tabletransactioninfoes1.IdColumn]));
+                    return ((global::System.Guid)(this[this.tabletransactioninfoes.IdColumn]));
                 }
                 set {
-                    this[this.tabletransactioninfoes1.IdColumn] = value;
+                    this[this.tabletransactioninfoes.IdColumn] = value;
                 }
             }
             
@@ -4630,10 +3988,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid BookCopyId {
                 get {
-                    return ((global::System.Guid)(this[this.tabletransactioninfoes1.BookCopyIdColumn]));
+                    return ((global::System.Guid)(this[this.tabletransactioninfoes.BookCopyIdColumn]));
                 }
                 set {
-                    this[this.tabletransactioninfoes1.BookCopyIdColumn] = value;
+                    this[this.tabletransactioninfoes.BookCopyIdColumn] = value;
                 }
             }
             
@@ -4641,10 +3999,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid LibraryUserId {
                 get {
-                    return ((global::System.Guid)(this[this.tabletransactioninfoes1.LibraryUserIdColumn]));
+                    return ((global::System.Guid)(this[this.tabletransactioninfoes.LibraryUserIdColumn]));
                 }
                 set {
-                    this[this.tabletransactioninfoes1.LibraryUserIdColumn] = value;
+                    this[this.tabletransactioninfoes.LibraryUserIdColumn] = value;
                 }
             }
             
@@ -4653,14 +4011,14 @@ namespace ritchell.library.reporting {
             public System.DateTime BorrowDate {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tabletransactioninfoes1.BorrowDateColumn]));
+                        return ((global::System.DateTime)(this[this.tabletransactioninfoes.BorrowDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BorrowDate\' in table \'transactioninfoes1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BorrowDate\' in table \'transactioninfoes\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletransactioninfoes1.BorrowDateColumn] = value;
+                    this[this.tabletransactioninfoes.BorrowDateColumn] = value;
                 }
             }
             
@@ -4669,14 +4027,14 @@ namespace ritchell.library.reporting {
             public System.DateTime ReturnDate {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tabletransactioninfoes1.ReturnDateColumn]));
+                        return ((global::System.DateTime)(this[this.tabletransactioninfoes.ReturnDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReturnDate\' in table \'transactioninfoes1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReturnDate\' in table \'transactioninfoes\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletransactioninfoes1.ReturnDateColumn] = value;
+                    this[this.tabletransactioninfoes.ReturnDateColumn] = value;
                 }
             }
             
@@ -4684,10 +4042,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime ExpectedReturnDate {
                 get {
-                    return ((global::System.DateTime)(this[this.tabletransactioninfoes1.ExpectedReturnDateColumn]));
+                    return ((global::System.DateTime)(this[this.tabletransactioninfoes.ExpectedReturnDateColumn]));
                 }
                 set {
-                    this[this.tabletransactioninfoes1.ExpectedReturnDateColumn] = value;
+                    this[this.tabletransactioninfoes.ExpectedReturnDateColumn] = value;
                 }
             }
             
@@ -4695,10 +4053,10 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPaid {
                 get {
-                    return ((bool)(this[this.tabletransactioninfoes1.IsPaidColumn]));
+                    return ((bool)(this[this.tabletransactioninfoes.IsPaidColumn]));
                 }
                 set {
-                    this[this.tabletransactioninfoes1.IsPaidColumn] = value;
+                    this[this.tabletransactioninfoes.IsPaidColumn] = value;
                 }
             }
             
@@ -4706,109 +4064,35 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public double AmountToPay {
                 get {
-                    return ((double)(this[this.tabletransactioninfoes1.AmountToPayColumn]));
+                    return ((double)(this[this.tabletransactioninfoes.AmountToPayColumn]));
                 }
                 set {
-                    this[this.tabletransactioninfoes1.AmountToPayColumn] = value;
+                    this[this.tabletransactioninfoes.AmountToPayColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBorrowDateNull() {
-                return this.IsNull(this.tabletransactioninfoes1.BorrowDateColumn);
+                return this.IsNull(this.tabletransactioninfoes.BorrowDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBorrowDateNull() {
-                this[this.tabletransactioninfoes1.BorrowDateColumn] = global::System.Convert.DBNull;
+                this[this.tabletransactioninfoes.BorrowDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsReturnDateNull() {
-                return this.IsNull(this.tabletransactioninfoes1.ReturnDateColumn);
+                return this.IsNull(this.tabletransactioninfoes.ReturnDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetReturnDateNull() {
-                this[this.tabletransactioninfoes1.ReturnDateColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class numberofborrowed1Row : global::System.Data.DataRow {
-            
-            private numberofborrowed1DataTable tablenumberofborrowed1;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal numberofborrowed1Row(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablenumberofborrowed1 = ((numberofborrowed1DataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid BookInfoId {
-                get {
-                    return ((global::System.Guid)(this[this.tablenumberofborrowed1.BookInfoIdColumn]));
-                }
-                set {
-                    this[this.tablenumberofborrowed1.BookInfoIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long @__ofborrowed {
-                get {
-                    return ((long)(this[this.tablenumberofborrowed1.@__ofborrowedColumn]));
-                }
-                set {
-                    this[this.tablenumberofborrowed1.@__ofborrowedColumn] = value;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class numberofcopies1Row : global::System.Data.DataRow {
-            
-            private numberofcopies1DataTable tablenumberofcopies1;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal numberofcopies1Row(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablenumberofcopies1 = ((numberofcopies1DataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid BookInfoId {
-                get {
-                    return ((global::System.Guid)(this[this.tablenumberofcopies1.BookInfoIdColumn]));
-                }
-                set {
-                    this[this.tablenumberofcopies1.BookInfoIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long @__ofcopies {
-                get {
-                    return ((long)(this[this.tablenumberofcopies1.@__ofcopiesColumn]));
-                }
-                set {
-                    this[this.tablenumberofcopies1.@__ofcopiesColumn] = value;
-                }
+                this[this.tabletransactioninfoes.ReturnDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4850,22 +4134,22 @@ namespace ritchell.library.reporting {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class bookcopies1RowChangeEvent : global::System.EventArgs {
+        public class bookcopiesRowChangeEvent : global::System.EventArgs {
             
-            private bookcopies1Row eventRow;
+            private bookcopiesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1RowChangeEvent(bookcopies1Row row, global::System.Data.DataRowAction action) {
+            public bookcopiesRowChangeEvent(bookcopiesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopies1Row Row {
+            public bookcopiesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4884,22 +4168,22 @@ namespace ritchell.library.reporting {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class bookinfoes1RowChangeEvent : global::System.EventArgs {
+        public class bookinfoesRowChangeEvent : global::System.EventArgs {
             
-            private bookinfoes1Row eventRow;
+            private bookinfoesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1RowChangeEvent(bookinfoes1Row row, global::System.Data.DataRowAction action) {
+            public bookinfoesRowChangeEvent(bookinfoesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookinfoes1Row Row {
+            public bookinfoesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4918,22 +4202,22 @@ namespace ritchell.library.reporting {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class departments1RowChangeEvent : global::System.EventArgs {
+        public class departmentsRowChangeEvent : global::System.EventArgs {
             
-            private departments1Row eventRow;
+            private departmentsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public departments1RowChangeEvent(departments1Row row, global::System.Data.DataRowAction action) {
+            public departmentsRowChangeEvent(departmentsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public departments1Row Row {
+            public departmentsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4986,22 +4270,22 @@ namespace ritchell.library.reporting {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class libraryusers1RowChangeEvent : global::System.EventArgs {
+        public class libraryusersRowChangeEvent : global::System.EventArgs {
             
-            private libraryusers1Row eventRow;
+            private libraryusersRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusers1RowChangeEvent(libraryusers1Row row, global::System.Data.DataRowAction action) {
+            public libraryusersRowChangeEvent(libraryusersRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusers1Row Row {
+            public libraryusersRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5020,22 +4304,22 @@ namespace ritchell.library.reporting {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class sections1RowChangeEvent : global::System.EventArgs {
+        public class sectionsRowChangeEvent : global::System.EventArgs {
             
-            private sections1Row eventRow;
+            private sectionsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1RowChangeEvent(sections1Row row, global::System.Data.DataRowAction action) {
+            public sectionsRowChangeEvent(sectionsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sections1Row Row {
+            public sectionsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5054,90 +4338,22 @@ namespace ritchell.library.reporting {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class transactioninfoes1RowChangeEvent : global::System.EventArgs {
+        public class transactioninfoesRowChangeEvent : global::System.EventArgs {
             
-            private transactioninfoes1Row eventRow;
+            private transactioninfoesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoes1RowChangeEvent(transactioninfoes1Row row, global::System.Data.DataRowAction action) {
+            public transactioninfoesRowChangeEvent(transactioninfoesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoes1Row Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class numberofborrowed1RowChangeEvent : global::System.EventArgs {
-            
-            private numberofborrowed1Row eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofborrowed1RowChangeEvent(numberofborrowed1Row row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofborrowed1Row Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class numberofcopies1RowChangeEvent : global::System.EventArgs {
-            
-            private numberofcopies1Row eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofcopies1RowChangeEvent(numberofcopies1Row row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public numberofcopies1Row Row {
+            public transactioninfoesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5153,7 +4369,7 @@ namespace ritchell.library.reporting {
         }
     }
 }
-namespace ritchell.library.reporting.librarycontextTableAdapters {
+namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
     
     
     /// <summary>
@@ -5442,7 +4658,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.@__migrationhistoryDataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.@__migrationhistoryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5455,9 +4671,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.@__migrationhistoryDataTable GetData() {
+        public virtual librarycontextDataSet.@__migrationhistoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.@__migrationhistoryDataTable dataTable = new librarycontext.@__migrationhistoryDataTable();
+            librarycontextDataSet.@__migrationhistoryDataTable dataTable = new librarycontextDataSet.@__migrationhistoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5465,14 +4681,14 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.@__migrationhistoryDataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.@__migrationhistoryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
+        public virtual int Update(librarycontextDataSet dataSet) {
             return this.Adapter.Update(dataSet, "__migrationhistory");
         }
         
@@ -5668,7 +4884,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class bookcopies1TableAdapter : global::System.ComponentModel.Component {
+    public partial class bookcopiesTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -5682,7 +4898,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bookcopies1TableAdapter() {
+        public bookcopiesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -5779,7 +4995,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "bookcopies1";
+            tableMapping.DataSetTable = "bookcopies";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("BookTagShort", "BookTagShort");
             tableMapping.ColumnMappings.Add("BookTagLong", "BookTagLong");
@@ -6003,7 +5219,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.bookcopies1DataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.bookcopiesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6016,9 +5232,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.bookcopies1DataTable GetData() {
+        public virtual librarycontextDataSet.bookcopiesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.bookcopies1DataTable dataTable = new librarycontext.bookcopies1DataTable();
+            librarycontextDataSet.bookcopiesDataTable dataTable = new librarycontextDataSet.bookcopiesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6026,15 +5242,15 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.bookcopies1DataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.bookcopiesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
-            return this.Adapter.Update(dataSet, "bookcopies1");
+        public virtual int Update(librarycontextDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "bookcopies");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6201,7 +5417,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class bookinfoes1TableAdapter : global::System.ComponentModel.Component {
+    public partial class bookinfoesTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -6215,7 +5431,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bookinfoes1TableAdapter() {
+        public bookinfoesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -6312,19 +5528,18 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "bookinfoes1";
+            tableMapping.DataSetTable = "bookinfoes";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("BookTitle", "BookTitle");
             tableMapping.ColumnMappings.Add("CallNumber", "CallNumber");
             tableMapping.ColumnMappings.Add("Author", "Author");
             tableMapping.ColumnMappings.Add("Copyright", "Copyright");
-            tableMapping.ColumnMappings.Add("ISBN_ISBN10", "ISBN_ISBN10");
-            tableMapping.ColumnMappings.Add("ISBN_ISBN13", "ISBN_ISBN13");
+            tableMapping.ColumnMappings.Add("ISBN", "ISBN");
             tableMapping.ColumnMappings.Add("SectionId", "SectionId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `bookinfoes` WHERE ((`Id` = @p1) AND ((@p2 = 1 AND `BookTitle` IS NULL) OR (`BookTitle` = @p3)) AND ((@p4 = 1 AND `CallNumber` IS NULL) OR (`CallNumber` = @p5)) AND ((@p6 = 1 AND `Author` IS NULL) OR (`Author` = @p7)) AND ((@p8 = 1 AND `Copyright` IS NULL) OR (`Copyright` = @p9)) AND ((@p10 = 1 AND `ISBN_ISBN10` IS NULL) OR (`ISBN_ISBN10` = @p11)) AND ((@p12 = 1 AND `ISBN_ISBN13` IS NULL) OR (`ISBN_ISBN13` = @p13)) AND (`SectionId` = @p14))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `bookinfoes` WHERE ((`Id` = @p1) AND ((@p2 = 1 AND `BookTitle` IS NULL) OR (`BookTitle` = @p3)) AND ((@p4 = 1 AND `CallNumber` IS NULL) OR (`CallNumber` = @p5)) AND ((@p6 = 1 AND `Author` IS NULL) OR (`Author` = @p7)) AND ((@p8 = 1 AND `Copyright` IS NULL) OR (`Copyright` = @p9)) AND ((@p10 = 1 AND `ISBN` IS NULL) OR (`ISBN` = @p11)) AND (`SectionId` = @p12))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6403,7 +5618,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN10";
+            param.SourceColumn = "ISBN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -6411,27 +5626,11 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             param.ParameterName = "@p11";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN10";
+            param.SourceColumn = "ISBN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN13";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN13";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -6441,8 +5640,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `bookinfoes` (`Id`, `BookTitle`, `CallNumber`, `Author`, `Copyright`," +
-                " `ISBN_ISBN10`, `ISBN_ISBN13`, `SectionId`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6" +
-                ", @p7, @p8)";
+                " `ISBN`, `SectionId`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6479,16 +5677,10 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             param.ParameterName = "@p6";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN10";
+            param.SourceColumn = "ISBN";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN13";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -6496,7 +5688,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `bookinfoes` SET `Id` = @p1, `BookTitle` = @p2, `CallNumber` = @p3, `Author` = @p4, `Copyright` = @p5, `ISBN_ISBN10` = @p6, `ISBN_ISBN13` = @p7, `SectionId` = @p8 WHERE ((`Id` = @p9) AND ((@p10 = 1 AND `BookTitle` IS NULL) OR (`BookTitle` = @p11)) AND ((@p12 = 1 AND `CallNumber` IS NULL) OR (`CallNumber` = @p13)) AND ((@p14 = 1 AND `Author` IS NULL) OR (`Author` = @p15)) AND ((@p16 = 1 AND `Copyright` IS NULL) OR (`Copyright` = @p17)) AND ((@p18 = 1 AND `ISBN_ISBN10` IS NULL) OR (`ISBN_ISBN10` = @p19)) AND ((@p20 = 1 AND `ISBN_ISBN13` IS NULL) OR (`ISBN_ISBN13` = @p21)) AND (`SectionId` = @p22))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `bookinfoes` SET `Id` = @p1, `BookTitle` = @p2, `CallNumber` = @p3, `Author` = @p4, `Copyright` = @p5, `ISBN` = @p6, `SectionId` = @p7 WHERE ((`Id` = @p8) AND ((@p9 = 1 AND `BookTitle` IS NULL) OR (`BookTitle` = @p10)) AND ((@p11 = 1 AND `CallNumber` IS NULL) OR (`CallNumber` = @p12)) AND ((@p13 = 1 AND `Author` IS NULL) OR (`Author` = @p14)) AND ((@p15 = 1 AND `Copyright` IS NULL) OR (`Copyright` = @p16)) AND ((@p17 = 1 AND `ISBN` IS NULL) OR (`ISBN` = @p18)) AND (`SectionId` = @p19))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6533,23 +5725,17 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             param.ParameterName = "@p6";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN10";
+            param.SourceColumn = "ISBN";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN13";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
             param.SourceColumn = "SectionId";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -6557,103 +5743,87 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "BookTitle";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "BookTitle";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "BookTitle";
+            param.SourceColumn = "CallNumber";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p12";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "CallNumber";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p13";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "CallNumber";
+            param.SourceColumn = "Author";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p14";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "Author";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p15";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Author";
+            param.SourceColumn = "Copyright";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "Copyright";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p17";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Copyright";
+            param.SourceColumn = "ISBN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p18";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN10";
+            param.SourceColumn = "ISBN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p19";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN10";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p20";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN13";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p21";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "ISBN_ISBN13";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -6675,8 +5845,8 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Id`, `BookTitle`, `CallNumber`, `Author`, `Copyright`, `ISBN_ISBN10`, `IS" +
-                "BN_ISBN13`, `SectionId` FROM `bookinfoes`";
+            this._commandCollection[0].CommandText = "SELECT `Id`, `BookTitle`, `CallNumber`, `Author`, `Copyright`, `ISBN`, `SectionId" +
+                "` FROM `bookinfoes`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6684,7 +5854,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.bookinfoes1DataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.bookinfoesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6697,9 +5867,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.bookinfoes1DataTable GetData() {
+        public virtual librarycontextDataSet.bookinfoesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.bookinfoes1DataTable dataTable = new librarycontext.bookinfoes1DataTable();
+            librarycontextDataSet.bookinfoesDataTable dataTable = new librarycontextDataSet.bookinfoesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6707,15 +5877,15 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.bookinfoes1DataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.bookinfoesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
-            return this.Adapter.Update(dataSet, "bookinfoes1");
+        public virtual int Update(librarycontextDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "bookinfoes");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6737,7 +5907,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.Guid p1, string p3, string p5, string p7, string p9, string p11, string p13, System.Guid p14) {
+        public virtual int Delete(System.Guid p1, string p3, string p5, string p7, string p9, string p11, System.Guid p12) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(p1));
             if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -6779,15 +5949,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(p11));
             }
-            if ((p13 == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(p13));
-            }
-            this.Adapter.DeleteCommand.Parameters[13].Value = ((System.Guid)(p14));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((System.Guid)(p12));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6808,7 +5970,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.Guid p1, string p2, string p3, string p4, string p5, string p6, string p7, System.Guid p8) {
+        public virtual int Insert(System.Guid p1, string p2, string p3, string p4, string p5, string p6, System.Guid p7) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(p1));
             if ((p2 == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -6840,13 +6002,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(p6));
             }
-            if ((p7 == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(p7));
-            }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((System.Guid)(p8));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((System.Guid)(p7));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6867,23 +6023,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    System.Guid p1, 
-                    string p2, 
-                    string p3, 
-                    string p4, 
-                    string p5, 
-                    string p6, 
-                    string p7, 
-                    System.Guid p8, 
-                    System.Guid p9, 
-                    string p11, 
-                    string p13, 
-                    string p15, 
-                    string p17, 
-                    string p19, 
-                    string p21, 
-                    System.Guid p22) {
+        public virtual int Update(System.Guid p1, string p2, string p3, string p4, string p5, string p6, System.Guid p7, System.Guid p8, string p10, string p12, string p14, string p16, string p18, System.Guid p19) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(p1));
             if ((p2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -6915,63 +6055,49 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
             }
-            if ((p7 == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
-            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.Guid)(p7));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((System.Guid)(p8));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.Guid)(p9));
-            if ((p11 == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            if ((p10 == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
             }
-            if ((p13 == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
-            }
-            if ((p15 == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            if ((p12 == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(p15));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
             }
-            if ((p17 == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(p17));
-            }
-            if ((p19 == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            if ((p14 == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(p19));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(p14));
             }
-            if ((p21 == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            if ((p16 == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(p21));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
             }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.Guid)(p22));
+            if ((p18 == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(p18));
+            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.Guid)(p19));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6992,8 +6118,8 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, string p3, string p4, string p5, string p6, string p7, System.Guid p8, System.Guid p9, string p11, string p13, string p15, string p17, string p19, string p21, System.Guid p22) {
-            return this.Update(p9, p2, p3, p4, p5, p6, p7, p8, p9, p11, p13, p15, p17, p19, p21, p22);
+        public virtual int Update(string p2, string p3, string p4, string p5, string p6, System.Guid p7, System.Guid p8, string p10, string p12, string p14, string p16, string p18, System.Guid p19) {
+            return this.Update(p8, p2, p3, p4, p5, p6, p7, p8, p10, p12, p14, p16, p18, p19);
         }
     }
     
@@ -7006,7 +6132,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class departments1TableAdapter : global::System.ComponentModel.Component {
+    public partial class departmentsTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -7020,7 +6146,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public departments1TableAdapter() {
+        public departmentsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7117,7 +6243,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "departments1";
+            tableMapping.DataSetTable = "departments";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("LongName", "LongName");
             tableMapping.ColumnMappings.Add("ShortName", "ShortName");
@@ -7279,7 +6405,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.departments1DataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.departmentsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7292,9 +6418,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.departments1DataTable GetData() {
+        public virtual librarycontextDataSet.departmentsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.departments1DataTable dataTable = new librarycontext.departments1DataTable();
+            librarycontextDataSet.departmentsDataTable dataTable = new librarycontextDataSet.departmentsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7302,15 +6428,15 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.departments1DataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.departmentsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
-            return this.Adapter.Update(dataSet, "departments1");
+        public virtual int Update(librarycontextDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "departments");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7727,7 +6853,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.holidaysDataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.holidaysDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7740,9 +6866,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.holidaysDataTable GetData() {
+        public virtual librarycontextDataSet.holidaysDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.holidaysDataTable dataTable = new librarycontext.holidaysDataTable();
+            librarycontextDataSet.holidaysDataTable dataTable = new librarycontextDataSet.holidaysDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7750,14 +6876,14 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.holidaysDataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.holidaysDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
+        public virtual int Update(librarycontextDataSet dataSet) {
             return this.Adapter.Update(dataSet, "holidays");
         }
         
@@ -7893,7 +7019,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class libraryusers1TableAdapter : global::System.ComponentModel.Component {
+    public partial class libraryusersTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -7907,7 +7033,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public libraryusers1TableAdapter() {
+        public libraryusersTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -8004,7 +7130,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "libraryusers1";
+            tableMapping.DataSetTable = "libraryusers";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Birthday", "Birthday");
             tableMapping.ColumnMappings.Add("LibraryUserType", "LibraryUserType");
@@ -8439,7 +7565,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.libraryusers1DataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.libraryusersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8452,9 +7578,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.libraryusers1DataTable GetData() {
+        public virtual librarycontextDataSet.libraryusersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.libraryusers1DataTable dataTable = new librarycontext.libraryusers1DataTable();
+            librarycontextDataSet.libraryusersDataTable dataTable = new librarycontextDataSet.libraryusersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -8462,15 +7588,15 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.libraryusers1DataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.libraryusersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
-            return this.Adapter.Update(dataSet, "libraryusers1");
+        public virtual int Update(librarycontextDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "libraryusers");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8792,7 +7918,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sections1TableAdapter : global::System.ComponentModel.Component {
+    public partial class sectionsTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -8806,7 +7932,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public sections1TableAdapter() {
+        public sectionsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -8903,7 +8029,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sections1";
+            tableMapping.DataSetTable = "sections";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("LateReturningFee", "LateReturningFee");
@@ -9085,7 +8211,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.sections1DataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.sectionsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9098,9 +8224,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.sections1DataTable GetData() {
+        public virtual librarycontextDataSet.sectionsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.sections1DataTable dataTable = new librarycontext.sections1DataTable();
+            librarycontextDataSet.sectionsDataTable dataTable = new librarycontextDataSet.sectionsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -9108,15 +8234,15 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.sections1DataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.sectionsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
-            return this.Adapter.Update(dataSet, "sections1");
+        public virtual int Update(librarycontextDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "sections");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9255,7 +8381,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class transactioninfoes1TableAdapter : global::System.ComponentModel.Component {
+    public partial class transactioninfoesTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -9269,7 +8395,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public transactioninfoes1TableAdapter() {
+        public transactioninfoesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -9366,7 +8492,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "transactioninfoes1";
+            tableMapping.DataSetTable = "transactioninfoes";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("BookCopyId", "BookCopyId");
             tableMapping.ColumnMappings.Add("LibraryUserId", "LibraryUserId");
@@ -9690,7 +8816,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.transactioninfoes1DataTable dataTable) {
+        public virtual int Fill(librarycontextDataSet.transactioninfoesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9703,9 +8829,9 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.transactioninfoes1DataTable GetData() {
+        public virtual librarycontextDataSet.transactioninfoesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.transactioninfoes1DataTable dataTable = new librarycontext.transactioninfoes1DataTable();
+            librarycontextDataSet.transactioninfoesDataTable dataTable = new librarycontextDataSet.transactioninfoesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -9713,15 +8839,15 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext.transactioninfoes1DataTable dataTable) {
+        public virtual int Update(librarycontextDataSet.transactioninfoesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(librarycontext dataSet) {
-            return this.Adapter.Update(dataSet, "transactioninfoes1");
+        public virtual int Update(librarycontextDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "transactioninfoes");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9908,342 +9034,6 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
     }
     
     /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class numberofborrowed1TableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public numberofborrowed1TableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "numberofborrowed1";
-            tableMapping.ColumnMappings.Add("BookInfoId", "BookInfoId");
-            tableMapping.ColumnMappings.Add("#ofborrowed", "#ofborrowed");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::ritchell.library.reporting.Properties.Settings.Default.librarycontextConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `BookInfoId`, `#ofborrowed` FROM `librarycontext`.`numberofborrowed`";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.numberofborrowed1DataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.numberofborrowed1DataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.numberofborrowed1DataTable dataTable = new librarycontext.numberofborrowed1DataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class numberofcopies1TableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public numberofcopies1TableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "numberofcopies1";
-            tableMapping.ColumnMappings.Add("BookInfoId", "BookInfoId");
-            tableMapping.ColumnMappings.Add("#ofcopies", "#ofcopies");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::ritchell.library.reporting.Properties.Settings.Default.librarycontextConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `BookInfoId`, `#ofcopies` FROM `librarycontext`.`numberofcopies`";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(librarycontext.numberofcopies1DataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual librarycontext.numberofcopies1DataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            librarycontext.numberofcopies1DataTable dataTable = new librarycontext.numberofcopies1DataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -10257,19 +9047,19 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         
         private @__migrationhistoryTableAdapter ___migrationhistoryTableAdapter;
         
-        private bookcopies1TableAdapter _bookcopies1TableAdapter;
+        private bookcopiesTableAdapter _bookcopiesTableAdapter;
         
-        private bookinfoes1TableAdapter _bookinfoes1TableAdapter;
+        private bookinfoesTableAdapter _bookinfoesTableAdapter;
         
-        private departments1TableAdapter _departments1TableAdapter;
+        private departmentsTableAdapter _departmentsTableAdapter;
         
         private holidaysTableAdapter _holidaysTableAdapter;
         
-        private libraryusers1TableAdapter _libraryusers1TableAdapter;
+        private libraryusersTableAdapter _libraryusersTableAdapter;
         
-        private sections1TableAdapter _sections1TableAdapter;
+        private sectionsTableAdapter _sectionsTableAdapter;
         
-        private transactioninfoes1TableAdapter _transactioninfoes1TableAdapter;
+        private transactioninfoesTableAdapter _transactioninfoesTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -10305,12 +9095,12 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public bookcopies1TableAdapter bookcopies1TableAdapter {
+        public bookcopiesTableAdapter bookcopiesTableAdapter {
             get {
-                return this._bookcopies1TableAdapter;
+                return this._bookcopiesTableAdapter;
             }
             set {
-                this._bookcopies1TableAdapter = value;
+                this._bookcopiesTableAdapter = value;
             }
         }
         
@@ -10319,12 +9109,12 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public bookinfoes1TableAdapter bookinfoes1TableAdapter {
+        public bookinfoesTableAdapter bookinfoesTableAdapter {
             get {
-                return this._bookinfoes1TableAdapter;
+                return this._bookinfoesTableAdapter;
             }
             set {
-                this._bookinfoes1TableAdapter = value;
+                this._bookinfoesTableAdapter = value;
             }
         }
         
@@ -10333,12 +9123,12 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public departments1TableAdapter departments1TableAdapter {
+        public departmentsTableAdapter departmentsTableAdapter {
             get {
-                return this._departments1TableAdapter;
+                return this._departmentsTableAdapter;
             }
             set {
-                this._departments1TableAdapter = value;
+                this._departmentsTableAdapter = value;
             }
         }
         
@@ -10361,12 +9151,12 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public libraryusers1TableAdapter libraryusers1TableAdapter {
+        public libraryusersTableAdapter libraryusersTableAdapter {
             get {
-                return this._libraryusers1TableAdapter;
+                return this._libraryusersTableAdapter;
             }
             set {
-                this._libraryusers1TableAdapter = value;
+                this._libraryusersTableAdapter = value;
             }
         }
         
@@ -10375,12 +9165,12 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public sections1TableAdapter sections1TableAdapter {
+        public sectionsTableAdapter sectionsTableAdapter {
             get {
-                return this._sections1TableAdapter;
+                return this._sectionsTableAdapter;
             }
             set {
-                this._sections1TableAdapter = value;
+                this._sectionsTableAdapter = value;
             }
         }
         
@@ -10389,12 +9179,12 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public transactioninfoes1TableAdapter transactioninfoes1TableAdapter {
+        public transactioninfoesTableAdapter transactioninfoesTableAdapter {
             get {
-                return this._transactioninfoes1TableAdapter;
+                return this._transactioninfoesTableAdapter;
             }
             set {
-                this._transactioninfoes1TableAdapter = value;
+                this._transactioninfoesTableAdapter = value;
             }
         }
         
@@ -10421,33 +9211,33 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                             && (this.___migrationhistoryTableAdapter.Connection != null))) {
                     return this.___migrationhistoryTableAdapter.Connection;
                 }
-                if (((this._bookcopies1TableAdapter != null) 
-                            && (this._bookcopies1TableAdapter.Connection != null))) {
-                    return this._bookcopies1TableAdapter.Connection;
+                if (((this._bookcopiesTableAdapter != null) 
+                            && (this._bookcopiesTableAdapter.Connection != null))) {
+                    return this._bookcopiesTableAdapter.Connection;
                 }
-                if (((this._bookinfoes1TableAdapter != null) 
-                            && (this._bookinfoes1TableAdapter.Connection != null))) {
-                    return this._bookinfoes1TableAdapter.Connection;
+                if (((this._bookinfoesTableAdapter != null) 
+                            && (this._bookinfoesTableAdapter.Connection != null))) {
+                    return this._bookinfoesTableAdapter.Connection;
                 }
-                if (((this._departments1TableAdapter != null) 
-                            && (this._departments1TableAdapter.Connection != null))) {
-                    return this._departments1TableAdapter.Connection;
+                if (((this._departmentsTableAdapter != null) 
+                            && (this._departmentsTableAdapter.Connection != null))) {
+                    return this._departmentsTableAdapter.Connection;
                 }
                 if (((this._holidaysTableAdapter != null) 
                             && (this._holidaysTableAdapter.Connection != null))) {
                     return this._holidaysTableAdapter.Connection;
                 }
-                if (((this._libraryusers1TableAdapter != null) 
-                            && (this._libraryusers1TableAdapter.Connection != null))) {
-                    return this._libraryusers1TableAdapter.Connection;
+                if (((this._libraryusersTableAdapter != null) 
+                            && (this._libraryusersTableAdapter.Connection != null))) {
+                    return this._libraryusersTableAdapter.Connection;
                 }
-                if (((this._sections1TableAdapter != null) 
-                            && (this._sections1TableAdapter.Connection != null))) {
-                    return this._sections1TableAdapter.Connection;
+                if (((this._sectionsTableAdapter != null) 
+                            && (this._sectionsTableAdapter.Connection != null))) {
+                    return this._sectionsTableAdapter.Connection;
                 }
-                if (((this._transactioninfoes1TableAdapter != null) 
-                            && (this._transactioninfoes1TableAdapter.Connection != null))) {
-                    return this._transactioninfoes1TableAdapter.Connection;
+                if (((this._transactioninfoesTableAdapter != null) 
+                            && (this._transactioninfoesTableAdapter.Connection != null))) {
+                    return this._transactioninfoesTableAdapter.Connection;
                 }
                 return null;
             }
@@ -10465,25 +9255,25 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                 if ((this.___migrationhistoryTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._bookcopies1TableAdapter != null)) {
+                if ((this._bookcopiesTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._bookinfoes1TableAdapter != null)) {
+                if ((this._bookinfoesTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._departments1TableAdapter != null)) {
+                if ((this._departmentsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._holidaysTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._libraryusers1TableAdapter != null)) {
+                if ((this._libraryusersTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._sections1TableAdapter != null)) {
+                if ((this._sectionsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._transactioninfoes1TableAdapter != null)) {
+                if ((this._transactioninfoesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -10495,23 +9285,23 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(librarycontext dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(librarycontextDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sections1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.sections1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._sectionsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.sections.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._sections1TableAdapter.Update(updatedRows));
+                    result = (result + this._sectionsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._bookinfoes1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.bookinfoes1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._bookinfoesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.bookinfoes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._bookinfoes1TableAdapter.Update(updatedRows));
+                    result = (result + this._bookinfoesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -10524,21 +9314,21 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._bookcopies1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.bookcopies1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._bookcopiesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.bookcopies.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._bookcopies1TableAdapter.Update(updatedRows));
+                    result = (result + this._bookcopiesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._departments1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.departments1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._departmentsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.departments.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._departments1TableAdapter.Update(updatedRows));
+                    result = (result + this._departmentsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -10551,21 +9341,21 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._libraryusers1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.libraryusers1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._libraryusersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.libraryusers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._libraryusers1TableAdapter.Update(updatedRows));
+                    result = (result + this._libraryusersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._transactioninfoes1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.transactioninfoes1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._transactioninfoesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.transactioninfoes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._transactioninfoes1TableAdapter.Update(updatedRows));
+                    result = (result + this._transactioninfoesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -10577,21 +9367,21 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(librarycontext dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(librarycontextDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._sections1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.sections1.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._sectionsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.sections.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._sections1TableAdapter.Update(addedRows));
+                    result = (result + this._sectionsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._bookinfoes1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.bookinfoes1.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._bookinfoesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.bookinfoes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._bookinfoes1TableAdapter.Update(addedRows));
+                    result = (result + this._bookinfoesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10603,19 +9393,19 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._bookcopies1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.bookcopies1.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._bookcopiesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.bookcopies.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._bookcopies1TableAdapter.Update(addedRows));
+                    result = (result + this._bookcopiesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._departments1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.departments1.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._departmentsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.departments.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._departments1TableAdapter.Update(addedRows));
+                    result = (result + this._departmentsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10627,19 +9417,19 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._libraryusers1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.libraryusers1.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._libraryusersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.libraryusers.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._libraryusers1TableAdapter.Update(addedRows));
+                    result = (result + this._libraryusersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._transactioninfoes1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.transactioninfoes1.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._transactioninfoesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.transactioninfoes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._transactioninfoes1TableAdapter.Update(addedRows));
+                    result = (result + this._transactioninfoesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -10651,21 +9441,21 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(librarycontext dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(librarycontextDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._transactioninfoes1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.transactioninfoes1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._transactioninfoesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.transactioninfoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._transactioninfoes1TableAdapter.Update(deletedRows));
+                    result = (result + this._transactioninfoesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._libraryusers1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.libraryusers1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._libraryusersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.libraryusers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._libraryusers1TableAdapter.Update(deletedRows));
+                    result = (result + this._libraryusersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10677,19 +9467,19 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._departments1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.departments1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._departmentsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.departments.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._departments1TableAdapter.Update(deletedRows));
+                    result = (result + this._departmentsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bookcopies1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.bookcopies1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._bookcopiesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.bookcopies.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._bookcopies1TableAdapter.Update(deletedRows));
+                    result = (result + this._bookcopiesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10701,19 +9491,19 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bookinfoes1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.bookinfoes1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._bookinfoesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.bookinfoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._bookinfoes1TableAdapter.Update(deletedRows));
+                    result = (result + this._bookinfoesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._sections1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.sections1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._sectionsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.sections.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._sections1TableAdapter.Update(deletedRows));
+                    result = (result + this._sectionsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -10749,7 +9539,7 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(librarycontext dataSet) {
+        public virtual int UpdateAll(librarycontextDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
@@ -10761,18 +9551,18 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._bookcopies1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bookcopies1TableAdapter.Connection) == false))) {
+            if (((this._bookcopiesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._bookcopiesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._bookinfoes1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bookinfoes1TableAdapter.Connection) == false))) {
+            if (((this._bookinfoesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._bookinfoesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._departments1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._departments1TableAdapter.Connection) == false))) {
+            if (((this._departmentsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._departmentsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -10781,18 +9571,18 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._libraryusers1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._libraryusers1TableAdapter.Connection) == false))) {
+            if (((this._libraryusersTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._libraryusersTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._sections1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._sections1TableAdapter.Connection) == false))) {
+            if (((this._sectionsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sectionsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._transactioninfoes1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._transactioninfoes1TableAdapter.Connection) == false))) {
+            if (((this._transactioninfoesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._transactioninfoesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -10837,31 +9627,31 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this.___migrationhistoryTableAdapter.Adapter);
                     }
                 }
-                if ((this._bookcopies1TableAdapter != null)) {
-                    revertConnections.Add(this._bookcopies1TableAdapter, this._bookcopies1TableAdapter.Connection);
-                    this._bookcopies1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._bookcopies1TableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._bookcopies1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bookcopies1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bookcopies1TableAdapter.Adapter);
+                if ((this._bookcopiesTableAdapter != null)) {
+                    revertConnections.Add(this._bookcopiesTableAdapter, this._bookcopiesTableAdapter.Connection);
+                    this._bookcopiesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._bookcopiesTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._bookcopiesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._bookcopiesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._bookcopiesTableAdapter.Adapter);
                     }
                 }
-                if ((this._bookinfoes1TableAdapter != null)) {
-                    revertConnections.Add(this._bookinfoes1TableAdapter, this._bookinfoes1TableAdapter.Connection);
-                    this._bookinfoes1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._bookinfoes1TableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._bookinfoes1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bookinfoes1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bookinfoes1TableAdapter.Adapter);
+                if ((this._bookinfoesTableAdapter != null)) {
+                    revertConnections.Add(this._bookinfoesTableAdapter, this._bookinfoesTableAdapter.Connection);
+                    this._bookinfoesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._bookinfoesTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._bookinfoesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._bookinfoesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._bookinfoesTableAdapter.Adapter);
                     }
                 }
-                if ((this._departments1TableAdapter != null)) {
-                    revertConnections.Add(this._departments1TableAdapter, this._departments1TableAdapter.Connection);
-                    this._departments1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._departments1TableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._departments1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._departments1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._departments1TableAdapter.Adapter);
+                if ((this._departmentsTableAdapter != null)) {
+                    revertConnections.Add(this._departmentsTableAdapter, this._departmentsTableAdapter.Connection);
+                    this._departmentsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._departmentsTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._departmentsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._departmentsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._departmentsTableAdapter.Adapter);
                     }
                 }
                 if ((this._holidaysTableAdapter != null)) {
@@ -10873,31 +9663,31 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._holidaysTableAdapter.Adapter);
                     }
                 }
-                if ((this._libraryusers1TableAdapter != null)) {
-                    revertConnections.Add(this._libraryusers1TableAdapter, this._libraryusers1TableAdapter.Connection);
-                    this._libraryusers1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._libraryusers1TableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._libraryusers1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._libraryusers1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._libraryusers1TableAdapter.Adapter);
+                if ((this._libraryusersTableAdapter != null)) {
+                    revertConnections.Add(this._libraryusersTableAdapter, this._libraryusersTableAdapter.Connection);
+                    this._libraryusersTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._libraryusersTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._libraryusersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._libraryusersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._libraryusersTableAdapter.Adapter);
                     }
                 }
-                if ((this._sections1TableAdapter != null)) {
-                    revertConnections.Add(this._sections1TableAdapter, this._sections1TableAdapter.Connection);
-                    this._sections1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._sections1TableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._sections1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._sections1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._sections1TableAdapter.Adapter);
+                if ((this._sectionsTableAdapter != null)) {
+                    revertConnections.Add(this._sectionsTableAdapter, this._sectionsTableAdapter.Connection);
+                    this._sectionsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._sectionsTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._sectionsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sectionsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sectionsTableAdapter.Adapter);
                     }
                 }
-                if ((this._transactioninfoes1TableAdapter != null)) {
-                    revertConnections.Add(this._transactioninfoes1TableAdapter, this._transactioninfoes1TableAdapter.Connection);
-                    this._transactioninfoes1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._transactioninfoes1TableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._transactioninfoes1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._transactioninfoes1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._transactioninfoes1TableAdapter.Adapter);
+                if ((this._transactioninfoesTableAdapter != null)) {
+                    revertConnections.Add(this._transactioninfoesTableAdapter, this._transactioninfoesTableAdapter.Connection);
+                    this._transactioninfoesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._transactioninfoesTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._transactioninfoesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._transactioninfoesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._transactioninfoesTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -10962,33 +9752,33 @@ namespace ritchell.library.reporting.librarycontextTableAdapters {
                     this.___migrationhistoryTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this.___migrationhistoryTableAdapter]));
                     this.___migrationhistoryTableAdapter.Transaction = null;
                 }
-                if ((this._bookcopies1TableAdapter != null)) {
-                    this._bookcopies1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._bookcopies1TableAdapter]));
-                    this._bookcopies1TableAdapter.Transaction = null;
+                if ((this._bookcopiesTableAdapter != null)) {
+                    this._bookcopiesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._bookcopiesTableAdapter]));
+                    this._bookcopiesTableAdapter.Transaction = null;
                 }
-                if ((this._bookinfoes1TableAdapter != null)) {
-                    this._bookinfoes1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._bookinfoes1TableAdapter]));
-                    this._bookinfoes1TableAdapter.Transaction = null;
+                if ((this._bookinfoesTableAdapter != null)) {
+                    this._bookinfoesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._bookinfoesTableAdapter]));
+                    this._bookinfoesTableAdapter.Transaction = null;
                 }
-                if ((this._departments1TableAdapter != null)) {
-                    this._departments1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._departments1TableAdapter]));
-                    this._departments1TableAdapter.Transaction = null;
+                if ((this._departmentsTableAdapter != null)) {
+                    this._departmentsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._departmentsTableAdapter]));
+                    this._departmentsTableAdapter.Transaction = null;
                 }
                 if ((this._holidaysTableAdapter != null)) {
                     this._holidaysTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._holidaysTableAdapter]));
                     this._holidaysTableAdapter.Transaction = null;
                 }
-                if ((this._libraryusers1TableAdapter != null)) {
-                    this._libraryusers1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._libraryusers1TableAdapter]));
-                    this._libraryusers1TableAdapter.Transaction = null;
+                if ((this._libraryusersTableAdapter != null)) {
+                    this._libraryusersTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._libraryusersTableAdapter]));
+                    this._libraryusersTableAdapter.Transaction = null;
                 }
-                if ((this._sections1TableAdapter != null)) {
-                    this._sections1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._sections1TableAdapter]));
-                    this._sections1TableAdapter.Transaction = null;
+                if ((this._sectionsTableAdapter != null)) {
+                    this._sectionsTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._sectionsTableAdapter]));
+                    this._sectionsTableAdapter.Transaction = null;
                 }
-                if ((this._transactioninfoes1TableAdapter != null)) {
-                    this._transactioninfoes1TableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._transactioninfoes1TableAdapter]));
-                    this._transactioninfoes1TableAdapter.Transaction = null;
+                if ((this._transactioninfoesTableAdapter != null)) {
+                    this._transactioninfoesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._transactioninfoesTableAdapter]));
+                    this._transactioninfoesTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

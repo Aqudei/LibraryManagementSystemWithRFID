@@ -37,18 +37,6 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="button_Copy1" 
-        		Content="Mark Weekends as Holiday" 
-        		Margin="0,0,7.708,5" 
-        		Command="{Binding MarkWeekendsAsHolidays, Mode=OneWay}" Foreground="#FFB9B0B0">
-             
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF3A3838" Offset="0"/>
-                        <GradientStop Color="#FF0A0A0A" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
 
         </StackPanel>
 

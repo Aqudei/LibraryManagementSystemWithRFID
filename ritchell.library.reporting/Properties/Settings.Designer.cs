@@ -26,7 +26,8 @@ namespace ritchell.library.reporting.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;database=librarycontext;pwd=Espelimbergo")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=Espelimbergo;persistsecurityinfo=True;data" +
+            "base=librarycontext")]
         public string librarycontextConnectionString {
             get {
                 return ((string)(this["librarycontextConnectionString"]));

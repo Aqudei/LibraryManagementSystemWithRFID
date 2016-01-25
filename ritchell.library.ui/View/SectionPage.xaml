@@ -32,6 +32,7 @@
                             Command="{Binding EditItemCommand}"/>
                     <Button Content="Delete" Command="{Binding DeleteItemCommand}" Margin="5,0" Style="{DynamicResource CrudButtonStyle}" />
                     <Button Command="{Binding SaveItemCommand}" Content="Save" Margin="5,0" Style="{DynamicResource CrudButtonStyle}" />
+                    <Button Command="{Binding CancelEditItemCommand, Mode=OneWay}" Content="Cancel" Margin="5,0" Style="{DynamicResource CrudButtonStyle}" />
                 </StackPanel>
 
             </Border>

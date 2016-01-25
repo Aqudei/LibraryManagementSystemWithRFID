@@ -30,6 +30,7 @@
                             Command="{Binding DeleteItemCommand}"
                             Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
                     <Button Command="{Binding SaveItemCommand}" Content="Save" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                    <Button Command="{Binding CancelEditItemCommand, Mode=OneWay}" Content="Cancel" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
                     <Button Command="{Binding ManageRFIDCommand}" Content="Manage Book's RFID" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
 
                 </StackPanel>

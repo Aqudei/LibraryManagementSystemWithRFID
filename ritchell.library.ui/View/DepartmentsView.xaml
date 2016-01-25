@@ -15,6 +15,7 @@
                     <Button Content="Edit" Style="{DynamicResource CrudButtonStyle}" Margin="5,0" Command="{Binding EditItemCommand, Mode=OneWay}"/>
                     <Button Content="Delete" Style="{DynamicResource CrudButtonStyle}" Margin="5,0" Command="{Binding DeleteItemCommand, Mode=OneWay}"/>
                     <Button Content="Save" Style="{DynamicResource CrudButtonStyle}" Margin="5,0" Command="{Binding SaveItemCommand, Mode=OneWay}"/>
+                    <Button Content="Cancel" Style="{DynamicResource CrudButtonStyle}" Margin="5,0" Command="{Binding CancelEditItemCommand, Mode=OneWay}"/>
                 </StackPanel>
             </Border>
             <ListView DockPanel.Dock="Left"

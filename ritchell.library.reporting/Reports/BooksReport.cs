@@ -16,14 +16,14 @@ namespace ritchell.library.reporting.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class BookList : ReportClass {
+    public class BooksReport : ReportClass {
         
-        public BookList() {
+        public BooksReport() {
         }
         
         public override string ResourceName {
             get {
-                return "BookList.rpt";
+                return "BooksReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ritchell.library.reporting.Reports {
         
         public override string FullResourceName {
             get {
-                return "ritchell.library.reporting.Reports.BookList.rpt";
+                return "ritchell.library.reporting.Reports.BooksReport.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace ritchell.library.reporting.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedBookList : Component, ICachedReport {
+    public class CachedBooksReport : Component, ICachedReport {
         
-        public CachedBookList() {
+        public CachedBooksReport() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace ritchell.library.reporting.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            BookList rpt = new BookList();
+            BooksReport rpt = new BooksReport();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -56,7 +57,7 @@ namespace ritchell.library.ui.ViewModel
 
         /// <summary>
         /// Gets the SaveCommand.
-        /// </summary>
+        /// </summary>D:\mine_files\_dev\ritchell.library\ritchell.library.ui\ViewModel\WithEditableItems.cs
         public RelayCommand SaveItemCommand
         {
             get
@@ -134,6 +135,34 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
+        private RelayCommand _CancelEditItemCommand;
+
+        /// <summary>
+        /// Gets the CancelEditItemCommand.
+        /// </summary>
+        public RelayCommand CancelEditItemCommand
+        {
+            get
+            {
+                return _CancelEditItemCommand
+                    ?? (_CancelEditItemCommand = new RelayCommand(
+                    () =>
+                    {
+                        if (UserInterfaceState == UIState.Adding)
+                            items.Remove(ItemsCollectionView.CurrentItem as T);
+                        else
+                            RestoreOldData();
+                        UserInterfaceState = UIState.Standby;
+                    },
+                    () => UserInterfaceState == UIState.Editing
+                    || userInterfaceState == UIState.Adding));
+            }
+        }
+
+        public virtual void RestoreOldData()
+        {
+            return;
+        }
 
         private bool HasSelectedItem()
         {
