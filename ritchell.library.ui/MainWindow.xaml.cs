@@ -25,7 +25,7 @@ namespace ritchell.library.ui
         {
             InitializeComponent();
 
-            _ReportViewerService = new reporting.Services.ReportViewerService();
+            //_ReportViewerService = new reporting.Services.ReportViewerService();
 
             Loaded += (s, e) =>
             {
@@ -66,6 +66,12 @@ namespace ritchell.library.ui
             var newWin = new View.ReportViewer();
             newWin.DataContext = this;
             newWin.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var answer = MessageBox.Show("Do you really want to quit the application?", "Confirm Exit", MessageBoxButton.YesNo);
+            e.Cancel = answer == MessageBoxResult.No;
         }
     }
 }

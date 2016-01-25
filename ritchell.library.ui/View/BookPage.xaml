@@ -77,17 +77,9 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
 
-                    <TextBlock  Text="ISBN10"/>
-                    <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN10, UpdateSourceTrigger=PropertyChanged}"/>
-
+                    <TextBlock  Text="ISBN"/>
+                    <TextBox Text="{Binding ItemsCollectionView/ISBN, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical">
-
-                    <TextBlock  Text="ISBN13"/>
-                    <TextBox Text="{Binding ItemsCollectionView/ISBN.ISBN13, UpdateSourceTrigger=PropertyChanged}"/>
-
-                </StackPanel>
-
             </StackPanel>
         </DockPanel>
     </Grid>

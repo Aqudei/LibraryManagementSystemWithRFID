@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.client"
-        mc:Ignorable="d" Title="Ritchell Library Management System" Height="906.118" Width="1606.386"
+        mc:Ignorable="d" Title="SSU Library System" Height="906.118" Width="1606.386"
         xmlns:pass="clr-namespace:ritchell.library.ui.client.WPF"
         xmlns:win="clr-namespace:ritchell.library.ui.client.ViewServices"
         xmlns:m="clr-namespace:ritchell.library.model.LibraryTransactions;assembly=ritchell.library.model"

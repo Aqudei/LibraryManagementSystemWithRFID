@@ -81,7 +81,6 @@
     <Compile Include="Interfaces\IHolidayRepository.cs" />
     <Compile Include="Interfaces\ILibraryUserRepository.cs" />
     <Compile Include="Interfaces\ISectionRepository.cs" />
-    <Compile Include="ISBN.cs" />
     <Compile Include="LibraryContext.cs" />
     <Compile Include="LibraryTransactions\BorrowBookTransaction.cs" />
     <Compile Include="LibraryTransactions\ReturnBookIgnorePaymentTransaction.cs" />
