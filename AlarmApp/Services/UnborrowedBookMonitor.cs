@@ -26,21 +26,24 @@ namespace AlarmApp.Services
 
         private void LongRangeReader_TagRead(object sender, string e)
         {
-            var bookCopy = _BookCopyService.FindByLongRange(e);
-            if (bookCopy != null && bookCopy.IsBorrowed == false)
+            try
             {
-                var handler = UnborrowedIsGoingOut;
-                if (handler != null)
+                var bookCopy = _BookCopyService.FindByLongRange(e);
+                if (bookCopy.IsBorrowed == false)
                 {
-                    handler(this, new Models.BookCopyWithInfo
+                    var handler = UnborrowedIsGoingOut;
+                    if (handler != null)
                     {
-                        BookCopy = bookCopy,
-                        BookInfo = _BookCopyService.GetBookInfo(bookCopy)
-                    });
-
-         
+                        handler(this, new Models.BookCopyWithInfo
+                        {
+                            BookCopy = bookCopy,
+                            BookInfo = _BookCopyService.GetBookInfo(bookCopy)
+                        });
+                    }
                 }
             }
+            catch (Exception)
+            { }
         }
     }
 }
