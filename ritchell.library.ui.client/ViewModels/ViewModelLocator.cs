@@ -43,6 +43,7 @@ namespace ritchell.library.ui.client.ViewModels
             
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<MainViewModel>();
+  
             SimpleIoc.Default.Register<AuthenticationViewModel>();
 
             SetupWindows();
@@ -89,6 +90,14 @@ namespace ritchell.library.ui.client.ViewModels
             get
             {
                 return ServiceLocator.Current.GetInstance<AuthenticationViewModel>();
+            }
+        }
+
+        public PayablesViewModel PayablesViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<PayablesViewModel>();
             }
         }
     }

@@ -25,13 +25,17 @@ namespace ritchell.library.reporting
             {
                 if (booksReport == null)
                 {
-                    using (var adptr = new librarycontextDataSetTableAdapters.bookcopiesTableAdapter())
-                    using (var adptr1 = new librarycontextDataSetTableAdapters.bookinfoesTableAdapter())
-                    using (var adptr2 = new librarycontextDataSetTableAdapters.sectionsTableAdapter())
+                    using (var adptrbookcopies = new librarycontextDataSetTableAdapters.bookcopiesTableAdapter())
+                    using (var adptrbookinfoes = new librarycontextDataSetTableAdapters.bookinfoesTableAdapter())
+                    using (var adptrsections = new librarycontextDataSetTableAdapters.sectionsTableAdapter())
+                    using (var adptrnumberofcopies = new librarycontextDataSetTableAdapters.numberofcopiesTableAdapter())
+                    using (var adptrnumberoftimesborrowed = new librarycontextDataSetTableAdapters.numberoftimesborrowedTableAdapter())
                     {
-                        adptr.Fill(reportSource.bookcopies);
-                        adptr1.Fill(reportSource.bookinfoes);
-                        adptr2.Fill(reportSource.sections);
+                        adptrbookcopies.Fill(reportSource.bookcopies);
+                        adptrbookinfoes.Fill(reportSource.bookinfoes);
+                        adptrsections.Fill(reportSource.sections);
+                        adptrnumberofcopies.Fill(reportSource.numberofcopies);
+                        adptrnumberoftimesborrowed.Fill(reportSource.numberoftimesborrowed);
                     }
 
                     booksReport = new BooksReport();

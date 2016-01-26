@@ -73,7 +73,9 @@ namespace ritchell.library.ui.ViewModel
             }
             catch (System.Exception ex)
             {
-                Debug.WriteLine("Hardware failure\n" + ex.Message);
+                Debug.WriteLine("Hardware failure\nOpting to use fake RFID readers" + ex.Message);
+                SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "short");
+                SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "long");
             }
         }
 

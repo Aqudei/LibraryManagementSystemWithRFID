@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityBase.cs" />
+    <Compile Include="Hardware\FakeRFID.cs" />
     <Compile Include="Hardware\IRFIDReader.cs" />
     <Compile Include="Hardware\LongRangeRFID.cs" />
     <Compile Include="Hardware\ShortRangeRFID.cs" />
