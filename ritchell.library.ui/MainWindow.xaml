@@ -181,7 +181,7 @@
                 <Button Content="Departments" 
 					Command="{Binding NavigateToPageCommand}" 
 					CommandParameter="DepartmentsView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
-                <Button Content="Subjects" 
+                <Button Content="Courses" 
                 	Command="{Binding NavigateToPageCommand}" 
                 	CommandParameter="DepartmentsView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
             </StackPanel>
@@ -195,7 +195,7 @@
                 <Button Command="{Binding ShowReportCommand}" 
 					CommandParameter="patron" Content="Patrons" Style="{DynamicResource ReportingButtonStyle}" Margin="3,0"/>
                 <Button Command="{Binding ShowReportCommand}" 
-                	CommandParameter="Books" Style="{DynamicResource ReportingButtonStyle}" Margin="3,0" Content="Most Borrowed"/>
+                	CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Style="{DynamicResource ReportingButtonStyle}" Margin="3,0" Content="Most Borrowed"/>
             </StackPanel>
             <Frame DockPanel.Dock="Bottom"
 				x:Name="LayoutRoot"

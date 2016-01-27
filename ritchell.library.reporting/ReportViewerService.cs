@@ -29,13 +29,11 @@ namespace ritchell.library.reporting
                     using (var adptrbookinfoes = new librarycontextDataSetTableAdapters.bookinfoesTableAdapter())
                     using (var adptrsections = new librarycontextDataSetTableAdapters.sectionsTableAdapter())
                     using (var adptrnumberofcopies = new librarycontextDataSetTableAdapters.numberofcopiesTableAdapter())
-                    using (var adptrnumberoftimesborrowed = new librarycontextDataSetTableAdapters.numberoftimesborrowedTableAdapter())
                     {
                         adptrbookcopies.Fill(reportSource.bookcopies);
                         adptrbookinfoes.Fill(reportSource.bookinfoes);
                         adptrsections.Fill(reportSource.sections);
                         adptrnumberofcopies.Fill(reportSource.numberofcopies);
-                        adptrnumberoftimesborrowed.Fill(reportSource.numberoftimesborrowed);
                     }
 
                     booksReport = new BooksReport();
@@ -45,6 +43,46 @@ namespace ritchell.library.reporting
                 return booksReport;
             }
         }
+
+
+
+        public MostBorrowed MostBorrowed
+        {
+            get
+            {
+                using (var adptrbookinfoes = new librarycontextDataSetTableAdapters.bookinfoesTableAdapter())
+                using (var adptrnumberoftimesborrowed = new librarycontextDataSetTableAdapters.numberoftimesborrowedTableAdapter())
+                {
+                    adptrnumberoftimesborrowed.Fill(reportSource.numberoftimesborrowed);
+                    adptrbookinfoes.Fill(reportSource.bookinfoes);
+                }
+
+                var mostBorrowed = new MostBorrowed();
+                mostBorrowed.SetDataSource(reportSource);
+                return mostBorrowed;
+            }
+        }
+
+
+        public Patrons Patrons
+        {
+            get
+            {
+                using (var adptrUsers = new librarycontextDataSetTableAdapters.libraryusersTableAdapter())
+                using (var adptrDepartments = new librarycontextDataSetTableAdapters.departmentsTableAdapter())
+                {
+                    adptrUsers.Fill(reportSource.libraryusers);
+                    adptrDepartments.Fill(reportSource.departments);
+                }
+
+                var patrons = new Patrons();
+                patrons.SetDataSource(reportSource);
+                return patrons;
+            }
+
+
+        }
+
 
         public void ShowBookListReport()
         {
@@ -59,9 +97,17 @@ namespace ritchell.library.reporting
             reportForm.ShowDialog();
         }
 
+        public void ShowMostBOrrowed()
+        {
+            var reportForm = new MainWindow();
+            reportForm.ReportViewer.ViewerCore.ReportSource = MostBorrowed;
+            reportForm.ShowDialog();
+        }
+
         public void ShowPatronsReport()
         {
             var reportForm = new MainWindow();
+            reportForm.ReportViewer.ViewerCore.ReportSource = Patrons;
             reportForm.ShowDialog();
         }
     }

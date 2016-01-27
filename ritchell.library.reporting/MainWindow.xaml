@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ritchell.library.reporting"
         xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="ritchell.library.reporting.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="SSU Library - Reports" Height="350" Width="525" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
 
         <Viewer:CrystalReportsViewer HorizontalAlignment="Left"

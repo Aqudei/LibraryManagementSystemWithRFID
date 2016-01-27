@@ -76,6 +76,7 @@
     <Compile Include="Hardware\FakeRFID.cs" />
     <Compile Include="Hardware\IRFIDReader.cs" />
     <Compile Include="Hardware\LongRangeRFID.cs" />
+    <Compile Include="Hardware\NullRFID.cs" />
     <Compile Include="Hardware\ShortRangeRFID.cs" />
     <Compile Include="INPCBase.cs" />
     <Compile Include="IRepository.cs" />

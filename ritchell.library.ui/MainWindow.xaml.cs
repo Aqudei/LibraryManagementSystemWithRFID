@@ -63,6 +63,10 @@ namespace ritchell.library.ui
             {
                 ReportViewerService.ShowPatronsReport();
             }
+            else if (rptName.Contains("most"))
+            {
+                ReportViewerService.ShowMostBOrrowed();
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
