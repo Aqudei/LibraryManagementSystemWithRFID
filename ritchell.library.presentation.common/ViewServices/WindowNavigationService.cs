@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using ritchell.library.model;
-using ritchell.library.model.LibraryTransactions;
 
-namespace ritchell.library.ui.client.ViewServices
+namespace ritchell.library.presentation.common.ViewServices
 {
     public class WindowNavigationService : IWindowNavigationService
     {
@@ -22,20 +17,20 @@ namespace ritchell.library.ui.client.ViewServices
             public string WindowKey { get; set; }
         }
 
-        Dictionary<string, Window> Windows;
-        private PaymentService _PaymentService;
+        Dictionary<string, IWindow> Windows;
 
         public event EventHandler<WindowNaviEvent> WindowNaviEventHander;
+
         public WindowNavigationService()
         {
-            Windows = new Dictionary<string, Window>();
-            _PaymentService = new PaymentService();
+            Windows = new Dictionary<string, IWindow>();
         }
 
-        public void Show(string key)
+        public void Show(string key, object parameter)
         {
             if (Windows.ContainsKey(key))
             {
+                ((IWindow)Windows[key]).WindowParam = parameter;
                 Windows[key].Show();
                 RaiseEvent(key, WindowNaviEvent.WindowAction.Opened);
             }
@@ -52,30 +47,20 @@ namespace ritchell.library.ui.client.ViewServices
                 });
         }
 
-        public void ShowDialog(string key)
+        public void ShowDialog(string key, object parameter)
         {
             if (Windows.ContainsKey(key))
             {
+                ((IWindow)Windows[key]).WindowParam = parameter;
                 Windows[key].ShowDialog();
                 RaiseEvent(key, WindowNaviEvent.WindowAction.Closed);
             }
         }
 
-        public void Add(string key, Window window)
+        public void Add(string key, IWindow window)
         {
             if (Windows.ContainsKey(key) == false)
                 Windows.Add(key, window);
-        }
-
-        public void ShowPaymentsOf(LibraryUser currentUser)
-        {
-            var payables = _PaymentService.GetPayableTransactions(currentUser);
-            var vm = new ViewModels.PayablesViewModel(payables);
-            var payableWindos = new Views.PaymentWindow();
-
-            payableWindos.DataContext = vm;
-            payableWindos.ShowDialog();
-            payableWindos = null;
         }
     }
 }

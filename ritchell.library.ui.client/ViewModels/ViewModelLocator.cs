@@ -16,6 +16,8 @@ using Microsoft.Practices.ServiceLocation;
 using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
 using System.Diagnostics;
+using ritchell.library.presentation.common.ViewServices;
+using ritchell.library.model.LibraryTransactions;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -40,10 +42,10 @@ namespace ritchell.library.ui.client.ViewModels
             {
                 SetupRealRFIDReaders();
             }
-            
+
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<MainViewModel>();
-  
+            SimpleIoc.Default.Register<PaymentService>();
             SimpleIoc.Default.Register<AuthenticationViewModel>();
 
             SetupWindows();
@@ -52,10 +54,11 @@ namespace ritchell.library.ui.client.ViewModels
 
         private static void SetupWindows()
         {
-            ViewServices.WindowNavigationService wns = new ViewServices.WindowNavigationService();
+            WindowNavigationService wns = new WindowNavigationService();
             wns.Add(ViewServices.WindowNames.PaymentWindow, new Views.PaymentWindow());
 
-            SimpleIoc.Default.Register<ViewServices.IWindowNavigationService>(() => wns);
+            SimpleIoc.Default.Register<IWindowNavigationService>(() => wns);
+
         }
 
         private static void SetupRealRFIDReaders()
@@ -90,14 +93,6 @@ namespace ritchell.library.ui.client.ViewModels
             get
             {
                 return ServiceLocator.Current.GetInstance<AuthenticationViewModel>();
-            }
-        }
-
-        public PayablesViewModel PayablesViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<PayablesViewModel>();
             }
         }
     }

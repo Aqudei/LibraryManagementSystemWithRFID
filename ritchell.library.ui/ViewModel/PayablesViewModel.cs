@@ -20,8 +20,25 @@ namespace ritchell.library.ui.ViewModel
 
         public PayablesViewModel(PaymentService paymentService)
         {
-            _PaymentService = paymentService;
-            RefreshPayables();
+            if (IsInDesignMode == false)
+            {
+                _PaymentService = paymentService;
+                RefreshPayables();
+            }
+            else
+            {
+                Payables = new ObservableCollection<Payable>();
+                Payables.Add(new Payable
+                {
+                    AmountToPay = 250,
+                    BookInvolved = "Rizal's Life",
+                    TransactionInfo = new TransactionInfo
+                    {
+                        IsPaid = false,
+                    },
+                    UserInvolved = "Aqudei"
+                });
+            }
         }
 
         private void RefreshPayables()

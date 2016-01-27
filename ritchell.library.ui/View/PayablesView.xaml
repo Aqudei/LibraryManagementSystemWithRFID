@@ -16,25 +16,28 @@
                       FontSize="18.667">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Fullname"/>
-                            <TextBlock Text="{Binding UserInvolved}"/>
-                        </StackPanel>
+                    <Border Margin="5" BorderThickness="1" 
+                            CornerRadius="10" BorderBrush="Black" Padding="5">
+                        <StackPanel Height="100">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Fullname:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding UserInvolved}"/>
+                            </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Book"/>
-                            <TextBlock Text="{Binding BookInvolved}"/>
-                        </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Book:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding BookInvolved}"/>
+                            </StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Amount"/>
-                            <TextBlock Text="{Binding AmountToPay}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Amount:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding AmountToPay, StringFormat=P\{0:.00\}}"/>
+                            </StackPanel>
+                            <Button x:Name="b" HorizontalAlignment="Center"
+                				Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
+                				CommandParameter="{Binding}" Margin="5" Width="75" Content="Pay" />
                         </StackPanel>
-                        <Button HorizontalAlignment="Left"
-                                Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
-                                CommandParameter="{Binding}" >Pay</Button>
-                    </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

@@ -267,6 +267,10 @@
       <Project>{99d28668-0517-43e3-9812-235fc8c0f86b}</Project>
       <Name>ritchell.library.model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ritchell.library.presentation.common\ritchell.library.presentation.common.csproj">
+      <Project>{62168e2a-d814-4293-bca3-4e5dfa8eb183}</Project>
+      <Name>ritchell.library.presentation.common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ritchell.library.reporting\ritchell.library.reporting.csproj">
       <Project>{879129a7-1fb8-4f7d-ae9b-f5e8099708c1}</Project>
       <Name>ritchell.library.reporting</Name>

@@ -56,7 +56,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="RRU1861CSharp">
-      <HintPath>..\..\3rd party libraries\RRU1861 english version\SDK\Csharp V2.1\RRU1861CSharp.dll</HintPath>
+      <HintPath>..\..\rfid_hardware\long_range_rfid\RRU1861 english version\SDK\Csharp V2.1\RRU1861CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

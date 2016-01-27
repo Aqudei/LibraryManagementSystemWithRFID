@@ -11,12 +11,17 @@ namespace ritchell.library.infrastructure.Hardware
     public class FakeRFID : IRFIDReader
     {
         private BackgroundWorker bgWorker;
-        
+
+        Guid[] FakeGuids = new Guid[3];
 
         public event EventHandler<string> TagRead;
 
         public FakeRFID()
         {
+            FakeGuids[0] = Guid.Parse("{F7561AF5-0C6D-4A8A-B925-2D6AB2B673A9}");
+            FakeGuids[1] = Guid.Parse("{B5200174-814F-432B-A1F7-7FF5CC2D90D5}");
+            FakeGuids[2] = Guid.Parse("{FD8476BA-5EEC-4FDF-AF7F-D50778E77D59}");
+
             bgWorker = new BackgroundWorker();
             bgWorker.WorkerReportsProgress = true;
             bgWorker.ProgressChanged += BgWorker_ProgressChanged;
@@ -26,10 +31,11 @@ namespace ritchell.library.infrastructure.Hardware
 
         private void BgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            Random r = new Random((int)DateTime.Now.Ticks);
             while (bgWorker.CancellationPending == false)
             {
                 Thread.Sleep(2000);
-                bgWorker.ReportProgress(0, Guid.NewGuid().ToString());
+                bgWorker.ReportProgress(0, FakeGuids[r.Next(2)].ToString());
             }
         }
 

@@ -1,18 +1,14 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ritchell.library.model.LibraryTransactions;
 using ritchell.library.infrastructure.Hardware;
 using GalaSoft.MvvmLight.Threading;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Diagnostics;
-using ritchell.library.ui.client.ViewServices;
 using GalaSoft.MvvmLight.Views;
 using ritchell.library.ui.client.ViewModels.VMMessages;
+using ritchell.library.presentation.common.ViewServices;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -42,7 +38,7 @@ namespace ritchell.library.ui.client.ViewModels
                     (x) =>
                     {
                         if (x.ToLower().Contains("payment"))
-                            _WindowNaviService.ShowPaymentsOf(AuthenticationViewModel.CurrentUser);
+                            _WindowNaviService.ShowDialog(ViewServices.WindowNames.PaymentWindow, AuthenticationViewModel.CurrentUser);
                     }));
             }
         }

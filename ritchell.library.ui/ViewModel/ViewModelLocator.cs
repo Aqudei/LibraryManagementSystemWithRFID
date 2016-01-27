@@ -51,6 +51,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<HolidayService>();
             SimpleIoc.Default.Register<PaymentService>();
 
+            SimpleIoc.Default.Register<LoginViewModel>();
             SimpleIoc.Default.Register<HolidayPageViewModel>();
             SimpleIoc.Default.Register<UsersPageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
@@ -65,17 +66,20 @@ namespace ritchell.library.ui.ViewModel
         {
             try
             {
-                var shortReader = new ShortRangeRFID();
-                var longReader = new LongRangeRFID();
+                //var shortReader = new ShortRangeRFID();
+                //var longReader = new LongRangeRFID();
 
-                SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
-                SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
+                SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "short");
+                SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "long");
+
+                //SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
+                //SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
             }
             catch (System.Exception ex)
             {
                 Debug.WriteLine("Hardware failure\nOpting to use fake RFID readers" + ex.Message);
-                SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "short");
-                SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "long");
+                //SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "short");
+                //SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "long");
             }
         }
 
@@ -91,6 +95,14 @@ namespace ritchell.library.ui.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public LoginViewModel LoginViewModel
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstanceWithoutCaching<LoginViewModel>();
             }
         }
 

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.ui.client"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.reporting", "ritchell.library.reporting\ritchell.library.reporting.csproj", "{879129A7-1FB8-4F7D-AE9B-F5E8099708C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.presentation.common", "ritchell.library.presentation.common\ritchell.library.presentation.common.csproj", "{62168E2A-D814-4293-BCA3-4E5DFA8EB183}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{879129A7-1FB8-4F7D-AE9B-F5E8099708C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{879129A7-1FB8-4F7D-AE9B-F5E8099708C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{879129A7-1FB8-4F7D-AE9B-F5E8099708C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62168E2A-D814-4293-BCA3-4E5DFA8EB183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62168E2A-D814-4293-BCA3-4E5DFA8EB183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62168E2A-D814-4293-BCA3-4E5DFA8EB183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62168E2A-D814-4293-BCA3-4E5DFA8EB183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
