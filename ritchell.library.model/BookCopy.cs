@@ -27,6 +27,8 @@ namespace ritchell.library.model
         public string BookTagShort { get; set; }
         public string BookTagLong { get; set; }
         public Guid BookInfoId { get; set; }
+
+        public int AcquisitionNumber { get; set; }
         public bool IsBorrowed { get; set; }
     }
 }

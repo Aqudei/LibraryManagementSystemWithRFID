@@ -55,10 +55,14 @@
             </ListView>
 
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="10,0">
-                <TextBlock Margin="0,4" FontSize="24">RFID Short</TextBlock>
+                <TextBlock Margin="0,4" FontSize="24"><Run Text="Short"/><Run Text="-Range"/><Run Text=" "/><Run Text="RFID  Tag"/></TextBlock>
                 <TextBox IsReadOnly="True" Text="{Binding RFIDShort, Mode=TwoWay}" Margin="0,4" FontSize="24" />
-                <TextBlock Margin="0,4" FontSize="24">RFID Long</TextBlock>
+                <TextBlock Margin="0,4" FontSize="24"><Run Text="Long"/><Run Text="-Range"/><Run Text=" "/><Run Text="RFID  Tag"/></TextBlock>
                 <TextBox IsReadOnly="True" Text="{Binding RFIDLong, Mode=TwoWay}" Margin="0,4" FontSize="24"/>
+                <TextBlock Margin="0,4" FontSize="24" Text="Acquisition Number"/>
+                <TextBox Text="{Binding AcquisitionNumber, Mode=TwoWay}" 
+                         Margin="0,4" 
+                         FontSize="24"/>
                 <Button Command="{Binding AddBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Add</Button>
                 <Button Command="{Binding DeleteBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Delete</Button>
             </StackPanel>

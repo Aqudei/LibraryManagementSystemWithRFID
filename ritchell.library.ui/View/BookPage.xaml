@@ -55,9 +55,13 @@
                     </Style>
                 </StackPanel.Resources>
                 <StackPanel Orientation="Vertical">
-
                     <TextBlock Text="Book Title" />
                     <TextBox Text="{Binding ItemsCollectionView/BookTitle, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Subject" />
+                    <ComboBox Text="{Binding ItemsCollectionView/Subject, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"
+                              ItemsSource="{Binding Subjects}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock><Run Text="Author(s)"/></TextBlock>
@@ -77,9 +81,8 @@
 
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-
-                    <TextBlock  Text="ISBN"/>
-                    <TextBox Text="{Binding ItemsCollectionView/ISBN, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock  Text="Copyright"/>
+                    <TextBox Text="{Binding ItemsCollectionView/Copyright, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
             </StackPanel>
         </DockPanel>

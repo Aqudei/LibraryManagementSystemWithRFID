@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ritchell.library.ui.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1176.066" d:DesignWidth="986.029"
-             DataContext="{Binding DepartmentsViewModel, Source={StaticResource Locator}}" FontSize="24" FontFamily="Centaur">
+             d:DesignHeight="1176.066"
+             DataContext="{Binding DepartmentsViewModel, Source={StaticResource Locator}}" FontSize="24" FontFamily="Centaur" Width="1763.029">
     <Grid>
         <DockPanel>
             <Border DockPanel.Dock="Bottom">
@@ -24,18 +24,19 @@
 
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Dept ShortName" 
-                                        DisplayMemberBinding="{Binding ShortName }" 
-                                        TextBlock.TextAlignment="Left" />
-                        <GridViewColumn Header="Dept LongName" 
+                        <GridViewColumn Header="Department" 
                                         DisplayMemberBinding="{Binding LongName }"
                                         TextBlock.TextAlignment="Left"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding ShortName }" 
+                                        TextBlock.TextAlignment="Left" />
                     </GridView>
                 </ListView.View>
 
             </ListView>
             <StackPanel HorizontalAlignment="Left" 
-                        Orientation="Vertical" DockPanel.Dock="Left" Width="300" Margin="10,0,0,0">
+                        Orientation="Vertical" DockPanel.Dock="Left" 
+                        Width="300" 
+                        Margin="10,0,0,0">
                 <TextBlock>Long Name</TextBlock>
                 <TextBox Text="{Binding ItemsCollectionView/LongName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock >Short Name</TextBlock>

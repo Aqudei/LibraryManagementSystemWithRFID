@@ -49,5 +49,13 @@ namespace ritchell.library.model.Services
                 return bookInfoRepo.BookInfoOf(bookCopy);
             }
         }
+
+        public IEnumerable<string> GetDistincSubjects()
+        {
+            using (var bookInfoRepo = new BookInfoRepository())
+            {
+                return bookInfoRepo.GetAll().Select(b => b.Subject).Distinct();
+            }
+        }
     }
 }

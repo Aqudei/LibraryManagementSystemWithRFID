@@ -21,6 +21,10 @@ namespace ritchell.library.ui.ViewModel
         private SectionService _SectionService;
         private RelayCommand _ManageRFIDCommand;
         private IRFIDManagerDialog _RFIDDialogService;
+        private ObservableCollection<string> _Subjects;
+
+
+
 
         public BookPageViewModel(BookService bookService,
             SectionService sectionService, IRFIDManagerDialog rfidDialogService)
@@ -35,6 +39,22 @@ namespace ritchell.library.ui.ViewModel
             ItemsCollectionView = (ICollectionView)CollectionViewSource.GetDefaultView(items);
 
             LoadSections();
+            LoadSubjects();
+        }
+
+        public ObservableCollection<string> Subjects
+        {
+            get { return _Subjects; }
+            set
+            {
+                _Subjects = value;
+                RaisePropertyChanged(() => Subjects);
+            }
+        }
+
+        private void LoadSubjects()
+        {
+            Subjects = new ObservableCollection<string>(_BookService.GetDistincSubjects());
         }
 
         private void LoadSections()
@@ -59,6 +79,7 @@ namespace ritchell.library.ui.ViewModel
         protected override void SaveItemCommandHandler()
         {
             _BookService.AddOrUpdateBook(ItemsCollectionView.CurrentItem as BookInfo);
+            LoadSubjects();
         }
 
         public override void DeleteItemCommandHandler()
@@ -79,7 +100,7 @@ namespace ritchell.library.ui.ViewModel
 
         public override void EditItemCommandHandler()
         {
-            
+
         }
 
         public override bool InputFieldsAreValid()
