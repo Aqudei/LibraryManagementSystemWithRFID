@@ -141,11 +141,15 @@
     <Compile Include="Services\IReportDialogParent.cs" />
     <Compile Include="ViewModel\BookCopyPageViewModel.cs" />
     <Compile Include="ViewModel\BookPageViewModel.cs" />
+    <Compile Include="ViewModel\CoursesViewModel.cs" />
     <Compile Include="ViewModel\DepartmentsViewModel.cs" />
     <Compile Include="ViewModel\HolidayPageViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PayablesViewModel.cs" />
     <Compile Include="ViewModel\UsersPageViewModel.cs" />
+    <Compile Include="View\CoursesView.xaml.cs">
+      <DependentUpon>CoursesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DepartmentsView.xaml.cs">
       <DependentUpon>DepartmentsView.xaml</DependentUpon>
     </Compile>
@@ -200,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\BookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CoursesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

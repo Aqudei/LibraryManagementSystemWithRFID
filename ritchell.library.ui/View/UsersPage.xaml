@@ -24,11 +24,32 @@
                 </Border.Background>
 
                 <StackPanel x:Name="crudStackPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    <Button Command="{Binding NewItemCommand}" Content="New" HorizontalAlignment="Left" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Command="{Binding EditItemCommand}" Content="Edit" HorizontalAlignment="Left" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Command="{Binding DeleteItemCommand}" Content="Delete" HorizontalAlignment="Left" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Command="{Binding SaveItemCommand}" Content="Save" HorizontalAlignment="Left" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Command="{Binding SaveItemCommand}" Content="Cancel" HorizontalAlignment="Left" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                    
+                    <Button Command="{Binding NewItemCommand}" 
+                            Content="New" 
+                            HorizontalAlignment="Left" 
+                            Margin="5,0"
+                            Style="{DynamicResource CrudButtonStyle}"/>
+                    <Button Command="{Binding EditItemCommand}" 
+                            Content="Edit" 
+                            HorizontalAlignment="Left" 
+                            Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                    <Button Command="{Binding DeleteItemCommand}" 
+                            Content="Delete"
+                            HorizontalAlignment="Left" 
+                            Margin="5,0" 
+                            Style="{DynamicResource CrudButtonStyle}"/>
+                    <Button Command="{Binding SaveItemCommand}" 
+                            Content="Save"
+                            HorizontalAlignment="Left" 
+                            Margin="5,0" 
+                            Style="{DynamicResource CrudButtonStyle}"/>
+                    
+                    <Button Command="{Binding CancelEditItemCommand}" 
+                            Content="Cancel" 
+                            HorizontalAlignment="Left" Margin="5,0"
+                            Style="{DynamicResource CrudButtonStyle}"/>
+                    
                 </StackPanel>
             </Border>
             <ListBox x:Name="usersListBox" ItemsSource="{Binding ItemsCollectionView}"

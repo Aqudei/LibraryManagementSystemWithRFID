@@ -71,7 +71,9 @@
   <ItemGroup>
     <Compile Include="BookCopy.cs" />
     <Compile Include="BookInfo.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="Department.cs" />
+    <Compile Include="Interfaces\ICourseRepository.cs" />
     <Compile Include="Interfaces\IDepartmentRepository.cs" />
     <Compile Include="LibraryTransactions\TransactionInfo.cs" />
     <Compile Include="Holiday.cs" />
@@ -87,8 +89,11 @@
     <Compile Include="LibraryTransactions\LibraryTransactionBase.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionFactory.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionsAggregate.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Payable.cs" />
     <Compile Include="PaymentsTransaction.cs" />
+    <Compile Include="Repositories\CourseRepository.cs" />
+    <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="LibraryTransactions\ReturnBookTransaction.cs" />
     <Compile Include="LibraryUser.cs" />

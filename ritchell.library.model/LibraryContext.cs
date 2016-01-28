@@ -19,17 +19,17 @@ namespace ritchell.library.model
         public DbSet<LibraryUser> LibraryUsers { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
         public DbSet<TransactionInfo> BookTransactionInfos { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         public LibraryContext()
             : base("name=LibraryContext")
-        {
-
-            
-        }
+        { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Course>().HasKey(c => c.Id);
 
             modelBuilder.Entity<Department>().HasKey(d => d.Id);
 

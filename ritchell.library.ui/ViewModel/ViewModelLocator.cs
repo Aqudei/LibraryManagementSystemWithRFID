@@ -60,6 +60,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<BookCopyPageViewModel>();
             SimpleIoc.Default.Register<DepartmentsViewModel>();
             SimpleIoc.Default.Register<PayablesViewModel>();
+            SimpleIoc.Default.Register<CoursesViewModel>();
         }
 
         private static void SetupRFIDReaders()
@@ -72,7 +73,7 @@ namespace ritchell.library.ui.ViewModel
                 var longReader = new LongRangeRFID();
                 SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
                 SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
-        
+
 
                 // Using a fake rfid reader for testing.
                 //SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "short");
@@ -100,6 +101,14 @@ namespace ritchell.library.ui.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public CoursesViewModel CoursesViewModel
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstanceWithoutCaching<CoursesViewModel>();
             }
         }
 
