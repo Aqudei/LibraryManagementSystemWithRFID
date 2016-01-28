@@ -68,11 +68,13 @@ namespace ritchell.library.reporting
         {
             get
             {
+                using (var adptrCourses = new librarycontextDataSetTableAdapters.coursesTableAdapter())
                 using (var adptrUsers = new librarycontextDataSetTableAdapters.libraryusersTableAdapter())
                 using (var adptrDepartments = new librarycontextDataSetTableAdapters.departmentsTableAdapter())
                 {
                     adptrUsers.Fill(reportSource.libraryusers);
                     adptrDepartments.Fill(reportSource.departments);
+                    adptrCourses.Fill(reportSource.courses);
                 }
 
                 var patrons = new Patrons();

@@ -5,6 +5,8 @@ using ritchell.library.ui.ViewModel;
 using ritchell.library.ui.Services;
 using System.Windows.Controls;
 using ritchell.library.reporting;
+using ritchell.library.presentation.common.ViewServices;
+using System;
 
 namespace ritchell.library.ui
 {
@@ -12,7 +14,7 @@ namespace ritchell.library.ui
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window,
-        IRFIDManagerDialog, IReportDialogParent
+        IRFIDManagerDialog, IReportDialogParent, IWindow
     {
         ReportViewerService _ReportViewerService;
 
@@ -48,6 +50,19 @@ namespace ritchell.library.ui
             }
         }
 
+        public object WindowParam
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public void ShowReport(object reportName)
         {
             var rptName = (reportName as string).ToLower();
@@ -74,5 +89,11 @@ namespace ritchell.library.ui
             var answer = MessageBox.Show("Do you really want to quit the application?", "Confirm Exit", MessageBoxButton.YesNo);
             e.Cancel = answer == MessageBoxResult.No;
         }
+
+        void IWindow.ShowDialog()
+        { }
+
+        public void CloseWindow()
+        { }
     }
 }

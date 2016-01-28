@@ -182,6 +182,7 @@
     <Compile Include="View\UsersPage.xaml.cs">
       <DependentUpon>UsersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WindowNames.cs" />
     <Compile Include="WPF\PasswordHelper.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

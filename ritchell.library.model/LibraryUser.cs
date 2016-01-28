@@ -134,6 +134,7 @@ namespace ritchell.library.model
             }
         }
 
-        public Guid DepartmentId { get; set; }
+        public Guid? DepartmentId { get; set; }
+        public Guid? CourseId { get; set; }
     }
 }

@@ -17,6 +17,8 @@ using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model.Services;
 using System.Diagnostics;
 using ritchell.library.model.LibraryTransactions;
+using ritchell.library.presentation.common.ViewServices;
+using ritchell.library.ui.View;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -54,7 +56,6 @@ namespace ritchell.library.ui.ViewModel
 
             SimpleIoc.Default.Register<LoginViewModel>();
             SimpleIoc.Default.Register<HolidayPageViewModel>();
-            SimpleIoc.Default.Register<UsersPageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SectionPageViewModel>();
             SimpleIoc.Default.Register<BookPageViewModel>();
@@ -62,6 +63,15 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<DepartmentsViewModel>();
             SimpleIoc.Default.Register<PayablesViewModel>();
             SimpleIoc.Default.Register<CoursesViewModel>();
+            SimpleIoc.Default.Register<UsersPageViewModel>();
+            SetupWindows();
+        }
+
+        private static void SetupWindows()
+        {
+            WindowNavigationService wns = new WindowNavigationService();
+            wns.Add(WindowNames.MainWindow, new MainWindow());
+            SimpleIoc.Default.Register<IWindowNavigationService>(() => wns);
         }
 
         private static void SetupRFIDReaders()

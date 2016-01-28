@@ -11,8 +11,7 @@ namespace ritchell.library.model
     {
         public Guid DepartmentId { get; set; }
         public string CourseName { get; set; }
-
-
+        
         public Course()
         {
             Id = Guid.NewGuid();

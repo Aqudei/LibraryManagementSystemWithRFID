@@ -10,8 +10,8 @@
         Height="511.489"
         Width="914.787"
         Title="SSU Library System"
-        WindowState="Maximized" Closing="Window_Closing">
-
+        WindowState="Maximized" Closing="Window_Closing"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Window.Resources>
         <Style x:Key="ReportDropDownButtonStyle" TargetType="{x:Type wpf:DropDownButton}">
@@ -146,9 +146,7 @@
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
     </Window.Resources>
-    <Window.DataContext>
-        <Binding Path="Main" Source="{StaticResource Locator}"/>
-    </Window.DataContext>
+
 
 
 

@@ -75,15 +75,20 @@
                     <ComboBox ItemsSource="{Binding UserTypes}"
             			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"/>
                     <TextBlock Text="Department"/>
+                    
                     <ComboBox ItemsSource="{Binding DepartmentSource}"
             			SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
             			SelectedValuePath="Id"
-            			DisplayMemberPath="ShortName"/>
+            			DisplayMemberPath="ShortName"
+                        IsSynchronizedWithCurrentItem="True"/>
+                    
                     <TextBlock Text="Course"/>
-                    <ComboBox ItemsSource="{Binding DepartmentSource}"
-                    	SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
+                    
+                    <ComboBox ItemsSource="{Binding CoursesViewSource}"
+                    	SelectedValue="{Binding ItemsCollectionView/CourseId}"
                     	SelectedValuePath="Id"
-                    	DisplayMemberPath="ShortName"/>
+                    	DisplayMemberPath="CourseName"/>
+                    
                     <TextBlock><Run Text="Birthday"/></TextBlock>
                     <DatePicker SelectedDate="{Binding ItemsCollectionView/Birthday}"/>
                     <TextBlock><Run Text="UserRFIDTag"/></TextBlock>

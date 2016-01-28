@@ -19,26 +19,46 @@ namespace ritchell.library.ui.ViewModel
     public class UsersPageViewModel : WithEditableItems<LibraryUser>
     {
         private readonly LibraryUserService _LibraryUserService;
-        private ObservableCollection<Department> _DepartmentSource;
+        private ICollectionView _DepartmentSource;
         private string _PasswordCopy;
         private DepartmentService _DepartmentService;
+        private CourseService _CourseService;
 
-        
+
         /// <summary>
         /// Initializes a new instance of the UsersPageViewModel class.
         /// </summary>
         public UsersPageViewModel(LibraryUserService libraryUserService,
-            DepartmentService departmentService)
+            DepartmentService departmentService, CourseService courseService)
         {
             _LibraryUserService = libraryUserService;
             _DepartmentService = departmentService;
+            _CourseService = courseService;
+
             using (var repo = new LibraryUserRepository())
             {
-                items = new System.Collections.ObjectModel.ObservableCollection<LibraryUser>(repo.GetAll());
-                ItemsCollectionView = (ICollectionView)CollectionViewSource.GetDefaultView(items);
+                items = new ObservableCollection<LibraryUser>(repo.GetAll());
+                ItemsCollectionView = CollectionViewSource.GetDefaultView(items);
             }
 
-            DepartmentSource = new ObservableCollection<Department>(_DepartmentService.GetDepartments());
+            DepartmentSource = CollectionViewSource.GetDefaultView(new ObservableCollection<Department>(_DepartmentService.GetDepartments()));
+            DepartmentSource.CurrentChanged += DepartmentSource_CurrentChanged;
+            var courses = new ObservableCollection<Course>(courseService.GetAllCourses());
+            CoursesViewSource = CollectionViewSource.GetDefaultView(courses);
+        }
+
+        private void DepartmentSource_CurrentChanged(object sender, EventArgs e)
+        {
+            var selectedDepartment = (DepartmentSource.CurrentItem as Department);
+
+            CoursesViewSource.Filter = new Predicate<object>((x) =>
+            {
+                if (selectedDepartment == null)
+                    return false;
+
+                return (x as Course).DepartmentId.Equals(selectedDepartment.Id);
+            });
+            CoursesViewSource.Refresh();
         }
 
         public override void DeleteItemCommandHandler()
@@ -106,7 +126,7 @@ namespace ritchell.library.ui.ViewModel
         }
 
 
-        public ObservableCollection<Department> DepartmentSource
+        public ICollectionView DepartmentSource
         {
             get
             {
@@ -118,5 +138,7 @@ namespace ritchell.library.ui.ViewModel
                 RaisePropertyChanged(() => DepartmentSource);
             }
         }
+
+        public ICollectionView CoursesViewSource { get; private set; }
     }
 }

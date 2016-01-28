@@ -42,6 +42,8 @@ namespace ritchell.library.reporting {
         
         private numberoftimesborrowedDataTable tablenumberoftimesborrowed;
         
+        private coursesDataTable tablecourses;
+        
         private global::System.Data.DataRelation relationFK_BookCopies_BookInfoes_BookInfoId;
         
         private global::System.Data.DataRelation relationFK_BookInfoes_Sections_SectionId;
@@ -104,6 +106,9 @@ namespace ritchell.library.reporting {
                 }
                 if ((ds.Tables["numberoftimesborrowed"] != null)) {
                     base.Tables.Add(new numberoftimesborrowedDataTable(ds.Tables["numberoftimesborrowed"]));
+                }
+                if ((ds.Tables["courses"] != null)) {
+                    base.Tables.Add(new coursesDataTable(ds.Tables["courses"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -215,6 +220,16 @@ namespace ritchell.library.reporting {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public coursesDataTable courses {
+            get {
+                return this.tablecourses;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -307,6 +322,9 @@ namespace ritchell.library.reporting {
                 if ((ds.Tables["numberoftimesborrowed"] != null)) {
                     base.Tables.Add(new numberoftimesborrowedDataTable(ds.Tables["numberoftimesborrowed"]));
                 }
+                if ((ds.Tables["courses"] != null)) {
+                    base.Tables.Add(new coursesDataTable(ds.Tables["courses"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -394,6 +412,12 @@ namespace ritchell.library.reporting {
                     this.tablenumberoftimesborrowed.InitVars();
                 }
             }
+            this.tablecourses = ((coursesDataTable)(base.Tables["courses"]));
+            if ((initTable == true)) {
+                if ((this.tablecourses != null)) {
+                    this.tablecourses.InitVars();
+                }
+            }
             this.relationFK_BookCopies_BookInfoes_BookInfoId = this.Relations["FK_BookCopies_BookInfoes_BookInfoId"];
             this.relationFK_BookInfoes_Sections_SectionId = this.Relations["FK_BookInfoes_Sections_SectionId"];
             this.relationFK_BookCopies_BookInfoes_BookInfoId1 = this.Relations["FK_BookCopies_BookInfoes_BookInfoId1"];
@@ -426,6 +450,8 @@ namespace ritchell.library.reporting {
             base.Tables.Add(this.tablenumberofcopies);
             this.tablenumberoftimesborrowed = new numberoftimesborrowedDataTable();
             base.Tables.Add(this.tablenumberoftimesborrowed);
+            this.tablecourses = new coursesDataTable();
+            base.Tables.Add(this.tablecourses);
             this.relationFK_BookCopies_BookInfoes_BookInfoId = new global::System.Data.DataRelation("FK_BookCopies_BookInfoes_BookInfoId", new global::System.Data.DataColumn[] {
                         this.tablebookinfoes.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tablebookcopies.BookInfoIdColumn}, false);
@@ -495,6 +521,12 @@ namespace ritchell.library.reporting {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializenumberoftimesborrowed() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializecourses() {
             return false;
         }
         
@@ -579,6 +611,9 @@ namespace ritchell.library.reporting {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void numberoftimesborrowedRowChangeEventHandler(object sender, numberoftimesborrowedRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void coursesRowChangeEventHandler(object sender, coursesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1845,6 +1880,8 @@ namespace ritchell.library.reporting {
             
             private global::System.Data.DataColumn columnDepartmentId;
             
+            private global::System.Data.DataColumn columnCourseId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public libraryusersDataTable() {
@@ -1960,6 +1997,14 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CourseIdColumn {
+                get {
+                    return this.columnCourseId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1995,7 +2040,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public libraryusersRow AddlibraryusersRow(System.Guid Id, System.DateTime Birthday, int LibraryUserType, string FirstName, string UserRFIDTag, string Username, string MiddleName, string LastName, string EncryptedPassword, System.Guid DepartmentId) {
+            public libraryusersRow AddlibraryusersRow(System.Guid Id, System.DateTime Birthday, int LibraryUserType, string FirstName, string UserRFIDTag, string Username, string MiddleName, string LastName, string EncryptedPassword, System.Guid DepartmentId, System.Guid CourseId) {
                 libraryusersRow rowlibraryusersRow = ((libraryusersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -2007,7 +2052,8 @@ namespace ritchell.library.reporting {
                         MiddleName,
                         LastName,
                         EncryptedPassword,
-                        DepartmentId};
+                        DepartmentId,
+                        CourseId};
                 rowlibraryusersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowlibraryusersRow);
                 return rowlibraryusersRow;
@@ -2047,6 +2093,7 @@ namespace ritchell.library.reporting {
                 this.columnLastName = base.Columns["LastName"];
                 this.columnEncryptedPassword = base.Columns["EncryptedPassword"];
                 this.columnDepartmentId = base.Columns["DepartmentId"];
+                this.columnCourseId = base.Columns["CourseId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2072,13 +2119,14 @@ namespace ritchell.library.reporting {
                 base.Columns.Add(this.columnEncryptedPassword);
                 this.columnDepartmentId = new global::System.Data.DataColumn("DepartmentId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartmentId);
+                this.columnCourseId = new global::System.Data.DataColumn("CourseId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCourseId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
                 this.columnBirthday.AllowDBNull = false;
                 this.columnLibraryUserType.AllowDBNull = false;
-                this.columnDepartmentId.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3400,6 +3448,293 @@ namespace ritchell.library.reporting {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class coursesDataTable : global::System.Data.TypedTableBase<coursesRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnDepartmentId;
+            
+            private global::System.Data.DataColumn columnCourseName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public coursesDataTable() {
+                this.TableName = "courses";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal coursesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected coursesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DepartmentIdColumn {
+                get {
+                    return this.columnDepartmentId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CourseNameColumn {
+                get {
+                    return this.columnCourseName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public coursesRow this[int index] {
+                get {
+                    return ((coursesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event coursesRowChangeEventHandler coursesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event coursesRowChangeEventHandler coursesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event coursesRowChangeEventHandler coursesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event coursesRowChangeEventHandler coursesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddcoursesRow(coursesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public coursesRow AddcoursesRow(System.Guid Id, System.Guid DepartmentId, string CourseName) {
+                coursesRow rowcoursesRow = ((coursesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id,
+                        DepartmentId,
+                        CourseName};
+                rowcoursesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcoursesRow);
+                return rowcoursesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public coursesRow FindById(System.Guid Id) {
+                return ((coursesRow)(this.Rows.Find(new object[] {
+                            Id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                coursesDataTable cln = ((coursesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new coursesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnDepartmentId = base.Columns["DepartmentId"];
+                this.columnCourseName = base.Columns["CourseName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnDepartmentId = new global::System.Data.DataColumn("DepartmentId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepartmentId);
+                this.columnCourseName = new global::System.Data.DataColumn("CourseName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCourseName);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
+                this.columnDepartmentId.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public coursesRow NewcoursesRow() {
+                return ((coursesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new coursesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(coursesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.coursesRowChanged != null)) {
+                    this.coursesRowChanged(this, new coursesRowChangeEvent(((coursesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.coursesRowChanging != null)) {
+                    this.coursesRowChanging(this, new coursesRowChangeEvent(((coursesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.coursesRowDeleted != null)) {
+                    this.coursesRowDeleted(this, new coursesRowChangeEvent(((coursesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.coursesRowDeleting != null)) {
+                    this.coursesRowDeleting(this, new coursesRowChangeEvent(((coursesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovecoursesRow(coursesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                librarycontextDataSet ds = new librarycontextDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "coursesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class bookcopiesRow : global::System.Data.DataRow {
@@ -4029,10 +4364,31 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.Guid DepartmentId {
                 get {
-                    return ((global::System.Guid)(this[this.tablelibraryusers.DepartmentIdColumn]));
+                    try {
+                        return ((global::System.Guid)(this[this.tablelibraryusers.DepartmentIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DepartmentId\' in table \'libraryusers\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablelibraryusers.DepartmentIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid CourseId {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tablelibraryusers.CourseIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CourseId\' in table \'libraryusers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablelibraryusers.CourseIdColumn] = value;
                 }
             }
             
@@ -4106,6 +4462,30 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEncryptedPasswordNull() {
                 this[this.tablelibraryusers.EncryptedPasswordColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDepartmentIdNull() {
+                return this.IsNull(this.tablelibraryusers.DepartmentIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDepartmentIdNull() {
+                this[this.tablelibraryusers.DepartmentIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCourseIdNull() {
+                return this.IsNull(this.tablelibraryusers.CourseIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCourseIdNull() {
+                this[this.tablelibraryusers.CourseIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4447,6 +4827,71 @@ namespace ritchell.library.reporting {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class coursesRow : global::System.Data.DataRow {
+            
+            private coursesDataTable tablecourses;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal coursesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablecourses = ((coursesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid Id {
+                get {
+                    return ((global::System.Guid)(this[this.tablecourses.IdColumn]));
+                }
+                set {
+                    this[this.tablecourses.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid DepartmentId {
+                get {
+                    return ((global::System.Guid)(this[this.tablecourses.DepartmentIdColumn]));
+                }
+                set {
+                    this[this.tablecourses.DepartmentIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CourseName {
+                get {
+                    try {
+                        return ((string)(this[this.tablecourses.CourseNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CourseName\' in table \'courses\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecourses.CourseNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCourseNameNull() {
+                return this.IsNull(this.tablecourses.CourseNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCourseNameNull() {
+                this[this.tablecourses.CourseNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4738,6 +5183,40 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public numberoftimesborrowedRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class coursesRowChangeEvent : global::System.EventArgs {
+            
+            private coursesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public coursesRowChangeEvent(coursesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public coursesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7022,10 +7501,11 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("LastName", "LastName");
             tableMapping.ColumnMappings.Add("EncryptedPassword", "EncryptedPassword");
             tableMapping.ColumnMappings.Add("DepartmentId", "DepartmentId");
+            tableMapping.ColumnMappings.Add("CourseId", "CourseId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `libraryusers` WHERE ((`Id` = @p1) AND (`Birthday` = @p2) AND (`LibraryUserType` = @p3) AND ((@p4 = 1 AND `FirstName` IS NULL) OR (`FirstName` = @p5)) AND ((@p6 = 1 AND `UserRFIDTag` IS NULL) OR (`UserRFIDTag` = @p7)) AND ((@p8 = 1 AND `Username` IS NULL) OR (`Username` = @p9)) AND ((@p10 = 1 AND `MiddleName` IS NULL) OR (`MiddleName` = @p11)) AND ((@p12 = 1 AND `LastName` IS NULL) OR (`LastName` = @p13)) AND ((@p14 = 1 AND `EncryptedPassword` IS NULL) OR (`EncryptedPassword` = @p15)) AND (`DepartmentId` = @p16))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `libraryusers` WHERE ((`Id` = @p1) AND (`Birthday` = @p2) AND (`LibraryUserType` = @p3) AND ((@p4 = 1 AND `FirstName` IS NULL) OR (`FirstName` = @p5)) AND ((@p6 = 1 AND `UserRFIDTag` IS NULL) OR (`UserRFIDTag` = @p7)) AND ((@p8 = 1 AND `Username` IS NULL) OR (`Username` = @p9)) AND ((@p10 = 1 AND `MiddleName` IS NULL) OR (`MiddleName` = @p11)) AND ((@p12 = 1 AND `LastName` IS NULL) OR (`LastName` = @p13)) AND ((@p14 = 1 AND `EncryptedPassword` IS NULL) OR (`EncryptedPassword` = @p15)) AND ((@p16 = 1 AND `DepartmentId` IS NULL) OR (`DepartmentId` = @p17)) AND ((@p18 = 1 AND `CourseId` IS NULL) OR (`CourseId` = @p19)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -7149,17 +7629,44 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DepartmentId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
             param.SourceColumn = "DepartmentId";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p18";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p19";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `libraryusers` (`Id`, `Birthday`, `LibraryUserType`, `FirstName`, `Us" +
                 "erRFIDTag`, `Username`, `MiddleName`, `LastName`, `EncryptedPassword`, `Departme" +
-                "ntId`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)";
+                "ntId`, `CourseId`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p" +
+                "11)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -7225,9 +7732,16 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "DepartmentId";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseId";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `libraryusers` SET `Id` = @p1, `Birthday` = @p2, `LibraryUserType` = @p3, `FirstName` = @p4, `UserRFIDTag` = @p5, `Username` = @p6, `MiddleName` = @p7, `LastName` = @p8, `EncryptedPassword` = @p9, `DepartmentId` = @p10 WHERE ((`Id` = @p11) AND (`Birthday` = @p12) AND (`LibraryUserType` = @p13) AND ((@p14 = 1 AND `FirstName` IS NULL) OR (`FirstName` = @p15)) AND ((@p16 = 1 AND `UserRFIDTag` IS NULL) OR (`UserRFIDTag` = @p17)) AND ((@p18 = 1 AND `Username` IS NULL) OR (`Username` = @p19)) AND ((@p20 = 1 AND `MiddleName` IS NULL) OR (`MiddleName` = @p21)) AND ((@p22 = 1 AND `LastName` IS NULL) OR (`LastName` = @p23)) AND ((@p24 = 1 AND `EncryptedPassword` IS NULL) OR (`EncryptedPassword` = @p25)) AND (`DepartmentId` = @p26))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `libraryusers` SET `Id` = @p1, `Birthday` = @p2, `LibraryUserType` = @p3, `FirstName` = @p4, `UserRFIDTag` = @p5, `Username` = @p6, `MiddleName` = @p7, `LastName` = @p8, `EncryptedPassword` = @p9, `DepartmentId` = @p10, `CourseId` = @p11 WHERE ((`Id` = @p12) AND (`Birthday` = @p13) AND (`LibraryUserType` = @p14) AND ((@p15 = 1 AND `FirstName` IS NULL) OR (`FirstName` = @p16)) AND ((@p17 = 1 AND `UserRFIDTag` IS NULL) OR (`UserRFIDTag` = @p18)) AND ((@p19 = 1 AND `Username` IS NULL) OR (`Username` = @p20)) AND ((@p21 = 1 AND `MiddleName` IS NULL) OR (`MiddleName` = @p22)) AND ((@p23 = 1 AND `LastName` IS NULL) OR (`LastName` = @p24)) AND ((@p25 = 1 AND `EncryptedPassword` IS NULL) OR (`EncryptedPassword` = @p26)) AND ((@p27 = 1 AND `DepartmentId` IS NULL) OR (`DepartmentId` = @p28)) AND ((@p29 = 1 AND `CourseId` IS NULL) OR (`CourseId` = @p30)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -7298,11 +7812,18 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
+            param.SourceColumn = "CourseId";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
             param.SourceColumn = "Id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -7310,7 +7831,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7318,87 +7839,87 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "FirstName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "FirstName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
-            param.SourceColumn = "UserRFIDTag";
+            param.SourceColumn = "FirstName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p17";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "UserRFIDTag";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p18";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "UserRFIDTag";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p18";
+            param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Username";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p19";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "Username";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p20";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
-            param.SourceColumn = "MiddleName";
+            param.SourceColumn = "Username";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p21";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "MiddleName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p22";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "MiddleName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p22";
+            param.ParameterName = "@p23";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "LastName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p23";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "LastName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p24";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "LastName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p25";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7407,18 +7928,44 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p25";
+            param.ParameterName = "@p26";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "EncryptedPassword";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p26";
+            param.ParameterName = "@p27";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DepartmentId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p28";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
             param.SourceColumn = "DepartmentId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p29";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p30";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseId";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -7436,9 +7983,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Id`, `Birthday`, `LibraryUserType`, `FirstName`, `UserRFIDTag`, `Username" +
-                "`, `MiddleName`, `LastName`, `EncryptedPassword`, `DepartmentId` FROM `libraryus" +
-                "ers`";
+            this._commandCollection[0].CommandText = "SELECT * FROM `libraryusers`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7493,300 +8038,6 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.Guid p1, System.DateTime p2, int p3, string p5, string p7, string p9, string p11, string p13, string p15, System.Guid p16) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(p1));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(p2));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(p3));
-            if ((p5 == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(p5));
-            }
-            if ((p7 == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(p7));
-            }
-            if ((p9 == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(p9));
-            }
-            if ((p11 == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(p11));
-            }
-            if ((p13 == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(p13));
-            }
-            if ((p15 == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(p15));
-            }
-            this.Adapter.DeleteCommand.Parameters[15].Value = ((System.Guid)(p16));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.Guid p1, System.DateTime p2, int p3, string p4, string p5, string p6, string p7, string p8, string p9, System.Guid p10) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(p1));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(p2));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3));
-            if ((p4 == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(p4));
-            }
-            if ((p5 == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(p5));
-            }
-            if ((p6 == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(p6));
-            }
-            if ((p7 == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(p7));
-            }
-            if ((p8 == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(p8));
-            }
-            if ((p9 == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(p9));
-            }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((System.Guid)(p10));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    System.Guid p1, 
-                    System.DateTime p2, 
-                    int p3, 
-                    string p4, 
-                    string p5, 
-                    string p6, 
-                    string p7, 
-                    string p8, 
-                    string p9, 
-                    System.Guid p10, 
-                    System.Guid p11, 
-                    System.DateTime p12, 
-                    int p13, 
-                    string p15, 
-                    string p17, 
-                    string p19, 
-                    string p21, 
-                    string p23, 
-                    string p25, 
-                    System.Guid p26) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(p1));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(p2));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
-            if ((p4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
-            }
-            if ((p5 == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(p5));
-            }
-            if ((p6 == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
-            }
-            if ((p7 == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
-            }
-            if ((p8 == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
-            }
-            if ((p9 == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(p9));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.Guid)(p10));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.Guid)(p11));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(p12));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(p13));
-            if ((p15 == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(p15));
-            }
-            if ((p17 == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(p17));
-            }
-            if ((p19 == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(p19));
-            }
-            if ((p21 == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(p21));
-            }
-            if ((p23 == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(p23));
-            }
-            if ((p25 == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(p25));
-            }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((System.Guid)(p26));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    System.DateTime p2, 
-                    int p3, 
-                    string p4, 
-                    string p5, 
-                    string p6, 
-                    string p7, 
-                    string p8, 
-                    string p9, 
-                    System.Guid p10, 
-                    System.Guid p11, 
-                    System.DateTime p12, 
-                    int p13, 
-                    string p15, 
-                    string p17, 
-                    string p19, 
-                    string p21, 
-                    string p23, 
-                    string p25, 
-                    System.Guid p26) {
-            return this.Update(p11, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p17, p19, p21, p23, p25, p26);
         }
     }
     
@@ -9256,6 +9507,324 @@ GROUP BY bookcopies.BookInfoId";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class coursesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public coursesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "courses";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("DepartmentId", "DepartmentId");
+            tableMapping.ColumnMappings.Add("CourseName", "CourseName");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `courses` WHERE ((`Id` = @p1) AND (`DepartmentId` = @p2) AND ((@p3 = " +
+                "1 AND `CourseName` IS NULL) OR (`CourseName` = @p4)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "DepartmentId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `courses` (`Id`, `DepartmentId`, `CourseName`) VALUES (@p1, @p2, @p3)" +
+                "";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "DepartmentId";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseName";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `courses` SET `Id` = @p1, `DepartmentId` = @p2, `CourseName` = @p3 WHERE (" +
+                "(`Id` = @p4) AND (`DepartmentId` = @p5) AND ((@p6 = 1 AND `CourseName` IS NULL) " +
+                "OR (`CourseName` = @p7)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "DepartmentId";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseName";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "Id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.Guid;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
+            param.IsNullable = true;
+            param.SourceColumn = "DepartmentId";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "CourseName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::ritchell.library.reporting.Properties.Settings.Default.librarycontextConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT * FROM `Courses`";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(librarycontextDataSet.coursesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual librarycontextDataSet.coursesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            librarycontextDataSet.coursesDataTable dataTable = new librarycontextDataSet.coursesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(librarycontextDataSet.coursesDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(librarycontextDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "courses");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -9280,6 +9849,8 @@ GROUP BY bookcopies.BookInfoId";
         private sectionsTableAdapter _sectionsTableAdapter;
         
         private transactioninfoesTableAdapter _transactioninfoesTableAdapter;
+        
+        private coursesTableAdapter _coursesTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -9396,6 +9967,20 @@ GROUP BY bookcopies.BookInfoId";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public coursesTableAdapter coursesTableAdapter {
+            get {
+                return this._coursesTableAdapter;
+            }
+            set {
+                this._coursesTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -9441,6 +10026,10 @@ GROUP BY bookcopies.BookInfoId";
                             && (this._transactioninfoesTableAdapter.Connection != null))) {
                     return this._transactioninfoesTableAdapter.Connection;
                 }
+                if (((this._coursesTableAdapter != null) 
+                            && (this._coursesTableAdapter.Connection != null))) {
+                    return this._coursesTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -9473,6 +10062,9 @@ GROUP BY bookcopies.BookInfoId";
                     count = (count + 1);
                 }
                 if ((this._transactioninfoesTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._coursesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -9549,6 +10141,15 @@ GROUP BY bookcopies.BookInfoId";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._coursesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.courses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._coursesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -9615,6 +10216,14 @@ GROUP BY bookcopies.BookInfoId";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._coursesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.courses.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._coursesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -9625,6 +10234,14 @@ GROUP BY bookcopies.BookInfoId";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(librarycontextDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._coursesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.courses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._coursesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._transactioninfoesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.transactioninfoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -9755,6 +10372,11 @@ GROUP BY bookcopies.BookInfoId";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._coursesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._coursesTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -9850,6 +10472,15 @@ GROUP BY bookcopies.BookInfoId";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._transactioninfoesTableAdapter.Adapter);
                     }
                 }
+                if ((this._coursesTableAdapter != null)) {
+                    revertConnections.Add(this._coursesTableAdapter, this._coursesTableAdapter.Connection);
+                    this._coursesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._coursesTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._coursesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._coursesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._coursesTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -9935,6 +10566,10 @@ GROUP BY bookcopies.BookInfoId";
                 if ((this._transactioninfoesTableAdapter != null)) {
                     this._transactioninfoesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._transactioninfoesTableAdapter]));
                     this._transactioninfoesTableAdapter.Transaction = null;
+                }
+                if ((this._coursesTableAdapter != null)) {
+                    this._coursesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._coursesTableAdapter]));
+                    this._coursesTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
