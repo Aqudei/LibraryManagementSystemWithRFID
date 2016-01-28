@@ -183,7 +183,7 @@
 					CommandParameter="DepartmentsView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
                 <Button Content="Courses" 
                 	Command="{Binding NavigateToPageCommand}" 
-                	CommandParameter="DepartmentsView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
+                	CommandParameter="CoursesView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
             </StackPanel>
             <StackPanel DockPanel.Dock="Top" 
 				Orientation="Horizontal" 

@@ -1,6 +1,9 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
 using ritchell.library.model;
+using System.Collections.ObjectModel;
+using ritchell.library.model.Services;
+using System.Windows.Data;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -12,31 +15,52 @@ namespace ritchell.library.ui.ViewModel
     /// </summary>
     public class CoursesViewModel : WithEditableItems<Course>
     {
+        private CourseService _CourseService;
+        private DepartmentService _DepartmentService;
+
         /// <summary>
         /// Initializes a new instance of the CoursesViewModel class.
         /// </summary>
-        public CoursesViewModel()
+        public CoursesViewModel(DepartmentService departmentService,
+            CourseService courseService)
         {
+            _CourseService = courseService;
+            _DepartmentService = departmentService;
+
+            Departments = new ObservableCollection<Department>(departmentService.GetDepartments());
+            items = new ObservableCollection<Course>(courseService.GetAllCourses());
+            ItemsCollectionView = CollectionViewSource.GetDefaultView(items);
         }
+
+        public ObservableCollection<Department> Departments { get; set; }
 
         public override void DeleteItemCommandHandler()
         {
-            throw new NotImplementedException();
+            var cuurentCourse = ItemsCollectionView.CurrentItem as Course;
+            if (cuurentCourse != null)
+            {
+                _CourseService.DeleteCourse(cuurentCourse);
+                items.Remove(cuurentCourse);
+            }
         }
 
         public override void EditItemCommandHandler()
-        {
-            throw new NotImplementedException();
-        }
+        {}
 
         protected override void NewItemCommandHandler()
         {
-            throw new NotImplementedException();
+            var newCourse = new Course();
+            items.Add(newCourse);
+            ItemsCollectionView.MoveCurrentTo(newCourse);
         }
 
         protected override void SaveItemCommandHandler()
         {
-            throw new NotImplementedException();
+            var currentCourse = ItemsCollectionView.CurrentItem as Course;
+            if (currentCourse != null)
+            {
+                _CourseService.AddOrUpdate(currentCourse);
+            }
         }
     }
 }

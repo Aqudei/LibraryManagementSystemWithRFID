@@ -50,6 +50,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<HolidayService>();
             SimpleIoc.Default.Register<PaymentService>();
+            SimpleIoc.Default.Register<CourseService>();
 
             SimpleIoc.Default.Register<LoginViewModel>();
             SimpleIoc.Default.Register<HolidayPageViewModel>();

@@ -32,14 +32,16 @@
             </Border>
             <ListBox x:Name="usersListBox" ItemsSource="{Binding ItemsCollectionView}"
                      IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="Fullname" 
+                     DisplayMemberPath="CourseName" 
                      Width="300"
                      FontFamily="Centaur" 
                      FontSize="26.667" />
+            
             <ScrollViewer Width="300" 
                           HorizontalAlignment="Left" 
                           CanContentScroll="True"
                           VerticalScrollBarVisibility="Auto" Padding="0" Margin="5,0">
+                
                 <StackPanel IsEnabled="{Binding EditingEnabled}"
             		Orientation="Vertical">
 
@@ -47,7 +49,9 @@
                     <TextBox Text="{Binding ItemsCollectionView/CourseName, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Text="Department"/>
                     <ComboBox ItemsSource="{Binding Departments}"
-            			SelectedValue="{Binding ItemsCollectionView/DepartmentId}"/>
+                              SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
+                              DisplayMemberPath="LongName"
+                              SelectedValuePath="Id"/>
                 </StackPanel>
 
             </ScrollViewer>

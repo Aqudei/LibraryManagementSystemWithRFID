@@ -24,7 +24,7 @@
                 </Border.Background>
 
                 <StackPanel x:Name="crudStackPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                    
+
                     <Button Command="{Binding NewItemCommand}" 
                             Content="New" 
                             HorizontalAlignment="Left" 
@@ -44,12 +44,12 @@
                             HorizontalAlignment="Left" 
                             Margin="5,0" 
                             Style="{DynamicResource CrudButtonStyle}"/>
-                    
+
                     <Button Command="{Binding CancelEditItemCommand}" 
                             Content="Cancel" 
                             HorizontalAlignment="Left" Margin="5,0"
                             Style="{DynamicResource CrudButtonStyle}"/>
-                    
+
                 </StackPanel>
             </Border>
             <ListBox x:Name="usersListBox" ItemsSource="{Binding ItemsCollectionView}"
@@ -79,6 +79,11 @@
             			SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
             			SelectedValuePath="Id"
             			DisplayMemberPath="ShortName"/>
+                    <TextBlock Text="Course"/>
+                    <ComboBox ItemsSource="{Binding DepartmentSource}"
+                    	SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
+                    	SelectedValuePath="Id"
+                    	DisplayMemberPath="ShortName"/>
                     <TextBlock><Run Text="Birthday"/></TextBlock>
                     <DatePicker SelectedDate="{Binding ItemsCollectionView/Birthday}"/>
                     <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
@@ -93,6 +98,7 @@
                     <TextBlock><Run Text="Confirm Password"/></TextBlock>
                     <PasswordBox wpf:PasswordHelper.Attach="True"
             			wpf:PasswordHelper.Password="{Binding PasswordCopy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
                 </StackPanel>
 
             </ScrollViewer>
