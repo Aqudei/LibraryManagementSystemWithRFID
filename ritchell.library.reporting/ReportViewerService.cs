@@ -45,6 +45,28 @@ namespace ritchell.library.reporting
         }
 
 
+        public ForClearance ForClearance
+        {
+            get
+            {
+                using (var adptrcopies = new librarycontextDataSetTableAdapters.bookcopiesTableAdapter())
+                using (var adptrusers = new librarycontextDataSetTableAdapters.libraryusersTableAdapter())
+                using (var adptrbookinfoes = new librarycontextDataSetTableAdapters.bookinfoesTableAdapter())
+                using (var adptrtrans = new librarycontextDataSetTableAdapters.transactioninfoesTableAdapter())
+                using (var adptrdepts = new librarycontextDataSetTableAdapters.departmentsTableAdapter())
+                {
+                    adptrcopies.Fill(reportSource.bookcopies);
+                    adptrusers.Fill(reportSource.libraryusers);
+                    adptrbookinfoes.Fill(reportSource.bookinfoes);
+                    adptrtrans.Fill(reportSource.transactioninfoes);
+                    adptrdepts.Fill(reportSource.departments);
+                }
+
+                var forClearance = new ForClearance();
+                forClearance.SetDataSource(reportSource);
+                return forClearance;
+            }
+        }
 
         public MostBorrowed MostBorrowed
         {
@@ -81,11 +103,8 @@ namespace ritchell.library.reporting
                 patrons.SetDataSource(reportSource);
                 return patrons;
             }
-
-
         }
-
-
+        
         public void ShowBookListReport()
         {
             var reportForm = new MainWindow();
@@ -96,6 +115,7 @@ namespace ritchell.library.reporting
         public void ShowForClearanceReport()
         {
             var reportForm = new MainWindow();
+            reportForm.ReportViewer.ViewerCore.ReportSource = ForClearance;
             reportForm.ShowDialog();
         }
 
@@ -112,5 +132,6 @@ namespace ritchell.library.reporting
             reportForm.ReportViewer.ViewerCore.ReportSource = Patrons;
             reportForm.ShowDialog();
         }
+
     }
 }

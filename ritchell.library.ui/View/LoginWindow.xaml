@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.View"
-        mc:Ignorable="d"  xmlns:wpf="clr-namespace:ritchell.library.ui.WPF"
+        mc:Ignorable="d"  xmlns:wpf="clr-namespace:ritchell.library.ui.WPF" WindowStartupLocation="CenterScreen"
         Title="LoginWindow" Height="205.397" Width="403.367" FontFamily="Centaur" FontSize="18.667" Padding="10" SizeToContent="Height">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10">
