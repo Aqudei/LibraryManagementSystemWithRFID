@@ -54,7 +54,6 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<PaymentService>();
             SimpleIoc.Default.Register<CourseService>();
 
-            SimpleIoc.Default.Register<LoginViewModel>();
             SimpleIoc.Default.Register<HolidayPageViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SectionPageViewModel>();
@@ -123,13 +122,7 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
-        public LoginViewModel LoginViewModel
-        {
-            get
-            {
-                return SimpleIoc.Default.GetInstanceWithoutCaching<LoginViewModel>();
-            }
-        }
+
 
         public UsersPageViewModel UsersPageViewModel
         {

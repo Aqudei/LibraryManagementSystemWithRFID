@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
+using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,58 +22,45 @@ namespace ritchell.library.ui.View
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window, IDialogService
+    public partial class LoginWindow : Window
     {
+        private LibraryUserService _LibraryUserService;
+
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+
         public LoginWindow()
         {
             InitializeComponent();
+            DataContext = this;
+            _LibraryUserService = new LibraryUserService();
+        }
 
-            this.Loaded += (s, e) =>
+        private void ButtonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (TryAuthenticate())
             {
-                Messenger.Default.Register<string>(this, (x) =>
-                {
-                    if (x.ToLower().Contains("close"))
-                        this.Close();
-                });
-
-                SimpleIoc.Default.Register<IDialogService>(() => this);
-            };
-
-            this.Unloaded += (s, e) =>
+                new MainWindow().Show();
+                Close();
+            }
+            else
             {
-                SimpleIoc.Default.Unregister<IDialogService>();
-            };
+                MessageBox.Show("Incorrect username/password", "Authentication Failed");
+            }
         }
 
-        public Task ShowError(Exception error, string title, string buttonText, Action afterHideCallback)
+        private bool TryAuthenticate()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task ShowError(string message, string title, string buttonText, Action afterHideCallback)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task ShowMessage(string message, string title)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task ShowMessage(string message, string title, string buttonText, Action afterHideCallback)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ShowMessage(string message, string title, string buttonConfirmText, string buttonCancelText, Action<bool> afterHideCallback)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task ShowMessageBox(string message, string title)
-        {
-            MessageBox.Show(message, title);
-            return null;
+            try
+            {
+                var admin = _LibraryUserService.GetAuthenticatedAdmin(Username, Password);
+                return admin != null;
+            }
+            catch (Exception)
+            {
+                return false;
+            }   
         }
     }
 }

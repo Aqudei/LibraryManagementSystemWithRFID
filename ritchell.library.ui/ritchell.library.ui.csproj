@@ -144,7 +144,6 @@
     <Compile Include="ViewModel\CoursesViewModel.cs" />
     <Compile Include="ViewModel\DepartmentsViewModel.cs" />
     <Compile Include="ViewModel\HolidayPageViewModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PayablesViewModel.cs" />
     <Compile Include="ViewModel\UsersPageViewModel.cs" />
     <Compile Include="View\CoursesView.xaml.cs">
