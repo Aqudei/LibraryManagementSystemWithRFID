@@ -64,7 +64,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<PayablesViewModel>();
             SimpleIoc.Default.Register<CoursesViewModel>();
             SimpleIoc.Default.Register<UsersPageViewModel>();
-            SetupWindows();
+            //SetupWindows();
         }
 
         private static void SetupWindows()
