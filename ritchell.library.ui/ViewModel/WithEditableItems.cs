@@ -136,7 +136,6 @@ namespace ritchell.library.ui.ViewModel
         }
 
         private RelayCommand _CancelEditItemCommand;
-
         /// <summary>
         /// Gets the CancelEditItemCommand.
         /// </summary>
