@@ -20,9 +20,7 @@ namespace ritchell.library.ui.client.ViewModels
         /// Initializes a new instance of the SearchBooksViewModel class.
         /// </summary>
         public SearchBooksViewModel()
-        {
-            
-        }
+        { }
 
         private BookSearchService _BookSearchService
         {

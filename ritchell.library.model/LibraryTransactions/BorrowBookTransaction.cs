@@ -33,7 +33,7 @@ namespace ritchell.library.model.LibraryTransactions
         }
 
         public BorrowBookTransaction(LibraryUser libUser, BookCopy bookCopy)
-            : base(libUser, bookCopy)
+            : base(bookCopy)
         {
             _BookCopyService = new BookCopyService();
             _HolidayService = new HolidayService();

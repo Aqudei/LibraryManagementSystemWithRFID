@@ -13,8 +13,8 @@ namespace ritchell.library.model.LibraryTransactions
         private TransactionInfo _LastTransaction;
         private PaymentService _PaymentService;
 
-        public ReturnBookTransaction(LibraryUser libUser, BookCopy bookCopy, TransactionInfo transInfo)
-            : base(libUser, bookCopy)
+        public ReturnBookTransaction(BookCopy bookCopy, TransactionInfo transInfo)
+            : base(bookCopy)
         {
             _PaymentService = new PaymentService();
             _LastTransaction = transInfo;
@@ -25,7 +25,6 @@ namespace ritchell.library.model.LibraryTransactions
         {
             get
             {
-
                 return _PaymentService.ComputeNecessaryFee(BookCopy, _LastTransaction);
             }
         }

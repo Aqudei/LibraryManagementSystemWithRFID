@@ -16,13 +16,11 @@ namespace ritchell.library.model.LibraryTransactions
         public string BookTitle { get; set; }
         public string BookTag { get; set; }
         public DateTime TransactionDate { get; set; }
-        public LibraryUser LibraryUser { get; set; }
         protected BookCopy BookCopy { get; set; }
         public abstract void Execute();
 
-        public LibraryTransactionBase(LibraryUser libUser, BookCopy bookCopy)
+        public LibraryTransactionBase(BookCopy bookCopy)
         {
-            LibraryUser = libUser;
             BookCopy = bookCopy;
 
             using (var bookCopyRepo = new BookCopyRepository())

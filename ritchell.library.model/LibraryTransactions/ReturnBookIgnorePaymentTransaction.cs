@@ -12,8 +12,8 @@ namespace ritchell.library.model.LibraryTransactions
         private string _TransactionType;
         private TransactionInfo _LastTransaction;
         
-        public ReturnBookIgnorePaymentTransaction(LibraryUser libUser, BookCopy bookCopy, TransactionInfo transInfo)
-            : base(libUser, bookCopy)
+        public ReturnBookIgnorePaymentTransaction(BookCopy bookCopy, TransactionInfo transInfo)
+            : base(bookCopy)
         {
             _LastTransaction = transInfo;
         }
