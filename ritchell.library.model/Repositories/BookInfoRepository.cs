@@ -22,6 +22,15 @@ namespace ritchell.library.model.Repositories
             return _Context.Set<BookInfo>().Where(b => b.Id.Equals(bookCopy.BookInfoId)).SingleOrDefault();
         }
 
+        public IEnumerable<BookInfo> SearchForBooks(string keyword)
+        {
+            var lowered_keyword = keyword.ToLower();
+
+            return _Context.Set<BookInfo>().Where(b => b.BookTitle.ToLower().Contains(lowered_keyword) ||
+                b.Author.ToLower().Contains(lowered_keyword) || b.Copyright.ToString().ToLower().Contains(lowered_keyword) ||
+                b.Subject.ToLower().Contains(lowered_keyword));
+        }
+
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 

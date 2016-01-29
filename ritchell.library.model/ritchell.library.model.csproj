@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="BookCopy.cs" />
     <Compile Include="BookInfo.cs" />
+    <Compile Include="BookSearchResultDTO.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Interfaces\ICourseRepository.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Payable.cs" />
     <Compile Include="PaymentsTransaction.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
+    <Compile Include="Services\BookSearchService.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="LibraryTransactions\ReturnBookTransaction.cs" />

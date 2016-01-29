@@ -37,8 +37,11 @@ namespace ritchell.library.ui.client.ViewModels
                     ?? (_OpenWindowCommand = new RelayCommand<string>(
                     (x) =>
                     {
-                        if (x.ToLower().Contains("payment"))
+                        if (x.Equals(ViewServices.WindowNames.PaymentWindow))
                             _WindowNaviService.ShowDialog(ViewServices.WindowNames.PaymentWindow, AuthenticationViewModel.CurrentUser);
+
+                        if (x.Equals(ViewServices.WindowNames.BookSearchWindow))
+                            _WindowNaviService.ShowDialog(ViewServices.WindowNames.BookSearchWindow, null) ;
                     }));
             }
         }

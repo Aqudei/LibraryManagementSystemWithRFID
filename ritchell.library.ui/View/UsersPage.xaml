@@ -67,33 +67,32 @@
 
                     <TextBlock><Run Text="First Name"/></TextBlock>
                     <TextBox Text="{Binding ItemsCollectionView/FirstName, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBlock><Run Text="Middle Name"/></TextBlock>
-                    <TextBox Text="{Binding ItemsCollectionView/MiddleName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock><Run Text="Middle Initial"/></TextBlock>
+                    <TextBox Text="{Binding ItemsCollectionView/MiddleName, UpdateSourceTrigger=PropertyChanged}" 
+                             MaxLength="1"/>
                     <TextBlock><Run Text="Last Name"/></TextBlock>
                     <TextBox Text="{Binding ItemsCollectionView/LastName, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock><Run Text="User Type"/></TextBlock>
                     <ComboBox ItemsSource="{Binding UserTypes}"
             			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"/>
                     <TextBlock Text="Department"/>
-                    
+
                     <ComboBox ItemsSource="{Binding DepartmentSource}"
             			SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
             			SelectedValuePath="Id"
             			DisplayMemberPath="ShortName"
                         IsSynchronizedWithCurrentItem="True"/>
-                    
+
                     <TextBlock Text="Course"/>
-                    
+
                     <ComboBox ItemsSource="{Binding CoursesViewSource}"
                     	SelectedValue="{Binding ItemsCollectionView/CourseId}"
                     	SelectedValuePath="Id"
                     	DisplayMemberPath="CourseName"/>
-                    
-                    <TextBlock><Run Text="Birthday"/></TextBlock>
-                    <DatePicker SelectedDate="{Binding ItemsCollectionView/Birthday}"/>
-                    <TextBlock><Run Text="UserRFIDTag"/></TextBlock>
+
+                    <!--<TextBlock><Run Text="UserRFIDTag"/></TextBlock>
                     <TextBox IsReadOnly="True" 
-            			Text="{Binding ItemsCollectionView/UserRFIDTag, UpdateSourceTrigger=PropertyChanged}"/>
+            			Text="{Binding ItemsCollectionView/UserRFIDTag, UpdateSourceTrigger=PropertyChanged}"/>-->
 
                     <TextBlock><Run Text="Username"/></TextBlock>
                     <TextBox Text="{Binding ItemsCollectionView/Username, UpdateSourceTrigger=PropertyChanged}"/>

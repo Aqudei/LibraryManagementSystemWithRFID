@@ -84,7 +84,7 @@
             <Button Style="{DynamicResource ClientMenuButtonStyle}" 
                     FontSize="24" Margin="5,0" 
                     Command="{Binding OpenWindowCommand, Mode=OneWay}"
-                    CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Content="My Payments">
+                    CommandParameter="{x:Static win:WindowNames.PaymentWindow}" Content="My Payments">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
@@ -92,20 +92,10 @@
             <Button Style="{DynamicResource ClientMenuButtonStyle}"
                     FontSize="24" Margin="5,0" 
                     Command="{Binding OpenWindowCommand, Mode=OneWay}"
-                    CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" >
+                    CommandParameter="{x:Static win:WindowNames.BookSearchWindow}" >
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect> Search Books
-            </Button>
-            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24" Margin="5,0" Command="{Binding OpenWindowCommand, Mode=OneWay}" Content="My Transactions">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
-            </Button>
-            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24" Margin="5,0" Command="{Binding OpenWindowCommand, Mode=OneWay}" Content="Misc">
-                <Button.Effect>
-                    <DropShadowEffect/>
-                </Button.Effect>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2"

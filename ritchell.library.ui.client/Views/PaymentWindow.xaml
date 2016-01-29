@@ -4,8 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.client.Views"
-        mc:Ignorable="d" 
-        Title="UnpaidUnreturnedBooks" Height="400" Width="600" Closing="Window_Closing">
+        mc:Ignorable="d"  Title="Unpaid / Unreturned " Height="400" Width="600" Closing="Window_Closing">
     <Grid>
         <DockPanel>
 

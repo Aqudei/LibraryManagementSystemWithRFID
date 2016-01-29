@@ -43,6 +43,7 @@ namespace ritchell.library.ui.client.ViewModels
                 SetupRealRFIDReaders();
             }
 
+            SimpleIoc.Default.Register<BookSearchService>();
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<PaymentService>();
@@ -56,6 +57,7 @@ namespace ritchell.library.ui.client.ViewModels
         {
             WindowNavigationService wns = new WindowNavigationService();
             wns.Add(ViewServices.WindowNames.PaymentWindow, new Views.PaymentWindow());
+            wns.Add(ViewServices.WindowNames.BookSearchWindow, new Views.SearchBooksView());
 
             SimpleIoc.Default.Register<IWindowNavigationService>(() => wns);
 
@@ -96,5 +98,6 @@ namespace ritchell.library.ui.client.ViewModels
                 return ServiceLocator.Current.GetInstance<AuthenticationViewModel>();
             }
         }
+
     }
 }
