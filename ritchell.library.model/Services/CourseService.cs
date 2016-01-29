@@ -21,7 +21,7 @@ namespace ritchell.library.model.Services
         {
             using (LibUnitOfWork uow = new LibUnitOfWork())
             {
-                var course = uow.BookInfoRepository.FindById(c.Id);
+                var course = uow.CourseRepository.FindById(c.Id);
 
                 if (course == null)
                     uow.CourseRepository.Add(c);

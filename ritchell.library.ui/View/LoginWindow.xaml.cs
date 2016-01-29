@@ -60,7 +60,7 @@ namespace ritchell.library.ui.View
                 var admin = _LibraryUserService.GetAuthenticatedAdmin(Username, Password);
                 return admin != null;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }   
