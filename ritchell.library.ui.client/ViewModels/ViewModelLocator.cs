@@ -65,12 +65,14 @@ namespace ritchell.library.ui.client.ViewModels
         {
             try
             {
-                var shortReader = new ShortRangeRFID();
-                SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
+                //var shortReader = new ShortRangeRFID();
+                //SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
+                SimpleIoc.Default.Register<IRFIDReader>(() => new FakeRFID(), "short");
             }
             catch (System.Exception)
             {
-                Debug.WriteLine("Error  opening short rfid.");
+                Debug.WriteLine("Error  opening short rfid.\nUsing Null Reader.");
+                SimpleIoc.Default.Register<IRFIDReader>(() => new NullRFID(), "short");
             }
         }
 

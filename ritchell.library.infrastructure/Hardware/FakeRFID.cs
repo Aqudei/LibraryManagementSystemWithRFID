@@ -12,7 +12,7 @@ namespace ritchell.library.infrastructure.Hardware
     {
         private BackgroundWorker bgWorker;
 
-        Guid[] FakeGuids = new Guid[3];
+        public static Guid[] FakeGuids = new Guid[3];
 
         public event EventHandler<string> TagRead;
 
