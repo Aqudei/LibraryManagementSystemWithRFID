@@ -16,7 +16,6 @@ namespace ritchell.library.ui.client.ViewModels
     public class SearchBooksViewModel : ViewModelBase
     {
 
-
         /// <summary>
         /// Initializes a new instance of the SearchBooksViewModel class.
         /// </summary>

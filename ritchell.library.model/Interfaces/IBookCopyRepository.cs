@@ -11,5 +11,7 @@ namespace ritchell.library.model.Interfaces
     {
         BookCopy FindByShortRangeRFId(string shortRangeRFId);
         BookCopy FindByLongRangeRFId(string shortLongRFId);
+
+
     }
 }

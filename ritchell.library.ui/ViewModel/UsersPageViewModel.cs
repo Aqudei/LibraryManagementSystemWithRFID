@@ -85,6 +85,9 @@ namespace ritchell.library.ui.ViewModel
             if (current == null)
                 return false;
 
+            if (current.DepartmentId == null)
+                return false;
+
             if (string.IsNullOrEmpty(current.Password))
                 return false;
 

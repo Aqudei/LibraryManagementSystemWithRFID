@@ -141,6 +141,7 @@
     <Compile Include="Services\IReportDialogParent.cs" />
     <Compile Include="ViewModel\BookCopyPageViewModel.cs" />
     <Compile Include="ViewModel\BookPageViewModel.cs" />
+    <Compile Include="ViewModel\BorrowedBooksManager.cs" />
     <Compile Include="ViewModel\CoursesViewModel.cs" />
     <Compile Include="ViewModel\DepartmentsViewModel.cs" />
     <Compile Include="ViewModel\HolidayPageViewModel.cs" />

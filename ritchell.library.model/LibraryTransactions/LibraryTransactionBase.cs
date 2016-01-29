@@ -11,7 +11,6 @@ namespace ritchell.library.model.LibraryTransactions
             Pending, Success, Failed
         }
 
-
         public TransactionStatus LibraryTransactionStatus { get; set; }
         public abstract string TransactionType { get; set; }
         public string BookTitle { get; set; }
@@ -19,7 +18,6 @@ namespace ritchell.library.model.LibraryTransactions
         public DateTime TransactionDate { get; set; }
         public LibraryUser LibraryUser { get; set; }
         protected BookCopy BookCopy { get; set; }
-
         public abstract void Execute();
 
         public LibraryTransactionBase(LibraryUser libUser, BookCopy bookCopy)

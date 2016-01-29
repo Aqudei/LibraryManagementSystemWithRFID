@@ -34,6 +34,8 @@ namespace ritchell.library.model.Repositories
             return _Context.Set<BookInfo>().Where(b => b.Id == bookCopy.BookInfoId).FirstOrDefault();
         }
 
+       
+
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
@@ -69,6 +71,8 @@ namespace ritchell.library.model.Repositories
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+
+
         #endregion IDisposable Support
 
     }

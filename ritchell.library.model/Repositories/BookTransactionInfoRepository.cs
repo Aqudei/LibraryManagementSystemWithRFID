@@ -41,7 +41,7 @@ namespace ritchell.library.model.Repositories
         public IEnumerable<TransactionInfo> GetPayableTransactions()
         {
             var bookTrans = _Context.Set<TransactionInfo>()
-                 .Where(t => (t.IsPaid == false && t.AmountToPay > 0) || t.ReturnDate == null)
+                 .Where(t => (t.IsPaid == false && t.AmountToPay > 0))
                 .ToList()
                 .OrderBy(t => t.BorrowDate);
 

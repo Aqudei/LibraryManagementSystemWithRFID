@@ -35,7 +35,7 @@
                             </StackPanel>
                             <Button x:Name="b" HorizontalAlignment="Center"
                 				Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
-                				CommandParameter="{Binding}" Margin="5" Width="75" Content="Pay" />
+                				CommandParameter="{Binding}" Width="178" Content="Pay / Surrender Book" Margin="10,5,0,0" />
                         </StackPanel>
                     </Border>
                 </DataTemplate>
