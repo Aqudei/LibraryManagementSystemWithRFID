@@ -1,0 +1,30 @@
+﻿<Window x:Class="ritchell.library.ui.client.Views.SearchBooksView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ritchell.library.ui.client.Views"
+        mc:Ignorable="d" Title="Search Books" Height="600" Width="800" Closing="Window_Closing" >
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="Top" 
+                        Orientation="Horizontal" Margin="0,5" >
+                <TextBlock Margin="10,0">Keyword:</TextBlock>
+                <TextBox TextWrapping="Wrap" Text="{Binding Keyword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         Width="176" Margin="10,0"/>
+                <Button Content="Search" Command="{Binding StartSearch}" Margin="10,0"/>
+            </StackPanel>
+            <ListView DockPanel.Dock="Bottom"  
+                     ItemsSource="{Binding BookSearchResult}" FontSize="16">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Book Title" DisplayMemberBinding="{Binding BookInfo.BookTitle}"/>
+                        <GridViewColumn Header="Section" DisplayMemberBinding="{Binding Section.Name}"/>
+                        <GridViewColumn Header="Author"  DisplayMemberBinding="{Binding BookInfo.Author}"/>
+                        <GridViewColumn Header="Subject"  DisplayMemberBinding="{Binding BookInfo.Subject}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,182 @@
+﻿<SampleData:Payables xmlns:SampleData="clr-namespace:ritchell.library.ui.client.SampleData" xmlns:model="clr-namespace:ritchell.library.model;assembly=ritchell.library.model" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:LibraryTransactions="clr-namespace:ritchell.library.model.LibraryTransactions;assembly=ritchell.library.model" Capacity="85">
+	<model:Payable AmountToPay="855.29" BookInvolved="Aliquam nam sed integer aenean" UserInvolved="Maecenas dis quisque praesent">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="745.09" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="223.55" BookInvolved="Curabitur est" UserInvolved="Vivamus accumsan">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="300.83" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="230.3" BookInvolved="Hac leo" UserInvolved="Aliquam mus vestibulum adipiscing phasellus">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="826.82" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="156.65" BookInvolved="Consequat class" UserInvolved="Curae cras donec aliquet bibendum">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="843.59" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="266.46" BookInvolved="Blandit nec" UserInvolved="Etiam convallis dignissim">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="414.05" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="339.81" BookInvolved="Elementum fusce non" UserInvolved="Facilisis dictumst duis">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="523.18" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="434.35" BookInvolved="Mauris nullam fermentum" UserInvolved="Fringilla parturient">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="178.94" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="618.16" BookInvolved="Commodo per aptent lorem" UserInvolved="Sed morbi habitasse">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="479.01" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="733.81" BookInvolved="Conubia auctor hendrerit cubilia" UserInvolved="Sem nunc himenaeos">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="419.67" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+	<model:Payable AmountToPay="864.3" BookInvolved="Imperdiet amet malesuada vestibulum dapibus" UserInvolved="Congue nulla vestibulum proin">
+		<model:Payable.LibraryUserId>
+			<System:Guid/>
+		</model:Payable.LibraryUserId>
+		<model:Payable.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="637.57" ExpectedReturnDate="01/30/2016 05:32:30" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:Payable.TransactionInfo>
+	</model:Payable>
+</SampleData:Payables>
