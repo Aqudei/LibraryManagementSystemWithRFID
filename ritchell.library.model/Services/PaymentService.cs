@@ -2,6 +2,7 @@
 using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,16 @@ namespace ritchell.library.model.LibraryTransactions
         private BookService _BookInfoService;
         private SectionService _SectionService;
         private BookCopyService _BookCopyService;
+        private LibraryUserService _LibraryUserService;
+        private BookTransactionInfoRepository _BookTransactionInfoRepository;
 
         public PaymentService()
         {
             _SectionService = new SectionService();
             _BookInfoService = new BookService();
             _BookCopyService = new BookCopyService();
+            _LibraryUserService = new LibraryUserService();
+            _BookTransactionInfoRepository = new BookTransactionInfoRepository();
         }
 
         public double ComputeNecessaryFee(BookCopy bookCopy, TransactionInfo bookTransInfo)
@@ -61,20 +66,19 @@ namespace ritchell.library.model.LibraryTransactions
 
         }
 
-        public IEnumerable<Payable> GetPayableTransactions(LibraryUser user)
+        public IEnumerable<Payable> GetReturnedBooksPayables(LibraryUser user)
         {
-            return GetPayableTransactions().Where(p => p.LibraryUserId.Equals(user.Id)).ToList();
+            return GetReturnedBooksPayables().Where(p => p.LibraryUserId.Equals(user.Id)).ToList();
         }
 
-
-        public IEnumerable<Payable> GetPayableTransactions()
+        public IEnumerable<Payable> GetReturnedBooksPayables()
         {
             ICollection<Payable> Payables = new List<Payable>();
 
             using (var transRepo = new BookTransactionInfoRepository())
             using (var userRepo = new LibraryUserRepository())
             {
-                var trans = transRepo.GetPayableTransactions();
+                var trans = transRepo.GetReturnedBooksPayableTransactions();
                 foreach (var tran in trans)
                 {
                     Payable p = new Payable
@@ -89,6 +93,42 @@ namespace ritchell.library.model.LibraryTransactions
                 }
                 return Payables;
             }
+        }
+
+        public IEnumerable<ReturnBookDTO> GetBorrowedBooks()
+        {
+            List<ReturnBookDTO> libTrans = new List<ReturnBookDTO>();
+            var books = _BookCopyService.GetBorrowedBooks();
+            foreach (var book in books)
+            {
+                var bookInfo = _BookInfoService.BookInfoOf(book);
+                var lastTrans = _BookTransactionInfoRepository.GetLastBookTransaction(book.Id);
+                if (lastTrans != null)
+                {
+                    var user = _LibraryUserService.FindById(lastTrans.LibraryUserId);
+                    if (user.LibraryUserType == LibraryUser.UserType.Student)
+                    {
+                        libTrans.Add(new ReturnBookDTO
+                        {
+                            TransactionInfo = new ReturnBookTransaction(book, lastTrans),
+                            LibraryUser = user,
+                            BookInfo = bookInfo
+                        });
+                    }
+                    else if (user.LibraryUserType == LibraryUser.UserType.Teacher)
+                    {
+                        libTrans.Add(new ReturnBookDTO
+                        {
+                            TransactionInfo = new ReturnBookIgnorePaymentTransaction(book, lastTrans),
+                            LibraryUser = user,
+                            BookInfo = bookInfo
+                        });
+                    }
+                }
+                else
+                    Debug.WriteLine("Possible error. A book was borrowed but no transaction info was found.");
+            }
+            return libTrans;
         }
     }
 }

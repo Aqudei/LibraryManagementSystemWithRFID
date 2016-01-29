@@ -43,7 +43,7 @@ namespace ritchell.library.ui.ViewModel
 
         private void RefreshPayables()
         {
-            Payables = new ObservableCollection<Payable>(_PaymentService.GetPayableTransactions());
+            Payables = new ObservableCollection<Payable>(_PaymentService.GetReturnedBooksPayables());
         }
 
         private RelayCommand<Payable> _CompletePaymentCommand;

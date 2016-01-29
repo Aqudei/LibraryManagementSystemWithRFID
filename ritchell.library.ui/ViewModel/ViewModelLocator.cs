@@ -63,6 +63,7 @@ namespace ritchell.library.ui.ViewModel
             SimpleIoc.Default.Register<PayablesViewModel>();
             SimpleIoc.Default.Register<CoursesViewModel>();
             SimpleIoc.Default.Register<UsersPageViewModel>();
+            SimpleIoc.Default.Register<BorrowedBooksManagerViewModel>();
             //SetupWindows();
         }
 
@@ -117,7 +118,13 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
-
+        public BorrowedBooksManagerViewModel BorrowedBooksManagerViewModel
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstanceWithoutCaching<BorrowedBooksManagerViewModel>();
+            }
+        }
 
         public UsersPageViewModel UsersPageViewModel
         {

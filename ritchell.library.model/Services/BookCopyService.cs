@@ -80,5 +80,13 @@ namespace ritchell.library.model.Services
                 return bookInfoRepo.Where(b => b.Id.Equals(bookCopy.BookInfoId)).Single();
             }
         }
+
+        public IEnumerable<BookCopy> GetBorrowedBooks()
+        {
+            using (var bookCopyRepo = new BookCopyRepository())
+            {
+                return bookCopyRepo.Where(b => b.IsBorrowed == true);
+            }
+        }
     }
 }

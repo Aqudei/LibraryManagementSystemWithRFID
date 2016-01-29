@@ -173,15 +173,18 @@
                 <Button Content="Library Holidays" 
 					Command="{Binding NavigateToPageCommand}" 
 					CommandParameter="HolidaysPage.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
-                <Button Content="Payments" 
-					Command="{Binding NavigateToPageCommand}" 
-					CommandParameter="PayablesView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
                 <Button Content="Departments" 
 					Command="{Binding NavigateToPageCommand}" 
 					CommandParameter="DepartmentsView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
                 <Button Content="Courses" 
                 	Command="{Binding NavigateToPageCommand}" 
                 	CommandParameter="CoursesView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
+                <Button Content="Payments" 
+					Command="{Binding NavigateToPageCommand}" 
+					CommandParameter="PayablesView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
+                <Button Content="Borrowed Books" 
+					Command="{Binding NavigateToPageCommand}" 
+					CommandParameter="BorrowedBooksManagerView.xaml" Margin="0,0,5,0" Style="{DynamicResource MainNavStyle}"/>
             </StackPanel>
             <StackPanel DockPanel.Dock="Top" 
 				Orientation="Horizontal" 

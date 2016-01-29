@@ -92,8 +92,8 @@
     <Compile Include="LibraryTransactions\LibraryTransactionsAggregate.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Payable.cs" />
-    <Compile Include="PaymentsTransaction.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
+    <Compile Include="ReturnBookDTO.cs" />
     <Compile Include="Services\BookSearchService.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\PaymentService.cs" />

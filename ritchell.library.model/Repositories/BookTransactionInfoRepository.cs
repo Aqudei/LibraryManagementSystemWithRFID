@@ -38,7 +38,7 @@ namespace ritchell.library.model.Repositories
             return bookTrans;
         }
 
-        public IEnumerable<TransactionInfo> GetPayableTransactions()
+        public IEnumerable<TransactionInfo> GetReturnedBooksPayableTransactions()
         {
             var bookTrans = _Context.Set<TransactionInfo>()
                  .Where(t => (t.IsPaid == false && t.AmountToPay > 0))

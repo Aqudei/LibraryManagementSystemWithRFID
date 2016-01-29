@@ -14,7 +14,7 @@ namespace ritchell.library.ui.client.ViewModels
 
         public PayablesViewModel(LibraryUser libraryUser)
         {
-            Payables = new ObservableCollection<Payable>(PaymentService.GetPayableTransactions(libraryUser));
+            Payables = new ObservableCollection<Payable>(PaymentService.GetReturnedBooksPayables(libraryUser));
         }
 
         private ObservableCollection<Payable> payables;
