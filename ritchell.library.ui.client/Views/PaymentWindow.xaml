@@ -5,24 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.client.Views"
         mc:Ignorable="d"  Title="Unpaid / Unreturned " Height="400" Width="600" Closing="Window_Closing">
-    <Grid>
+    <Window.Resources>
+        <DataTemplate x:Key="PayableTemplate">
+            <StackPanel Orientation="Vertical"
+                        Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock MinWidth="150">Amount To Pay:</TextBlock>
+                    <TextBlock Text="{Binding AmountToPay, StringFormat=Php 0.00}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock MinWidth="150">Book Title:</TextBlock>
+                    <TextBlock Text="{Binding BookInvolved}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock MinWidth="150">Date Borrowed:</TextBlock>
+                    <TextBlock Text="{Binding TransactionInfo.BorrowDate, StringFormat=\{0:D\}}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock MinWidth="150">Expected Return Date:</TextBlock>
+                    <TextBlock Text="{Binding TransactionInfo.ExpectedReturnDate, StringFormat=\{0:D\}}" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid d:DataContext="{d:DesignData /SampleData/Payables.xaml}">
         <DockPanel>
 
             <ListView DockPanel.Dock="Bottom"
                       x:Name="PaymentListView"
-                      ItemsSource="{Binding Payables}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel HorizontalAlignment="Left">
-                            <TextBlock Text="{Binding BookInvolved}"/>
-                            <TextBlock Text="{Binding AmountToPay}"/>
-                            <TextBlock Text="{Binding TransactionInfo.BorrowDate}"/>
-                            <!--<Button Command="{Binding DataContext.CompletePayment, ElementName=PaymentListView}" 
-                                    CommandParameter="{Binding}"/>-->
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                      ItemsSource="{Binding Payables}" ItemTemplate="{DynamicResource PayableTemplate}"/>
         </DockPanel>
     </Grid>
 </Window>

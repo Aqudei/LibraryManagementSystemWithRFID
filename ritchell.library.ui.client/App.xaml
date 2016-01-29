@@ -1,12 +1,13 @@
-﻿<Application x:Class="ritchell.library.ui.client.App"
+﻿<Application
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ritchell.library.ui.client"
-             StartupUri="Views/MainWindow.xaml"
              xmlns:vm="clr-namespace:ritchell.library.ui.client.ViewModels"
              xmlns:vw="clr-namespace:ritchell.library.ui.client.Views" 
+             x:Class="ritchell.library.ui.client.App"
+             StartupUri="Views/MainWindow.xaml" 
              ShutdownMode="OnMainWindowClose">
-    
+
     <Application.Resources>
 
         <ResourceDictionary>
