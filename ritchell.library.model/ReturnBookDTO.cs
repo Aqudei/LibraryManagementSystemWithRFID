@@ -11,5 +11,6 @@ namespace ritchell.library.model
         public LibraryTransactions.LibraryTransactionBase TransactionInfo { get; set; }
         public LibraryUser LibraryUser { get; set; }
         public BookInfo BookInfo { get; set; }
+        public Double RequiredFee { get; set; }
     }
 }

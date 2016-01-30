@@ -8,9 +8,25 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="BorrowedBooksManagerView"
       DataContext="{Binding BorrowedBooksManagerViewModel, Source={StaticResource Locator}}">
+    <Page.Resources>
+        <DataTemplate x:Key="ToBeReturnedBooksTemplate">
+            <StackPanel Margin="5,8">
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding LibraryUser.Fullname}" FontSize="18.667" FontWeight="Bold"/>
+                <TextBlock Text="{Binding BookInfo.BookTitle}" FontSize="16" FontWeight="Bold"/>
+                <TextBlock Text="{Binding RequiredFee, StringFormat=Php\{0:F\}}" FontSize="16" FontWeight="Bold"/>
+                
+                <Button 
+                        Command="{Binding DataContext.ReturnApplyPaymentCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" 
+                        CommandParameter="{Binding Mode=OneWay}" FontSize="16" HorizontalAlignment="Left">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect> Return</Button>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
-    <Grid>
-        <ItemsControl ItemsSource="{Binding BooksToBeReturned}" />
+    <Grid x:Name="ToBeReturnedList" d:DataContext="{d:DesignData /SampleData/ToBeReturned.xaml}">
+        <ItemsControl ItemsSource="{Binding BooksToBeReturned}" ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" />
 
 
     </Grid>

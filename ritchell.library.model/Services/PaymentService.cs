@@ -16,6 +16,7 @@ namespace ritchell.library.model.LibraryTransactions
         private BookCopyService _BookCopyService;
         private LibraryUserService _LibraryUserService;
         private BookTransactionInfoRepository _BookTransactionInfoRepository;
+        private PaymentService _PaymentService;
 
         public PaymentService()
         {
@@ -101,27 +102,34 @@ namespace ritchell.library.model.LibraryTransactions
             var books = _BookCopyService.GetBorrowedBooks();
             foreach (var book in books)
             {
+
                 var bookInfo = _BookInfoService.BookInfoOf(book);
                 var lastTrans = _BookTransactionInfoRepository.GetLastBookTransaction(book.Id);
                 if (lastTrans != null)
                 {
+                    var rqFee = ComputeNecessaryFee(book, lastTrans);
                     var user = _LibraryUserService.FindById(lastTrans.LibraryUserId);
                     if (user.LibraryUserType == LibraryUser.UserType.Student)
                     {
+                        var trans = new ReturnBookTransaction(book, lastTrans);
+                        trans.CompletePayment();
                         libTrans.Add(new ReturnBookDTO
                         {
-                            TransactionInfo = new ReturnBookTransaction(book, lastTrans),
+                            TransactionInfo = trans,
                             LibraryUser = user,
-                            BookInfo = bookInfo
+                            BookInfo = bookInfo,
+                            RequiredFee = rqFee
                         });
                     }
                     else if (user.LibraryUserType == LibraryUser.UserType.Teacher)
                     {
+                        var trans = new ReturnBookIgnorePaymentTransaction(book, lastTrans);
                         libTrans.Add(new ReturnBookDTO
                         {
-                            TransactionInfo = new ReturnBookIgnorePaymentTransaction(book, lastTrans),
+                            TransactionInfo = trans,
                             LibraryUser = user,
-                            BookInfo = bookInfo
+                            BookInfo = bookInfo,
+                            RequiredFee = rqFee
                         });
                     }
                 }
