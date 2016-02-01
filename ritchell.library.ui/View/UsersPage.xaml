@@ -74,9 +74,9 @@
                     <TextBox Text="{Binding ItemsCollectionView/LastName, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock><Run Text="User Type"/></TextBlock>
                     <ComboBox ItemsSource="{Binding UserTypes}"
-            			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"/>
+            			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}" SelectionChanged="ComboBox_SelectionChanged"/>
+                    
                     <TextBlock Text="Department"/>
-
                     <ComboBox ItemsSource="{Binding DepartmentSource}"
             			SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
             			SelectedValuePath="Id"
@@ -86,9 +86,10 @@
                     <TextBlock Text="Course"/>
 
                     <ComboBox ItemsSource="{Binding CoursesViewSource}"
-                    	SelectedValue="{Binding ItemsCollectionView/CourseId}"
-                    	SelectedValuePath="Id"
-                    	DisplayMemberPath="CourseName"/>
+                              SelectedValue="{Binding ItemsCollectionView/CourseId}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="CourseName"
+                              IsEnabled="{Binding CourseApplicable}"/>
 
                     <!--<TextBlock><Run Text="UserRFIDTag"/></TextBlock>
                     <TextBox IsReadOnly="True" 

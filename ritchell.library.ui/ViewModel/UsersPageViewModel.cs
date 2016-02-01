@@ -25,6 +25,8 @@ namespace ritchell.library.ui.ViewModel
         private CourseService _CourseService;
 
 
+
+
         /// <summary>
         /// Initializes a new instance of the UsersPageViewModel class.
         /// </summary>
@@ -128,6 +130,10 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
+        public void UpdateEnabledDisabled()
+        {
+            RaisePropertyChanged(() => CourseApplicable);
+        }
 
         public ICollectionView DepartmentSource
         {
@@ -143,5 +149,15 @@ namespace ritchell.library.ui.ViewModel
         }
 
         public ICollectionView CoursesViewSource { get; private set; }
+
+        public bool CourseApplicable
+        {
+            get
+            {
+                var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
+
+                return currentUser != null && currentUser.LibraryUserType != LibraryUser.UserType.Admin;
+            }
+        }
     }
 }
