@@ -4,45 +4,60 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.client"
-        mc:Ignorable="d" Title="Ritchell Library Management System" Height="260.118" Width="448.936"
+        mc:Ignorable="d" Title="Ritchell Library Management System" Height="906.118" Width="1606.386"
+        xmlns:pass="clr-namespace:ritchell.library.ui.client.WPF"
         xmlns:m="clr-namespace:ritchell.library.model.LibraryTransactions;assembly=ritchell.library.model"
-        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <DataTemplate DataType="{x:Type m:ReturnBookTransaction}">
-            <Grid>
+            <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding TransactionType}" FontSize="18.667"/>
-                <TextBlock Text="{Binding BookTitle}" Grid.Column="1" FontStyle="Italic" FontSize="18.667"/>
-                <TextBlock Text="{Binding RequiredFee}"  Grid.Column="2" FontStyle="Italic" FontSize="18.667"/>
-            </Grid>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type m:ReturnBookIgnorePaymentTransaction}">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding TransactionType}" FontSize="18.667"/>
-                <TextBlock Text="{Binding BookTitle}" Grid.Column="1" FontStyle="Italic" FontSize="18.667"/>
+                <TextBlock Text="{Binding TransactionType}" 
+                           FontSize="24" 
+                           FontWeight="Bold"/>
+                <TextBlock Text="{Binding BookTitle}" Grid.Column="1" 
+                           FontStyle="Italic"
+                           FontSize="24"/>
+                <TextBlock Text="{Binding RequiredFee, StringFormat=Php {0:#.0}}" Grid.Column="2" 
+                           FontStyle="Italic"
+                           FontSize="24"/>
             </Grid>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type m:BorrowBookTransaction}">
-            <Grid>
+            <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding TransactionType}" FontSize="18.667"/>
-                <TextBlock Text="{Binding BookTitle}" Grid.Column="1" FontStyle="Italic" FontSize="18.667"/>
+                <TextBlock Text="{Binding TransactionType}" 
+                           FontSize="24" 
+                           FontWeight="Bold"/>
+                <TextBlock Text="{Binding BookTitle}" Grid.Column="1" 
+                           FontStyle="Italic"
+                           FontSize="24"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type m:ReturnBookIgnorePaymentTransaction}">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding TransactionType}" 
+                           FontSize="24" 
+                           FontWeight="Bold"/>
+                <TextBlock Text="{Binding BookTitle}" Grid.Column="1" 
+                           FontStyle="Italic"
+                           FontSize="24"/>
             </Grid>
         </DataTemplate>
     </Window.Resources>
@@ -72,18 +87,24 @@
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right">
             <TextBlock Text="Admin Username:" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="24" Margin="5,0"/>
-            <TextBox MinWidth="150" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="24" Margin="5,0"/>
+            <TextBox MinWidth="150" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="24" Margin="5,0" Text="{Binding AdminUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Admin Password:" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="24" Margin="5,0"/>
-            <TextBox MinWidth="150" VerticalAlignment="Center" FontFamily="Times New Roman" FontSize="24" Margin="5,0"/>
+            <PasswordBox pass:PasswordHelper.Attach="True"
+                         pass:PasswordHelper.Password="{Binding AdminPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MinWidth="150" 
+                         VerticalAlignment="Center" 
+                         FontFamily="Times New Roman" FontSize="24" Margin="5,0"/>
             <Button Content="Pay Now" Style="{DynamicResource ButtonStyle1}" Margin="10,5" Command="{Binding PayNowCommand, Mode=OneWay}"/>
             <Button Content="Proceed" Style="{DynamicResource ButtonStyle1}" Margin="10,5" Command="{Binding ProceedWithTransactionCommand, Mode=OneWay}"/>
-            <Button Content="Clear Transactions" Style="{DynamicResource ButtonStyle1}" Margin="10,5"/>
+            <Button Content="Clear Transactions" Style="{DynamicResource ButtonStyle1}" Margin="10,5" Command="{Binding ClearTransactionsCommand, Mode=OneWay}"/>
         </StackPanel>
         <TextBlock Grid.RowSpan="3" 
+                   Padding="10"
                    x:Name="textBlockMessage" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Center" 
+                   HorizontalAlignment="Stretch"
                    FontFamily="Arial Black"
-                   FontSize="24" Background="Black" Foreground="#FFDAE402" FontWeight="Bold" Visibility="Collapsed" />
+                   FontSize="28" Background="Black" Foreground="#FFDAE402" FontWeight="Bold" Visibility="Collapsed" />
     </Grid>
 </Window>

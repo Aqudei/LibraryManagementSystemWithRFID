@@ -54,7 +54,7 @@ namespace ritchell.library.model.LibraryTransactions
                 BookCopyId = BookCopy.Id,
                 LibraryUserId = libUser.Id,
                 BorrowDate = TransactionDate,
-                ExpectedReturnDate = _HolidayService.GetNonHolidayDateAfter(TransactionDate.AddDays(section.MaxDaysAllowedForBorrowing))
+                ExpectedReturnDate = _HolidayService.GetNonHolidayDateFrom(TransactionDate.AddDays(section.MaxDaysAllowedForBorrowing))
             };
         }
 

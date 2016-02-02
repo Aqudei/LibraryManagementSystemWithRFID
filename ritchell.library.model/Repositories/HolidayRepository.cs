@@ -20,7 +20,7 @@ namespace ritchell.library.model.Repositories
 
         public bool IsHoliday(DateTime date)
         {
-            return this._Context.Set<Holiday>().ToList().Where(h => h.Day.Date.Equals(date.Date)).Any();
+            return _Context.Set<Holiday>().ToList().Where(h => h.Day.Date.Equals(date.Date)).Any();
         }
 
 

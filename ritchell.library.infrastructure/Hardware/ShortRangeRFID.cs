@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PCSC;
+using System.Diagnostics;
 
 namespace ritchell.library.infrastructure.Hardware
 {
@@ -65,7 +66,15 @@ namespace ritchell.library.infrastructure.Hardware
 
         public void StopReader()
         {
-            cardMonitor.Cancel();
+            try
+            {
+                cardContext.Release();
+                cardContext.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

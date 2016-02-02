@@ -4,6 +4,8 @@ using System;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Ioc;
 using System.Windows.Threading;
+using GalaSoft.MvvmLight.Messaging;
+using ritchell.library.ui.client.ViewModels;
 
 namespace ritchell.library.ui.client.Views
 {
@@ -59,6 +61,11 @@ namespace ritchell.library.ui.client.Views
         {
             MessageBox.Show(message, title);
             return null;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Messenger.Default.Send<ViewModels.VMMessages.ApplicationExiting>(new ViewModels.VMMessages.ApplicationExiting());
         }
     }
 }

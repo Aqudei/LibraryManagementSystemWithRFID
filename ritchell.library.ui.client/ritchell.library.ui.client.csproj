@@ -102,6 +102,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\VMMessages\ApplicationExiting.cs" />
     <Compile Include="ViewModels\VMMessages\UserEvent.cs" />
     <Compile Include="ViewModels\VMMessages\UserHasLogin.cs" />
     <Compile Include="ViewModels\VMMessages\UserHasLogout.cs" />

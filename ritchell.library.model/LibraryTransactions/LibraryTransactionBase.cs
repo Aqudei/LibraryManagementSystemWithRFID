@@ -25,6 +25,7 @@ namespace ritchell.library.model.LibraryTransactions
         public LibraryTransactionBase(LibraryUser libUser, BookCopy bookCopy)
         {
             LibraryUser = libUser;
+            BookCopy = bookCopy;
 
             using (var bookCopyRepo = new BookCopyRepository())
             {

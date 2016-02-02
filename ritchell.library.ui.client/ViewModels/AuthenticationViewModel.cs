@@ -5,6 +5,8 @@ using ritchell.library.model;
 using ritchell.library.model.Repositories;
 using ritchell.library.model.Services;
 using ritchell.library.ui.client.ViewModels.VMMessages;
+using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -41,11 +43,15 @@ namespace ritchell.library.ui.client.ViewModels
                     else {
                         IsAuthenticated = false;
                         CurrentUser = null;
+                        DialogService.ShowMessage("Invalid Username/Password\nPlease try again...", "");
                     }
 
                 }, () => IsInputFilledUp() && !IsAuthenticated);
             }
         }
+
+        private IDialogService _DialogService;
+
 
         private void RaiseUserEvent(UserEvent.UserEventType userEventType, LibraryUser libUser)
         {
@@ -111,6 +117,7 @@ namespace ritchell.library.ui.client.ViewModels
 
         private string _UserToMessage;
 
+
         public string MessageToUser
         {
             get { return _UserToMessage; }
@@ -148,5 +155,13 @@ namespace ritchell.library.ui.client.ViewModels
         }
 
         public LibraryUser CurrentUser { get; internal set; }
+
+        public IDialogService DialogService
+        {
+            get
+            {
+                return _DialogService = _DialogService ?? SimpleIoc.Default.GetInstance<IDialogService>();
+            }
+        }
     }
 }

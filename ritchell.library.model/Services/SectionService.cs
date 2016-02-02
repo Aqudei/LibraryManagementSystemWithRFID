@@ -96,7 +96,7 @@ namespace ritchell.library.model.Services
                     throw new InvalidOperationException("I don't know which section does "
                         + bookInfo.BookTitle + " belongs to.");
 
-                return holidayService.GetNonHolidayDateAfter(DateTime.Now.AddDays(section.MaxDaysAllowedForBorrowing));
+                return holidayService.GetNonHolidayDateFrom(DateTime.Now.AddDays(section.MaxDaysAllowedForBorrowing));
             }
         }
 

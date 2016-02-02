@@ -9,16 +9,16 @@ namespace ritchell.library.model.Services
 {
     public class HolidayService
     {
-        public DateTime GetNonHolidayDateAfter(DateTime startDate)
+        public DateTime GetNonHolidayDateFrom(DateTime startDate)
         {
             var repo = new HolidayRepository();
 
             for (DateTime i = startDate; ; i = i.AddDays(1))
             {
-                if (repo.IsHoliday(startDate))
+                if (repo.IsHoliday(i))
                     continue;
 
-                return startDate;
+                return i;
             }
         }
 

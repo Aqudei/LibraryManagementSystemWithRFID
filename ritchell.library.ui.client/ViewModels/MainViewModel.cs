@@ -12,6 +12,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System.Diagnostics;
 using ritchell.library.ui.client.ViewServices;
 using GalaSoft.MvvmLight.Views;
+using ritchell.library.ui.client.ViewModels.VMMessages;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -60,7 +61,7 @@ namespace ritchell.library.ui.client.ViewModels
             LibraryTransactionsAggregate = new LibraryTransactionsAggregate();
 
             var shortRfidReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
-
+            shortRfidReader.StartReader();
             AuthenticationViewModel.LibraryUserEventHandler += (s, e) =>
             {
                 if (e.LibraryUserEventType == VMMessages.UserEvent.UserEventType.Login)
@@ -74,12 +75,33 @@ namespace ritchell.library.ui.client.ViewModels
                     shortRfidReader.TagRead -= ShortRfidReader_TagRead;
                 }
             };
+
+            MessengerInstance.Register<ApplicationExiting>(this, (x) =>
+            {
+                shortRfidReader.StopReader();
+            });
         }
 
         private void ShortRfidReader_TagRead(object sender, string e)
         {
-            DispatcherHelper.CheckBeginInvokeOnUI(() => LibraryTransactionsAggregate.AddTransaction(e));
+            DispatcherHelper.CheckBeginInvokeOnUI(() =>
+            {
+                try
+                {
+                    LibraryTransactionsAggregate.AddTransaction(e);
+                }
+                catch (Exception ex)
+                {
+                    _DialogService.ShowMessage(ex.Message, "");
+                }
+
+                RaisePropertyChanged(() => LibraryTransactionsAggregate.LibraryTransactions);
+                ClearTransactionsCommand.RaiseCanExecuteChanged();
+                ProceedWithTransactionCommand.RaiseCanExecuteChanged();
+                PayNowCommand.RaiseCanExecuteChanged();
+            });
         }
+
 
         public RelayCommand PayNowCommand
         {
@@ -97,7 +119,10 @@ namespace ritchell.library.ui.client.ViewModels
                         _DialogService.ShowMessage(ex.Message, "");
                     }
 
-                }, () => LibraryTransactionsAggregate.RequiredFee > 0);
+                },
+                () => LibraryTransactionsAggregate.RequiredFee > 0
+                        && !string.IsNullOrEmpty(AdminUsername)
+                        && !string.IsNullOrEmpty(AdminPassword));
             }
         }
 
@@ -113,14 +138,14 @@ namespace ritchell.library.ui.client.ViewModels
                         {
                             transaction.Execute();
                         }
-                        DialogService.ShowMessage("Transaction(s) Completed...","");
+                        DialogService.ShowMessage("Transaction(s) Completed...", "");
                     }
                     catch (Exception ex)
                     {
-                        DialogService.ShowMessage(ex.Message,"");
+                        DialogService.ShowMessage(ex.Message, "");
                         Debug.WriteLine("{0} @ ProceedWithTransactionCommand", ex.Message);
                     }
-                }, () => true);
+                }, () => LibraryTransactionsAggregate.LibraryTransactions.Count > 0);
             }
         }
 

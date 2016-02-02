@@ -16,15 +16,16 @@ namespace ritchell.library.model.LibraryTransactions
         public ReturnBookTransaction(LibraryUser libUser, BookCopy bookCopy, TransactionInfo transInfo)
             : base(libUser, bookCopy)
         {
+            _PaymentService = new PaymentService();
             _LastTransaction = transInfo;
             _LastTransaction.AmountToPay = RequiredFee;
-            _PaymentService = new PaymentService();
         }
 
         public double RequiredFee
         {
             get
             {
+
                 return _PaymentService.ComputeNecessaryFee(BookCopy, _LastTransaction);
             }
         }
