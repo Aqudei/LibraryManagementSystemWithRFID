@@ -1,5 +1,7 @@
 REQUIREMENTS
 
+ALREADY DONE
+
 1. Add subjects classification of books*
 2. Add Course*
 3. Instead of ISBN, copyright year*
@@ -7,16 +9,16 @@ REQUIREMENTS
 5. Instead of MiddleName, Middle INitial*
 6. Separate button for most borrowed book*
 7. Inventory of Books by Section*
-
 - pa.add ako bago na user type.Employee.bale an ea privilege same la han instructor gah..salamat * 
 - Dapat an course nkadisable kun an usertype admin ngan teacher*
 - Disable first ManageRFID button or messagebox para save muna an book bago i.manage rfid..*
 - arrange books alphabetically *
 - arrange alphabetical for user's listview *
-- confirm password textbox must be clear after saving in User form
-- Fix Holidays 
-- Holidays list view
-- Add Cancel Button ha MAnage RFID form
+- confirm password textbox must be clear after saving in User form *
+
+
+TODO LIST
+
 - messagebox for successfully saving acquisitions
 - error messagebox for saving duplicate acquisitions
 - messagebox if entering letters in call number and acquisition number
@@ -25,7 +27,8 @@ REQUIREMENTS
 - Acquisition in listview ha managerfid form
 - add Acquisition in report
 - If RFID book id added dapat dri na nablink/highlight
-
+- Add Cancel Button ha MAnage RFID form
+- Fix Holidays, Holidays list view
 
 --in Search books show number of copies of books and number of copies available to borrow
 --Add button in mainwindow "My Transaction" to show all the transactions done by the client..arranged by recent transaction date..include status of books if returned or not yet
@@ -34,8 +37,6 @@ REQUIREMENTS
 
 
 ha UI gah..an most borrowed books..list of most borrowed books only..an ha yna kasi tanan na list han books nakikita..cgro an mga books na nahuhuram 10x ha usa ka semana..api na hea ha list of most borrowed books..hehe
-
-
 
 gah ha Client page pag.add man CHange password na feature..thanks
 
