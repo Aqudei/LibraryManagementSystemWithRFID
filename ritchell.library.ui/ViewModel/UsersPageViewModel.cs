@@ -24,9 +24,6 @@ namespace ritchell.library.ui.ViewModel
         private DepartmentService _DepartmentService;
         private CourseService _CourseService;
 
-
-
-
         /// <summary>
         /// Initializes a new instance of the UsersPageViewModel class.
         /// </summary>
@@ -41,6 +38,7 @@ namespace ritchell.library.ui.ViewModel
             {
                 items = new ObservableCollection<LibraryUser>(repo.GetAll());
                 ItemsCollectionView = CollectionViewSource.GetDefaultView(items);
+                ItemsCollectionView.SortDescriptions.Add(new SortDescription("Fullname", ListSortDirection.Ascending));
             }
 
             DepartmentSource = CollectionViewSource.GetDefaultView(new ObservableCollection<Department>(_DepartmentService.GetDepartments()));
@@ -113,8 +111,17 @@ namespace ritchell.library.ui.ViewModel
 
         protected override void SaveItemCommandHandler()
         {
-            var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
-            _LibraryUserService.AddOrUpdateLibraryUser(currentUser);
+            try
+            {
+                var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
+                _LibraryUserService.AddOrUpdateLibraryUser(currentUser);
+                ItemsCollectionView.Refresh();
+                PasswordCopy = "";
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public override void EditItemCommandHandler()
@@ -156,7 +163,7 @@ namespace ritchell.library.ui.ViewModel
             {
                 var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
 
-                return currentUser != null && currentUser.LibraryUserType != LibraryUser.UserType.Admin;
+                return (currentUser != null) && (currentUser.LibraryUserType == LibraryUser.UserType.Student);
             }
         }
     }

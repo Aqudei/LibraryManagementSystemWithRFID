@@ -121,7 +121,7 @@ namespace ritchell.library.model.LibraryTransactions
                             RequiredFee = rqFee
                         });
                     }
-                    else if (user.LibraryUserType == LibraryUser.UserType.Teacher)
+                    else if (user.LibraryUserType == LibraryUser.UserType.Instructor)
                     {
                         var trans = new ReturnBookIgnorePaymentTransaction(book, lastTrans);
                         libTrans.Add(new ReturnBookDTO

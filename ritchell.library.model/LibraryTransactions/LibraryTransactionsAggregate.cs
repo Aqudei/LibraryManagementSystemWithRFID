@@ -18,7 +18,7 @@ namespace ritchell.library.model.LibraryTransactions
         {
             _LibraryUser = user;
 
-            if (_LibraryUser.LibraryUserType == LibraryUser.UserType.Teacher)
+            if (_LibraryUser.LibraryUserType == LibraryUser.UserType.Instructor)
             {
                 CompletePayment();
             }

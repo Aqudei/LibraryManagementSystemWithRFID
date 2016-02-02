@@ -16,8 +16,9 @@ namespace ritchell.library.model
         public enum UserType
         {
             Student,
-            Teacher,
-            Admin
+            Instructor,
+            Admin,
+            Employee
         };
 
         public UserType LibraryUserType { get; set; }

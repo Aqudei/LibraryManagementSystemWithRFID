@@ -78,19 +78,26 @@ namespace ritchell.library.ui.ViewModel
         {
             try
             {
-                //Uncomment below if real rfid are connected
-
                 var shortReader = new ShortRangeRFID();
-                var longReader = new LongRangeRFID();
                 SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
-                SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
             }
             catch (System.Exception ex)
             {
-                Debug.WriteLine("Hardware failure\nOpting to use fake Null readers" + ex.Message);
-
+                Debug.WriteLine("Hardware failure\nOpting to use short Null readers" + ex.Message);
                 SimpleIoc.Default.Unregister<IRFIDReader>();
                 SimpleIoc.Default.Register<IRFIDReader>(() => new NullRFID(), "short");
+
+            }
+
+            try
+            {
+                var longReader = new LongRangeRFID();
+                SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Hardware failure\nOpting to use long Null readers" + ex.Message);
+                SimpleIoc.Default.Unregister("long");
                 SimpleIoc.Default.Register<IRFIDReader>(() => new NullRFID(), "long");
             }
         }

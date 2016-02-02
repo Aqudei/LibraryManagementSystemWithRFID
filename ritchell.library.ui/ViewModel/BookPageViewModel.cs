@@ -23,21 +23,17 @@ namespace ritchell.library.ui.ViewModel
         private IRFIDManagerDialog _RFIDDialogService;
         private ObservableCollection<string> _Subjects;
 
-
-
-
         public BookPageViewModel(BookService bookService,
             SectionService sectionService, IRFIDManagerDialog rfidDialogService)
         {
             _BookService = bookService;
             _SectionService = sectionService;
             _RFIDDialogService = rfidDialogService;
-
-
-
+            
             items = new ObservableCollection<BookInfo>(_BookService.GetBooks());
             ItemsCollectionView = (ICollectionView)CollectionViewSource.GetDefaultView(items);
-
+            ItemsCollectionView.SortDescriptions.Add(new SortDescription("BookTitle", ListSortDirection.Ascending));
+     
             LoadSections();
             LoadSubjects();
         }
@@ -80,6 +76,7 @@ namespace ritchell.library.ui.ViewModel
         {
             _BookService.AddOrUpdateBook(ItemsCollectionView.CurrentItem as BookInfo);
             LoadSubjects();
+            ItemsCollectionView.Refresh();
         }
 
         public override void DeleteItemCommandHandler()
@@ -121,7 +118,8 @@ namespace ritchell.library.ui.ViewModel
                     {
                         _RFIDDialogService.Manage(this.ItemsCollectionView.CurrentItem as BookInfo);
                     },
-                    () => this.ItemsCollectionView.CurrentItem != null));
+                    () => this.ItemsCollectionView.CurrentItem != null
+                            && UserInterfaceState == WithEditableItems<BookInfo>.UIState.Standby));
             }
         }
     }

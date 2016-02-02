@@ -17,9 +17,6 @@ namespace ritchell.library.infrastructure.Hardware
         public event EventHandler<string> TagRead;
 
         public LongRangeRFID()
-        { }
-
-        public void StartReader()
         {
             _ComAddr = Convert.ToByte("FF", 16);
             _Baud = Convert.ToByte("5", 10);
@@ -29,7 +26,11 @@ namespace ritchell.library.infrastructure.Hardware
             {
                 throw new InvalidOperationException("Port cannot be opened. Long RFID");
             }
+        }
 
+        public void StartReader()
+        {
+         
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += Bw_DoWork;
             bw.WorkerReportsProgress = true;
@@ -86,7 +87,7 @@ namespace ritchell.library.infrastructure.Hardware
 
         public void StopReader()
         {
-            throw new NotImplementedException();
+            ContinueReading = false;
         }
     }
 }
