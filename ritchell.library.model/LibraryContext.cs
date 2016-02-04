@@ -48,6 +48,7 @@ namespace ritchell.library.model
             modelBuilder.Entity<BookInfo>().HasMany(b => b.BookCopies).WithRequired().HasForeignKey(bc => bc.BookInfoId);
 
             modelBuilder.Entity<BookCopy>().HasKey(bc => bc.Id);
+   
 
             modelBuilder.Entity<Section>().HasMany(s => s.BookInfos).WithRequired().HasForeignKey(b => b.SectionId);
 

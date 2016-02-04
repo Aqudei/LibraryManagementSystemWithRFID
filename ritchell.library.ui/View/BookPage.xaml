@@ -37,7 +37,9 @@
             </Border>
             <ListBox IsSynchronizedWithCurrentItem="True"
                      DisplayMemberPath="BookTitle" Width="300"
-                     ItemsSource="{Binding ItemsCollectionView}" FontSize="26.667" FontFamily="Simplified Arabic"/>
+                     ItemsSource="{Binding ItemsCollectionView}" 
+                     FontSize="26.667" 
+                     FontFamily="Simplified Arabic"/>
 
             <StackPanel  Orientation="Vertical"
                          Margin="10,0,0,32.96" 
@@ -69,7 +71,10 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock  Text="Call Number"/>
-                    <TextBox Text="{Binding ItemsCollectionView/CallNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Text="{Binding ItemsCollectionView/CallNumber, UpdateSourceTrigger=PropertyChanged}"
+                             Validation.ErrorTemplate="{StaticResource validationTemplate}"/>
+
+
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Section" />

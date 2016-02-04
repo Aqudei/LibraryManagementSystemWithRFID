@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ritchell.library.infrastructure;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace ritchell.library.model
 {
@@ -22,12 +24,19 @@ namespace ritchell.library.model
         public BookCopy()
         {
             Id = Guid.NewGuid();
+            AcquisitionNumber = 1;
         }
 
+        [Index(IsUnique = true)]
+        [StringLength(256)]
         public string BookTagShort { get; set; }
+
+        [Index(IsUnique = true)]
+        [StringLength(256)]
         public string BookTagLong { get; set; }
         public Guid BookInfoId { get; set; }
 
+        [Index(IsUnique = true)]
         public int AcquisitionNumber { get; set; }
         public bool IsBorrowed { get; set; }
     }

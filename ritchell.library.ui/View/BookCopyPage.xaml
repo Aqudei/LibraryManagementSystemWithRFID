@@ -55,14 +55,26 @@
             </ListView>
 
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="10,0">
+
                 <TextBlock Margin="0,4" FontSize="24"><Run Text="Short"/><Run Text="-Range"/><Run Text=" "/><Run Text="RFID  Tag"/></TextBlock>
                 <TextBox IsReadOnly="True" Text="{Binding RFIDShort, Mode=TwoWay}" Margin="0,4" FontSize="24" />
                 <TextBlock Margin="0,4" FontSize="24"><Run Text="Long"/><Run Text="-Range"/><Run Text=" "/><Run Text="RFID  Tag"/></TextBlock>
                 <TextBox IsReadOnly="True" Text="{Binding RFIDLong, Mode=TwoWay}" Margin="0,4" FontSize="24"/>
-                <TextBlock Margin="0,4" FontSize="24" Text="Acquisition Number"/>
-                <TextBox Text="{Binding AcquisitionNumber, Mode=TwoWay}" 
+                <TextBlock x:Name="textBlock" Margin="0,4" FontSize="24" Text="Acquisition Number"/>
+                <TextBox x:Name="AcquitionTextBox"
+                         Text="{Binding AcquisitionNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
                          Margin="0,4" 
-                         FontSize="24"/>
+                         FontSize="24">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <Trigger Property="Validation.HasError" Value="True">
+                                    <Setter Property="ToolTip"  Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
                 <Button Command="{Binding AddBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Add</Button>
                 <Button Command="{Binding DeleteBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Delete</Button>
             </StackPanel>

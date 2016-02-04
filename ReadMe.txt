@@ -19,9 +19,10 @@ ALREADY DONE
 
 TODO LIST
 
+- messagebox if entering letters in acquisition number
 - messagebox for successfully saving acquisitions
 - error messagebox for saving duplicate acquisitions
-- messagebox if entering letters in call number and acquisition number
+
 - search books by title in books'listview
 - in Users, search by lastname in listview
 - Acquisition in listview ha managerfid form

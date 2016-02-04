@@ -13,6 +13,8 @@ namespace ritchell.library.model.Services
         {
             using (var uow = new LibUnitOfWork())
             {
+
+
                 uow.BookCopyRepository.Add(bookCopy);
                 uow.SaveChanges();
             }
@@ -20,9 +22,9 @@ namespace ritchell.library.model.Services
 
         public BookCopy FindById(object Id)
         {
-            using (var repo = new BookCopyRepository())
+            using (var bookCopyRepo = new BookCopyRepository())
             {
-                return repo.FindById(Id);
+                return bookCopyRepo.FindById(Id);
             }
         }
 
