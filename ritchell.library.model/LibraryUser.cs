@@ -1,6 +1,8 @@
 ﻿using System;
 using ritchell.library.infrastructure;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace ritchell.library.model
 {
@@ -51,7 +53,7 @@ namespace ritchell.library.model
         }
 
         public string UserRFIDTag { get; set; }
-
+             
         public string Username { get; set; }
 
         string _Password;

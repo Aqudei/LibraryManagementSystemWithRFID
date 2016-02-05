@@ -13,6 +13,7 @@ using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model;
 using ritchell.library.model.Services;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -114,17 +115,25 @@ namespace ritchell.library.ui.ViewModel
                             ItemsCollectionView.MoveCurrentTo(newBookCopy);
                             BookCopyService.AddBookCopy(newBookCopy);
                             ItemsCollectionView.Refresh();
+                            DialogService.ShowMessageBox("Successfully added record(s)", "Ok");
                         }
                         catch (Exception ex)
                         {
                             _Error = ex.Message;
+                            DialogService.ShowMessageBox(ex.StackTrace, "Error Saving...");
                         }
-
                     },
                     () => CanSave));
             }
         }
 
+        public IDialogService DialogService
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstance<IDialogService>();
+            }
+        }
 
 
         /// <summary>

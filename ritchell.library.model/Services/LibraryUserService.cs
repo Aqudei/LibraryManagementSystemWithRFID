@@ -81,6 +81,12 @@ namespace ritchell.library.model.Services
             {
                 var libUser = uow.LibraryUserRepository.FindById(libraryUser.Id);
 
+                var _libuser = uow.LibraryUserRepository.FindByUsername(libraryUser.Username);
+                if (_libuser != null && _libuser.Id != libraryUser.Id)
+                {
+                    throw new InvalidOperationException("Username already exists");
+                }
+
                 if (libUser == null)
                     uow.LibraryUserRepository.Add(libraryUser);
                 else

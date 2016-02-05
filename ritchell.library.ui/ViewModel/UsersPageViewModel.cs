@@ -7,6 +7,8 @@ using System.Windows.Data;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using GalaSoft.MvvmLight.Views;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -111,18 +113,13 @@ namespace ritchell.library.ui.ViewModel
 
         protected override void SaveItemCommandHandler()
         {
-            try
-            {
-                var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
-                _LibraryUserService.AddOrUpdateLibraryUser(currentUser);
-                ItemsCollectionView.Refresh();
-                PasswordCopy = "";
-            }
-            catch (Exception ex)
-            {
-
-            }
+            var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
+            _LibraryUserService.AddOrUpdateLibraryUser(currentUser);
+            ItemsCollectionView.Refresh();
+            PasswordCopy = "";
         }
+
+
 
         public override void EditItemCommandHandler()
         {

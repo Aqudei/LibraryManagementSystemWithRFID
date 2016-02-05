@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using ritchell.library.reporting;
 using ritchell.library.presentation.common.ViewServices;
 using System;
+using GalaSoft.MvvmLight.Views;
+using System.Threading.Tasks;
 
 namespace ritchell.library.ui
 {
@@ -14,7 +16,7 @@ namespace ritchell.library.ui
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window,
-        IRFIDManagerDialog, IReportDialogParent, IWindow
+        IRFIDManagerDialog, IReportDialogParent, IWindow, IDialogService
     {
         ReportViewerService _ReportViewerService;
 
@@ -27,6 +29,7 @@ namespace ritchell.library.ui
 
             Loaded += (s, e) =>
             {
+                SimpleIoc.Default.Register<IDialogService>(() => this);
                 SimpleIoc.Default.Register<IRFIDManagerDialog>(() => this);
                 SimpleIoc.Default.Register<IReportDialogParent>(() => this);
                 SimpleIoc.Default.Register(() => LayoutRoot.NavigationService);
@@ -95,5 +98,36 @@ namespace ritchell.library.ui
 
         public void CloseWindow()
         { }
+
+        public Task ShowError(string message, string title, string buttonText, Action afterHideCallback)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ShowError(Exception error, string title, string buttonText, Action afterHideCallback)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ShowMessage(string message, string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ShowMessage(string message, string title, string buttonText, Action afterHideCallback)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ShowMessage(string message, string title, string buttonConfirmText, string buttonCancelText, Action<bool> afterHideCallback)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ShowMessageBox(string message, string title)
+        {
+            MessageBox.Show(message, title);
+            return null;
+        }
     }
 }

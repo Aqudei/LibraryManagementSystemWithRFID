@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Views;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -65,10 +67,27 @@ namespace ritchell.library.ui.ViewModel
                     ?? (_SaveNewItemCommand = new RelayCommand(
                     () =>
                     {
-                        SaveItemCommandHandler();
-                        UserInterfaceState = UIState.Standby;
+                        try
+                        {
+                            SaveItemCommandHandler();
+                            UserInterfaceState = UIState.Standby;
+                            DialogService.ShowMessageBox("Records successfully updated","OK");
+                        }
+                        catch (Exception ex)
+                        {
+                            DialogService.ShowMessageBox(ex.Message, "Error");
+                        }
+
                     },
                     () => (UserInterfaceState == UIState.Adding || UserInterfaceState == UIState.Editing) && InputFieldsAreValid()));
+            }
+        }
+
+        public IDialogService DialogService
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstance<IDialogService>();
             }
         }
 
