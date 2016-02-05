@@ -161,7 +161,7 @@ namespace ritchell.library.ui.ViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<BookCopyPageViewModel>();
+                return SimpleIoc.Default.GetInstanceWithoutCaching<BookCopyPageViewModel>();
             }
         }
 
