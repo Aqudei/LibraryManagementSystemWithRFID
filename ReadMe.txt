@@ -18,7 +18,9 @@ ALREADY DONE
 - messagebox if entering letters in acquisition number *
 - messagebox for successfully saving acquisitions *
 - error messagebox for saving duplicate acquisitions *
-gah alayon nla lwt ak pagbutang messagebox kun an username already exists..kay pra sure na waray mgkakapareho..malilipat mn an system kun preho username db? kay bngn la ba may student ea name joy, tpos himuon nea username ea name na joy, then ea password joy la ghp pra dri hea malipat.. then myda student na mary joy an name, karuyag ghp nea joy an ea username taz joy an ea password..mlilipat daw an system kun anu ea i.reretrieve..db?..hehe *
+- gah alayon nla lwt ak pagbutang messagebox kun an username already exists..kay pra sure na waray mgkakapareho..malilipat mn an system kun preho username db? kay bngn la ba may student ea name joy, tpos himuon nea username ea name na joy, then ea password joy la ghp pra dri hea malipat.. then myda student na mary joy an name, karuyag ghp nea joy an ea username taz joy an ea password..mlilipat daw an system kun anu ea i.reretrieve..db?..hehe *
+- reset manage rfid values upon closed (remove recent read tag)
+
 
 TODO LIST
 

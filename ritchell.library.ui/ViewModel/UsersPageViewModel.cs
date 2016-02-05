@@ -87,9 +87,12 @@ namespace ritchell.library.ui.ViewModel
             if (current == null)
                 return false;
 
-            if (current.DepartmentId == null)
-                return false;
-
+            if (current.LibraryUserType == LibraryUser.UserType.Student || current.LibraryUserType == LibraryUser.UserType.Instructor)
+            {
+                if (current.DepartmentId == null)
+                    return false;
+            }
+            
             if (string.IsNullOrEmpty(current.Password))
                 return false;
 
@@ -118,9 +121,7 @@ namespace ritchell.library.ui.ViewModel
             ItemsCollectionView.Refresh();
             PasswordCopy = "";
         }
-
-
-
+        
         public override void EditItemCommandHandler()
         {
 
