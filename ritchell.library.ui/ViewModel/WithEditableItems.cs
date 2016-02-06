@@ -71,7 +71,7 @@ namespace ritchell.library.ui.ViewModel
                         {
                             SaveItemCommandHandler();
                             UserInterfaceState = UIState.Standby;
-                            DialogService.ShowMessageBox("Records successfully updated","OK");
+                            DialogService.ShowMessageBox("Records successfully updated", "OK");
                         }
                         catch (Exception ex)
                         {
@@ -187,5 +187,19 @@ namespace ritchell.library.ui.ViewModel
         }
 
         public abstract void EditItemCommandHandler();
+
+        private string _FilterString;
+
+        public string FilterString
+        {
+            get { return _FilterString; }
+            set
+            {
+                _FilterString = value;
+                RaisePropertyChanged(() => FilterString);
+            }
+        }
+
+
     }
 }

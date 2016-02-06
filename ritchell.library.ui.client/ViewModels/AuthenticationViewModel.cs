@@ -39,6 +39,7 @@ namespace ritchell.library.ui.client.ViewModels
                         MessageToUser = "Welcome " + currentLibraryUser.Fullname;
                         RaiseUserEvent(UserEvent.UserEventType.Login, CurrentUser);
                         IsAuthenticated = true;
+                        IsStudent = CurrentUser.LibraryUserType == LibraryUser.UserType.Student;
                     }
                     else {
                         IsAuthenticated = false;
@@ -74,6 +75,7 @@ namespace ritchell.library.ui.client.ViewModels
                     Password = "";
                     MessageToUser = "";
                     IsAuthenticated = false;
+                    IsStudent = false;
                     RaiseUserEvent(UserEvent.UserEventType.Login, CurrentUser);
                 }, () => IsAuthenticated);
             }
@@ -142,7 +144,17 @@ namespace ritchell.library.ui.client.ViewModels
                 RaisePropertyChanged(() => IsNotAuthenticated);
             }
         }
+        private bool _IsStudent;
 
+        public bool IsStudent
+        {
+            get { return _IsStudent; }
+            set
+            {
+                _IsStudent = value;
+                RaisePropertyChanged(() => IsStudent);
+            }
+        }
         public bool IsNotAuthenticated
         {
             get { return !IsAuthenticated; }

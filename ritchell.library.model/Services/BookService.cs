@@ -50,7 +50,7 @@ namespace ritchell.library.model.Services
             }
         }
 
-        public IEnumerable<string> GetDistincSubjects()
+        public IEnumerable<string> GetDistinctSubjects()
         {
             using (var bookInfoRepo = new BookInfoRepository())
             {

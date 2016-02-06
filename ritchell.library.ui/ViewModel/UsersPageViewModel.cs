@@ -164,5 +164,16 @@ namespace ritchell.library.ui.ViewModel
                 return (currentUser != null) && (currentUser.LibraryUserType == LibraryUser.UserType.Student);
             }
         }
+
+        public bool DepartmentApplicable
+        {
+            get
+            {
+                var currentUser = ItemsCollectionView.CurrentItem as LibraryUser;
+
+                return (currentUser != null) && (currentUser.LibraryUserType == LibraryUser.UserType.Student || currentUser.LibraryUserType == LibraryUser.UserType.Instructor);
+            }
+        }
+
     }
 }

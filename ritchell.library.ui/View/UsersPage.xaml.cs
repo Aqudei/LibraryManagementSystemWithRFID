@@ -25,7 +25,7 @@ namespace ritchell.library.ui.View
             InitializeComponent();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UserTypesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             (DataContext as ViewModel.UsersPageViewModel).UpdateEnabledDisabled();
         }

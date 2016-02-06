@@ -14,14 +14,24 @@
                          Width="176" Margin="10,0"/>
                 <Button Content="Search" Command="{Binding StartSearch}" Margin="10,0"/>
             </StackPanel>
-            <ListView DockPanel.Dock="Bottom"  
-                     ItemsSource="{Binding BookSearchResult}" FontSize="16">
+            <ListView DockPanel.Dock="Bottom"    
+                      ItemsSource="{Binding BookSearchResult}"
+                      FontSize="16" HorizontalContentAlignment="Stretch">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Book Title" DisplayMemberBinding="{Binding BookInfo.BookTitle}"/>
                         <GridViewColumn Header="Section" DisplayMemberBinding="{Binding Section.Name}"/>
                         <GridViewColumn Header="Author"  DisplayMemberBinding="{Binding BookInfo.Author}"/>
                         <GridViewColumn Header="Subject"  DisplayMemberBinding="{Binding BookInfo.Subject}"/>
+                        <GridViewColumn Header="Call Number" DisplayMemberBinding="{Binding BookInfo.CallNumber}" />
+                        <GridViewColumn Header="Number Of Copies" DisplayMemberBinding="{Binding NumberOfCopies}" />
+                        <GridViewColumn Header="On Stock"  
+                                        DisplayMemberBinding="{Binding AvailableCopies}" />
                     </GridView>
                 </ListView.View>
             </ListView>

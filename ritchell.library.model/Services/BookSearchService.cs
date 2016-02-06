@@ -14,22 +14,30 @@ namespace ritchell.library.model.Services
         {
 
         }
+
+        public IEnumerable<BookSearchResultDTO> Search()
+        {
+            return Search("");
+        }
+
         public IEnumerable<BookSearchResultDTO> Search(string keyword)
         {
             List<BookSearchResultDTO> bookSearchDTO = new List<BookSearchResultDTO>();
-            using (var sectionRepo = new SectionRepository())
-            using (var bookInfoRepo = new BookInfoRepository())
+
+            using(var uow = new LibUnitOfWork())
             {
-                var books = bookInfoRepo.SearchForBooks(keyword);
+                var books = uow.BookInfoRepository.SearchForBooks(keyword);
 
                 foreach (var book in books)
                 {
-                    var section = sectionRepo.GetBookSection(book);
+                    var section = uow.SectionRepository.GetBookSection(book);
                     var booksearch = new BookSearchResultDTO
                     {
                         BookInfo = book,
                         Section = section
                     };
+                    booksearch.AvailableCopies = uow.BookInfoRepository.GetNumberOfAvailableCopies(book);
+                    booksearch.NumberOfCopies = uow.BookInfoRepository.GetNumberOfCopies(book);
                     bookSearchDTO.Add(booksearch);
                 }
 

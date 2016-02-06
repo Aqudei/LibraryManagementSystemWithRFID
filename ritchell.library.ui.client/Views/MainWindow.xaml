@@ -84,7 +84,15 @@
             <Button Style="{DynamicResource ClientMenuButtonStyle}" 
                     FontSize="24" Margin="5,0" 
                     Command="{Binding OpenWindowCommand, Mode=OneWay}"
-                    CommandParameter="{x:Static win:WindowNames.PaymentWindow}" Content="My Payments">
+                    CommandParameter="{x:Static win:WindowNames.PaymentWindow}" Content="My Payments"
+                    Visibility="{Binding AuthenticationViewModel.IsStudent, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Style="{DynamicResource ClientMenuButtonStyle}"
+            	FontSize="24" Margin="5,0" 
+            	Content="My Transactions" >
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>

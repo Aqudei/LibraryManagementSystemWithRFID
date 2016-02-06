@@ -50,7 +50,7 @@ namespace ritchell.library.ui.ViewModel
 
         private void LoadSubjects()
         {
-            Subjects = new ObservableCollection<string>(_BookService.GetDistincSubjects());
+            Subjects = new ObservableCollection<string>(_BookService.GetDistinctSubjects());
         }
 
         private void LoadSections()

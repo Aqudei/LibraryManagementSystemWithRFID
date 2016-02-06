@@ -20,7 +20,10 @@ namespace ritchell.library.ui.client.ViewModels
         /// Initializes a new instance of the SearchBooksViewModel class.
         /// </summary>
         public SearchBooksViewModel()
-        { }
+        {
+            var rslt = _BookSearchService.Search();
+            BookSearchResult = new ObservableCollection<BookSearchResultDTO>(rslt);
+        }
 
         private BookSearchService _BookSearchService
         {
@@ -61,7 +64,7 @@ namespace ritchell.library.ui.client.ViewModels
                         var rslt = _BookSearchService.Search(Keyword);
                         BookSearchResult = new ObservableCollection<BookSearchResultDTO>(rslt);
                     },
-                    () => !string.IsNullOrEmpty(Keyword)));
+                    () => true));
             }
         }
 

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" d:DesignHeight="806.613" d:DesignWidth="759.273"
       xmlns:wpf="clr-namespace:ritchell.library.ui.WPF"
-	  Title="UsersPage" DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}"
+	  Title="UsersPage"  DataContext="{Binding UsersPageViewModel, Source={StaticResource Locator}}"
       FontSize="24" 
       FontFamily="Centaur">
 
@@ -30,15 +30,18 @@
                             HorizontalAlignment="Left" 
                             Margin="5,0"
                             Style="{DynamicResource CrudButtonStyle}"/>
+                    
                     <Button Command="{Binding EditItemCommand}" 
                             Content="Edit" 
                             HorizontalAlignment="Left" 
                             Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                    
                     <Button Command="{Binding DeleteItemCommand}" 
                             Content="Delete"
                             HorizontalAlignment="Left" 
                             Margin="5,0" 
                             Style="{DynamicResource CrudButtonStyle}"/>
+                    
                     <Button Command="{Binding SaveItemCommand}" 
                             Content="Save"
                             HorizontalAlignment="Left" 
@@ -72,10 +75,11 @@
                              MaxLength="1"/>
                     <TextBlock><Run Text="Last Name"/></TextBlock>
                     <TextBox Text="{Binding ItemsCollectionView/LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                    
                     <TextBlock><Run Text="User Type"/></TextBlock>
                     <ComboBox ItemsSource="{Binding UserTypes}"
-            			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}" SelectionChanged="ComboBox_SelectionChanged"/>
-                    
+            			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}" SelectionChanged="UserTypesComboBox_SelectionChanged"/>
+
                     <TextBlock Text="Department"/>
                     <ComboBox ItemsSource="{Binding DepartmentSource}"
             			SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
@@ -105,10 +109,7 @@
             			wpf:PasswordHelper.Password="{Binding PasswordCopy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 </StackPanel>
-
             </ScrollViewer>
-
         </DockPanel>
-
     </Grid>
 </Page>

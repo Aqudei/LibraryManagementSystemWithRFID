@@ -17,6 +17,16 @@ namespace ritchell.library.model.Repositories
         public BookInfoRepository() : this(new LibraryContext())
         { }
 
+        public int GetNumberOfCopies(BookInfo bookInfo)
+        {
+            return _Context.Set<BookCopy>().Where(b => b.BookInfoId == bookInfo.Id).Count();
+        }
+
+        public int GetNumberOfAvailableCopies(BookInfo bookInfo)
+        {
+            return _Context.Set<BookCopy>().Where(b => b.BookInfoId == bookInfo.Id && b.IsBorrowed == false).ToList().Count();
+        }
+
         public BookInfo BookInfoOf(BookCopy bookCopy)
         {
             return _Context.Set<BookInfo>().Where(b => b.Id.Equals(bookCopy.BookInfoId)).SingleOrDefault();
@@ -24,11 +34,16 @@ namespace ritchell.library.model.Repositories
 
         public IEnumerable<BookInfo> SearchForBooks(string keyword)
         {
-            var lowered_keyword = keyword.ToLower();
+            if (string.IsNullOrEmpty(keyword))
+                return _Context.Set<BookInfo>().ToList();
+            else
+            {
+                var lowered_keyword = keyword.ToLower();
 
-            return _Context.Set<BookInfo>().Where(b => b.BookTitle.ToLower().Contains(lowered_keyword) ||
-                b.Author.ToLower().Contains(lowered_keyword) || b.Copyright.ToString().ToLower().Contains(lowered_keyword) ||
-                b.Subject.ToLower().Contains(lowered_keyword));
+                return _Context.Set<BookInfo>().Where(b => b.BookTitle.ToLower().Contains(lowered_keyword) ||
+                    b.Author.ToLower().Contains(lowered_keyword) || b.Copyright.ToString().ToLower().Contains(lowered_keyword) ||
+                    b.Subject.ToLower().Contains(lowered_keyword)).ToList();
+            }
         }
 
         #region IDisposable Support
