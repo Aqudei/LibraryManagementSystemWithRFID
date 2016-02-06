@@ -138,7 +138,8 @@ namespace ritchell.library.ui.client.ViewModels
                     {
                         DialogService.ShowMessage(ex.Message, "");
                     }
-
+                    AdminUsername = "";
+                    AdminPassword = "";
                 },
                 () => LibraryTransactionsAggregate.RequiredFee > 0
                         && !string.IsNullOrEmpty(AdminUsername)
@@ -158,11 +159,11 @@ namespace ritchell.library.ui.client.ViewModels
                         {
                             transaction.Execute();
                         }
-                        DialogService.ShowMessageBox("Transaction(s) Completed...", "");
+                        DialogService.ShowMessage("Transaction(s) Completed...", "");
                     }
                     catch (Exception ex)
                     {
-                        DialogService.ShowMessageBox(ex.Message, "");
+                        DialogService.ShowMessage(ex.Message, "");
                         Debug.WriteLine("{0} @ ProceedWithTransactionCommand", ex.Message);
                     }
                 }, () => LibraryTransactionsAggregate.LibraryTransactions.Count > 0);

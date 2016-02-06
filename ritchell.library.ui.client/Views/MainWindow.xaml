@@ -80,10 +80,10 @@
             <Button Style="{DynamicResource ClientMenuButtonStyle}" 
                     FontSize="24" Margin="5,0" 
                     Command="{Binding OpenWindowCommand, Mode=OneWay}"
-                    CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}">
+                    CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Content="My Payments">
                 <Button.Effect>
                     <DropShadowEffect/>
-                </Button.Effect> Payments
+                </Button.Effect>
             </Button>
             <Button Style="{DynamicResource ClientMenuButtonStyle}"
                     FontSize="24" Margin="5,0" 
@@ -93,10 +93,15 @@
                     <DropShadowEffect/>
                 </Button.Effect> Search Books
             </Button>
-            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24" Margin="5,0" Command="{Binding OpenWindowCommand, Mode=OneWay}">
+            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24" Margin="5,0" Command="{Binding OpenWindowCommand, Mode=OneWay}" Content="My Transactions">
                 <Button.Effect>
                     <DropShadowEffect/>
-                </Button.Effect> Misc
+                </Button.Effect>
+            </Button>
+            <Button Style="{DynamicResource ClientMenuButtonStyle}" FontSize="24" Margin="5,0" Command="{Binding OpenWindowCommand, Mode=OneWay}" Content="Misc">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
             </Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2">
@@ -121,13 +126,12 @@
             <Button Content="Proceed" Style="{DynamicResource ButtonStyle1}" Margin="10,5" Command="{Binding ProceedWithTransactionCommand, Mode=OneWay}"/>
             <Button Content="Clear Transactions" Style="{DynamicResource ButtonStyle1}" Margin="10,5" Command="{Binding ClearTransactionsCommand, Mode=OneWay}"/>
         </StackPanel>
-        <TextBlock 
-                   Padding="10"
+        <TextBlock Padding="10"
                    x:Name="textBlockMessage" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Center" 
                    HorizontalAlignment="Stretch"
                    FontFamily="Arial Black"
-                   FontSize="28" Background="Black" Foreground="#FFDAE402" FontWeight="Bold" Visibility="Collapsed" Grid.ColumnSpan="2" Margin="0,233,0,35" Grid.Row="1" />
+                   FontSize="28" Background="Black" Foreground="#FFDAE402" FontWeight="Bold" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.Row="1" />
     </Grid>
 </Window>

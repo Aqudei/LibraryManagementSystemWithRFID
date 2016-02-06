@@ -53,8 +53,8 @@
                     <ComboBox ItemsSource="{Binding UserTypes}"
             			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"/>
                     <TextBlock Text="Department"/>
-                    <ComboBox ItemsSource="{Binding UserTypes}"
-            			SelectedValue="{Binding ItemsCollectionView/LibraryUserType}"
+                    <ComboBox ItemsSource="{Binding DepartmentSource}"
+            			SelectedValue="{Binding ItemsCollectionView/DepartmentId}"
             			SelectedValuePath="Id"
             			DisplayMemberPath="ShortName"/>
                     <TextBlock><Run Text="Birthday"/></TextBlock>

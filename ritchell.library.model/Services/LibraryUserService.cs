@@ -38,6 +38,9 @@ namespace ritchell.library.model.Services
         public LibraryUser GetAuthenticatedAdmin(string username, string password)
         {
             var libUser = GetAuthenticatedUser(username, password);
+            if (libUser == null)
+                throw new InvalidOperationException("Invalid credentials");
+
             if (libUser.LibraryUserType == LibraryUser.UserType.Admin)
                 return libUser;
             else

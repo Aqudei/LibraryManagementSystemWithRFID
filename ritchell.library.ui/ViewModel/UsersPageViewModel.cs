@@ -23,6 +23,7 @@ namespace ritchell.library.ui.ViewModel
         private string _PasswordCopy;
         private DepartmentService _DepartmentService;
 
+        
         /// <summary>
         /// Initializes a new instance of the UsersPageViewModel class.
         /// </summary>

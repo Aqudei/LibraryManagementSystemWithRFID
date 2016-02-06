@@ -36,6 +36,8 @@ namespace ritchell.library.model.LibraryTransactions
             var admin = UserService.GetAuthenticatedAdmin(adminUsername, adminPassword);
             if (admin != null)
                 CompletePayment();
+            else
+                throw new InvalidOperationException("Invalid admin username and password.");
         }
 
         private void CompletePayment()
