@@ -57,9 +57,9 @@ namespace ritchell.library.ui.ViewModel
             {
                 return _CompletePaymentCommand
                     ?? (_CompletePaymentCommand = new RelayCommand<Payable>(
-                    (ti) =>
+                    (transInfo) =>
                     {
-                        _PaymentService.CompletePayment(ti);
+                        _PaymentService.CompletePayment(transInfo);
                         RefreshPayables();
                     },
                     (ti) => true));

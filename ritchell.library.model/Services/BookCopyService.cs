@@ -13,7 +13,16 @@ namespace ritchell.library.model.Services
         {
             using (var uow = new LibUnitOfWork())
             {
+                var existing = uow.BookCopyRepository.FindByLongRangeRFId(bookCopy.BookTagLong);
+                if (existing != null)
+                    throw new InvalidOperationException("That long-ranged RFID tag is already used");
 
+                existing = uow.BookCopyRepository.FindByShortRangeRFId(bookCopy.BookTagShort);
+                if (existing != null)
+                    throw new InvalidOperationException("That short-ranged RFID tag is already used");
+
+                if (uow.BookCopyRepository.Where(bc => bc.AcquisitionNumber == bookCopy.AcquisitionNumber).Any())
+                    throw new InvalidOperationException("Duplicate in Acquisition Number!");
 
                 uow.BookCopyRepository.Add(bookCopy);
                 uow.SaveChanges();
