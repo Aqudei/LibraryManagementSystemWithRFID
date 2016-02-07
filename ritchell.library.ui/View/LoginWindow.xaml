@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.View"
         mc:Ignorable="d"  xmlns:wpf="clr-namespace:ritchell.library.ui.WPF" WindowStartupLocation="CenterScreen"
-        Title="LoginWindow" Height="205.397" Width="403.367" FontFamily="Centaur" FontSize="18.667" Padding="10" SizeToContent="Height">
+        Title="LoginWindow" Height="205.397" Width="403.367" FontFamily="Centaur" FontSize="18.667" Padding="10" SizeToContent="Height"
+        FocusManager.FocusedElement="{Binding ElementName=UserameTextBox}">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10">
             <Label x:Name="label" Content="Username"/>
-            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Grid.ColumnSpan="3"/>
+            <TextBox x:Name="UserameTextBox" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Grid.ColumnSpan="3"/>
             <Label x:Name="label_Copy" Content="Password"/>
             <PasswordBox wpf:PasswordHelper.Attach="True" wpf:PasswordHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3" Margin="-1,0,1,0"/>
             <Button  Content="Login" Grid.ColumnSpan="3" HorizontalAlignment="Right" Margin="0,10,0,0" Command="{Binding LoginCommand}" Click="ButtonLogin_Click"/>

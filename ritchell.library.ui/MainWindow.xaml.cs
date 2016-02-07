@@ -121,7 +121,9 @@ namespace ritchell.library.ui
 
         public Task<bool> ShowMessage(string message, string title, string buttonConfirmText, string buttonCancelText, Action<bool> afterHideCallback)
         {
-            throw new NotImplementedException();
+            var rslt = MessageBox.Show(message, title, MessageBoxButton.YesNo);
+            afterHideCallback(rslt == MessageBoxResult.Yes);
+            return new Task<bool>(() => rslt == MessageBoxResult.Yes);
         }
 
         public Task ShowMessageBox(string message, string title)

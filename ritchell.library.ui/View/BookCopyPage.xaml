@@ -5,12 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="497.088" d:DesignWidth="865.219"
-        Title="BookCopyPage"
+      Title="BookCopyPage"
       DataContext="{Binding BookCopyPageViewModel, Source={StaticResource Locator}}">
 
     <Grid>
-        <DockPanel>
-
+        <DockPanel  Margin="10">
             <Border DockPanel.Dock="Top">
                 <ContentControl Content="{Binding CurrentBook}">
                     <ContentControl.ContentTemplate>
@@ -28,26 +27,25 @@
 
                 <ListView.View>
                     <GridView>
-                        <GridView.Columns>
-                            <GridViewColumn Header="RFID Short" Width="200" >
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding BookTagShort}" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
+                        <GridViewColumn Header="Acquisition Number"
+                                        Width="150" DisplayMemberBinding="{Binding AcquisitionNumber}"/>
+                        <GridViewColumn Header="RFID Short" Width="200" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BookTagShort}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
 
-                            </GridViewColumn>
+                        </GridViewColumn>
 
-                            <GridViewColumn Header="RFID Long" Width="250" >
+                        <GridViewColumn Header="RFID Long" Width="250" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BookTagLong}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
 
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding BookTagLong}" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-
-                            </GridViewColumn>
-                        </GridView.Columns>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
 

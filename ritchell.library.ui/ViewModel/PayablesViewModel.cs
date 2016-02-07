@@ -7,6 +7,7 @@ using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,19 @@ namespace ritchell.library.ui.ViewModel
     {
         private PaymentService _PaymentService;
         private ObservableCollection<Payable> _Payables;
+
+        private ICollectionView _PayablesCollectionView;
+
+        public ICollectionView PayablesCollectionView
+        {
+            get { return _PayablesCollectionView; }
+            set
+            {
+                _PayablesCollectionView = value;
+                RaisePropertyChanged(() => PayablesCollectionView);
+            }
+        }
+
 
         public PayablesViewModel(PaymentService paymentService)
         {
