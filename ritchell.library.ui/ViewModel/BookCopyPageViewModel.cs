@@ -120,7 +120,7 @@ namespace ritchell.library.ui.ViewModel
                         catch (Exception ex)
                         {
                             _Error = ex.Message;
-                            DialogService.ShowMessageBox(ex.StackTrace, "Error Saving...");
+                            DialogService.ShowMessageBox(ex.Message, "Error Saving...");
                         }
                     },
                     () => CanSave));
