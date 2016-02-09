@@ -4,6 +4,8 @@ using ritchell.library.model;
 using ritchell.library.model.LibraryTransactions;
 using System.Collections.ObjectModel;
 using System;
+using GalaSoft.MvvmLight.Views;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -42,8 +44,16 @@ namespace ritchell.library.ui.ViewModel
                     ?? (_ReturnApplyPayment = new RelayCommand<ReturnBookDTO>(
                     (r) =>
                     {
-                        r.TransactionInfo.Execute();
-                        RefreshList();
+                        DialogService.ShowMessage("Do you want to continue?\n\nBook: "
+                            + r.BookInfo.BookTitle + "\n"
+                            + "User: " + r.LibraryUser.Fullname, "Please confirm", "Proceed", "Cancel", (x) =>
+                          {
+                              if (x == true)
+                              {
+                                  r.TransactionInfo.Execute();
+                                  RefreshList();
+                              }
+                          });
                     },
                     (r) => true));
             }
@@ -64,6 +74,11 @@ namespace ritchell.library.ui.ViewModel
                 _BooksToBeReturned = value;
                 RaisePropertyChanged(() => BooksToBeReturned);
             }
+        }
+
+        private IDialogService DialogService
+        {
+            get { return SimpleIoc.Default.GetInstance<IDialogService>(); }
         }
     }
 }

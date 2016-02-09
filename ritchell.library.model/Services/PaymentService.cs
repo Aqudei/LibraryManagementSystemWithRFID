@@ -102,7 +102,6 @@ namespace ritchell.library.model.LibraryTransactions
             var books = _BookCopyService.GetBorrowedBooks();
             foreach (var book in books)
             {
-
                 var bookInfo = _BookInfoService.BookInfoOf(book);
                 var lastTrans = _BookTransactionInfoRepository.GetLastBookTransaction(book.Id);
                 if (lastTrans != null)
@@ -111,8 +110,7 @@ namespace ritchell.library.model.LibraryTransactions
                     var user = _LibraryUserService.FindById(lastTrans.LibraryUserId);
                     if (user.LibraryUserType == LibraryUser.UserType.Student)
                     {
-                        var trans = new ReturnBookTransaction(book, lastTrans);
-                        trans.CompletePayment();
+                        var trans = new JustReturnBookTransaction(book, lastTrans);
                         libTrans.Add(new ReturnBookDTO
                         {
                             TransactionInfo = trans,

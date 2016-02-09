@@ -121,6 +121,5 @@ namespace ritchell.library.model.LibraryTransactions
                 return totalFee;
             }
         }
-
     }
 }

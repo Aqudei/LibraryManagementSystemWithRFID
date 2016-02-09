@@ -109,8 +109,10 @@
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2"
                     Visibility="{Binding AuthenticationViewModel.IsAuthenticated, Converter={StaticResource BooleanToVisibilityConverter}}">
             <TextBlock FontSize="26.667" FontWeight="Bold" FontFamily="Times New Roman" Margin="10,0,0,0" Text="Scan a book..."/>
-            <ItemsControl  ItemsSource="{Binding LibraryTransactionsAggregate.LibraryTransactions}" 
-                          Height="89.559" Margin="20,10" />
+
+            <ScrollViewer>
+                <ItemsControl  ItemsSource="{Binding LibraryTransactionsAggregate.LibraryTransactions}" Margin="20,10" />
+            </ScrollViewer>
 
         </StackPanel>
 

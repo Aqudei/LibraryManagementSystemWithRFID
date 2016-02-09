@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 using ritchell.library.model;
 using ritchell.library.model.LibraryTransactions;
 using ritchell.library.model.Services;
@@ -30,7 +31,6 @@ namespace ritchell.library.ui.ViewModel
                 RaisePropertyChanged(() => PayablesCollectionView);
             }
         }
-
 
         public PayablesViewModel(PaymentService paymentService)
         {
@@ -73,8 +73,16 @@ namespace ritchell.library.ui.ViewModel
                     ?? (_CompletePaymentCommand = new RelayCommand<Payable>(
                     (transInfo) =>
                     {
-                        _PaymentService.CompletePayment(transInfo);
-                        RefreshPayables();
+                        DialogService.ShowMessage("Do you want to continue?\n\nBook: "
+                         + transInfo.BookInvolved + "\n"
+                         + "User: " + transInfo.UserInvolved, "Please confirm", "Proceed", "Cancel", (x) =>
+                         {
+                             if (x == true)
+                             {
+                                 _PaymentService.CompletePayment(transInfo);
+                                 RefreshPayables();
+                             }
+                         });
                     },
                     (ti) => true));
             }
@@ -111,6 +119,11 @@ namespace ritchell.library.ui.ViewModel
                 _Payables = value;
                 RaisePropertyChanged(() => Payables);
             }
+        }
+
+        private IDialogService DialogService
+        {
+            get { return SimpleIoc.Default.GetInstance<IDialogService>(); }
         }
     }
 }

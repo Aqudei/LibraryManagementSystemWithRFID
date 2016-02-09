@@ -14,20 +14,43 @@
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding LibraryUser.Fullname}" FontSize="18.667" FontWeight="Bold"/>
                 <TextBlock Text="{Binding BookInfo.BookTitle}" FontSize="16" FontWeight="Bold"/>
                 <TextBlock Text="{Binding RequiredFee, StringFormat=Php\{0:F\}}" FontSize="16" FontWeight="Bold"/>
-                
+
                 <Button 
                         Command="{Binding DataContext.ReturnApplyPaymentCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" 
                         CommandParameter="{Binding Mode=OneWay}" FontSize="16" HorizontalAlignment="Left">
                     <Button.Effect>
                         <DropShadowEffect/>
-                    </Button.Effect> Return</Button>
+                    </Button.Effect> Return
+                </Button>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
-    <Grid x:Name="ToBeReturnedList" d:DataContext="{d:DesignData /SampleData/ToBeReturned.xaml}">
-        <ItemsControl ItemsSource="{Binding BooksToBeReturned}" ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" />
-
+    <Grid x:Name="ToBeReturnedList" >
+        <ScrollViewer>
+            <ItemsControl ItemsSource="{Binding BooksToBeReturned}" 
+                      ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" >
+                <ItemsControl.Style>
+                    <Style TargetType="{x:Type ItemsControl}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=Items.Count,
+                                RelativeSource={RelativeSource Self}}"  Value="0">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Border BorderThickness="1" BorderBrush="Black"
+                                    Padding="10" Margin="10">
+                                                <TextBlock>No items to display</TextBlock>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ItemsControl.Style>
+            </ItemsControl>
+        </ScrollViewer>
 
     </Grid>
 </Page>

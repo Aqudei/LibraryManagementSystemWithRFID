@@ -76,6 +76,7 @@
     <Compile Include="Department.cs" />
     <Compile Include="Interfaces\ICourseRepository.cs" />
     <Compile Include="Interfaces\IDepartmentRepository.cs" />
+    <Compile Include="LibraryTransactions\JustReturnBookTransaction.cs" />
     <Compile Include="LibraryTransactions\TransactionInfo.cs" />
     <Compile Include="Holiday.cs" />
     <Compile Include="Interfaces\IBookCopyRepository.cs" />
