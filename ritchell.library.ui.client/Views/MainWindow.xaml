@@ -81,7 +81,7 @@
                     Margin="0,10" 
                     Grid.ColumnSpan="2"
                     Visibility="{Binding AuthenticationViewModel.IsAuthenticated, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <Button Style="{DynamicResource ClientMenuButtonStyle}" 
+            <!--<Button Style="{DynamicResource ClientMenuButtonStyle}" 
                     FontSize="24" Margin="5,0" 
                     Command="{Binding OpenWindowCommand, Mode=OneWay}"
                     CommandParameter="{x:Static win:WindowNames.PaymentWindow}" Content="My Payments"
@@ -89,10 +89,12 @@
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
-            </Button>
+            </Button>-->
             <Button Style="{DynamicResource ClientMenuButtonStyle}"
-            	FontSize="24" Margin="5,0" 
-            	Content="My Transactions" >
+                    FontSize="24" Margin="5,0" 
+                    Content="My Transactions"  
+                    Command="{Binding OpenWindowCommand, Mode=OneWay}"
+                    CommandParameter="{x:Static win:WindowNames.TransactionWindow}">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>

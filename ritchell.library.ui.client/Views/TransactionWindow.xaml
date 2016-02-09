@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ritchell.library.ui.client.Views"
         mc:Ignorable="d"
-        Title="TransactionWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="TransactionWindow" Height="600" Width="800">
+    <Window.Resources>
+
+
+    </Window.Resources>
+    <Grid d:DataContext="{d:DesignData /SampleData/TransactionsView.xaml}" >
+        <ListView x:Name="listView" ItemsSource="{Binding TransactionsView}" FontSize="16">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Date Borrowed" DisplayMemberBinding="{Binding TransactionInfo.BorrowDate, StringFormat=D}"/>
+                    <GridViewColumn Header="Date Returned" DisplayMemberBinding="{Binding TransactionInfo.ReturnedDate, StringFormat=D}"/>
+                    <GridViewColumn Header="Expected Date Of Return" DisplayMemberBinding="{Binding TransactionInfo.ExpectedReturnDate, StringFormat=D}"/>
+                    <GridViewColumn Header="Amount To Pay" DisplayMemberBinding="{Binding TransactionInfo.AmountToPay}"/>
+                    <GridViewColumn Header="Is Paid" DisplayMemberBinding="{Binding TransactionInfo.IsPaid}"/>
+                    <GridViewColumn Header="Book Title" DisplayMemberBinding="{Binding BookInfo.BookTitle}"/>
+                    <GridViewColumn Header="AcquisitionNumber" DisplayMemberBinding="{Binding BookCopy.AcquisitionNumber}"/>
+                    <GridViewColumn Header="CallNumber" DisplayMemberBinding="{Binding BookInfo.CallNumber}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

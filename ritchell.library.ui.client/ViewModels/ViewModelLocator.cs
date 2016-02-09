@@ -47,6 +47,7 @@ namespace ritchell.library.ui.client.ViewModels
             SimpleIoc.Default.Register<LibraryUserService>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<PaymentService>();
+            SimpleIoc.Default.Register<TransactionService>();
             SimpleIoc.Default.Register<AuthenticationViewModel>();
 
             SetupWindows();
@@ -58,7 +59,7 @@ namespace ritchell.library.ui.client.ViewModels
             WindowNavigationService wns = new WindowNavigationService();
             wns.Add(ViewServices.WindowNames.PaymentWindow, new Views.PaymentWindow());
             wns.Add(ViewServices.WindowNames.BookSearchWindow, new Views.SearchBooksView());
-            // wns.Add(ViewServices.WindowNames.TransactionWindow, new Views.tr());
+            wns.Add(ViewServices.WindowNames.TransactionWindow, new Views.TransactionWindow());
             SimpleIoc.Default.Register<IWindowNavigationService>(() => wns);
 
         }

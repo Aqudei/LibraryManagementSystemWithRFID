@@ -1,0 +1,492 @@
+﻿<SampleDataSource:TransactionsDTOs xmlns:SampleDataSource="clr-namespace:ritchell.library.ui.client.SampleData.SampleDataSource" xmlns:model="clr-namespace:ritchell.library.model;assembly=ritchell.library.model" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:LibraryTransactions="clr-namespace:ritchell.library.model.LibraryTransactions;assembly=ritchell.library.model" Capacity="94">
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="15" BookTagLong="Ligula ultricies nibh sem vestibulum" BookTagShort="Tristique augue dolor sed" IsBorrowed="True">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Etiam vestibulum est" BookTitle="Mauris dis nullam donec" CallNumber="Diam eget bibendum facilisis elit" Copyright="28" ISBN="Adipiscing dictumst parturient vestibulum fermentum" Subject="Aliquet enim hac fringilla">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="63" BookTagLong="Habitasse commodo auctor fusce" BookTagShort="Erat blandit leo aptent vestibulum" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="71" BookTagLong="Adipiscing non congue cursus" BookTagShort="Eros hendrerit mus himenaeos nec" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="50" BookTagLong="Parturient dictum penatibus eleifend" BookTagShort="Imperdiet malesuada" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="46" BookTagLong="Vestibulum faucibus per conubia" BookTagShort="Porttitor tincidunt lectus lorem facilisi" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="90" BookTagLong="Libero proin" BookTagShort="Morbi nulla" IsBorrowed="False"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Accumsan arcu" Fullname="Cras phasellus sed aliquam parturient" FirstName="Vestibulum curabitur adipiscing nam class" LastName="Amet aliquam elementum ante curae" LibraryUserType="Student" MiddleName="Praesent nunc" Password="Duis maecenas dignissim" UserRFIDTag="Aenean consequat integer vestibulum quisque" Username="Convallis vivamus">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="980.88" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="25" BookTagLong="Torquent potenti himenaeos pretium adipiscing" BookTagShort="Magna hendrerit" IsBorrowed="False">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Nam nostra consequat egestas" BookTitle="Phasellus montes" CallNumber="Lobortis nascetur" Copyright="33" ISBN="Euismod feugiat pharetra convallis placerat" Subject="Dignissim ipsum">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="31" BookTagLong="Pulvinar justo ornare lacinia sagittis" BookTagShort="Elementum gravida iaculis" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="94" BookTagLong="Odio vestibulum facilisis senectus platea" BookTagShort="Vestibulum nunc" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="28" BookTagLong="Fringilla natoque orci sociosqu sed" BookTagShort="Fermentum lacus primis laoreet" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="31" BookTagLong="Suscipit habitasse sapien posuere dis" BookTagShort="Adipiscing rutrum lorem pede quam" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="89" BookTagLong="Hac leo" BookTagShort="Parturient vestibulum vestibulum est" IsBorrowed="True"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Interdum mollis dapibus" Fullname="Adipiscing parturient litora" FirstName="Sit cubilia" LastName="Inceptos mattis mauris" LibraryUserType="Instructor" MiddleName="Magnis felis" Password="Fames habitant vel" UserRFIDTag="Nisi luctus nisl venenatis" Username="Vulputate curabitur">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="815.83" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="67" BookTagLong="Elit enim ligula litora luctus" BookTagShort="Libero dis vestibulum eget" IsBorrowed="True">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Tortor viverra nec turpis varius" BookTitle="Maecenas tempus cras" CallNumber="Duis purus" Copyright="64" ISBN="Aenean risus" Subject="Aliquam velit mauris non nullam">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="74" BookTagLong="Vestibulum adipiscing class aptent amet" BookTagShort="Vitae nunc" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="92" BookTagLong="Curae sed praesent" BookTagShort="Per ante" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="62" BookTagLong="Accumsan auctor sit vel bibendum" BookTagShort="Parturient vestibulum sem" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="12" BookTagLong="Nam vestibulum adipiscing cursus ultricies" BookTagShort="Arcu donec congue integer diam" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="50" BookTagLong="Lectus parturient sed quisque vivamus" BookTagShort="Dictum etiam fusce" IsBorrowed="False"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Porta tempor sodales" Fullname="Malesuada massa semper mus" FirstName="Imperdiet quis" LastName="Volutpat tellus tristique nulla" LibraryUserType="Instructor" MiddleName="Morbi neque tincidunt netus vehicula" Password="Ultrices vestibulum urna metus taciti" UserRFIDTag="Parturient penatibus" Username="Rhoncus porttitor sociis">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="996.04" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="67" BookTagLong="Pulvinar sociis adipiscing euismod hendrerit" BookTagShort="Parturient vestibulum sapien semper vestibulum" IsBorrowed="False">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Faucibus habitant mus" BookTitle="Nisl nunc consequat" CallNumber="Commodo montes conubia" Copyright="86" ISBN="Vestibulum convallis odio" Subject="Adipiscing dolor orci dignissim pede">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="90" BookTagLong="Elementum fames interdum" BookTagShort="Cubilia inceptos nostra" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="61" BookTagLong="Ornare felis dapibus" BookTagShort="Nec parturient" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="93" BookTagLong="Fermentum egestas" BookTagShort="Platea lobortis primis facilisis non" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="64" BookTagLong="Fringilla per nascetur vestibulum pharetra" BookTagShort="Quam vestibulum" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="51" BookTagLong="Rutrum ipsum sed placerat" BookTagShort="Habitasse adipiscing" IsBorrowed="True"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Vestibulum facilisi leo nisi" Fullname="Mattis mauris eros" FirstName="Magnis lorem dictumst erat morbi" LastName="Phasellus blandit" LibraryUserType="Admin" MiddleName="Aliquet est parturient hac" Password="Eleifend mollis adipiscing curabitur augue" UserRFIDTag="Vestibulum venenatis nulla" Username="Vulputate proin aliquam nibh">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="194.64" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="66" BookTagLong="Vestibulum diam dictum sit vel" BookTagShort="Venenatis netus arcu" IsBorrowed="True">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Duis est metus" BookTitle="Vestibulum tortor turpis ultrices" CallNumber="Vehicula cras" Copyright="85" ISBN="Volutpat varius aenean" Subject="Mauris nullam nunc imperdiet">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="37" BookTagLong="Leo mus penatibus" BookTagShort="Vestibulum malesuada hac" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="87" BookTagLong="Amet adipiscing maecenas" BookTagShort="Nec morbi laoreet porttitor" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="52" BookTagLong="Posuere per praesent tristique sed" BookTagShort="Natoque aptent tincidunt non" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="24" BookTagLong="Congue bibendum ultricies dictumst" BookTagShort="Auctor accumsan ante" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="49" BookTagLong="Potenti eleifend" BookTagShort="Parturient neque sem cursus" IsBorrowed="False"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Tempus massa parturient" Fullname="Quis lacus" FirstName="Feugiat sem justo" LastName="Lacinia sociosqu tempor suscipit torquent" LibraryUserType="Employee" MiddleName="Sed iaculis dis tellus senectus" Password="Sagittis nam himenaeos magna taciti" UserRFIDTag="Lorem gravida sit" Username="Vel urna">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="417.5" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="57" BookTagLong="Parturient sed primis" BookTagShort="Vestibulum vestibulum senectus nisl adipiscing" IsBorrowed="False">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Vivamus aliquam parturient mollis" BookTitle="Vestibulum aliquam interdum dignissim est" CallNumber="Adipiscing integer hac quisque" Copyright="28" ISBN="Elementum purus vestibulum risus" Subject="Velit erat eros">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="82" BookTagLong="Facilisis fermentum vitae fringilla" BookTagShort="Montes aliquet nostra" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="11" BookTagLong="Nascetur class ornare vestibulum adipiscing" BookTagShort="Lobortis leo blandit nibh" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="79" BookTagLong="Commodo nec" BookTagShort="Pharetra mus" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="53" BookTagLong="Dapibus pulvinar nisi curae egestas" BookTagShort="Placerat conubia parturient habitasse cubilia" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="45" BookTagLong="Etiam platea per" BookTagShort="Euismod donec sagittis non" IsBorrowed="True"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Convallis enim inceptos" Fullname="Curabitur porta pretium libero" FirstName="Vulputate vestibulum nulla lectus" LastName="Vestibulum faucibus mauris consequat habitant" LibraryUserType="Employee" MiddleName="Magnis elit mattis dis" Password="Sodales sed eget facilisi viverra" UserRFIDTag="Phasellus ligula rhoncus nam" Username="Adipiscing litora luctus parturient">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="237.94" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="63" BookTagLong="Curabitur justo phasellus tortor amet" BookTagShort="Aliquam accumsan ipsum" IsBorrowed="True">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Dis volutpat" BookTitle="Vestibulum ultrices posuere" CallNumber="Adipiscing sapien vehicula" Copyright="72" ISBN="Augue tincidunt" Subject="Orci pede potenti semper">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="88" BookTagLong="Maecenas est tellus" BookTagShort="Sociis pretium tristique taciti ultricies" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="19" BookTagLong="Vestibulum quam" BookTagShort="Rhoncus tempor parturient sodales" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="87" BookTagLong="Adipiscing urna venenatis cras aliquam" BookTagShort="Vestibulum dolor viverra praesent quis" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="27" BookTagLong="Quisque tempus" BookTagShort="Duis integer nunc parturient fames" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="91" BookTagLong="Vivamus vestibulum" BookTagShort="Vulputate felis" IsBorrowed="False"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Natoque penatibus torquent sed porttitor" Fullname="Hendrerit rutrum fusce lorem" FirstName="Vestibulum feugiat sem" LastName="Proin nam" LibraryUserType="Student" MiddleName="Laoreet sit malesuada vel" Password="Suscipit nulla" UserRFIDTag="Himenaeos nunc gravida imperdiet iaculis" Username="Lacinia odio morbi sociosqu">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="811.8" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="42" BookTagLong="Iaculis penatibus parturient" BookTagShort="Dictum gravida malesuada habitant lectus" IsBorrowed="False">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Porta erat" BookTitle="Vestibulum conubia enim" CallNumber="Elementum netus nulla" Copyright="93" ISBN="Adipiscing facilisis fermentum purus risus" Subject="Velit cubilia sed dapibus fringilla">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="70" BookTagLong="Parturient habitasse class egestas mauris" BookTagShort="Facilisi vitae sem eros" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="65" BookTagLong="Vel nullam aptent vestibulum" BookTagShort="Euismod sit faucibus" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="14" BookTagLong="Hendrerit himenaeos" BookTagShort="Curae feugiat nibh auctor nam" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="53" BookTagLong="Congue nisi vestibulum" BookTagShort="Imperdiet sed donec" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="36" BookTagLong="Nunc est cursus" BookTagShort="Dis adipiscing nisl" IsBorrowed="True"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Convallis vestibulum elit dignissim eleifend" Fullname="Consequat dictumst leo lacus" FirstName="Ante hac vestibulum bibendum" LastName="Commodo eget" LibraryUserType="Admin" MiddleName="Per diam aenean morbi neque" Password="Varius mus nec non parturient" UserRFIDTag="Turpis adipiscing aliquet lorem blandit" Username="Magna arcu massa metus">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="155.83" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="47" BookTagLong="Integer platea felis" BookTagShort="Dis nunc" IsBorrowed="True">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Vulputate potenti" BookTitle="Vestibulum nascetur venenatis nulla" CallNumber="Vestibulum nec pharetra" Copyright="73" ISBN="Non luctus" Subject="Pretium quis per">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="19" BookTagLong="Placerat adipiscing magnis rhoncus" BookTagShort="Proin sed augue" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="56" BookTagLong="Sodales urna viverra" BookTagShort="Sem sit" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="81" BookTagLong="Pulvinar mauris phasellus" BookTagShort="Cras mattis curabitur" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="48" BookTagLong="Duis fames mollis parturient" BookTagShort="Vel dolor nam" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="47" BookTagLong="Sed ornare sagittis" BookTagShort="Montes aliquam nostra" IsBorrowed="False"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Parturient mus morbi posuere" Fullname="Fusce tincidunt libero vestibulum" FirstName="Porttitor odio etiam inceptos" LastName="Ultricies litora leo" LibraryUserType="Instructor" MiddleName="Laoreet lorem natoque" Password="Lobortis ligula hac" UserRFIDTag="Vestibulum adipiscing orci" Username="Interdum tristique lacinia pede quam">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="554.76" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="True">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+	<model:TransactionDTO>
+		<model:TransactionDTO.BookCopy>
+			<model:BookCopy AcquisitionNumber="45" BookTagLong="Malesuada volutpat" BookTagShort="Neque egestas parturient euismod" IsBorrowed="False">
+				<model:BookCopy.BookInfoId>
+					<System:Guid/>
+				</model:BookCopy.BookInfoId>
+				<model:BookCopy.Id>
+					<System:Guid/>
+				</model:BookCopy.Id>
+			</model:BookCopy>
+		</model:TransactionDTO.BookCopy>
+		<model:TransactionDTO.BookInfo>
+			<model:BookInfo Author="Lacus ultrices" BookTitle="Eget vestibulum" CallNumber="Torquent fringilla elit" Copyright="93" ISBN="Adipiscing aliquam habitasse enim" Subject="Aliquet erat lorem eros blandit">
+				<model:BookInfo.BookCopies>
+					<model:BookCopy AcquisitionNumber="16" BookTagLong="Sapien nisi" BookTagShort="Parturient nibh commodo vehicula magna" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="76" BookTagLong="Semper metus cubilia" BookTagShort="Hendrerit hac conubia massa" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="16" BookTagLong="Himenaeos leo" BookTagShort="Vestibulum dapibus" IsBorrowed="True"/>
+					<model:BookCopy AcquisitionNumber="49" BookTagLong="Mus nec" BookTagShort="Imperdiet vestibulum adipiscing sociis" IsBorrowed="False"/>
+					<model:BookCopy AcquisitionNumber="59" BookTagLong="Non tellus per" BookTagShort="Nisl morbi taciti" IsBorrowed="True"/>
+				</model:BookInfo.BookCopies>
+				<model:BookInfo.Id>
+					<System:Guid/>
+				</model:BookInfo.Id>
+				<model:BookInfo.SectionId>
+					<System:Guid/>
+				</model:BookInfo.SectionId>
+			</model:BookInfo>
+		</model:TransactionDTO.BookInfo>
+		<model:TransactionDTO.LibraryUser>
+			<model:LibraryUser Birthday="02/09/2016 23:10:03" EncryptedPassword="Rutrum fermentum" Fullname="Vestibulum vestibulum" FirstName="Consequat ipsum amet" LastName="Vestibulum suscipit" LibraryUserType="Employee" MiddleName="Est diam facilisis" Password="Sociosqu vivamus elementum" UserRFIDTag="Convallis senectus justo ante primis" Username="Dignissim arcu adipiscing parturient quisque">
+				<model:LibraryUser.Id>
+					<System:Guid/>
+				</model:LibraryUser.Id>
+			</model:LibraryUser>
+		</model:TransactionDTO.LibraryUser>
+		<model:TransactionDTO.TransactionInfo>
+			<LibraryTransactions:TransactionInfo AmountToPay="976.69" ExpectedReturnDate="02/09/2016 23:10:03" IsPaid="False">
+				<LibraryTransactions:TransactionInfo.BookCopyId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.BookCopyId>
+				<LibraryTransactions:TransactionInfo.Id>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.Id>
+				<LibraryTransactions:TransactionInfo.LibraryUserId>
+					<System:Guid/>
+				</LibraryTransactions:TransactionInfo.LibraryUserId>
+			</LibraryTransactions:TransactionInfo>
+		</model:TransactionDTO.TransactionInfo>
+	</model:TransactionDTO>
+</SampleDataSource:TransactionsDTOs>
