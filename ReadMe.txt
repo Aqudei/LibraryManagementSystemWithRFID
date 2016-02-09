@@ -51,26 +51,6 @@ gah ha Client page pag.add man CHange password na feature..thanks
 
 
 
-
-gah..gntry ko gnclick an mga retun..ngkawagra an list ha for clearance..mski wa pa bayad..
-gah adi man..sunod2 nla gah..hehe..
-UIPayment button - add messagebox if there's no records yet..
-
-gah adi gah..sunod2 nla..hehe..
-UI project
-*payment button -bale gah an ea function para ha mag.uuli libro na dri hra naghuram..para liwat kun mgbayad..bngn kasi nagpadara nla lwt bayad..
---add messagebox if there's no records yet
---arrange the list alphabetical and group the books by students..(kay kun damo an ea gnhuram..under la ha ea name. pero an kada book myda return na button then pag click mpakiana if sure na himuon ito na transaction..if yes..pwd another messagebox pra i.ask kun babaydan na ba o dri..kay kun babaydan na..click yes..kun dri pa..mkadto ea name ha report na for clearance..)
-
-*borrowed books button - ini naman an ea function..baga hea gah report la na list of books na nahuram..bale an sulod hini na report..
-book title
-author
-call no.
-date borrowed
-expected return date
-status (if returned or not yet)
---add messagebox if ther's no records yet..
-
 gah adi gah..sunod2 nla..hehe..
 UI project
 *payment button -bale gah an ea function para ha mag.uuli libro na dri hra naghuram..para liwat kun mgbayad..bngn kasi nagpadara nla lwt bayad..
