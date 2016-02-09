@@ -42,6 +42,9 @@ namespace ritchell.library.ui.client.ViewModels
 
                         if (x.Equals(ViewServices.WindowNames.BookSearchWindow))
                             _WindowNaviService.ShowDialog(ViewServices.WindowNames.BookSearchWindow, null) ;
+
+                        if (x.Equals(ViewServices.WindowNames.TransactionWindow))
+                            _WindowNaviService.ShowDialog(ViewServices.WindowNames.TransactionWindow, AuthenticationViewModel.CurrentUser);
                     }));
             }
         }

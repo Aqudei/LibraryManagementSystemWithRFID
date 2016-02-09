@@ -12,5 +12,6 @@ namespace ritchell.library.model.Interfaces
     {
         TransactionInfo GetLastBookTransaction(Guid BookCopyId);
         IEnumerable<TransactionInfo> GetPayableTransactions(Guid UserId);
+        IEnumerable<TransactionInfo> GetTransactionsOf(Guid UserId);
     }
 }

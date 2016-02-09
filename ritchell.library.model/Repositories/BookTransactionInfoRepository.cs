@@ -86,5 +86,10 @@ namespace ritchell.library.model.Repositories
 
 
         #endregion
+        public IEnumerable<TransactionInfo> GetTransactionsOf(Guid UserId)
+        {
+            return _Context.Set<TransactionInfo>().Where(ti => ti.LibraryUserId == UserId).ToList();
+        }
+
     }
 }

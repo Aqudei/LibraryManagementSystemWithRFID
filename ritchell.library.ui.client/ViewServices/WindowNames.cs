@@ -10,5 +10,6 @@ namespace ritchell.library.ui.client.ViewServices
     {
         public const string PaymentWindow = "PaymentWindow";
         public const string BookSearchWindow = "BookSearchWindow";
+        public const string TransactionWindow = "TransactionWindow";
     }
 }

@@ -58,7 +58,7 @@ namespace ritchell.library.ui.client.ViewModels
             WindowNavigationService wns = new WindowNavigationService();
             wns.Add(ViewServices.WindowNames.PaymentWindow, new Views.PaymentWindow());
             wns.Add(ViewServices.WindowNames.BookSearchWindow, new Views.SearchBooksView());
-
+            // wns.Add(ViewServices.WindowNames.TransactionWindow, new Views.tr());
             SimpleIoc.Default.Register<IWindowNavigationService>(() => wns);
 
         }

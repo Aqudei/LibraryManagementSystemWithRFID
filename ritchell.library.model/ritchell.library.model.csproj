@@ -120,6 +120,8 @@
     <Compile Include="Services\HolidayService.cs" />
     <Compile Include="Services\LibraryUserService.cs" />
     <Compile Include="Services\SectionService.cs" />
+    <Compile Include="Services\TransactionService.cs" />
+    <Compile Include="TransactionDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ritchell.library.infrastructure\ritchell.library.infrastructure.csproj">

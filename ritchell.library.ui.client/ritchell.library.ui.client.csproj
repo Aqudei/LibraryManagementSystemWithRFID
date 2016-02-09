@@ -108,6 +108,7 @@
     <Compile Include="SampleData\Payables.cs" />
     <Compile Include="ViewModels\PayablesViewModel.cs" />
     <Compile Include="ViewModels\SearchBooksViewModel.cs" />
+    <Compile Include="ViewModels\TransactionsViewModel.cs" />
     <Compile Include="ViewModels\VMMessages\ApplicationExiting.cs" />
     <Compile Include="ViewModels\VMMessages\UserEvent.cs" />
     <Compile Include="ViewModels\VMMessages\UserHasLogin.cs" />
@@ -119,6 +120,9 @@
     <Compile Include="ViewServices\WindowNames.cs" />
     <Compile Include="Views\SearchBooksView.xaml.cs">
       <DependentUpon>SearchBooksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionWindow.xaml.cs">
+      <DependentUpon>TransactionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WPF\PasswordHelper.cs" />
     <Page Include="Dictionary1.xaml">
@@ -156,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SearchBooksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransactionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
