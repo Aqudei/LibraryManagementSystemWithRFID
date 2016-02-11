@@ -10,6 +10,7 @@ using GalaSoft.MvvmLight.Ioc;
 using ritchell.library.infrastructure.Hardware;
 using System.ComponentModel;
 using System.Windows.Data;
+using GalaSoft.MvvmLight.Threading;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -43,7 +44,11 @@ namespace ritchell.library.ui.ViewModel
             var returnBookDTO = BooksToBeReturnedList.Where(b => b.BookCopy.BookTagShort == e).FirstOrDefault();
             if (returnBookDTO != null)
             {
-                BooksToBeReturned.MoveCurrentTo(returnBookDTO);
+                DispatcherHelper.CheckBeginInvokeOnUI(() =>
+                {
+                    BooksToBeReturned.MoveCurrentTo(returnBookDTO);
+                    ReturnApplyPaymentCommand.Execute(returnBookDTO);
+                });
             }
         }
 

@@ -11,42 +11,41 @@
     <Grid>
         <ListView x:Name="Payables"
                   ItemsSource ="{Binding PayablesCollectionView}" 
-                    FontFamily="Centaur" 
-                    FontWeight="Bold"
-                    FontSize="18.667">
+                  IsSynchronizedWithCurrentItem="True"
+                  FontFamily="Centaur" FontWeight="Bold" FontSize="18.667">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,0,0,20" >
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock MinWidth="100" Text="Fullname:" TextAlignment="Right" Margin="0,0,20,0"/>
-                                <TextBlock Text="{Binding UserInvolved}"/>
-                            </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Fullname:" TextAlignment="Right" Margin="0,0,20,0"/>
+                            <TextBlock Text="{Binding UserInvolved}"/>
+                        </StackPanel>
 
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock MinWidth="100" Text="Book:" TextAlignment="Right" Margin="0,0,20,0"/>
-                                <TextBlock Text="{Binding BookInvolved}"/>
-                            </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Book:" TextAlignment="Right" Margin="0,0,20,0"/>
+                            <TextBlock Text="{Binding BookInvolved}"/>
+                        </StackPanel>
 
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock MinWidth="100" Text="Amount:" TextAlignment="Right" Margin="0,0,20,0"/>
-                                <TextBlock Text="{Binding AmountToPay, StringFormat=P\{0:.00\}}"/>
-                            </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Amount:" TextAlignment="Right" Margin="0,0,20,0"/>
+                            <TextBlock Text="{Binding AmountToPay, StringFormat=P\{0:.00\}}"/>
+                        </StackPanel>
 
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock MinWidth="100" Text="Borrowed:" TextAlignment="Right" Margin="0,0,20,0"/>
-                                <TextBlock Text="{Binding TransactionInfo.BorrowDate, StringFormat=D}"/>
-                            </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Borrowed:" TextAlignment="Right" Margin="0,0,20,0"/>
+                            <TextBlock Text="{Binding TransactionInfo.BorrowDate, StringFormat=D}"/>
+                        </StackPanel>
 
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock MinWidth="100" Text="Returned:" TextAlignment="Right" Margin="0,0,20,0"/>
-                                <TextBlock Text="{Binding TransactionInfo.ReturnDate, StringFormat=D}"/>
-                            </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Returned:" TextAlignment="Right" Margin="0,0,20,0"/>
+                            <TextBlock Text="{Binding TransactionInfo.ReturnDate, StringFormat=D}"/>
+                        </StackPanel>
 
-                            <Button x:Name="b" HorizontalAlignment="Left"
+                        <Button x:Name="b" HorizontalAlignment="Left"
                 				Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
                 				CommandParameter="{Binding}" Width="178" Content="Pay" Margin="10,5,0,0" />
-                        </StackPanel>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.Style>
