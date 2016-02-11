@@ -108,7 +108,7 @@
                 </Button.Effect> Search Books
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2"
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"
                     Visibility="{Binding AuthenticationViewModel.IsAuthenticated, Converter={StaticResource BooleanToVisibilityConverter}}">
             <TextBlock FontSize="26.667" FontWeight="Bold" FontFamily="Times New Roman" Margin="10,0,0,0" Text="Scan a book..."/>
 

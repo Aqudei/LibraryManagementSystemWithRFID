@@ -41,7 +41,7 @@ namespace ritchell.library.ui.client.ViewModels
                             _WindowNaviService.ShowDialog(ViewServices.WindowNames.PaymentWindow, AuthenticationViewModel.CurrentUser);
 
                         if (x.Equals(ViewServices.WindowNames.BookSearchWindow))
-                            _WindowNaviService.ShowDialog(ViewServices.WindowNames.BookSearchWindow, null) ;
+                            _WindowNaviService.ShowDialog(ViewServices.WindowNames.BookSearchWindow, null);
 
                         if (x.Equals(ViewServices.WindowNames.TransactionWindow))
                             _WindowNaviService.ShowDialog(ViewServices.WindowNames.TransactionWindow, AuthenticationViewModel.CurrentUser);
@@ -77,30 +77,41 @@ namespace ritchell.library.ui.client.ViewModels
 
         public MainViewModel(IWindowNavigationService windowDlgService)
         {
-            _WindowNaviService = windowDlgService;
-
-            LibraryTransactionsAggregate = new LibraryTransactionsAggregate();
-
-            var shortRfidReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
-            shortRfidReader.StartReader();
-            AuthenticationViewModel.LibraryUserEventHandler += (s, e) =>
+            if (IsInDesignMode == false)
             {
-                if (e.LibraryUserEventType == VMMessages.UserEvent.UserEventType.Login)
-                {
-                    LibraryTransactionsAggregate.PrepareForNewUser(e.LibraryUser);
-                    shortRfidReader.TagRead += ShortRfidReader_TagRead;
-                }
-                else
-                {
-                    LibraryTransactionsAggregate.Reset();
-                    shortRfidReader.TagRead -= ShortRfidReader_TagRead;
-                }
-            };
+                _WindowNaviService = windowDlgService;
 
-            MessengerInstance.Register<ApplicationExiting>(this, (x) =>
+                LibraryTransactionsAggregate = new LibraryTransactionsAggregate();
+
+                var shortRfidReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
+                shortRfidReader.StartReader();
+                AuthenticationViewModel.LibraryUserEventHandler += (s, e) =>
+                {
+                    if (e.LibraryUserEventType == VMMessages.UserEvent.UserEventType.Login)
+                    {
+                        LibraryTransactionsAggregate.PrepareForNewUser(e.LibraryUser);
+                        shortRfidReader.TagRead += ShortRfidReader_TagRead;
+                    }
+                    else
+                    {
+                        LibraryTransactionsAggregate.Reset();
+                        shortRfidReader.TagRead -= ShortRfidReader_TagRead;
+                    }
+                };
+
+                MessengerInstance.Register<ApplicationExiting>(this, (x) =>
+                {
+                    shortRfidReader.StopReader();
+                });
+            }
+            else
             {
-                shortRfidReader.StopReader();
-            });
+                LibraryTransactionsAggregate = new LibraryTransactionsAggregate();
+                LibraryTransactionsAggregate.AddTransaction("D3-46-EC-EA-90-00");
+                LibraryTransactionsAggregate.AddTransaction("23-DF-EC-EA-90-00");
+                LibraryTransactionsAggregate.AddTransaction("93-BE-EA-EA-90-00");
+                LibraryTransactionsAggregate.AddTransaction("D3-DE-EC-EA-90-00");
+            }
         }
 
         private void ShortRfidReader_TagRead(object sender, string e)
