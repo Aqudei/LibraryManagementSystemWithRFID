@@ -27,8 +27,9 @@
 
     <Grid x:Name="ToBeReturnedList" >
         <ScrollViewer>
-            <ListView ItemsSource="{Binding BooksToBeReturned}"  
-                          ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" >
+            <ListView ItemsSource="{Binding BooksToBeReturned}"      
+                      ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" 
+                      IsSynchronizedWithCurrentItem="True">
                 <ListView.Style>
                     <Style TargetType="{x:Type ListView}">
                         <Style.Triggers>
