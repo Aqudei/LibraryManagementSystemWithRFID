@@ -58,10 +58,15 @@ namespace ritchell.library.infrastructure.Hardware
             cardContext.Dispose();
         }
 
+        public bool IsStarted { get; set; }
+
         public void StartReader()
         {
-            if (readers.Length > 0 && cardContext != null)
+            if (readers.Length > 0 && IsStarted == false)
+            {
                 cardMonitor.Start(readers[0]);
+                IsStarted = true;
+            }
         }
 
         public void StopReader()
@@ -71,6 +76,7 @@ namespace ritchell.library.infrastructure.Hardware
                 cardContext.Release();
                 cardContext.Dispose();
                 cardContext = null;
+                IsStarted = false;
             }
             catch (Exception ex)
             {
