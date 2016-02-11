@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -58,6 +59,7 @@ namespace ritchell.library.ui.ViewModel
         private void RefreshPayables()
         {
             Payables = new ObservableCollection<Payable>(_PaymentService.GetReturnedBooksPayables());
+            PayablesCollectionView = CollectionViewSource.GetDefaultView(Payables);
         }
 
         private RelayCommand<Payable> _CompletePaymentCommand;

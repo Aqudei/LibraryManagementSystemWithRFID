@@ -28,9 +28,9 @@
 
     <Grid x:Name="ToBeReturnedList" >
         <ScrollViewer>
-            <ItemsControl ItemsSource="{Binding BooksToBeReturned}"  
+            <ListView ItemsSource="{Binding BooksToBeReturned}"  
                           ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" >
-                <ItemsControl.Style>
+                <ListView.Style>
                     <Style TargetType="{x:Type ItemsControl}">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Path=Items.Count,
@@ -38,8 +38,9 @@
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate>
-                                            <Border BorderThickness="1" BorderBrush="Black"
-                                    Padding="10" Margin="10">
+                                            <Border BorderThickness="1" 
+                                                    BorderBrush="Black"
+                                                    Padding="10" Margin="10">
                                                 <TextBlock>No items to display</TextBlock>
                                             </Border>
                                         </ControlTemplate>
@@ -48,8 +49,8 @@
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </ItemsControl.Style>
-            </ItemsControl>
+                </ListView.Style>
+            </ListView>
         </ScrollViewer>
 
     </Grid>

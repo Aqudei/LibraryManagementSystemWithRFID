@@ -50,7 +50,7 @@ namespace ritchell.library.ui.ViewModel
         private void RefreshList()
         {
             BooksToBeReturnedList = new ObservableCollection<ReturnBookDTO>(_PaymentService.GetBorrowedBooks());
-            BooksToBeReturned = CollectionViewSource.GetDefaultView(BooksToBeReturned);
+            BooksToBeReturned = CollectionViewSource.GetDefaultView(BooksToBeReturnedList);
         }
 
         private RelayCommand<ReturnBookDTO> _ReturnApplyPayment;
