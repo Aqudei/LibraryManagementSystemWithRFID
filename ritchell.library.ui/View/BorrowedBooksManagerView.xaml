@@ -28,8 +28,8 @@
 
     <Grid x:Name="ToBeReturnedList" >
         <ScrollViewer>
-            <ItemsControl ItemsSource="{Binding BooksToBeReturned}" 
-                      ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" >
+            <ItemsControl ItemsSource="{Binding BooksToBeReturned}"  
+                          ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" >
                 <ItemsControl.Style>
                     <Style TargetType="{x:Type ItemsControl}">
                         <Style.Triggers>

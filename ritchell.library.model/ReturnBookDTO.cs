@@ -12,5 +12,6 @@ namespace ritchell.library.model
         public LibraryUser LibraryUser { get; set; }
         public BookInfo BookInfo { get; set; }
         public Double RequiredFee { get; set; }
+        public BookCopy BookCopy { get; set; }
     }
 }

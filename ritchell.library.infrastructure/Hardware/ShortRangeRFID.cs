@@ -60,7 +60,7 @@ namespace ritchell.library.infrastructure.Hardware
 
         public void StartReader()
         {
-            if (readers.Length > 0)
+            if (readers.Length > 0 && cardContext != null)
                 cardMonitor.Start(readers[0]);
         }
 
@@ -70,6 +70,7 @@ namespace ritchell.library.infrastructure.Hardware
             {
                 cardContext.Release();
                 cardContext.Dispose();
+                cardContext = null;
             }
             catch (Exception ex)
             {

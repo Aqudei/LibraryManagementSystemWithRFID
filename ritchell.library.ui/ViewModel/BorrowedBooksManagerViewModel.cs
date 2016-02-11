@@ -4,8 +4,12 @@ using ritchell.library.model;
 using ritchell.library.model.LibraryTransactions;
 using System.Collections.ObjectModel;
 using System;
+using System.Linq;
 using GalaSoft.MvvmLight.Views;
 using GalaSoft.MvvmLight.Ioc;
+using ritchell.library.infrastructure.Hardware;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -24,11 +28,29 @@ namespace ritchell.library.ui.ViewModel
         {
             _PaymentService = payService;
             RefreshList();
+            SetupRFIDReader();
+        }
+
+        private void SetupRFIDReader()
+        {
+            _ShortRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
+            _ShortRFIDReader.TagRead += _ShortRFIDReader_TagRead;
+            _ShortRFIDReader.StartReader();
+        }
+
+        private void _ShortRFIDReader_TagRead(object sender, string e)
+        {
+            var returnBookDTO = BooksToBeReturnedList.Where(b => b.BookCopy.BookTagShort == e).FirstOrDefault();
+            if (returnBookDTO != null)
+            {
+                BooksToBeReturned.MoveCurrentTo(returnBookDTO);
+            }
         }
 
         private void RefreshList()
         {
-            BooksToBeReturned = new ObservableCollection<ReturnBookDTO>(_PaymentService.GetBorrowedBooks());
+            BooksToBeReturnedList = new ObservableCollection<ReturnBookDTO>(_PaymentService.GetBorrowedBooks());
+            BooksToBeReturned = CollectionViewSource.GetDefaultView(BooksToBeReturned);
         }
 
         private RelayCommand<ReturnBookDTO> _ReturnApplyPayment;
@@ -59,10 +81,14 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
-        private ObservableCollection<ReturnBookDTO> _BooksToBeReturned;
-        private PaymentService _PaymentService;
 
-        public ObservableCollection<ReturnBookDTO> BooksToBeReturned
+        private PaymentService _PaymentService;
+        private IRFIDReader _ShortRFIDReader;
+
+        private ICollectionView _BooksToBeReturned;
+        private ObservableCollection<ReturnBookDTO> BooksToBeReturnedList;
+
+        public ICollectionView BooksToBeReturned
         {
             get
             {

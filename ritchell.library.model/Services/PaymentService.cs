@@ -98,43 +98,40 @@ namespace ritchell.library.model.LibraryTransactions
 
         public IEnumerable<ReturnBookDTO> GetBorrowedBooks()
         {
-            List<ReturnBookDTO> libTrans = new List<ReturnBookDTO>();
-            var books = _BookCopyService.GetBorrowedBooks();
-            foreach (var book in books)
+            List<ReturnBookDTO> returnBookDTOs = new List<ReturnBookDTO>();
+            var bookCopies = _BookCopyService.GetBorrowedBooks();
+            foreach (var bookCopy in bookCopies)
             {
-                var bookInfo = _BookInfoService.BookInfoOf(book);
-                var lastTrans = _BookTransactionInfoRepository.GetLastBookTransaction(book.Id);
+                var bookInfo = _BookInfoService.BookInfoOf(bookCopy);
+                var lastTrans = _BookTransactionInfoRepository.GetLastBookTransaction(bookCopy.Id);
+
+                //If no borrow transaction was found, then its a possible error.
                 if (lastTrans != null)
                 {
-                    var rqFee = ComputeNecessaryFee(book, lastTrans);
+                    var requiredFee = ComputeNecessaryFee(bookCopy, lastTrans);
                     var user = _LibraryUserService.FindById(lastTrans.LibraryUserId);
+
+                    var newReturnBookDTO = new ReturnBookDTO();
+                    newReturnBookDTO.LibraryUser = user;
+                    newReturnBookDTO.BookInfo = bookInfo;
+                    newReturnBookDTO.RequiredFee = requiredFee;
+                    newReturnBookDTO.BookCopy = bookCopy;
+
                     if (user.LibraryUserType == LibraryUser.UserType.Student)
                     {
-                        var trans = new JustReturnBookTransaction(book, lastTrans);
-                        libTrans.Add(new ReturnBookDTO
-                        {
-                            TransactionInfo = trans,
-                            LibraryUser = user,
-                            BookInfo = bookInfo,
-                            RequiredFee = rqFee
-                        });
+                        newReturnBookDTO.TransactionInfo = new JustReturnBookTransaction(bookCopy, lastTrans);
                     }
-                    else if (user.LibraryUserType == LibraryUser.UserType.Instructor)
+                    else if (user.LibraryUserType == LibraryUser.UserType.Instructor || user.LibraryUserType == LibraryUser.UserType.Employee)
                     {
-                        var trans = new ReturnBookIgnorePaymentTransaction(book, lastTrans);
-                        libTrans.Add(new ReturnBookDTO
-                        {
-                            TransactionInfo = trans,
-                            LibraryUser = user,
-                            BookInfo = bookInfo,
-                            RequiredFee = rqFee
-                        });
+                        newReturnBookDTO.TransactionInfo = new ReturnBookIgnorePaymentTransaction(bookCopy, lastTrans);
                     }
+
+                    returnBookDTOs.Add(newReturnBookDTO);
                 }
                 else
                     Debug.WriteLine("Possible error. A book was borrowed but no transaction info was found.");
             }
-            return libTrans;
+            return returnBookDTOs;
         }
     }
 }
