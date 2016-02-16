@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ritchell.library.presentati
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{891B25F6-9521-459C-9620-60EBF064BECE}"
 	ProjectSection(SolutionItems) = preProject
-		ReadMe.txt = ReadMe.txt
+		requirements.docx = requirements.docx
 	EndProjectSection
 EndProject
 Global
