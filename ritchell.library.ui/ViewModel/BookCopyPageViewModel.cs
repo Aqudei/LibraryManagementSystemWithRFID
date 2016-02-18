@@ -20,31 +20,16 @@ namespace ritchell.library.ui.ViewModel
     /// <summary>
     /// 
     /// </summary>
-    public class BookCopyPageViewModel : ViewModelBase, IDataErrorInfo
+    public class BookCopyPageViewModel : WithEditableItems<BookCopy>, IDataErrorInfo
     {
         private BookCopyService BookCopyService;
         private BookInfo _CurrentBook;
         private string _RFIDLong;
         private string _RFIDShort;
-        private RelayCommand _AddBookCopyCommand;
+
         private RelayCommand _DeleteBookCopyCommand;
-        private ICollectionView _ItemsCollectionView;
-        private ObservableCollection<BookCopy> Copies;
         private IRFIDReader _ShortRFIDReader;
         private IRFIDReader _LongRFIDReader;
-        private string _AcquisitionNumber;
-
-        public string AcquisitionNumber
-        {
-            get { return _AcquisitionNumber; }
-            set
-            {
-                _AcquisitionNumber = value;
-                RaisePropertyChanged(() => AcquisitionNumber);
-                AddBookCopyCommand.RaiseCanExecuteChanged();
-            }
-        }
-
 
 
         public BookCopyPageViewModel(BookCopyService bookCopyService)
@@ -82,58 +67,6 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
-        public ICollectionView ItemsCollectionView
-        {
-            get { return _ItemsCollectionView; }
-            set
-            {
-                _ItemsCollectionView = value;
-                RaisePropertyChanged(() => ItemsCollectionView);
-            }
-        }
-
-        /// <summary>
-        /// Gets the AddBookCopyCommand.
-        /// </summary>
-        public RelayCommand AddBookCopyCommand
-        {
-            get
-            {
-                return _AddBookCopyCommand
-                    ?? (_AddBookCopyCommand = new RelayCommand(
-                    () =>
-                    {
-                        try
-                        {
-                            BookCopy newBookCopy = new BookCopy();
-                            newBookCopy.BookInfoId = this.CurrentBook.Id;
-                            newBookCopy.BookTagShort = RFIDShort;
-                            newBookCopy.BookTagLong = RFIDLong;
-                            newBookCopy.AcquisitionNumber = int.Parse(AcquisitionNumber);
-
-                            Copies.Add(newBookCopy);
-                            ItemsCollectionView.MoveCurrentTo(newBookCopy);
-                            BookCopyService.AddBookCopy(newBookCopy);
-                            ItemsCollectionView.Refresh();
-                            DialogService.ShowMessageBox("Successfully added record(s)", "Ok");
-                        }
-                        catch (Exception ex)
-                        {
-                            _Error = ex.Message;
-                            DialogService.ShowMessageBox(ex.Message, "Error Saving...");
-                        }
-                    },
-                    () => CanSave));
-            }
-        }
-
-        public IDialogService DialogService
-        {
-            get
-            {
-                return SimpleIoc.Default.GetInstance<IDialogService>();
-            }
-        }
 
 
         /// <summary>
@@ -149,7 +82,7 @@ namespace ritchell.library.ui.ViewModel
                     {
                         var selectedCopy = (ItemsCollectionView.CurrentItem as BookCopy);
                         BookCopyService.RemoveBookCopy(selectedCopy.Id);
-                        Copies.Remove(selectedCopy);
+                        items.Remove(selectedCopy);
                     },
                     () => ItemsCollectionView != null && ItemsCollectionView.CurrentItem != null));
             }
@@ -163,8 +96,8 @@ namespace ritchell.library.ui.ViewModel
                 _CurrentBook = value;
                 RaisePropertyChanged(() => CurrentBook);
 
-                Copies = new ObservableCollection<BookCopy>(BookCopyService.BookCopiesOf(value.Id));
-                ItemsCollectionView = CollectionViewSource.GetDefaultView(Copies);
+                items = new ObservableCollection<BookCopy>(BookCopyService.BookCopiesOf(value.Id));
+                ItemsCollectionView = CollectionViewSource.GetDefaultView(items);
 
                 ItemsCollectionView.CurrentChanged += ItemsCollectionView_CurrentChanged;
             }
@@ -177,6 +110,10 @@ namespace ritchell.library.ui.ViewModel
         {
             set
             {
+                var current = ItemsCollectionView.CurrentItem as BookCopy;
+                if (current != null)
+                    current.BookTagLong = value;
+
                 _RFIDLong = value;
                 RaisePropertyChanged(() => RFIDLong);
             }
@@ -193,6 +130,36 @@ namespace ritchell.library.ui.ViewModel
             _LongRFIDReader.StopReader();
         }
 
+        protected override void NewItemCommandHandler()
+        {
+            var newCopy = new BookCopy();
+            items.Add(newCopy);
+            ItemsCollectionView.MoveCurrentTo(newCopy);
+        }
+
+        protected override void SaveItemCommandHandler()
+        {
+            BookCopyService.AddOrUpdateBookCopy(ItemsCollectionView.CurrentItem as BookCopy);
+            ItemsCollectionView.Refresh();
+        }
+
+        public override void DeleteItemCommandHandler()
+        {
+            try
+            {
+                var current = ItemsCollectionView.CurrentItem as BookCopy;
+                BookCopyService.RemoveBookCopy(current.Id);
+                items.Remove(current);
+            }
+            catch (Exception)
+            {
+                DialogService.ShowMessageBox("", "Failed To Delete");
+            }
+        }
+
+        public override void EditItemCommandHandler()
+        { }
+
         public string RFIDShort
         {
             get
@@ -201,12 +168,15 @@ namespace ritchell.library.ui.ViewModel
             }
             set
             {
+                var current = ItemsCollectionView.CurrentItem as BookCopy;
+                if (current != null)
+                    current.BookTagShort = value;
                 _RFIDShort = value;
                 RaisePropertyChanged(() => RFIDShort);
             }
         }
 
-        private string _Error;
+        private string _Error="";
         public string Error
         {
             get
@@ -219,21 +189,7 @@ namespace ritchell.library.ui.ViewModel
         {
             get
             {
-                string result = null;
-                if (columnName == "AcquisitionNumber")
-                {
-                    int intAcqNu;
-                    if (int.TryParse(AcquisitionNumber, out intAcqNu) == false)
-                        result = "Acquisition Number must be a number with value greater than zero.";
-                    else
-                    {
-                        if (intAcqNu <= 0)
-                            result = "Acquisition Number must be a number with value greater than zero.";
-                    }
-                }
-
-                CanSave = string.IsNullOrEmpty(result);
-                return result;
+                return string.Empty;
             }
         }
 
@@ -247,6 +203,5 @@ namespace ritchell.library.ui.ViewModel
                 RaisePropertyChanged(() => CanSave);
             }
         }
-
     }
 }

@@ -6,7 +6,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="497.088" d:DesignWidth="865.219"
       Title="BookCopyPage"
-      DataContext="{Binding BookCopyPageViewModel, Source={StaticResource Locator}}">
+      DataContext="{Binding BookCopyPageViewModel, Source={StaticResource Locator}}" WindowState="Maximized" Height="600">
 
     <Grid>
         <DockPanel  Margin="10">
@@ -55,12 +55,12 @@
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="10,0">
 
                 <TextBlock Margin="0,4" FontSize="24"><Run Text="Short"/><Run Text="-Range"/><Run Text=" "/><Run Text="RFID  Tag"/></TextBlock>
-                <TextBox IsReadOnly="True" Text="{Binding RFIDShort, Mode=TwoWay}" Margin="0,4" FontSize="24" />
+                <TextBox IsReadOnly="True" Text="{Binding ItemsCollectionView/BookTagShort, Mode=TwoWay}" Margin="0,4" FontSize="24" />
                 <TextBlock Margin="0,4" FontSize="24"><Run Text="Long"/><Run Text="-Range"/><Run Text=" "/><Run Text="RFID  Tag"/></TextBlock>
-                <TextBox IsReadOnly="True" Text="{Binding RFIDLong, Mode=TwoWay}" Margin="0,4" FontSize="24"/>
+                <TextBox IsReadOnly="True" Text="{Binding ItemsCollectionView/BookTagLong, Mode=TwoWay}" Margin="0,4" FontSize="24"/>
                 <TextBlock x:Name="textBlock" Margin="0,4" FontSize="24" Text="Acquisition Number"/>
                 <TextBox x:Name="AcquitionTextBox"
-                         Text="{Binding AcquisitionNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                         Text="{Binding ItemsCollectionView/AcquisitionNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
                          Margin="0,4" 
                          FontSize="24">
                     <TextBox.Style>
@@ -73,8 +73,11 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Button Command="{Binding AddBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Add</Button>
-                <Button Command="{Binding DeleteBookCopyCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman">Delete</Button>
+                <Button Command="{Binding NewItemCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman" Content="New Acquisition"/>
+                <Button Command="{Binding EditItemCommand}" Margin="0,4" Height="35" Width="200" FontSize="20" FontFamily="Times New Roman" Content="Replace Copy"/>
+                <Button Command="{Binding DeleteItemCommand}" Margin="0,4" Height="35.372" Width="200" FontSize="20" FontFamily="Times New Roman" Content="Delete Acquisition"/>
+                <Button Command="{Binding SaveItemCommand}" Margin="0,4" Height="35" Width="200" FontSize="20" FontFamily="Times New Roman" Content="Save Current"/>
+                <Button Command="{Binding CancelEditItemCommand}" Margin="0,4" Height="35" Width="200" FontSize="20" FontFamily="Times New Roman" Content="Cancel Edit"/>
             </StackPanel>
         </DockPanel>
     </Grid>

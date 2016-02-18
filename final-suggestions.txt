@@ -1,0 +1,33 @@
+IMPORTANT CHANGES
+ *******Add search feature in "Payments" and add inventory/report generation of TOTAL PAYMENT RECIVED
+	Sample format: (Daily Report & Monthly Report-- Ready to Print Report)
+	----------------------------------------------------------------------------------------------------------------------------	
+	Daily Format:
+			Date 	Time	Book Title	Book Section		Acquisition#	Penalty/Amount 	Payer
+			2/14	10:00	Rizal		reserved section	12321		10.00		Ritchell
+			2/15	11:00	Boni		Reserved Section	12323		 5.00		Arnel
+	
+		Total Amount Collected:
+	-----------------------------------------------------------------------------------------------------------------------------
+	Monthly Format:
+			Month	Date	Book Title	Book Section		Acquisition#	Penalty/Amount	Payer
+
+		Total Amount Collected:
+	----------------------------------------------------------------------------------------------------------------------------
+	(PRODUCE RECEIPT every payment done--READY TO PRINT)
+	FORMAT:
+	
+		Transaction No. AAA111 (AutoGenerate) 3letters and 3 numbers 
+		Date	Time	Book Borrowed	Book Section	PenaltyAmount	Payer
+
+		Total Amount Paid:
+
+									Payor:_(Admin's Name)_
+	---------------------------------------------------------------------------------------------------------------------------
+
+*******For Book Replacement (diba napag-usapan tah na ini? bale didto nla ha books, then isearch an book, by acquisition para sure
+			    then i.delete nla an book..tnan na transaction na about han book mawawara..pati an penalty kun mayda man)
+*******Add Search Feature in "Books" (Search by Books Title, Acquisition Number,author)
+*******Transaction Logs As A Whole
+*******Include Acquisition # in "BookList" Report
+*******Add Search in "Users" (search by Username)

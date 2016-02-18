@@ -12,6 +12,7 @@ using ritchell.library.model.Services;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Views;
 using ritchell.library.ui.View.DialogInterface;
+using System.Diagnostics;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -29,11 +30,11 @@ namespace ritchell.library.ui.ViewModel
             _BookService = bookService;
             _SectionService = sectionService;
             _RFIDDialogService = rfidDialogService;
-            
+
             items = new ObservableCollection<BookInfo>(_BookService.GetBooks());
             ItemsCollectionView = (ICollectionView)CollectionViewSource.GetDefaultView(items);
             ItemsCollectionView.SortDescriptions.Add(new SortDescription("BookTitle", ListSortDirection.Ascending));
-     
+
             LoadSections();
             LoadSubjects();
         }
@@ -90,9 +91,10 @@ namespace ritchell.library.ui.ViewModel
                     items.Remove(currentBook);
                 }
             }
-            catch (Exception)
-            { }
-
+            catch (Exception ex)
+            {
+                Debug.WriteLine("failed-delete-book\n\n" + ex.Message);
+            }
         }
 
         public override void EditItemCommandHandler()

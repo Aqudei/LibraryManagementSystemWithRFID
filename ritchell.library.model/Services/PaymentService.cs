@@ -76,6 +76,7 @@ namespace ritchell.library.model.LibraryTransactions
         {
             ICollection<Payable> Payables = new List<Payable>();
 
+            using (var bookCopyRepo = new BookCopyRepository())
             using (var transRepo = new BookTransactionInfoRepository())
             using (var userRepo = new LibraryUserRepository())
             {
@@ -84,6 +85,7 @@ namespace ritchell.library.model.LibraryTransactions
                 {
                     Payable p = new Payable
                     {
+                        BookCopy = bookCopyRepo.FindById(tran.BookCopyId),
                         TransactionInfo = tran,
                         LibraryUserId = tran.LibraryUserId,
                         AmountToPay = tran.AmountToPay,

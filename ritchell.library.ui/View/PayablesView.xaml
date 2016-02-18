@@ -28,6 +28,11 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
+                            <TextBlock MinWidth="100" Text="Acquisition:" TextAlignment="Right" Margin="0,0,20,0"/>
+                            <TextBlock Text="{Binding BookCopy.AcquisitionNumber}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
                             <TextBlock MinWidth="100" Text="Amount:" TextAlignment="Right" Margin="0,0,20,0"/>
                             <TextBlock Text="{Binding AmountToPay, StringFormat=P\{0:.00\}}"/>
                         </StackPanel>

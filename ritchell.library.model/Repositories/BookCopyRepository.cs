@@ -10,8 +10,6 @@ namespace ritchell.library.model.Repositories
 {
     public class BookCopyRepository : RepositoryBase<BookCopy>, IBookCopyRepository
     {
-
-
         public BookCopyRepository(System.Data.Entity.DbContext context)
             : base(context)
         { }

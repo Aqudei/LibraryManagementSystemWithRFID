@@ -9,22 +9,52 @@ namespace ritchell.library.model.Services
 {
     public class BookCopyService
     {
-        public void AddBookCopy(BookCopy bookCopy)
+        public void AddOrUpdateBookCopy(BookCopy bookCopy)
         {
             using (var uow = new LibUnitOfWork())
             {
-                var existing = uow.BookCopyRepository.FindByLongRangeRFId(bookCopy.BookTagLong);
-                if (existing != null)
-                    throw new InvalidOperationException("That long-ranged RFID tag is already used");
+                var existingBookCopy = uow.BookCopyRepository.Where(bc => bc.Id == bookCopy.Id).FirstOrDefault();
+                if (existingBookCopy != null)
+                {
+                    var existing = uow.BookCopyRepository.Where(bc => bc.BookTagLong == bookCopy.BookTagLong && bc.Id != bookCopy.Id).FirstOrDefault();
+                    if (existing != null)
+                        throw new InvalidOperationException("That long-ranged RFID tag is already used");
 
-                existing = uow.BookCopyRepository.FindByShortRangeRFId(bookCopy.BookTagShort);
-                if (existing != null)
-                    throw new InvalidOperationException("That short-ranged RFID tag is already used");
+                    existing = uow.BookCopyRepository.Where(bc => bc.BookTagShort == bookCopy.BookTagShort && bc.Id != bookCopy.Id).FirstOrDefault();
+                    if (existing != null)
+                        throw new InvalidOperationException("That short-ranged RFID tag is already used");
 
-                if (uow.BookCopyRepository.Where(bc => bc.AcquisitionNumber == bookCopy.AcquisitionNumber).Any())
-                    throw new InvalidOperationException("Duplicate in Acquisition Number!");
+                    existing = uow.BookCopyRepository.Where(bc => bc.AcquisitionNumber == bookCopy.AcquisitionNumber && bc.Id != bookCopy.Id).FirstOrDefault();
+                    if (existing != null)
+                        throw new InvalidOperationException("Duplicate in Acquisition Number!");
 
-                uow.BookCopyRepository.Add(bookCopy);
+                    bookCopy.IsBorrowed = false;
+
+                    var lastTrans = uow.BookTransactionInfoRepository.GetLastBookTransaction(bookCopy.Id);
+                    if (lastTrans != null)
+                    {
+                        lastTrans.ReturnDate = DateTime.Now;
+                        lastTrans.AmountToPay = 0;
+                        uow.BookTransactionInfoRepository.Update(lastTrans);
+                    }
+
+                    uow.BookCopyRepository.Update(bookCopy);
+                }
+                else
+                {
+                    var existing = uow.BookCopyRepository.FindByLongRangeRFId(bookCopy.BookTagLong);
+                    if (existing != null)
+                        throw new InvalidOperationException("That long-ranged RFID tag is already used");
+
+                    existing = uow.BookCopyRepository.FindByShortRangeRFId(bookCopy.BookTagShort);
+                    if (existing != null)
+                        throw new InvalidOperationException("That short-ranged RFID tag is already used");
+
+                    if (uow.BookCopyRepository.Where(bc => bc.AcquisitionNumber == bookCopy.AcquisitionNumber).Any())
+                        throw new InvalidOperationException("Duplicate in Acquisition Number!");
+
+                    uow.BookCopyRepository.Add(bookCopy);
+                }
                 uow.SaveChanges();
             }
         }

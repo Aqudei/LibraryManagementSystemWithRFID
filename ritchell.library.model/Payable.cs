@@ -15,5 +15,6 @@ namespace ritchell.library.model
         public Guid LibraryUserId { get; set; }
         public TransactionInfo TransactionInfo { get; set; }
         public string UserInvolved { get; set; }
+        public BookCopy BookCopy { get; set; }
     }
 }

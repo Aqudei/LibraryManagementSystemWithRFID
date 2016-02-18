@@ -50,7 +50,17 @@ namespace ritchell.library.ui.ViewModel
             UserInterfaceState = UIState.Standby;
         }
 
-        public ICollectionView ItemsCollectionView { get; set; }
+        private ICollectionView _ItemsCollectionView;
+        public ICollectionView ItemsCollectionView
+        {
+            get { return _ItemsCollectionView; }
+
+            set
+            {
+                _ItemsCollectionView = value;
+                RaisePropertyChanged(() => ItemsCollectionView);
+            }
+        }
 
         protected ObservableCollection<T> items;
 

@@ -12,7 +12,11 @@
         <DataTemplate x:Key="ToBeReturnedBooksTemplate">
             <StackPanel Margin="5,8">
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding LibraryUser.Fullname}" FontSize="18.667" FontWeight="Bold"/>
-                <TextBlock Text="{Binding BookInfo.BookTitle}" FontSize="16" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding BookInfo.BookTitle}" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock> -- </TextBlock>
+                    <TextBlock Text="{Binding BookCopy.AcquisitionNumber}" FontSize="16" FontWeight="Bold"/>
+                </StackPanel>
                 <TextBlock Text="{Binding RequiredFee, StringFormat=Php\{0:F\}}" FontSize="16" FontWeight="Bold"/>
 
                 <Button Command="{Binding DataContext.ReturnApplyPaymentCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" 
