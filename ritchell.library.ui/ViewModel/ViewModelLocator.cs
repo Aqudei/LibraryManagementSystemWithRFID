@@ -78,7 +78,8 @@ namespace ritchell.library.ui.ViewModel
         {
             try
             {
-                var shortReader = new ShortRangeRFID();
+                //var shortReader = new ShortRangeRFID();
+                var shortReader = new FakeRFID();
                 SimpleIoc.Default.Register<IRFIDReader>(() => shortReader, "short");
             }
             catch (System.Exception ex)
@@ -91,7 +92,8 @@ namespace ritchell.library.ui.ViewModel
 
             try
             {
-                var longReader = new LongRangeRFID();
+                //var longReader = new LongRangeRFID();
+                var longReader = new FakeRFID();
                 SimpleIoc.Default.Register<IRFIDReader>(() => longReader, "long");
             }
             catch (Exception ex)
