@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model;
 using ritchell.library.model.Services;
 using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -24,9 +17,7 @@ namespace ritchell.library.ui.ViewModel
     {
         private BookCopyService BookCopyService;
         private BookInfo _CurrentBook;
-        private string _RFIDLong;
-        private string _RFIDShort;
-
+      
         private RelayCommand _DeleteBookCopyCommand;
         private IRFIDReader _ShortRFIDReader;
         private IRFIDReader _LongRFIDReader;
@@ -53,17 +44,19 @@ namespace ritchell.library.ui.ViewModel
 
         private void _LongRFIDReader_TagRead(object sender, string e)
         {
-            if (RFIDLong != e)
+            var current = ItemsCollectionView.CurrentItem as BookCopy;
+            if (current != null && current.BookTagLong != e)
             {
-                RFIDLong = e;
+                current.BookTagLong = e;
             }
         }
 
         void _ShortRFIDReader_TagRead(object sender, string e)
         {
-            if (RFIDShort != e)
+            var current = ItemsCollectionView.CurrentItem as BookCopy;
+            if (current != null && current.BookTagShort != e)
             {
-                RFIDShort = e;
+                current.BookTagShort = e;
             }
         }
 
@@ -105,23 +98,7 @@ namespace ritchell.library.ui.ViewModel
 
         void ItemsCollectionView_CurrentChanged(object sender, EventArgs e)
         { }
-
-        public string RFIDLong
-        {
-            set
-            {
-                var current = ItemsCollectionView.CurrentItem as BookCopy;
-                if (current != null)
-                    current.BookTagLong = value;
-
-                _RFIDLong = value;
-                RaisePropertyChanged(() => RFIDLong);
-            }
-            get
-            {
-                return _RFIDLong;
-            }
-        }
+                
 
         public override void Cleanup()
         {
@@ -158,23 +135,16 @@ namespace ritchell.library.ui.ViewModel
         }
 
         public override void EditItemCommandHandler()
-        { }
-
-        public string RFIDShort
         {
-            get
+            var current = ItemsCollectionView.CurrentItem as BookCopy;
+            if (current != null)
             {
-                return _RFIDShort;
-            }
-            set
-            {
-                var current = ItemsCollectionView.CurrentItem as BookCopy;
-                if (current != null)
-                    current.BookTagShort = value;
-                _RFIDShort = value;
-                RaisePropertyChanged(() => RFIDShort);
+                current.BookTagLong = "";
+                current.BookTagShort = "";
             }
         }
+
+       
 
         private string _Error="";
         public string Error
