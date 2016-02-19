@@ -17,7 +17,6 @@ namespace ritchell.library.ui.ViewModel
     {
         private BookCopyService BookCopyService;
         private BookInfo _CurrentBook;
-
         private RelayCommand _DeleteBookCopyCommand;
         private IRFIDReader _ShortRFIDReader;
         private IRFIDReader _LongRFIDReader;
@@ -58,6 +57,7 @@ namespace ritchell.library.ui.ViewModel
             if (current != null && current.BookTagShort != e)
             {
                 current.BookTagShort = e;
+
                 RaisePropertyChanged(() => ItemsCollectionView);
             }
         }
@@ -100,7 +100,6 @@ namespace ritchell.library.ui.ViewModel
 
         void ItemsCollectionView_CurrentChanged(object sender, EventArgs e)
         { }
-
 
         public override void Cleanup()
         {
@@ -147,8 +146,10 @@ namespace ritchell.library.ui.ViewModel
         }
 
 
+       
 
         private string _Error = "";
+
         public string Error
         {
             get
