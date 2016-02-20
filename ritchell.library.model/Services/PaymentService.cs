@@ -83,15 +83,15 @@ namespace ritchell.library.model.LibraryTransactions
                 var trans = transRepo.GetReturnedBooksPayableTransactions();
                 foreach (var tran in trans)
                 {
-                    Payable p = new Payable
-                    {
-                        BookCopy = bookCopyRepo.FindById(tran.BookCopyId),
-                        TransactionInfo = tran,
-                        LibraryUserId = tran.LibraryUserId,
-                        AmountToPay = tran.AmountToPay,
-                        BookInvolved = _BookCopyService.GetBookInfo(tran.BookCopyId).BookTitle,
-                        UserInvolved = userRepo.FindById(tran.LibraryUserId).Fullname
-                    };
+                    Payable p = new Payable();
+
+                    p.BookCopy = bookCopyRepo.FindById(tran.BookCopyId);
+                    p.TransactionInfo = tran;
+                    p.LibraryUserId = tran.LibraryUserId;
+                    p.AmountToPay = tran.AmountToPay;
+                    p.BookInvolved = _BookCopyService.GetBookInfo(tran.BookCopyId).BookTitle;
+                    p.UserInvolved = userRepo.FindById(tran.LibraryUserId).Fullname;
+
                     Payables.Add(p);
                 }
                 return Payables;
