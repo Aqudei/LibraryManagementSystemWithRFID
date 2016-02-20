@@ -58,5 +58,12 @@ namespace ritchell.library.infrastructure.Hardware
         }
 
         public abstract void Dispose();
+
+        protected void RaiseTagRead(string tag)
+        {
+            var handler = TagRead;
+            if (handler != null)
+                handler(this, tag);
+        }
     }
 }

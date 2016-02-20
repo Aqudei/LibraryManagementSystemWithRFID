@@ -20,7 +20,7 @@ namespace ritchell.library.ui.ViewModel
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class BorrowedBooksManagerViewModel : ViewModelBase
+    public class BorrowedBooksManagerViewModel : ViewModelBase, ITagListener
     {
         /// <summary>
         /// Initializes a new instance of the BorrowedBooksManager class.
@@ -35,13 +35,12 @@ namespace ritchell.library.ui.ViewModel
         private void SetupRFIDReader()
         {
             _ShortRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
-            _ShortRFIDReader.TagRead += _ShortRFIDReader_TagRead;
-            _ShortRFIDReader.StartReader();
+            _ShortRFIDReader.SetListener(this);
         }
-
-        private void _ShortRFIDReader_TagRead(object sender, string e)
+        
+        public void TagRead(RFIDTag tag)
         {
-            var returnBookDTO = BooksToBeReturnedList.Where(b => b.BookCopy.BookTagShort == e).FirstOrDefault();
+            var returnBookDTO = BooksToBeReturnedList.Where(b => b.BookCopy.BookTagShort == tag.Tag).FirstOrDefault();
             if (returnBookDTO != null)
             {
                 DispatcherHelper.CheckBeginInvokeOnUI(() =>
@@ -51,12 +50,13 @@ namespace ritchell.library.ui.ViewModel
                 });
             }
         }
-
+        
         private void RefreshList()
         {
             BooksToBeReturnedList = new ObservableCollection<ReturnBookDTO>(_PaymentService.GetBorrowedBooks());
             BooksToBeReturned = CollectionViewSource.GetDefaultView(BooksToBeReturnedList);
         }
+
 
         private RelayCommand<ReturnBookDTO> _ReturnApplyPayment;
 

@@ -37,6 +37,7 @@ namespace ritchell.library.infrastructure.Hardware
 
             if (IsMonitoring == true)
             {
+                base.RaiseTagRead(e.UserState.ToString());
                 foreach (var listener in TagListeners)
                 {
                     listener.TagRead(new RFIDTag
