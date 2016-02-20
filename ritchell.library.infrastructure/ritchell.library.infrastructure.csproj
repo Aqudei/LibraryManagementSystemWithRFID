@@ -77,9 +77,12 @@
     <Compile Include="Hardware\IRFIDReader.cs" />
     <Compile Include="Hardware\LongRangeRFID.cs" />
     <Compile Include="Hardware\NullRFID.cs" />
+    <Compile Include="Hardware\RFIDReaderBase.cs" />
+    <Compile Include="Hardware\RFIDTag.cs" />
     <Compile Include="Hardware\ShortRangeRFID.cs" />
     <Compile Include="INPCBase.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Hardware\ITagListener.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase.cs" />

@@ -8,13 +8,11 @@ using System.Diagnostics;
 
 namespace ritchell.library.infrastructure.Hardware
 {
-    public class ShortRangeRFID : IDisposable, IRFIDReader
+    public class ShortRangeRFID : RFIDReaderBase, IRFIDReader
     {
         private string[] readers;
         private SCardContext cardContext;
         private SCardMonitor cardMonitor;
-
-        public event EventHandler<string> TagRead;
 
         public ShortRangeRFID()
         {
@@ -31,6 +29,7 @@ namespace ritchell.library.infrastructure.Hardware
             {
                 cardMonitor = new SCardMonitor(cardContext, SCardScope.System);
                 cardMonitor.CardInserted += cardMonitor_CardInserted;
+                cardMonitor.Start(readers[0]);
             }
         }
 
@@ -45,43 +44,25 @@ namespace ritchell.library.infrastructure.Hardware
 
             string tag = BitConverter.ToString(recieveBuff, 0, rxBuffLen);
 
-            var handler = TagRead;
-            if (handler != null)
-                handler(this, tag);
+            if (IsMonitoring == true)
+            {
+                foreach (var listener in TagListeners)
+                {
+                    listener.TagRead(new RFIDTag
+                    {
+                        RFIDTagType = RFIDTag.TagType.Short,
+                        Tag = tag
+                    });
+                }
+            }
 
             cardReader.Disconnect(SCardReaderDisposition.Leave);
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             cardContext.Release();
             cardContext.Dispose();
-        }
-
-        public bool IsStarted { get; set; }
-
-        public void StartReader()
-        {
-            if (readers.Length > 0 && IsStarted == false)
-            {
-                cardMonitor.Start(readers[0]);
-                IsStarted = true;
-            }
-        }
-
-        public void StopReader()
-        {
-            try
-            {
-                cardContext.Release();
-                cardContext.Dispose();
-                cardContext = null;
-                IsStarted = false;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
         }
     }
 }

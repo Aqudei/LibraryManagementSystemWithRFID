@@ -6,15 +6,13 @@ using System.Diagnostics;
 
 namespace ritchell.library.infrastructure.Hardware
 {
-    public class LongRangeRFID : IRFIDReader
+    public class LongRangeRFID : RFIDReaderBase, IRFIDReader
     {
         private bool ContinueReading;
         private int _Port;
         private byte _ComAddr;
         private byte _Baud;
         private int _PortHandle;
-
-        public event EventHandler<string> TagRead;
 
         public LongRangeRFID()
         {
@@ -26,11 +24,7 @@ namespace ritchell.library.infrastructure.Hardware
             {
                 throw new InvalidOperationException("Port cannot be opened. Long RFID");
             }
-        }
 
-        public void StartReader()
-        {
-         
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += Bw_DoWork;
             bw.WorkerReportsProgress = true;
@@ -40,11 +34,17 @@ namespace ritchell.library.infrastructure.Hardware
 
         private void Bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            var handler = TagRead;
-            if (handler != null)
+
+            if (IsMonitoring == true)
             {
-                handler(this, e.UserState.ToString());
-                Debug.WriteLine("LongRangeFired");
+                foreach (var listener in TagListeners)
+                {
+                    listener.TagRead(new RFIDTag
+                    {
+                        RFIDTagType = RFIDTag.TagType.Long,
+                        Tag = e.UserState.ToString()
+                    });
+                }
             }
         }
 
@@ -80,13 +80,15 @@ namespace ritchell.library.infrastructure.Hardware
             }
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             ContinueReading = false;
+            StaticClassReaderB.CloseComPort();
         }
 
-        public void StopReader()
+        public override void OnReaderStopped()
         {
+            base.OnReaderStopped();
             ContinueReading = false;
         }
     }

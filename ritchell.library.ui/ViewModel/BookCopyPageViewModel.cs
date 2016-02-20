@@ -13,7 +13,7 @@ namespace ritchell.library.ui.ViewModel
     /// <summary>
     /// 
     /// </summary>
-    public class BookCopyPageViewModel : WithEditableItems<BookCopy>, IDataErrorInfo
+    public class BookCopyPageViewModel : WithEditableItems<BookCopy>, IDataErrorInfo, ITagListener
     {
         private BookCopyService BookCopyService;
         private BookInfo _CurrentBook;
@@ -33,36 +33,32 @@ namespace ritchell.library.ui.ViewModel
             _ShortRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
             _LongRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("long");
 
-            _ShortRFIDReader.TagRead += _ShortRFIDReader_TagRead;
-            _LongRFIDReader.TagRead += _LongRFIDReader_TagRead;
-
-
-            _ShortRFIDReader.StartReader();
-            _LongRFIDReader.StartReader();
+            _ShortRFIDReader.SetListener(this);
+            _LongRFIDReader.SetListener(this);
         }
 
-        private void _LongRFIDReader_TagRead(object sender, string e)
+        public void TagRead(RFIDTag tag)
         {
             var current = ItemsCollectionView.CurrentItem as BookCopy;
-            if (current != null && current.BookTagLong != e)
+
+            //handle long range tag
+            if (tag.RFIDTagType == RFIDTag.TagType.Long)
             {
-                current.BookTagLong = e;
-                RaisePropertyChanged(() => ItemsCollectionView);
+                if (current != null && current.BookTagLong != tag.Tag)
+                {
+                    current.BookTagLong = tag.Tag;
+                    RaisePropertyChanged(() => ItemsCollectionView);
+                }
+            }
+            else if (tag.RFIDTagType == RFIDTag.TagType.Short)
+            {
+                if (current != null && current.BookTagShort != tag.Tag)
+                {
+                    current.BookTagShort = tag.Tag;
+                    RaisePropertyChanged(() => ItemsCollectionView);
+                }
             }
         }
-
-        void _ShortRFIDReader_TagRead(object sender, string e)
-        {
-            var current = ItemsCollectionView.CurrentItem as BookCopy;
-            if (current != null && current.BookTagShort != e)
-            {
-                current.BookTagShort = e;
-
-                RaisePropertyChanged(() => ItemsCollectionView);
-            }
-        }
-
-
 
         /// <summary>
         /// Gets the DeleteBookCopyCommand.
@@ -146,7 +142,6 @@ namespace ritchell.library.ui.ViewModel
         }
 
 
-       
 
         private string _Error = "";
 
