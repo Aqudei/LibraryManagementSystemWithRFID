@@ -118,7 +118,7 @@ namespace ritchell.library.model.Services
             using (var bookCopyRepo = new BookCopyRepository())
             {
                 var bookCopy = bookCopyRepo.FindById(bookCopyId);
-                return bookInfoRepo.Where(b => b.Id.Equals(bookCopy.BookInfoId)).Single();
+                return bookInfoRepo.Where(b => b.Id.Equals(bookCopy.BookInfoId)).FirstOrDefault();
             }
         }
 

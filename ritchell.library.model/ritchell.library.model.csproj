@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Payable.cs" />
+    <Compile Include="PaymentField.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
     <Compile Include="ReturnBookDTO.cs" />
     <Compile Include="Services\BookSearchService.cs" />
