@@ -44,6 +44,8 @@ namespace ritchell.library.reporting {
         
         private coursesDataTable tablecourses;
         
+        private PaymentsDataTable tablePayments;
+        
         private global::System.Data.DataRelation relationFK_BookCopies_BookInfoes_BookInfoId;
         
         private global::System.Data.DataRelation relationFK_BookInfoes_Sections_SectionId;
@@ -51,6 +53,8 @@ namespace ritchell.library.reporting {
         private global::System.Data.DataRelation relationFK_BookCopies_BookInfoes_BookInfoId1;
         
         private global::System.Data.DataRelation relationFK_BookCopies_BookInfoes_BookInfoId2;
+        
+        private global::System.Data.DataRelation relationFK_BookCopies_BookInfoes_BookInfoId3;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -109,6 +113,9 @@ namespace ritchell.library.reporting {
                 }
                 if ((ds.Tables["courses"] != null)) {
                     base.Tables.Add(new coursesDataTable(ds.Tables["courses"]));
+                }
+                if ((ds.Tables["Payments"] != null)) {
+                    base.Tables.Add(new PaymentsDataTable(ds.Tables["Payments"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -230,6 +237,16 @@ namespace ritchell.library.reporting {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PaymentsDataTable Payments {
+            get {
+                return this.tablePayments;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -325,6 +342,9 @@ namespace ritchell.library.reporting {
                 if ((ds.Tables["courses"] != null)) {
                     base.Tables.Add(new coursesDataTable(ds.Tables["courses"]));
                 }
+                if ((ds.Tables["Payments"] != null)) {
+                    base.Tables.Add(new PaymentsDataTable(ds.Tables["Payments"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -418,10 +438,17 @@ namespace ritchell.library.reporting {
                     this.tablecourses.InitVars();
                 }
             }
+            this.tablePayments = ((PaymentsDataTable)(base.Tables["Payments"]));
+            if ((initTable == true)) {
+                if ((this.tablePayments != null)) {
+                    this.tablePayments.InitVars();
+                }
+            }
             this.relationFK_BookCopies_BookInfoes_BookInfoId = this.Relations["FK_BookCopies_BookInfoes_BookInfoId"];
             this.relationFK_BookInfoes_Sections_SectionId = this.Relations["FK_BookInfoes_Sections_SectionId"];
             this.relationFK_BookCopies_BookInfoes_BookInfoId1 = this.Relations["FK_BookCopies_BookInfoes_BookInfoId1"];
             this.relationFK_BookCopies_BookInfoes_BookInfoId2 = this.Relations["FK_BookCopies_BookInfoes_BookInfoId2"];
+            this.relationFK_BookCopies_BookInfoes_BookInfoId3 = this.Relations["FK_BookCopies_BookInfoes_BookInfoId3"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -452,6 +479,8 @@ namespace ritchell.library.reporting {
             base.Tables.Add(this.tablenumberoftimesborrowed);
             this.tablecourses = new coursesDataTable();
             base.Tables.Add(this.tablecourses);
+            this.tablePayments = new PaymentsDataTable();
+            base.Tables.Add(this.tablePayments);
             this.relationFK_BookCopies_BookInfoes_BookInfoId = new global::System.Data.DataRelation("FK_BookCopies_BookInfoes_BookInfoId", new global::System.Data.DataColumn[] {
                         this.tablebookinfoes.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tablebookcopies.BookInfoIdColumn}, false);
@@ -468,6 +497,10 @@ namespace ritchell.library.reporting {
                         this.tablebookinfoes.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tablenumberoftimesborrowed.BookInfoIdColumn}, false);
             this.Relations.Add(this.relationFK_BookCopies_BookInfoes_BookInfoId2);
+            this.relationFK_BookCopies_BookInfoes_BookInfoId3 = new global::System.Data.DataRelation("FK_BookCopies_BookInfoes_BookInfoId3", new global::System.Data.DataColumn[] {
+                        this.tablebookinfoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePayments.BookInfoIdColumn}, false);
+            this.Relations.Add(this.relationFK_BookCopies_BookInfoes_BookInfoId3);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -527,6 +560,12 @@ namespace ritchell.library.reporting {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializecourses() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializePayments() {
             return false;
         }
         
@@ -614,6 +653,9 @@ namespace ritchell.library.reporting {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void coursesRowChangeEventHandler(object sender, coursesRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void PaymentsRowChangeEventHandler(object sender, PaymentsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2578,6 +2620,8 @@ namespace ritchell.library.reporting {
             
             private global::System.Data.DataColumn columnAmountToPay;
             
+            private global::System.Data.DataColumn columnDateOfPayment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public transactioninfoesDataTable() {
@@ -2677,6 +2721,14 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateOfPaymentColumn {
+                get {
+                    return this.columnDateOfPayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2712,7 +2764,7 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public transactioninfoesRow AddtransactioninfoesRow(System.Guid Id, System.Guid BookCopyId, System.Guid LibraryUserId, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ExpectedReturnDate, bool IsPaid, double AmountToPay) {
+            public transactioninfoesRow AddtransactioninfoesRow(System.Guid Id, System.Guid BookCopyId, System.Guid LibraryUserId, System.DateTime BorrowDate, System.DateTime ReturnDate, System.DateTime ExpectedReturnDate, bool IsPaid, double AmountToPay, System.DateTime DateOfPayment) {
                 transactioninfoesRow rowtransactioninfoesRow = ((transactioninfoesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -2722,7 +2774,8 @@ namespace ritchell.library.reporting {
                         ReturnDate,
                         ExpectedReturnDate,
                         IsPaid,
-                        AmountToPay};
+                        AmountToPay,
+                        DateOfPayment};
                 rowtransactioninfoesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtransactioninfoesRow);
                 return rowtransactioninfoesRow;
@@ -2760,6 +2813,7 @@ namespace ritchell.library.reporting {
                 this.columnExpectedReturnDate = base.Columns["ExpectedReturnDate"];
                 this.columnIsPaid = base.Columns["IsPaid"];
                 this.columnAmountToPay = base.Columns["AmountToPay"];
+                this.columnDateOfPayment = base.Columns["DateOfPayment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2781,6 +2835,8 @@ namespace ritchell.library.reporting {
                 base.Columns.Add(this.columnIsPaid);
                 this.columnAmountToPay = new global::System.Data.DataColumn("AmountToPay", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmountToPay);
+                this.columnDateOfPayment = new global::System.Data.DataColumn("DateOfPayment", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateOfPayment);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -3735,6 +3791,440 @@ namespace ritchell.library.reporting {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PaymentsDataTable : global::System.Data.TypedTableBase<PaymentsRow> {
+            
+            private global::System.Data.DataColumn columnTransactionInfoId;
+            
+            private global::System.Data.DataColumn columnAmountToPay;
+            
+            private global::System.Data.DataColumn columnDateOfPayment;
+            
+            private global::System.Data.DataColumn columnBookCopyId;
+            
+            private global::System.Data.DataColumn columnBookInfoId;
+            
+            private global::System.Data.DataColumn columnSectionId;
+            
+            private global::System.Data.DataColumn columnLibraryUserId;
+            
+            private global::System.Data.DataColumn columnLastName;
+            
+            private global::System.Data.DataColumn columnFirstName;
+            
+            private global::System.Data.DataColumn columnMiddleName;
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnAcquisitionNumber;
+            
+            private global::System.Data.DataColumn columnBookTitle;
+            
+            private global::System.Data.DataColumn columnUsername;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PaymentsDataTable() {
+                this.TableName = "Payments";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal PaymentsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected PaymentsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TransactionInfoIdColumn {
+                get {
+                    return this.columnTransactionInfoId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AmountToPayColumn {
+                get {
+                    return this.columnAmountToPay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateOfPaymentColumn {
+                get {
+                    return this.columnDateOfPayment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BookCopyIdColumn {
+                get {
+                    return this.columnBookCopyId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BookInfoIdColumn {
+                get {
+                    return this.columnBookInfoId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SectionIdColumn {
+                get {
+                    return this.columnSectionId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LibraryUserIdColumn {
+                get {
+                    return this.columnLibraryUserId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LastNameColumn {
+                get {
+                    return this.columnLastName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FirstNameColumn {
+                get {
+                    return this.columnFirstName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MiddleNameColumn {
+                get {
+                    return this.columnMiddleName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AcquisitionNumberColumn {
+                get {
+                    return this.columnAcquisitionNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BookTitleColumn {
+                get {
+                    return this.columnBookTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UsernameColumn {
+                get {
+                    return this.columnUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PaymentsRow this[int index] {
+                get {
+                    return ((PaymentsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PaymentsRowChangeEventHandler PaymentsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PaymentsRowChangeEventHandler PaymentsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PaymentsRowChangeEventHandler PaymentsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event PaymentsRowChangeEventHandler PaymentsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddPaymentsRow(PaymentsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PaymentsRow AddPaymentsRow(System.Guid TransactionInfoId, double AmountToPay, System.DateTime DateOfPayment, System.Guid BookCopyId, bookinfoesRow parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId3, System.Guid SectionId, System.Guid LibraryUserId, string LastName, string FirstName, string MiddleName, string Name, int AcquisitionNumber, string BookTitle, string Username) {
+                PaymentsRow rowPaymentsRow = ((PaymentsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        TransactionInfoId,
+                        AmountToPay,
+                        DateOfPayment,
+                        BookCopyId,
+                        null,
+                        SectionId,
+                        LibraryUserId,
+                        LastName,
+                        FirstName,
+                        MiddleName,
+                        Name,
+                        AcquisitionNumber,
+                        BookTitle,
+                        Username};
+                if ((parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId3 != null)) {
+                    columnValuesArray[4] = parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId3[0];
+                }
+                rowPaymentsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPaymentsRow);
+                return rowPaymentsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PaymentsDataTable cln = ((PaymentsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PaymentsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnTransactionInfoId = base.Columns["TransactionInfoId"];
+                this.columnAmountToPay = base.Columns["AmountToPay"];
+                this.columnDateOfPayment = base.Columns["DateOfPayment"];
+                this.columnBookCopyId = base.Columns["BookCopyId"];
+                this.columnBookInfoId = base.Columns["BookInfoId"];
+                this.columnSectionId = base.Columns["SectionId"];
+                this.columnLibraryUserId = base.Columns["LibraryUserId"];
+                this.columnLastName = base.Columns["LastName"];
+                this.columnFirstName = base.Columns["FirstName"];
+                this.columnMiddleName = base.Columns["MiddleName"];
+                this.columnName = base.Columns["Name"];
+                this.columnAcquisitionNumber = base.Columns["AcquisitionNumber"];
+                this.columnBookTitle = base.Columns["BookTitle"];
+                this.columnUsername = base.Columns["Username"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnTransactionInfoId = new global::System.Data.DataColumn("TransactionInfoId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionInfoId);
+                this.columnAmountToPay = new global::System.Data.DataColumn("AmountToPay", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmountToPay);
+                this.columnDateOfPayment = new global::System.Data.DataColumn("DateOfPayment", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateOfPayment);
+                this.columnBookCopyId = new global::System.Data.DataColumn("BookCopyId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBookCopyId);
+                this.columnBookInfoId = new global::System.Data.DataColumn("BookInfoId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBookInfoId);
+                this.columnSectionId = new global::System.Data.DataColumn("SectionId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSectionId);
+                this.columnLibraryUserId = new global::System.Data.DataColumn("LibraryUserId", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLibraryUserId);
+                this.columnLastName = new global::System.Data.DataColumn("LastName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLastName);
+                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstName);
+                this.columnMiddleName = new global::System.Data.DataColumn("MiddleName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMiddleName);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnAcquisitionNumber = new global::System.Data.DataColumn("AcquisitionNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAcquisitionNumber);
+                this.columnBookTitle = new global::System.Data.DataColumn("BookTitle", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBookTitle);
+                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUsername);
+                this.columnTransactionInfoId.AllowDBNull = false;
+                this.columnAmountToPay.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PaymentsRow NewPaymentsRow() {
+                return ((PaymentsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PaymentsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PaymentsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PaymentsRowChanged != null)) {
+                    this.PaymentsRowChanged(this, new PaymentsRowChangeEvent(((PaymentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PaymentsRowChanging != null)) {
+                    this.PaymentsRowChanging(this, new PaymentsRowChangeEvent(((PaymentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PaymentsRowDeleted != null)) {
+                    this.PaymentsRowDeleted(this, new PaymentsRowChangeEvent(((PaymentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PaymentsRowDeleting != null)) {
+                    this.PaymentsRowDeleting(this, new PaymentsRowChangeEvent(((PaymentsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovePaymentsRow(PaymentsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                librarycontextDataSet ds = new librarycontextDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PaymentsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class bookcopiesRow : global::System.Data.DataRow {
@@ -4066,6 +4556,17 @@ namespace ritchell.library.reporting {
                 }
                 else {
                     return ((numberoftimesborrowedRow[])(base.GetChildRows(this.Table.ChildRelations["FK_BookCopies_BookInfoes_BookInfoId2"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PaymentsRow[] GetPaymentsRows() {
+                if ((this.Table.ChildRelations["FK_BookCopies_BookInfoes_BookInfoId3"] == null)) {
+                    return new PaymentsRow[0];
+                }
+                else {
+                    return ((PaymentsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_BookCopies_BookInfoes_BookInfoId3"])));
                 }
             }
         }
@@ -4690,6 +5191,22 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime DateOfPayment {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletransactioninfoes.DateOfPaymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateOfPayment\' in table \'transactioninfoes\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletransactioninfoes.DateOfPaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBorrowDateNull() {
                 return this.IsNull(this.tabletransactioninfoes.BorrowDateColumn);
             }
@@ -4710,6 +5227,18 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetReturnDateNull() {
                 this[this.tabletransactioninfoes.ReturnDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateOfPaymentNull() {
+                return this.IsNull(this.tabletransactioninfoes.DateOfPaymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateOfPaymentNull() {
+                this[this.tabletransactioninfoes.DateOfPaymentColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4888,6 +5417,390 @@ namespace ritchell.library.reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCourseNameNull() {
                 this[this.tablecourses.CourseNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class PaymentsRow : global::System.Data.DataRow {
+            
+            private PaymentsDataTable tablePayments;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal PaymentsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePayments = ((PaymentsDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid TransactionInfoId {
+                get {
+                    return ((global::System.Guid)(this[this.tablePayments.TransactionInfoIdColumn]));
+                }
+                set {
+                    this[this.tablePayments.TransactionInfoIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double AmountToPay {
+                get {
+                    return ((double)(this[this.tablePayments.AmountToPayColumn]));
+                }
+                set {
+                    this[this.tablePayments.AmountToPayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime DateOfPayment {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablePayments.DateOfPaymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateOfPayment\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.DateOfPaymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid BookCopyId {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tablePayments.BookCopyIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookCopyId\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.BookCopyIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid BookInfoId {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tablePayments.BookInfoIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookInfoId\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.BookInfoIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid SectionId {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tablePayments.SectionIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SectionId\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.SectionIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.Guid LibraryUserId {
+                get {
+                    try {
+                        return ((global::System.Guid)(this[this.tablePayments.LibraryUserIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LibraryUserId\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.LibraryUserIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LastName {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.LastNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LastName\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.LastNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FirstName {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.FirstNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.FirstNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MiddleName {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.MiddleNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MiddleName\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.MiddleNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int AcquisitionNumber {
+                get {
+                    try {
+                        return ((int)(this[this.tablePayments.AcquisitionNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AcquisitionNumber\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.AcquisitionNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BookTitle {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.BookTitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BookTitle\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.BookTitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Username {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.UsernameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Username\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.UsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bookinfoesRow bookinfoesRow {
+                get {
+                    return ((bookinfoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_BookCopies_BookInfoes_BookInfoId3"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_BookCopies_BookInfoes_BookInfoId3"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateOfPaymentNull() {
+                return this.IsNull(this.tablePayments.DateOfPaymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateOfPaymentNull() {
+                this[this.tablePayments.DateOfPaymentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBookCopyIdNull() {
+                return this.IsNull(this.tablePayments.BookCopyIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBookCopyIdNull() {
+                this[this.tablePayments.BookCopyIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBookInfoIdNull() {
+                return this.IsNull(this.tablePayments.BookInfoIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBookInfoIdNull() {
+                this[this.tablePayments.BookInfoIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSectionIdNull() {
+                return this.IsNull(this.tablePayments.SectionIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSectionIdNull() {
+                this[this.tablePayments.SectionIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLibraryUserIdNull() {
+                return this.IsNull(this.tablePayments.LibraryUserIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLibraryUserIdNull() {
+                this[this.tablePayments.LibraryUserIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLastNameNull() {
+                return this.IsNull(this.tablePayments.LastNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLastNameNull() {
+                this[this.tablePayments.LastNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFirstNameNull() {
+                return this.IsNull(this.tablePayments.FirstNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFirstNameNull() {
+                this[this.tablePayments.FirstNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMiddleNameNull() {
+                return this.IsNull(this.tablePayments.MiddleNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMiddleNameNull() {
+                this[this.tablePayments.MiddleNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNameNull() {
+                return this.IsNull(this.tablePayments.NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNameNull() {
+                this[this.tablePayments.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAcquisitionNumberNull() {
+                return this.IsNull(this.tablePayments.AcquisitionNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAcquisitionNumberNull() {
+                this[this.tablePayments.AcquisitionNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBookTitleNull() {
+                return this.IsNull(this.tablePayments.BookTitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBookTitleNull() {
+                this[this.tablePayments.BookTitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUsernameNull() {
+                return this.IsNull(this.tablePayments.UsernameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUsernameNull() {
+                this[this.tablePayments.UsernameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5217,6 +6130,40 @@ namespace ritchell.library.reporting {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public coursesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class PaymentsRowChangeEvent : global::System.EventArgs {
+            
+            private PaymentsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PaymentsRowChangeEvent(PaymentsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PaymentsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -8633,10 +9580,11 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ExpectedReturnDate", "ExpectedReturnDate");
             tableMapping.ColumnMappings.Add("IsPaid", "IsPaid");
             tableMapping.ColumnMappings.Add("AmountToPay", "AmountToPay");
+            tableMapping.ColumnMappings.Add("DateOfPayment", "DateOfPayment");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `transactioninfoes` WHERE ((`Id` = @p1) AND (`BookCopyId` = @p2) AND (`LibraryUserId` = @p3) AND ((@p4 = 1 AND `BorrowDate` IS NULL) OR (`BorrowDate` = @p5)) AND ((@p6 = 1 AND `ReturnDate` IS NULL) OR (`ReturnDate` = @p7)) AND (`ExpectedReturnDate` = @p8) AND (`IsPaid` = @p9) AND (`AmountToPay` = @p10))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `transactioninfoes` WHERE ((`Id` = @p1) AND (`BookCopyId` = @p2) AND (`LibraryUserId` = @p3) AND ((@p4 = 1 AND `BorrowDate` IS NULL) OR (`BorrowDate` = @p5)) AND ((@p6 = 1 AND `ReturnDate` IS NULL) OR (`ReturnDate` = @p7)) AND (`ExpectedReturnDate` = @p8) AND (`IsPaid` = @p9) AND (`AmountToPay` = @p10) AND ((@p11 = 1 AND `DateOfPayment` IS NULL) OR (`DateOfPayment` = @p12)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -8720,11 +9668,28 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceColumn = "AmountToPay";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOfPayment";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOfPayment";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `transactioninfoes` (`Id`, `BookCopyId`, `LibraryUserId`, `BorrowDate" +
-                "`, `ReturnDate`, `ExpectedReturnDate`, `IsPaid`, `AmountToPay`) VALUES (@p1, @p2" +
-                ", @p3, @p4, @p5, @p6, @p7, @p8)";
+                "`, `ReturnDate`, `ExpectedReturnDate`, `IsPaid`, `AmountToPay`, `DateOfPayment`)" +
+                " VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -8782,9 +9747,16 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "AmountToPay";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOfPayment";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `transactioninfoes` SET `Id` = @p1, `BookCopyId` = @p2, `LibraryUserId` = @p3, `BorrowDate` = @p4, `ReturnDate` = @p5, `ExpectedReturnDate` = @p6, `IsPaid` = @p7, `AmountToPay` = @p8 WHERE ((`Id` = @p9) AND (`BookCopyId` = @p10) AND (`LibraryUserId` = @p11) AND ((@p12 = 1 AND `BorrowDate` IS NULL) OR (`BorrowDate` = @p13)) AND ((@p14 = 1 AND `ReturnDate` IS NULL) OR (`ReturnDate` = @p15)) AND (`ExpectedReturnDate` = @p16) AND (`IsPaid` = @p17) AND (`AmountToPay` = @p18))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `transactioninfoes` SET `Id` = @p1, `BookCopyId` = @p2, `LibraryUserId` = @p3, `BorrowDate` = @p4, `ReturnDate` = @p5, `ExpectedReturnDate` = @p6, `IsPaid` = @p7, `AmountToPay` = @p8, `DateOfPayment` = @p9 WHERE ((`Id` = @p10) AND (`BookCopyId` = @p11) AND (`LibraryUserId` = @p12) AND ((@p13 = 1 AND `BorrowDate` IS NULL) OR (`BorrowDate` = @p14)) AND ((@p15 = 1 AND `ReturnDate` IS NULL) OR (`ReturnDate` = @p16)) AND (`ExpectedReturnDate` = @p17) AND (`IsPaid` = @p18) AND (`AmountToPay` = @p19) AND ((@p20 = 1 AND `DateOfPayment` IS NULL) OR (`DateOfPayment` = @p21)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -8844,6 +9816,13 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOfPayment";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -8851,7 +9830,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
+            param.ParameterName = "@p11";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -8859,7 +9838,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -8867,24 +9846,24 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "BorrowDate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "BorrowDate";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p14";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "BorrowDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -8893,7 +9872,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -8901,7 +9880,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p16";
+            param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -8909,7 +9888,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p17";
+            param.ParameterName = "@p18";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -8917,11 +9896,28 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p18";
+            param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.Double;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Double;
             param.IsNullable = true;
             param.SourceColumn = "AmountToPay";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p20";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOfPayment";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p21";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "DateOfPayment";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -8939,8 +9935,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Id`, `BookCopyId`, `LibraryUserId`, `BorrowDate`, `ReturnDate`, `Expected" +
-                "ReturnDate`, `IsPaid`, `AmountToPay` FROM `transactioninfoes`";
+            this._commandCollection[0].CommandText = "SELECT * FROM `transactioninfoes`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9001,7 +9996,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.Guid p1, System.Guid p2, System.Guid p3, global::System.Nullable<global::System.DateTime> p5, global::System.Nullable<global::System.DateTime> p7, System.DateTime p8, byte p9, double p10) {
+        public virtual int Delete(System.Guid p1, System.Guid p2, System.Guid p3, global::System.Nullable<global::System.DateTime> p5, global::System.Nullable<global::System.DateTime> p7, System.DateTime p8, byte p9, double p10, global::System.Nullable<global::System.DateTime> p12) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(p1));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.Guid)(p2));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((System.Guid)(p3));
@@ -9024,6 +10019,14 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(p8));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((byte)(p9));
             this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(p10));
+            if ((p12.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((System.DateTime)(p12.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9044,7 +10047,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.Guid p1, System.Guid p2, System.Guid p3, global::System.Nullable<global::System.DateTime> p4, global::System.Nullable<global::System.DateTime> p5, System.DateTime p6, byte p7, double p8) {
+        public virtual int Insert(System.Guid p1, System.Guid p2, System.Guid p3, global::System.Nullable<global::System.DateTime> p4, global::System.Nullable<global::System.DateTime> p5, System.DateTime p6, byte p7, double p8, global::System.Nullable<global::System.DateTime> p9) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(p1));
             this.Adapter.InsertCommand.Parameters[1].Value = ((System.Guid)(p2));
             this.Adapter.InsertCommand.Parameters[2].Value = ((System.Guid)(p3));
@@ -9063,6 +10066,12 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(p6));
             this.Adapter.InsertCommand.Parameters[6].Value = ((byte)(p7));
             this.Adapter.InsertCommand.Parameters[7].Value = ((double)(p8));
+            if ((p9.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(p9.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9092,14 +10101,16 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
                     System.DateTime p6, 
                     byte p7, 
                     double p8, 
-                    System.Guid p9, 
+                    global::System.Nullable<global::System.DateTime> p9, 
                     System.Guid p10, 
                     System.Guid p11, 
-                    global::System.Nullable<global::System.DateTime> p13, 
-                    global::System.Nullable<global::System.DateTime> p15, 
-                    System.DateTime p16, 
-                    byte p17, 
-                    double p18) {
+                    System.Guid p12, 
+                    global::System.Nullable<global::System.DateTime> p14, 
+                    global::System.Nullable<global::System.DateTime> p16, 
+                    System.DateTime p17, 
+                    byte p18, 
+                    double p19, 
+                    global::System.Nullable<global::System.DateTime> p21) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(p1));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((System.Guid)(p2));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((System.Guid)(p3));
@@ -9118,28 +10129,42 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(p6));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((byte)(p7));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(p8));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.Guid)(p9));
+            if ((p9.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(p9.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[9].Value = ((System.Guid)(p10));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((System.Guid)(p11));
-            if ((p13.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(p13.Value));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.Guid)(p12));
+            if ((p14.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(p14.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((p15.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(p15.Value));
+            if ((p16.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(p16.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(p16));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((byte)(p17));
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(p18));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(p17));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((byte)(p18));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(p19));
+            if ((p21.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(p21.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9160,8 +10185,25 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.Guid p2, System.Guid p3, global::System.Nullable<global::System.DateTime> p4, global::System.Nullable<global::System.DateTime> p5, System.DateTime p6, byte p7, double p8, System.Guid p9, System.Guid p10, System.Guid p11, global::System.Nullable<global::System.DateTime> p13, global::System.Nullable<global::System.DateTime> p15, System.DateTime p16, byte p17, double p18) {
-            return this.Update(p9, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p13, p15, p16, p17, p18);
+        public virtual int Update(
+                    System.Guid p2, 
+                    System.Guid p3, 
+                    global::System.Nullable<global::System.DateTime> p4, 
+                    global::System.Nullable<global::System.DateTime> p5, 
+                    System.DateTime p6, 
+                    byte p7, 
+                    double p8, 
+                    global::System.Nullable<global::System.DateTime> p9, 
+                    System.Guid p10, 
+                    System.Guid p11, 
+                    System.Guid p12, 
+                    global::System.Nullable<global::System.DateTime> p14, 
+                    global::System.Nullable<global::System.DateTime> p16, 
+                    System.DateTime p17, 
+                    byte p18, 
+                    double p19, 
+                    global::System.Nullable<global::System.DateTime> p21) {
+            return this.Update(p10, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p14, p16, p17, p18, p19, p21);
         }
     }
     
@@ -9821,6 +10863,194 @@ GROUP BY bookcopies.BookInfoId";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PaymentsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public PaymentsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Payments";
+            tableMapping.ColumnMappings.Add("TransactionInfoId", "TransactionInfoId");
+            tableMapping.ColumnMappings.Add("AmountToPay", "AmountToPay");
+            tableMapping.ColumnMappings.Add("DateOfPayment", "DateOfPayment");
+            tableMapping.ColumnMappings.Add("BookCopyId", "BookCopyId");
+            tableMapping.ColumnMappings.Add("BookInfoId", "BookInfoId");
+            tableMapping.ColumnMappings.Add("SectionId", "SectionId");
+            tableMapping.ColumnMappings.Add("LibraryUserId", "LibraryUserId");
+            tableMapping.ColumnMappings.Add("LastName", "LastName");
+            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
+            tableMapping.ColumnMappings.Add("MiddleName", "MiddleName");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("AcquisitionNumber", "AcquisitionNumber");
+            tableMapping.ColumnMappings.Add("BookTitle", "BookTitle");
+            tableMapping.ColumnMappings.Add("Username", "Username");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::ritchell.library.reporting.Properties.Settings.Default.librarycontextConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT     transactioninfoes.Id AS TransactionInfoId, transactioninfoes.AmountToPay, transactioninfoes.DateOfPayment, bookcopies.Id AS BookCopyId, 
+                      bookinfoes.Id AS BookInfoId, sections.Id AS SectionId, libraryusers.Id AS LibraryUserId, libraryusers.LastName, libraryusers.FirstName, libraryusers.MiddleName, 
+                      sections.Name, bookcopies.AcquisitionNumber, bookinfoes.BookTitle, libraryusers.Username
+FROM         bookinfoes LEFT OUTER JOIN
+                      sections ON bookinfoes.SectionId = sections.Id RIGHT OUTER JOIN
+                      bookcopies ON bookinfoes.Id = bookcopies.BookInfoId RIGHT OUTER JOIN
+                      transactioninfoes ON bookcopies.Id = transactioninfoes.BookCopyId LEFT OUTER JOIN
+                      libraryusers ON transactioninfoes.LibraryUserId = libraryusers.Id
+WHERE     (transactioninfoes.IsPaid = true) AND (transactioninfoes.AmountToPay > 0)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(librarycontextDataSet.PaymentsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual librarycontextDataSet.PaymentsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            librarycontextDataSet.PaymentsDataTable dataTable = new librarycontextDataSet.PaymentsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

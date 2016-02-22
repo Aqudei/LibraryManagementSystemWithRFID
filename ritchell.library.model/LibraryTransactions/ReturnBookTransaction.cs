@@ -32,6 +32,7 @@ namespace ritchell.library.model.LibraryTransactions
         public void CompletePayment()
         {
             _LastTransaction.IsPaid = true;
+            _LastTransaction.DateOfPayment = DateTime.Now;
         }
 
         public override string TransactionType

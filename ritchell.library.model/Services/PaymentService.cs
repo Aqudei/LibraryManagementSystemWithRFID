@@ -57,6 +57,7 @@ namespace ritchell.library.model.LibraryTransactions
             var bookCopy = _BookCopyService.FindById(transInfo.BookCopyId);
 
             bookCopy.IsBorrowed = false;
+            transInfo.DateOfPayment = DateTime.Now;
 
             using (var uow = new library.model.Repositories.LibUnitOfWork())
             {

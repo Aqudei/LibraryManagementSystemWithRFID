@@ -104,7 +104,7 @@ namespace ritchell.library.reporting
                 return patrons;
             }
         }
-        
+
         public void ShowBookListReport()
         {
             var reportForm = new MainWindow();
@@ -133,5 +133,26 @@ namespace ritchell.library.reporting
             reportForm.ShowDialog();
         }
 
+        public Payments Payments
+        {
+            get
+            {
+                using (var adptr = new librarycontextDataSetTableAdapters.PaymentsTableAdapter())
+                {
+                    adptr.Fill(reportSource.Payments);
+
+                    var rpt = new Payments();
+                    rpt.SetDataSource(reportSource);
+                    return rpt;
+                }
+            }
+        }
+
+        public void ShowPaymentsReport()
+        {
+            var reportForm = new MainWindow();
+            reportForm.ReportViewer.ViewerCore.ReportSource = Payments;
+            reportForm.ShowDialog();
+        }
     }
 }

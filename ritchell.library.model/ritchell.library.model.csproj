@@ -95,9 +95,16 @@
     <Compile Include="Migrations\201602031247083_UniqueRFIDTag.Designer.cs">
       <DependentUpon>201602031247083_UniqueRFIDTag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602212104149_Add Payment Report.cs" />
+    <Compile Include="Migrations\201602212104149_Add Payment Report.Designer.cs">
+      <DependentUpon>201602212104149_Add Payment Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602212110067_Payment Date Nullable.cs" />
+    <Compile Include="Migrations\201602212110067_Payment Date Nullable.Designer.cs">
+      <DependentUpon>201602212110067_Payment Date Nullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Payable.cs" />
-    <Compile Include="PaymentField.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
     <Compile Include="ReturnBookDTO.cs" />
     <Compile Include="Services\BookSearchService.cs" />
@@ -137,6 +144,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201602031247083_UniqueRFIDTag.resx">
       <DependentUpon>201602031247083_UniqueRFIDTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602212104149_Add Payment Report.resx">
+      <DependentUpon>201602212104149_Add Payment Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602212110067_Payment Date Nullable.resx">
+      <DependentUpon>201602212110067_Payment Date Nullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -84,6 +84,9 @@ namespace ritchell.library.ui
             else if (rptName.Contains("most"))
             {
                 ReportViewerService.ShowMostBOrrowed();
+            } else if (rptName.Contains("payment"))
+            {
+                ReportViewerService.ShowPaymentsReport();
             }
         }
 

@@ -16,6 +16,7 @@ namespace ritchell.library.model.LibraryTransactions
         public DateTime ExpectedReturnDate { get; set; }
         public bool IsPaid { get; set; }
         public double AmountToPay { get; set; }
+        public DateTime? DateOfPayment { get; set; }
         public TransactionInfo()
         {
             Id = Guid.NewGuid();
