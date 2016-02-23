@@ -96,8 +96,14 @@ namespace ritchell.library.model.Services
             using (var uow = new LibUnitOfWork())
             {
                 var bookCopy = uow.BookCopyRepository.FindById(BookCopyId);
+                var existingTransactions = uow.BookTransactionInfoRepository
+                    .Where(t => t.BookCopyId == BookCopyId && ((t.AmountToPay > 0 && t.IsPaid == false) || (t.ReturnDate == null)));
+
                 if (bookCopy != null)
                 {
+                    if (existingTransactions.ToList().Any())
+                        throw new InvalidOperationException("The book copy you are trying to delete has some active transactions.\nConsider replacing the copy or pay/return the book");
+
                     uow.BookCopyRepository.Remove(bookCopy);
                     uow.SaveChanges();
                 }
