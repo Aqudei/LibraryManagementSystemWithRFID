@@ -31,7 +31,7 @@
 
     <Grid x:Name="ToBeReturnedList" >
         <ScrollViewer>
-            <DockPanel Height="300" Width="284" Margin="5">
+            <DockPanel>
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     <TextBox x:Name="textBox" TextWrapping="Wrap" Width="200"/>
                     <Button x:Name="button" 
