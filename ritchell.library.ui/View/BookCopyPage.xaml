@@ -10,7 +10,7 @@
 
     <Grid>
         <DockPanel  Margin="10">
-            <Border DockPanel.Dock="Top">
+            <Border DockPanel.Dock="Top" Padding="5">
                 <ContentControl Content="{Binding CurrentBook}">
                     <ContentControl.ContentTemplate>
                         <DataTemplate>
@@ -19,38 +19,51 @@
                     </ContentControl.ContentTemplate>
                 </ContentControl>
             </Border>
+            <StackPanel Orientation="Vertical" Width="606" d:LayoutOverrides="Height">
 
-            <ListView DockPanel.Dock="Left"
-                      MinWidth="300"
-                      IsSynchronizedWithCurrentItem="True"
-                      ItemsSource="{Binding ItemsCollectionView}">
+                <StackPanel x:Name="stackPanel" Orientation="Horizontal">
 
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Acquisition Number"
-                                        Width="150" DisplayMemberBinding="{Binding AcquisitionNumber}"/>
-                        <GridViewColumn Header="RFID Short" Width="200" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding BookTagShort}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
+                    <TextBox x:Name="textBoxFilterString" TextWrapping="Wrap" Margin="3" Width="200"/>
+                    <Button x:Name="button" 
+                            Content="Search" Margin="3"
+                            Command="{Binding FilterCommand}"
+                            CommandParameter="{Binding Text, ElementName=textBoxFilterString}"/>
 
-                        </GridViewColumn>
+                </StackPanel>
 
-                        <GridViewColumn Header="RFID Long" Width="250" >
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding BookTagLong}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
+                <ListView
+            		MinWidth="300"
+            		IsSynchronizedWithCurrentItem="True"
+            		ItemsSource="{Binding ItemsCollectionView}" Height="520.47" d:LayoutOverrides="Width">
 
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Acquisition Number"
+            					Width="150" DisplayMemberBinding="{Binding AcquisitionNumber}"/>
+                            <GridViewColumn Header="RFID Short" Width="200" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding BookTagShort}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="RFID Long" Width="250" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding BookTagLong}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
 
 
-            </ListView>
+                </ListView>
+
+            </StackPanel>
 
             <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Margin="10,0">
 

@@ -74,6 +74,7 @@
     <Compile Include="BookSearchResultDTO.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Department.cs" />
+    <Compile Include="Interfaces\IActionLogRepository.cs" />
     <Compile Include="Interfaces\ICourseRepository.cs" />
     <Compile Include="Interfaces\IDepartmentRepository.cs" />
     <Compile Include="LibraryTransactions\JustReturnBookTransaction.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="LibraryTransactions\LibraryTransactionBase.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionFactory.cs" />
     <Compile Include="LibraryTransactions\LibraryTransactionsAggregate.cs" />
+    <Compile Include="Logging\DBLogger.cs" />
     <Compile Include="Migrations\201602031247083_UniqueRFIDTag.cs" />
     <Compile Include="Migrations\201602031247083_UniqueRFIDTag.Designer.cs">
       <DependentUpon>201602031247083_UniqueRFIDTag.cs</DependentUpon>
@@ -105,6 +107,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Payable.cs" />
+    <Compile Include="Repositories\ActionLogRepository.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
     <Compile Include="ReturnBookDTO.cs" />
     <Compile Include="Services\BookSearchService.cs" />

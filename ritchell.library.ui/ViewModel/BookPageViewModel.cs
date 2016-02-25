@@ -124,5 +124,22 @@ namespace ritchell.library.ui.ViewModel
                             && UserInterfaceState == WithEditableItems<BookInfo>.UIState.Standby));
             }
         }
+
+        public override Predicate<object> GetFilter(string filterText)
+        {
+            return (obj) =>
+            {
+                var book = obj as BookInfo;
+
+                if (book.Author.ToUpper().Contains(filterText))
+                    return true;
+                else if (book.BookTitle.ToUpper().Contains(filterText))
+                    return true;
+                else if (book.CallNumber.ToUpper().Contains(filterText))
+                    return true;
+                else
+                    return false;
+            };
+        }
     }
 }

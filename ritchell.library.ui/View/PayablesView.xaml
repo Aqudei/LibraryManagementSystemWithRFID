@@ -5,75 +5,83 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ritchell.library.ui.View"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="343.5" d:DesignWidth="468"
       Title="PayablesView" DataContext="{Binding PayablesViewModel, Source={StaticResource Locator}}">
 
     <Grid>
-        <ListView x:Name="Payables"
-                  ItemsSource ="{Binding PayablesCollectionView}" 
-                  IsSynchronizedWithCurrentItem="True"
-                  FontFamily="Centaur" FontWeight="Bold" FontSize="18.667">
+        <StackPanel Orientation="Vertical" d:LayoutOverrides="Height">
+            <StackPanel Height="30" Orientation="Horizontal" d:LayoutOverrides="Width">
+                <TextBox x:Name="textBox" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition" VerticalContentAlignment="Center" Width="200"/>
+                <Button x:Name="button" 
+                        Command="{Binding FilterCommand}"
+                        CommandParameter="{Binding Text, ElementName=textBox}"
+                        Content="Search" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <ListView x:Name="Payables"
+    			ItemsSource ="{Binding PayablesCollectionView}" 
+    			IsSynchronizedWithCurrentItem="True"
+    			FontFamily="Centaur" FontWeight="Bold" FontSize="18.667" Height="300" d:LayoutOverrides="LeftPosition, RightPosition">
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="0,0,0,20" >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Fullname:" TextAlignment="Right" Margin="0,0,20,0"/>
-                            <TextBlock Text="{Binding UserInvolved}"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,20" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Fullname:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding UserInvolved}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Book:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding BookInvolved}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Acquisition:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding BookCopy.AcquisitionNumber}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Amount:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding AmountToPay, StringFormat=P\{0:.00\}}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Borrowed:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding TransactionInfo.BorrowDate, StringFormat=D}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock MinWidth="100" Text="Returned:" TextAlignment="Right" Margin="0,0,20,0"/>
+                                <TextBlock Text="{Binding TransactionInfo.ReturnDate, StringFormat=D}"/>
+                            </StackPanel>
+
+                            <Button x:Name="b" HorizontalAlignment="Left"
+    							Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
+    							CommandParameter="{Binding}" Width="178" Content="Pay" Margin="10,5,0,0" />
                         </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Style>
+                    <Style TargetType="{x:Type ListView}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}"  Value="0">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Border BorderThickness="1"
+                        						BorderBrush="Black"
+                        						Padding="10" Margin="10">
 
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Book:" TextAlignment="Right" Margin="0,0,20,0"/>
-                            <TextBlock Text="{Binding BookInvolved}"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Acquisition:" TextAlignment="Right" Margin="0,0,20,0"/>
-                            <TextBlock Text="{Binding BookCopy.AcquisitionNumber}"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Amount:" TextAlignment="Right" Margin="0,0,20,0"/>
-                            <TextBlock Text="{Binding AmountToPay, StringFormat=P\{0:.00\}}"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Borrowed:" TextAlignment="Right" Margin="0,0,20,0"/>
-                            <TextBlock Text="{Binding TransactionInfo.BorrowDate, StringFormat=D}"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock MinWidth="100" Text="Returned:" TextAlignment="Right" Margin="0,0,20,0"/>
-                            <TextBlock Text="{Binding TransactionInfo.ReturnDate, StringFormat=D}"/>
-                        </StackPanel>
-
-                        <Button x:Name="b" HorizontalAlignment="Left"
-                				Command="{Binding DataContext.CompletePaymentCommand, ElementName=Payables}" 
-                				CommandParameter="{Binding}" Width="178" Content="Pay" Margin="10,5,0,0" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.Style>
-                <Style TargetType="{x:Type ListView}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Path=Items.Count,
-                                RelativeSource={RelativeSource Self}}"  Value="0">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <Border BorderThickness="1"
-                                                BorderBrush="Black"
-                                                Padding="10" Margin="10">
-
-                                            <TextBlock>No items to display</TextBlock>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.Style>
-        </ListView>
+                                                <TextBlock><Run Text="No items to display"/></TextBlock>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.Style>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

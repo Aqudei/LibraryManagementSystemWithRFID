@@ -210,6 +210,42 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
+        
 
+        private RelayCommand<string> _FilterCommand;
+
+        /// <summary>
+        /// Gets the FilterCommand.
+        /// </summary>
+        public RelayCommand<string> FilterCommand
+        {
+            get
+            {
+                return _FilterCommand
+                    ?? (_FilterCommand = new RelayCommand<string>(
+                    (filterText) =>
+                    {
+                        if (string.IsNullOrEmpty(filterText))
+                        {
+                            ItemsCollectionView.Filter = new Predicate<object>((x) =>
+                            {
+                                return true;
+                            });
+                        }
+                        else
+                        {
+                            ItemsCollectionView.Filter = GetFilter(filterText.ToUpper());
+                        }
+
+                        ItemsCollectionView.Refresh();
+                    }));
+            
+            }
+        }
+
+        public virtual Predicate<object> GetFilter(string filterText)
+        {
+            return (_filterText) => true;
+        }
     }
 }

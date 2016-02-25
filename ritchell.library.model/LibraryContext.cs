@@ -1,4 +1,5 @@
 ﻿using MySql.Data.Entity;
+using ritchell.library.infrastructure.Logging;
 using ritchell.library.model.LibraryTransactions;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace ritchell.library.model
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class LibraryContext : DbContext
     {
+        public DbSet<infrastructure.Logging.ActionLog> ActionLogs { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<BookInfo> BookInfos { get; set; }
@@ -28,6 +30,8 @@ namespace ritchell.library.model
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ActionLog>().HasKey(a => a.Id);
 
             modelBuilder.Entity<Course>().HasKey(c => c.Id);
 
@@ -48,7 +52,7 @@ namespace ritchell.library.model
             modelBuilder.Entity<BookInfo>().HasMany(b => b.BookCopies).WithRequired().HasForeignKey(bc => bc.BookInfoId);
 
             modelBuilder.Entity<BookCopy>().HasKey(bc => bc.Id);
-   
+
 
             modelBuilder.Entity<Section>().HasMany(s => s.BookInfos).WithRequired().HasForeignKey(b => b.SectionId);
 

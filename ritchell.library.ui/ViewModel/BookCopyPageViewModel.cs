@@ -7,6 +7,7 @@ using ritchell.library.infrastructure.Hardware;
 using ritchell.library.model;
 using ritchell.library.model.Services;
 using GalaSoft.MvvmLight.Ioc;
+using System.Linq;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -125,9 +126,9 @@ namespace ritchell.library.ui.ViewModel
                 BookCopyService.RemoveBookCopy(current.Id);
                 items.Remove(current);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                DialogService.ShowMessageBox("", "Failed To Delete");
+                DialogService.ShowMessageBox("", "Failed To Delete\n\n" + ex.Message);
             }
         }
 
@@ -170,6 +171,20 @@ namespace ritchell.library.ui.ViewModel
                 canSave = value;
                 RaisePropertyChanged(() => CanSave);
             }
+        }
+
+        public override Predicate<object> GetFilter(string filterText)
+        {
+            return (x) =>
+            {
+                var copy = x as BookCopy;
+                if (copy.AcquisitionNumber.ToString().ToUpper().Contains(filterText.ToUpper()))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            };
         }
     }
 }

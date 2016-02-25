@@ -56,10 +56,57 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
+        private RelayCommand<string> _FilterCommand;
+
+        /// <summary>
+        /// Gets the FilterCommand.
+        /// </summary>
+        public RelayCommand<string> FilterCommand
+        {
+            get
+            {
+                return _FilterCommand
+                    ?? (_FilterCommand = new RelayCommand<string>(
+                    (filterText) =>
+                    {
+                        FilterText = filterText.ToUpper();
+                    }));
+            }
+        }
+
+        private string _FilterText;
+        private string FilterText
+        {
+            get { return _FilterText; }
+            set
+            {
+                _FilterText = value;
+                RaisePropertyChanged(() => FilterText);
+                PayablesCollectionView.Refresh();
+            }
+        }
+
         private void RefreshPayables()
         {
             Payables = new ObservableCollection<Payable>(_PaymentService.GetReturnedBooksPayables());
             PayablesCollectionView = CollectionViewSource.GetDefaultView(Payables);
+            PayablesCollectionView.Filter = (x) =>
+            {
+                var payable = x as Payable;
+
+                if (string.IsNullOrEmpty(FilterText))
+                    return true;
+                else if (payable.UserInvolved.ToUpper().Contains(FilterText))
+                {
+                    return true;
+                }
+                else if (payable.BookInvolved.ToUpper().Contains(FilterText))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            };
         }
 
         private RelayCommand<Payable> _CompletePaymentCommand;

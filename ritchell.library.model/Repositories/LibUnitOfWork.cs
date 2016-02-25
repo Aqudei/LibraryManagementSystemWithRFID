@@ -13,6 +13,7 @@ namespace ritchell.library.model.Repositories
     {
         private DbContext _Context;
 
+        private IActionLogRepository _ActionLogRepository;
         private ICourseRepository _CourseRepository;
         private IDepartmentRepository _DepartmentRepository;
         private ISectionRepository _SectionRepository;
@@ -26,6 +27,14 @@ namespace ritchell.library.model.Repositories
         {
             get { return _HolidayRepository = _HolidayRepository ?? new HolidayRepository(_Context); }
 
+        }
+
+        public IActionLogRepository ActionLogRepository
+        {
+            get
+            {
+                return _ActionLogRepository = _ActionLogRepository ?? new ActionLogRepository(_Context);
+            }
         }
 
         public ILibraryUserRepository LibraryUserRepository

@@ -35,11 +35,21 @@
 
                 </StackPanel>
             </Border>
-            <ListBox IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="BookTitle" Width="300"
-                     ItemsSource="{Binding ItemsCollectionView}" 
-                     FontSize="26.667" 
-                     FontFamily="Simplified Arabic"/>
+            <StackPanel Margin="0,0,0,-0.001" Orientation="Vertical" Width="300" d:LayoutOverrides="Height">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="textBoxFilterText"  TextWrapping="Wrap" Width="200"/>
+                    <Button x:Name="button" 
+                            Content="Search"
+                            Command="{Binding FilterCommand}"
+                            CommandParameter="{Binding Text, ElementName=textBoxFilterText}"/>
+                </StackPanel>
+                <ListBox IsSynchronizedWithCurrentItem="True"
+            		DisplayMemberPath="BookTitle"
+            		ItemsSource="{Binding ItemsCollectionView}" 
+            		FontSize="26.667" 
+            		FontFamily="Simplified Arabic" Height="456.119"/>
+
+            </StackPanel>
 
             <StackPanel  Orientation="Vertical"
                          Margin="10,0,0,32.96" 

@@ -80,6 +80,9 @@
     <Compile Include="Hardware\RFIDReaderBase.cs" />
     <Compile Include="Hardware\RFIDTag.cs" />
     <Compile Include="Hardware\ShortRangeRFID.cs" />
+    <Compile Include="Logging\ActionLog.cs" />
+    <Compile Include="Logging\ActionLoggerBase.cs" />
+    <Compile Include="Logging\IActionLogger.cs" />
     <Compile Include="INPCBase.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Hardware\ITagListener.cs" />
