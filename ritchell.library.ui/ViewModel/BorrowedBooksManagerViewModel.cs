@@ -63,6 +63,10 @@ namespace ritchell.library.ui.ViewModel
                     return true;
                 else if (toBeReturn.LibraryUser.Fullname.ToUpper().Contains(FilterText))
                     return true;
+                else if (toBeReturn.LibraryUser.FirstName.ToUpper().Contains(FilterText))
+                    return true;
+                else if (toBeReturn.LibraryUser.LastName.ToUpper().Contains(FilterText))
+                    return true;
                 else if (toBeReturn.BookInfo.BookTitle.ToUpper().Contains(FilterText))
                     return true;
                 else if (toBeReturn.BookInfo.Author.ToUpper().Contains(FilterText))
