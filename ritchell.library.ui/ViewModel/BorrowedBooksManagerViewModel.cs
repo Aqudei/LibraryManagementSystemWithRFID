@@ -37,7 +37,7 @@ namespace ritchell.library.ui.ViewModel
             _ShortRFIDReader = SimpleIoc.Default.GetInstance<IRFIDReader>("short");
             _ShortRFIDReader.SetListener(this);
         }
-        
+
         public void TagRead(RFIDTag tag)
         {
             var returnBookDTO = BooksToBeReturnedList.Where(b => b.BookCopy.BookTagShort == tag.Tag).FirstOrDefault();
@@ -50,11 +50,27 @@ namespace ritchell.library.ui.ViewModel
                 });
             }
         }
-        
+
         private void RefreshList()
         {
             BooksToBeReturnedList = new ObservableCollection<ReturnBookDTO>(_PaymentService.GetBorrowedBooks());
             BooksToBeReturned = CollectionViewSource.GetDefaultView(BooksToBeReturnedList);
+            BooksToBeReturned.Filter = (obj) =>
+            {
+                var toBeReturn = obj as ReturnBookDTO;
+
+                if (string.IsNullOrEmpty(FilterText))
+                    return true;
+                else if (toBeReturn.LibraryUser.Fullname.ToUpper().Contains(FilterText))
+                    return true;
+                else if (toBeReturn.BookInfo.BookTitle.ToUpper().Contains(FilterText))
+                    return true;
+                else if (toBeReturn.BookInfo.Author.ToUpper().Contains(FilterText))
+                    return true;
+                else
+                    return false;
+            };
+
         }
 
 
@@ -86,7 +102,6 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
-
         private PaymentService _PaymentService;
         private IRFIDReader _ShortRFIDReader;
 
@@ -110,6 +125,36 @@ namespace ritchell.library.ui.ViewModel
         private IDialogService DialogService
         {
             get { return SimpleIoc.Default.GetInstance<IDialogService>(); }
+        }
+
+        private RelayCommand<string> _FilterCommand;
+
+        /// <summary>
+        /// Gets the FilterCommand.
+        /// </summary>
+        public RelayCommand<string> FilterCommand
+        {
+            get
+            {
+                return _FilterCommand
+                    ?? (_FilterCommand = new RelayCommand<string>(
+                    (filterText) =>
+                    {
+                        FilterText = filterText.ToUpper();
+                    }));
+            }
+        }
+
+        private string _FilterText;
+        private string FilterText
+        {
+            get { return _FilterText; }
+            set
+            {
+                _FilterText = value;
+                RaisePropertyChanged(() => FilterText);
+                BooksToBeReturned.Refresh();
+            }
         }
     }
 }

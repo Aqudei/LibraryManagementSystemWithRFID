@@ -31,30 +31,38 @@
 
     <Grid x:Name="ToBeReturnedList" >
         <ScrollViewer>
-            <ListView ItemsSource="{Binding BooksToBeReturned}"      
-                      ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" 
-                      IsSynchronizedWithCurrentItem="True">
-                <ListView.Style>
-                    <Style TargetType="{x:Type ListView}">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Path=Items.Count,
-                                RelativeSource={RelativeSource Self}}"  Value="0">
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate>
-                                            <Border BorderThickness="1" 
-                                                    BorderBrush="Black"
-                                                    Padding="10" Margin="10">
-                                                <TextBlock>No items to display</TextBlock>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ListView.Style>
-            </ListView>
+            <DockPanel Height="300" Width="284" Margin="5">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <TextBox x:Name="textBox" TextWrapping="Wrap" Width="200"/>
+                    <Button x:Name="button" 
+                            Content="Search" Width="75" 
+                            Command="{Binding FilterCommand, Mode=OneWay}"
+                            CommandParameter="{Binding Text,ElementName=textBox}"/>
+                </StackPanel>
+                <ListView ItemsSource="{Binding BooksToBeReturned}"      
+        			ItemTemplate="{DynamicResource ToBeReturnedBooksTemplate}" 
+        			IsSynchronizedWithCurrentItem="True" d:LayoutOverrides="Height" DockPanel.Dock="Bottom">
+                    <ListView.Style>
+                        <Style TargetType="{x:Type ListView}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}"  Value="0">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Border BorderThickness="1" 
+                            						BorderBrush="Black"
+                            						Padding="10" Margin="10">
+                                                    <TextBlock><Run Text="No items to display"/></TextBlock>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.Style>
+                </ListView>
+            </DockPanel>
         </ScrollViewer>
 
     </Grid>

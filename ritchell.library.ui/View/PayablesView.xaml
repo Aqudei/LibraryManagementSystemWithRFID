@@ -10,12 +10,12 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" d:LayoutOverrides="Height">
-            <StackPanel Height="30" Orientation="Horizontal" d:LayoutOverrides="Width">
-                <TextBox x:Name="textBox" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition" VerticalContentAlignment="Center" Width="200"/>
+            <StackPanel Height="30" Orientation="Horizontal" d:LayoutOverrides="Width" Margin="5">
+                <TextBox x:Name="textBox" TextWrapping="Wrap" d:LayoutOverrides="LeftPosition, RightPosition" VerticalContentAlignment="Center" Width="200" Margin="5,5,5,0"/>
                 <Button x:Name="button" 
                         Command="{Binding FilterCommand}"
                         CommandParameter="{Binding Text, ElementName=textBox}"
-                        Content="Search" VerticalContentAlignment="Center"/>
+                        Content="Search" VerticalContentAlignment="Center" Margin="5,5,5,0"/>
             </StackPanel>
             <ListView x:Name="Payables"
     			ItemsSource ="{Binding PayablesCollectionView}" 
