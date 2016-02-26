@@ -39,5 +39,10 @@ namespace ritchell.library.model
         [Index(IsUnique = true)]
         public int AcquisitionNumber { get; set; }
         public bool IsBorrowed { get; set; }
+
+        public override string ToString()
+        {
+            return "Acquisition:" + AcquisitionNumber;
+        }
     }
 }

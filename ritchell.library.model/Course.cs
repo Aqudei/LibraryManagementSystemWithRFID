@@ -16,5 +16,10 @@ namespace ritchell.library.model
         {
             Id = Guid.NewGuid();
         }
+
+        public override string ToString()
+        {
+            return CourseName;
+        }
     }
 }

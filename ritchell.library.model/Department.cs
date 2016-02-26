@@ -15,5 +15,10 @@ namespace ritchell.library.model
         }
         public string LongName { get; set; }
         public string ShortName { get; set; }
+
+        public override string ToString()
+        {
+            return ShortName;
+        }
     }
 }

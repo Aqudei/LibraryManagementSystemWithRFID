@@ -86,7 +86,11 @@ namespace ritchell.library.ui.ViewModel
 
                             if (UserInterfaceState == UIState.Adding)
                             {
-                                ActionLogger.Log(string.Format("{0} added new {1}.", SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username, typeof(T)));
+                                ActionLogger.Log(string.Format("{0} added new <{1}> : <{2}>.", SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username, typeof(T).Name, ItemsCollectionView.CurrentItem));
+                            }
+                            else if (UserInterfaceState == UIState.Editing)
+                            {
+                                ActionLogger.Log(string.Format("{0} edited <{1}> : <{2}>.", SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username, typeof(T).Name, ItemsCollectionView.CurrentItem));
                             }
 
 
@@ -151,7 +155,9 @@ namespace ritchell.library.ui.ViewModel
                     ?? (_DeleteItemCommand = new RelayCommand(
                     () =>
                     {
+                        var toDelete = ItemsCollectionView.CurrentItem;
                         DeleteItemCommandHandler();
+                        ActionLogger.Log(string.Format("{0} deleted <{1}> : <{2}>.", SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username, typeof(T).Name, toDelete));
                     }, () => UserInterfaceState == UIState.Standby));
             }
         }

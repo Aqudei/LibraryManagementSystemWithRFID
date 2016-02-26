@@ -21,5 +21,10 @@ namespace ritchell.library.model
             Id = Guid.NewGuid();
             BookInfos = new List<BookInfo>();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
