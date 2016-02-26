@@ -160,11 +160,26 @@ namespace ritchell.library.reporting
         {
             get
             {
-                using(var adptr = new librarycontextDataSetTableAdapters.actionlogsTableAdapter())
+                using (var adptr = new librarycontextDataSetTableAdapters.actionlogsTableAdapter())
                 {
                     adptr.Fill(reportSource.actionlogs);
 
                     var rpt = new Logs();
+                    rpt.SetDataSource(reportSource);
+                    return rpt;
+                }
+            }
+        }
+
+        public AcquisitionReport AcquisitionReport
+        {
+            get
+            {
+                using (var adptr = new librarycontextDataSetTableAdapters.bookcopiesTableAdapter())
+                {
+                    adptr.Fill(reportSource.bookcopies);
+
+                    var rpt = new AcquisitionReport();
                     rpt.SetDataSource(reportSource);
                     return rpt;
                 }
@@ -177,5 +192,7 @@ namespace ritchell.library.reporting
             reportForm.ReportViewer.ViewerCore.ReportSource = Payments;
             reportForm.ShowDialog();
         }
+
+      
     }
 }
