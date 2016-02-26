@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
+using ritchell.library.model;
 using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
@@ -53,17 +54,25 @@ namespace ritchell.library.ui.View
         private bool TryAuthenticate()
         {
             if (Username == "_Admin_" && Password == "_Admin_")
+            {
+                SimpleIoc.Default.Register<LibraryUser>(() => new LibraryUser
+                {
+                    Username = "DefaultAdmin"
+                }, "current_user");
                 return true;
+            }
 
             try
             {
                 var admin = _LibraryUserService.GetAuthenticatedAdmin(Username, Password);
+                if (admin != null)
+                    SimpleIoc.Default.Register<LibraryUser>(() => admin, "current_user");
                 return admin != null;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
-            }   
+            }
         }
     }
 }

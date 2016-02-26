@@ -86,6 +86,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ForClearance.rpt</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Logs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Logs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\MostBorrowed.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -143,6 +149,10 @@
     <EmbeddedResource Include="Reports\ForClearance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ForClearance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Logs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Logs.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\MostBorrowed.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

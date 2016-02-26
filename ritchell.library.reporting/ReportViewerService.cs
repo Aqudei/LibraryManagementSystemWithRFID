@@ -85,6 +85,14 @@ namespace ritchell.library.reporting
             }
         }
 
+        public void ShowLogsReport()
+        {
+            var reportForm = new MainWindow();
+            reportForm.ReportViewer.ViewerCore.ReportSource = Logs;
+            reportForm.ShowDialog();
+        }
+
+
 
         public Patrons Patrons
         {
@@ -142,6 +150,21 @@ namespace ritchell.library.reporting
                     adptr.Fill(reportSource.Payments);
 
                     var rpt = new Payments();
+                    rpt.SetDataSource(reportSource);
+                    return rpt;
+                }
+            }
+        }
+
+        public Logs Logs
+        {
+            get
+            {
+                using(var adptr = new librarycontextDataSetTableAdapters.actionlogsTableAdapter())
+                {
+                    adptr.Fill(reportSource.actionlogs);
+
+                    var rpt = new Logs();
                     rpt.SetDataSource(reportSource);
                     return rpt;
                 }

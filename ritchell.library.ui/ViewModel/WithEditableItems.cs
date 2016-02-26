@@ -5,6 +5,9 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Views;
 using GalaSoft.MvvmLight.Ioc;
+using ritchell.library.infrastructure.Logging;
+using ritchell.library.model.Logging;
+using ritchell.library.model;
 
 namespace ritchell.library.ui.ViewModel
 {
@@ -80,6 +83,13 @@ namespace ritchell.library.ui.ViewModel
                         try
                         {
                             SaveItemCommandHandler();
+
+                            if (UserInterfaceState == UIState.Adding)
+                            {
+                                ActionLogger.Log(string.Format("{0} added new {1}.", SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username, typeof(T)));
+                            }
+
+
                             UserInterfaceState = UIState.Standby;
                             DialogService.ShowMessageBox("Records successfully updated", "OK");
                         }
@@ -210,7 +220,7 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
-        
+
 
         private RelayCommand<string> _FilterCommand;
 
@@ -239,7 +249,15 @@ namespace ritchell.library.ui.ViewModel
 
                         ItemsCollectionView.Refresh();
                     }));
-            
+
+            }
+        }
+
+        public IActionLogger ActionLogger
+        {
+            get
+            {
+                return _ActionLogger = _ActionLogger ?? new DBLogger();
             }
         }
 
@@ -247,5 +265,7 @@ namespace ritchell.library.ui.ViewModel
         {
             return (_filterText) => true;
         }
+
+        private IActionLogger _ActionLogger;
     }
 }

@@ -35,9 +35,11 @@ namespace ritchell.library.model.LibraryTransactions
         {
             var UserService = new LibraryUserService();
 
-            var admin = UserService.GetAuthenticatedAdmin(adminUsername, adminPassword);
-            if (admin != null)
+            AdminUsed = UserService.GetAuthenticatedAdmin(adminUsername, adminPassword);
+            if (AdminUsed != null)
+            {
                 CompletePayment();
+            }
             else
                 throw new InvalidOperationException("Invalid admin username and password.");
         }
@@ -50,8 +52,8 @@ namespace ritchell.library.model.LibraryTransactions
                 if (returnBookTrans != null)
                 {
                     returnBookTrans.CompletePayment();
-                    ActionLogger.Log(string.Format("{0} paid P{1:0.00} for {2} with acquisition # {3}",
-                        _LibraryUser.Fullname, RequiredFee, returnBookTrans.BookTitle, returnBookTrans.BookCopy.AcquisitionNumber));
+                    ActionLogger.Log(string.Format("{0} paid P{1:0.00} for {2} with acquisition # {3}. Admin was {4}.",
+                        _LibraryUser.Fullname, RequiredFee, returnBookTrans.BookTitle, returnBookTrans.BookCopy.AcquisitionNumber, AdminUsed.Fullname));
                 }
             }
 
@@ -135,5 +137,6 @@ namespace ritchell.library.model.LibraryTransactions
         }
 
         private IActionLogger actionLogger;
+        private LibraryUser AdminUsed;
     }
 }

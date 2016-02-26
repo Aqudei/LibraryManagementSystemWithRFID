@@ -199,6 +199,8 @@
                 	CommandParameter="{Binding Content, RelativeSource={RelativeSource Self}}" Style="{DynamicResource ReportingButtonStyle}" Margin="3,0" Content="Most Borrowed"/>
                 <Button Command="{Binding ShowReportCommand}" 
                 	CommandParameter="Payments" Style="{DynamicResource ReportingButtonStyle}" Margin="3,0" Content="Payments"/>
+                <Button Command="{Binding ShowReportCommand}" 
+                	CommandParameter="Logs" Style="{DynamicResource ReportingButtonStyle}" Margin="3,0" Content="Logs"/>
             </StackPanel>
             <Frame DockPanel.Dock="Bottom"
 				x:Name="LayoutRoot"

@@ -16,14 +16,14 @@ namespace ritchell.library.reporting.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Payments : ReportClass {
+    public class Logs : ReportClass {
         
-        public Payments() {
+        public Logs() {
         }
         
         public override string ResourceName {
             get {
-                return "Payments.rpt";
+                return "Logs.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ritchell.library.reporting.Reports {
         
         public override string FullResourceName {
             get {
-                return "ritchell.library.reporting.Reports.Payments.rpt";
+                return "ritchell.library.reporting.Reports.Logs.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace ritchell.library.reporting.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace ritchell.library.reporting.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace ritchell.library.reporting.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,25 +90,25 @@ namespace ritchell.library.reporting.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.Shared.IParameterField Parameter_From {
             get {
-                return this.ReportDefinition.Sections[5];
+                return this.DataDefinition.ParameterFields[0];
             }
         }
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.Shared.IParameterField Parameter_To {
             get {
-                return this.ReportDefinition.Sections[6];
+                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPayments : Component, ICachedReport {
+    public class CachedLogs : Component, ICachedReport {
         
-        public CachedPayments() {
+        public CachedLogs() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace ritchell.library.reporting.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Payments rpt = new Payments();
+            Logs rpt = new Logs();
             rpt.Site = this.Site;
             return rpt;
         }
