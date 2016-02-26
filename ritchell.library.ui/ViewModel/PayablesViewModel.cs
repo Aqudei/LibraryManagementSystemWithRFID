@@ -2,8 +2,10 @@
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using ritchell.library.infrastructure.Logging;
 using ritchell.library.model;
 using ritchell.library.model.LibraryTransactions;
+using ritchell.library.model.Logging;
 using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
@@ -129,7 +131,10 @@ namespace ritchell.library.ui.ViewModel
                              if (x == true)
                              {
                                  _PaymentService.CompletePayment(transInfo);
+
                                  RefreshPayables();
+                                 ActionLogger.Log(string.Format("{0} paid P{1:0.00} for the book {2} with Acquisition# {3}. Payment received by {4}.",
+                                    transInfo.UserInvolved, transInfo.AmountToPay, transInfo.BookInvolved, transInfo.BookCopy.AcquisitionNumber, SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username));
                              }
                          });
                     },
@@ -174,5 +179,17 @@ namespace ritchell.library.ui.ViewModel
         {
             get { return SimpleIoc.Default.GetInstance<IDialogService>(); }
         }
+
+        public IActionLogger ActionLogger
+        {
+            get
+            {
+                return _ActionLogger = _ActionLogger ?? _ActionLogger ?? new DBLogger();
+            }
+
+
+        }
+
+        private IActionLogger _ActionLogger;
     }
 }
