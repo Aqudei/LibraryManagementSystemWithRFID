@@ -709,6 +709,8 @@ namespace ritchell.library.reporting {
             
             private global::System.Data.DataColumn columnIsBorrowed;
             
+            private global::System.Data.DataColumn columnAcquisitionNumber;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bookcopiesDataTable() {
@@ -784,6 +786,14 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AcquisitionNumberColumn {
+                get {
+                    return this.columnAcquisitionNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -819,14 +829,15 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bookcopiesRow AddbookcopiesRow(System.Guid Id, string BookTagShort, string BookTagLong, bookinfoesRow parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId, bool IsBorrowed) {
+            public bookcopiesRow AddbookcopiesRow(System.Guid Id, string BookTagShort, string BookTagLong, bookinfoesRow parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId, bool IsBorrowed, int AcquisitionNumber) {
                 bookcopiesRow rowbookcopiesRow = ((bookcopiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         BookTagShort,
                         BookTagLong,
                         null,
-                        IsBorrowed};
+                        IsBorrowed,
+                        AcquisitionNumber};
                 if ((parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId != null)) {
                     columnValuesArray[3] = parentbookinfoesRowByFK_BookCopies_BookInfoes_BookInfoId[0];
                 }
@@ -864,6 +875,7 @@ namespace ritchell.library.reporting {
                 this.columnBookTagLong = base.Columns["BookTagLong"];
                 this.columnBookInfoId = base.Columns["BookInfoId"];
                 this.columnIsBorrowed = base.Columns["IsBorrowed"];
+                this.columnAcquisitionNumber = base.Columns["AcquisitionNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -879,12 +891,15 @@ namespace ritchell.library.reporting {
                 base.Columns.Add(this.columnBookInfoId);
                 this.columnIsBorrowed = new global::System.Data.DataColumn("IsBorrowed", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIsBorrowed);
+                this.columnAcquisitionNumber = new global::System.Data.DataColumn("AcquisitionNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAcquisitionNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
                 this.columnBookInfoId.AllowDBNull = false;
                 this.columnIsBorrowed.AllowDBNull = false;
+                this.columnAcquisitionNumber.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4642,6 +4657,17 @@ namespace ritchell.library.reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int AcquisitionNumber {
+                get {
+                    return ((int)(this[this.tablebookcopies.AcquisitionNumberColumn]));
+                }
+                set {
+                    this[this.tablebookcopies.AcquisitionNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bookinfoesRow bookinfoesRow {
                 get {
                     return ((bookinfoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_BookCopies_BookInfoes_BookInfoId"])));
@@ -6755,12 +6781,11 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("BookTagLong", "BookTagLong");
             tableMapping.ColumnMappings.Add("BookInfoId", "BookInfoId");
             tableMapping.ColumnMappings.Add("IsBorrowed", "IsBorrowed");
+            tableMapping.ColumnMappings.Add("AcquisitionNumber", "AcquisitionNumber");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `bookcopies` WHERE ((`Id` = @p1) AND ((@p2 = 1 AND `BookTagShort` IS " +
-                "NULL) OR (`BookTagShort` = @p3)) AND ((@p4 = 1 AND `BookTagLong` IS NULL) OR (`B" +
-                "ookTagLong` = @p5)) AND (`BookInfoId` = @p6) AND (`IsBorrowed` = @p7))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `bookcopies` WHERE ((`Id` = @p1) AND ((@p2 = 1 AND `BookTagShort` IS NULL) OR (`BookTagShort` = @p3)) AND ((@p4 = 1 AND `BookTagLong` IS NULL) OR (`BookTagLong` = @p5)) AND (`BookInfoId` = @p6) AND (`IsBorrowed` = @p7) AND (`AcquisitionNumber` = @p8))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6781,7 +6806,8 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "BookTagShort";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -6797,7 +6823,8 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "BookTagLong";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -6818,10 +6845,18 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceColumn = "IsBorrowed";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AcquisitionNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `bookcopies` (`Id`, `BookTagShort`, `BookTagLong`, `BookInfoId`, `IsB" +
-                "orrowed`) VALUES (@p1, @p2, @p3, @p4, @p5)";
+                "orrowed`, `AcquisitionNumber`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6832,13 +6867,15 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "BookTagShort";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "BookTagLong";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -6856,9 +6893,16 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "IsBorrowed";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AcquisitionNumber";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `bookcopies` SET `Id` = @p1, `BookTagShort` = @p2, `BookTagLong` = @p3, `BookInfoId` = @p4, `IsBorrowed` = @p5 WHERE ((`Id` = @p6) AND ((@p7 = 1 AND `BookTagShort` IS NULL) OR (`BookTagShort` = @p8)) AND ((@p9 = 1 AND `BookTagLong` IS NULL) OR (`BookTagLong` = @p10)) AND (`BookInfoId` = @p11) AND (`IsBorrowed` = @p12))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `bookcopies` SET `Id` = @p1, `BookTagShort` = @p2, `BookTagLong` = @p3, `BookInfoId` = @p4, `IsBorrowed` = @p5, `AcquisitionNumber` = @p6 WHERE ((`Id` = @p7) AND ((@p8 = 1 AND `BookTagShort` IS NULL) OR (`BookTagShort` = @p9)) AND ((@p10 = 1 AND `BookTagLong` IS NULL) OR (`BookTagLong` = @p11)) AND (`BookInfoId` = @p12) AND (`IsBorrowed` = @p13) AND (`AcquisitionNumber` = @p14))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6869,13 +6913,15 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "BookTagShort";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "BookTagLong";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -6895,6 +6941,13 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AcquisitionNumber";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -6902,23 +6955,24 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "BookTagShort";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "BookTagShort";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "BookTagShort";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -6927,14 +6981,15 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "BookTagLong";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.Guid;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Guid;
             param.IsNullable = true;
@@ -6942,11 +6997,19 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
             param.SourceColumn = "IsBorrowed";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p14";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "AcquisitionNumber";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -6964,8 +7027,8 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Id`, `BookTagShort`, `BookTagLong`, `BookInfoId`, `IsBorrowed` FROM `book" +
-                "copies`";
+            this._commandCollection[0].CommandText = "SELECT     Id, BookTagShort, BookTagLong, BookInfoId, IsBorrowed, AcquisitionNumb" +
+                "er\r\nFROM         bookcopies";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7026,7 +7089,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.Guid p1, string p3, string p5, System.Guid p6, byte p7) {
+        public virtual int Delete(System.Guid p1, string p3, string p5, System.Guid p6, byte p7, int p8) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(p1));
             if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -7046,6 +7109,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             }
             this.Adapter.DeleteCommand.Parameters[5].Value = ((System.Guid)(p6));
             this.Adapter.DeleteCommand.Parameters[6].Value = ((byte)(p7));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(p8));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7066,7 +7130,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.Guid p1, string p2, string p3, System.Guid p4, byte p5) {
+        public virtual int Insert(System.Guid p1, string p2, string p3, System.Guid p4, byte p5, int p6) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(p1));
             if ((p2 == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -7082,6 +7146,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             }
             this.Adapter.InsertCommand.Parameters[3].Value = ((System.Guid)(p4));
             this.Adapter.InsertCommand.Parameters[4].Value = ((byte)(p5));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7102,7 +7167,7 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.Guid p1, string p2, string p3, System.Guid p4, byte p5, System.Guid p6, string p8, string p10, System.Guid p11, byte p12) {
+        public virtual int Update(System.Guid p1, string p2, string p3, System.Guid p4, byte p5, int p6, System.Guid p7, string p9, string p11, System.Guid p12, byte p13, int p14) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(p1));
             if ((p2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -7118,25 +7183,27 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((System.Guid)(p4));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((byte)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.Guid)(p6));
-            if ((p8 == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.Guid)(p7));
+            if ((p9 == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(p9));
             }
-            if ((p10 == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            if ((p11 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.Guid)(p11));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((byte)(p12));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.Guid)(p12));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((byte)(p13));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(p14));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7157,8 +7224,8 @@ namespace ritchell.library.reporting.librarycontextDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, string p3, System.Guid p4, byte p5, System.Guid p6, string p8, string p10, System.Guid p11, byte p12) {
-            return this.Update(p6, p2, p3, p4, p5, p6, p8, p10, p11, p12);
+        public virtual int Update(string p2, string p3, System.Guid p4, byte p5, int p6, System.Guid p7, string p9, string p11, System.Guid p12, byte p13, int p14) {
+            return this.Update(p7, p2, p3, p4, p5, p6, p7, p9, p11, p12, p13, p14);
         }
     }
     
