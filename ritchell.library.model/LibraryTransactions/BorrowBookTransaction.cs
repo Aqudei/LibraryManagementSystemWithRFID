@@ -17,6 +17,7 @@ namespace ritchell.library.model.LibraryTransactions
 
         private string _TransactionType = "Borrow";
         private TransactionInfo bookTransInfo;
+        private LibraryUser _LibraryUser;
 
         public override string TransactionType
         {
@@ -39,6 +40,8 @@ namespace ritchell.library.model.LibraryTransactions
             _HolidayService = new HolidayService();
             _BookInfoService = new BookService();
             _SectionService = new SectionService();
+
+            _LibraryUser = libUser;
 
             var bookInfo = _BookInfoService.BookInfoOf(BookCopy);
             var section = _SectionService.GetBookSection(bookInfo);
@@ -73,6 +76,9 @@ namespace ritchell.library.model.LibraryTransactions
                 uow.BookCopyRepository.Update(BookCopy);
                 uow.BookTransactionInfoRepository.Add(bookTransInfo);
                 uow.SaveChanges();
+
+                ActionLogger.Log(string.Format("{0} borrowed the book {1} with acquisition # {2}",
+                    _LibraryUser.Fullname, bookInfo.BookTitle, BookCopy.AcquisitionNumber));
             }
         }
     }

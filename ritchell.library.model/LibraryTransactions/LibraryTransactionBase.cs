@@ -1,5 +1,8 @@
 ﻿using ritchell.library.infrastructure;
+using ritchell.library.infrastructure.Logging;
+using ritchell.library.model.Logging;
 using ritchell.library.model.Repositories;
+using ritchell.library.model.Services;
 using System;
 
 namespace ritchell.library.model.LibraryTransactions
@@ -16,7 +19,29 @@ namespace ritchell.library.model.LibraryTransactions
         public string BookTitle { get; set; }
         public string BookTag { get; set; }
         public DateTime TransactionDate { get; set; }
-        protected BookCopy BookCopy { get; set; }
+        public BookCopy BookCopy { get; set; }
+
+        public IActionLogger ActionLogger
+        {
+            get
+            {
+                return actionLogger = actionLogger ?? new DBLogger();
+            }
+        }
+
+        public LibraryUserService UserService
+        {
+            get
+            {
+                return _UserService;
+            }
+
+            set
+            {
+                _UserService = value;
+            }
+        }
+
         public abstract void Execute();
 
         public LibraryTransactionBase(BookCopy bookCopy)
@@ -29,6 +54,11 @@ namespace ritchell.library.model.LibraryTransactions
                 BookTitle = bookCopyRepo.BookInfoOf(BookCopy).BookTitle;
                 TransactionDate = DateTime.Now;
             }
+
+            UserService = new LibraryUserService();
         }
+
+        private IActionLogger actionLogger;
+        private LibraryUserService _UserService;
     }
 }

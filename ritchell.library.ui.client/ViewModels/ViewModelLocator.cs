@@ -18,6 +18,8 @@ using ritchell.library.model.Services;
 using System.Diagnostics;
 using ritchell.library.presentation.common.ViewServices;
 using ritchell.library.model.LibraryTransactions;
+using ritchell.library.model.Logging;
+using ritchell.library.infrastructure.Logging;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -41,6 +43,7 @@ namespace ritchell.library.ui.client.ViewModels
             else
             {
                 SetupRealRFIDReaders();
+                SimpleIoc.Default.Register<IActionLogger, DBLogger>();
             }
 
             SimpleIoc.Default.Register<BookSearchService>();

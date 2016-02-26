@@ -7,6 +7,7 @@ using ritchell.library.model.Services;
 using ritchell.library.ui.client.ViewModels.VMMessages;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using ritchell.library.infrastructure.Logging;
 
 namespace ritchell.library.ui.client.ViewModels
 {
@@ -40,6 +41,8 @@ namespace ritchell.library.ui.client.ViewModels
                         RaiseUserEvent(UserEvent.UserEventType.Login, CurrentUser);
                         IsAuthenticated = true;
                         IsStudent = CurrentUser.LibraryUserType == LibraryUser.UserType.Student;
+
+                        _ActionLogger.Log(string.Format("{0} has logged in.", CurrentUser.Fullname));
                     }
                     else {
                         IsAuthenticated = false;
@@ -77,6 +80,9 @@ namespace ritchell.library.ui.client.ViewModels
                     IsAuthenticated = false;
                     IsStudent = false;
                     RaiseUserEvent(UserEvent.UserEventType.Login, CurrentUser);
+
+                    _ActionLogger.Log(string.Format("{0} has logged out.", CurrentUser.Fullname));
+
                 }, () => IsAuthenticated);
             }
         }
@@ -173,6 +179,14 @@ namespace ritchell.library.ui.client.ViewModels
             get
             {
                 return _DialogService = _DialogService ?? SimpleIoc.Default.GetInstance<IDialogService>();
+            }
+        }
+
+        public IActionLogger _ActionLogger
+        {
+            get
+            {
+                return SimpleIoc.Default.GetInstance<IActionLogger>();
             }
         }
     }

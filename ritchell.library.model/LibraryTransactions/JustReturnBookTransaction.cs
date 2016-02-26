@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ritchell.library.model.LibraryTransactions
 {
+    //Return book, do not pay yet
     public class JustReturnBookTransaction : LibraryTransactionBase
     {
         private TransactionInfo _LastTransaction;
@@ -40,6 +41,9 @@ namespace ritchell.library.model.LibraryTransactions
                 uow.BookTransactionInfoRepository.Update(_LastTransaction);
                 uow.BookCopyRepository.Update(BookCopy);
                 uow.SaveChanges();
+                
+                ActionLogger.Log(string.Format("{0} returned the book {1} with acquisition number {2}",
+                    UserService.FindById(_LastTransaction.LibraryUserId).Fullname, BookTitle, BookCopy.AcquisitionNumber));
             }
         }
     }

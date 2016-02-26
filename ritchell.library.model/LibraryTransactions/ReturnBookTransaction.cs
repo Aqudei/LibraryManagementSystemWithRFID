@@ -13,10 +13,12 @@ namespace ritchell.library.model.LibraryTransactions
         private TransactionInfo _LastTransaction;
         private PaymentService _PaymentService;
 
+
         public ReturnBookTransaction(BookCopy bookCopy, TransactionInfo transInfo)
             : base(bookCopy)
         {
             _PaymentService = new PaymentService();
+
             _LastTransaction = transInfo;
             _LastTransaction.AmountToPay = RequiredFee;
         }
@@ -54,6 +56,9 @@ namespace ritchell.library.model.LibraryTransactions
                 uow.BookTransactionInfoRepository.Update(_LastTransaction);
                 uow.BookCopyRepository.Update(BookCopy);
                 uow.SaveChanges();
+
+                ActionLogger.Log(string.Format("{0} returned the book {1} with acquisition number {2}",
+                    UserService.FindById(_LastTransaction.LibraryUserId).Fullname, BookTitle, BookCopy.AcquisitionNumber));
             }
         }
     }

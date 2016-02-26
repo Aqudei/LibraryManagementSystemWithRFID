@@ -1,4 +1,6 @@
 ﻿using ritchell.library.infrastructure;
+using ritchell.library.infrastructure.Logging;
+using ritchell.library.model.Logging;
 using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
@@ -48,6 +50,8 @@ namespace ritchell.library.model.LibraryTransactions
                 if (returnBookTrans != null)
                 {
                     returnBookTrans.CompletePayment();
+                    ActionLogger.Log(string.Format("{0} paid P{1:0.00} for {2} with acquisition # {3}",
+                        _LibraryUser.Fullname, RequiredFee, returnBookTrans.BookTitle, returnBookTrans.BookCopy.AcquisitionNumber));
                 }
             }
 
@@ -121,5 +125,15 @@ namespace ritchell.library.model.LibraryTransactions
                 return totalFee;
             }
         }
+
+        public IActionLogger ActionLogger
+        {
+            get
+            {
+                return actionLogger = actionLogger ?? new DBLogger();
+            }
+        }
+
+        private IActionLogger actionLogger;
     }
 }
