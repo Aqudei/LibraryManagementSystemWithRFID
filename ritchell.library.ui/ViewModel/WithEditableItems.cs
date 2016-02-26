@@ -259,6 +259,7 @@ namespace ritchell.library.ui.ViewModel
             }
         }
 
+        private IActionLogger _ActionLogger;
         public IActionLogger ActionLogger
         {
             get
@@ -272,6 +273,6 @@ namespace ritchell.library.ui.ViewModel
             return (_filterText) => true;
         }
 
-        private IActionLogger _ActionLogger;
+       
     }
 }

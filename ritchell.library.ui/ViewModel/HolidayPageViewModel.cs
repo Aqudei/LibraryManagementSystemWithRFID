@@ -1,6 +1,9 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Ioc;
+using ritchell.library.infrastructure.Logging;
 using ritchell.library.model;
+using ritchell.library.model.Logging;
 using ritchell.library.model.Services;
 using System;
 using System.Collections.Generic;
@@ -16,7 +19,6 @@ namespace ritchell.library.ui.ViewModel
     {
 
         ObservableCollection<Holiday> _Holidays;
-
 
         public HolidayPageViewModel(HolidayService holidayService)
         {
@@ -47,6 +49,7 @@ namespace ritchell.library.ui.ViewModel
                             };
                             _HolidayService.AddHoliday(newHoliday);
                             Holidays.Add(newHoliday);
+                            ActionLogger.Log(string.Format("{0} added new holiday<{1}>.", SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username, newHoliday));
                         }
                         catch (Exception)
                         {
@@ -73,6 +76,7 @@ namespace ritchell.library.ui.ViewModel
                     {
                         _HolidayService.DeleteHoliday(holiday);
                         Holidays.Remove(holiday);
+                        ActionLogger.Log(string.Format("{0} deleted holiday<{1}>.", SimpleIoc.Default.GetInstance<LibraryUser>("current_user").Username, holiday));
                     },
                     holiday => holiday != null));
             }
@@ -116,6 +120,15 @@ namespace ritchell.library.ui.ViewModel
                     await Task.Run(() => _HolidayService.MarkSatSunAsHolidays());
                     Holidays = new ObservableCollection<Holiday>(_HolidayService.GetHolidays());
                 }, () => true);
+            }
+        }
+
+        private IActionLogger _ActionLogger;
+        public IActionLogger ActionLogger
+        {
+            get
+            {
+                return _ActionLogger = _ActionLogger ?? new DBLogger();
             }
         }
 

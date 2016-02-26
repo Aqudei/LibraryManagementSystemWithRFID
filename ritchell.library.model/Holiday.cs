@@ -16,5 +16,10 @@ namespace ritchell.library.model
 
         public DateTime Day { get; set; }
         public string Description { get; set; }
+
+        public override string ToString()
+        {
+            return Description;
+        }
     }
 }
