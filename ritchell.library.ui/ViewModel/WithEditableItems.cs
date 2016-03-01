@@ -273,6 +273,81 @@ namespace ritchell.library.ui.ViewModel
             return (_filterText) => true;
         }
 
-       
+        private RelayCommand _GotoFirstItemCommand;
+
+        /// <summary>
+        /// Gets the GotoFirstItemCommand.
+        /// </summary>
+        public RelayCommand GotoFirstItemCommand
+        {
+            get
+            {
+                return _GotoFirstItemCommand
+                    ?? (_GotoFirstItemCommand = new RelayCommand(
+                    () =>
+                    {
+                        ItemsCollectionView.MoveCurrentToFirst();
+                    },
+                    () => true));
+            }
+        }
+
+        private RelayCommand _GotoLastItemCommand;
+
+        /// <summary>
+        /// Gets the GotoLastItemCommand.
+        /// </summary>
+        public RelayCommand GotoLastItemCommand
+        {
+            get
+            {
+                return _GotoLastItemCommand
+                    ?? (_GotoLastItemCommand = new RelayCommand(
+                    () =>
+                    {
+                        ItemsCollectionView.MoveCurrentToLast();
+                    },
+                    () => true));
+            }
+        }
+
+        private RelayCommand _GotoNextItemCommand;
+
+        /// <summary>
+        /// Gets the GotoNextItemCommand.
+        /// </summary>
+        public RelayCommand GotoNextItemCommand
+        {
+            get
+            {
+                return _GotoNextItemCommand
+                    ?? (_GotoNextItemCommand = new RelayCommand(
+                    () =>
+                    {
+                        ItemsCollectionView.MoveCurrentToNext();
+                    },
+                    () => true));
+            }
+        }
+
+        private RelayCommand _GotoPreviousItemCommand;
+
+        /// <summary>
+        /// Gets the GotoPreviousItemCommand.
+        /// </summary>
+        public RelayCommand GotoPreviousItemCommand
+        {
+            get
+            {
+                return _GotoPreviousItemCommand
+                    ?? (_GotoPreviousItemCommand = new RelayCommand(
+                    () =>
+                    {
+                        ItemsCollectionView.MoveCurrentToPrevious();
+                    },
+                    () => true));
+            }
+        }
+
     }
 }

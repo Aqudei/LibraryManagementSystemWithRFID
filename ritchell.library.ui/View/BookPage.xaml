@@ -1,8 +1,11 @@
-﻿<Page x:Class="ritchell.library.ui.View.BookPage"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:wpf="clr-namespace:ritchell.library.ui.WPF"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity;assembly=System.Windows.Interactivity"
+      xmlns:i1="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="ritchell.library.ui.View.BookPage"
       mc:Ignorable="d" 
       d:DesignHeight="526.736" d:DesignWidth="769.246"
       Title="BookPage"
@@ -17,21 +20,31 @@
                         <GradientStop Color="#FFF9DFDF" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <StackPanel x:Name="crudStackPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
 
-                    <Button Command="{Binding NewItemCommand}" 
-                            Content="New" Margin="5,0" 
-                            Style="{DynamicResource CrudButtonStyle}"/>
+                <StackPanel x:Name="crudStackPanel" HorizontalAlignment="Center" Margin="10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <Button x:Name="button1" Content="Goto First" Margin="5,0" Command="{Binding GotoFirstItemCommand}"/>
+                        <Button x:Name="button1_Copy" Content="Goto Previous" Margin="5,0" Command="{Binding GotoPreviousItemCommand}"/>
+                        <Button x:Name="button1_Copy1" Content="Goto Next" Margin="5,0" Command="{Binding GotoNextItemCommand}"/>
+                        <Button x:Name="button1_Copy2" Content="Goto Last" Margin="5,0" Command="{Binding GotoLastItemCommand}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
 
-                    <Button Content="Edit" 
-                            Command="{Binding EditItemCommand}"
-                            Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Content="Delete" 
-                            Command="{Binding DeleteItemCommand}"
-                            Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Command="{Binding SaveItemCommand}" Content="Save" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Command="{Binding CancelEditItemCommand, Mode=OneWay}" Content="Cancel" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
-                    <Button Command="{Binding ManageRFIDCommand}" Content="Manage Book's RFID" Margin="5,0" Style="{DynamicResource CrudButtonStyle}"/>
+                        <Button Command="{Binding NewItemCommand}" 
+							Content="New" 
+							Style="{DynamicResource CrudButtonStyle}" d:LayoutOverrides="Height"/>
+
+                        <Button Content="Edit" 
+							Command="{Binding EditItemCommand}"
+							Style="{DynamicResource CrudButtonStyle}" d:LayoutOverrides="Height"/>
+                        <Button Content="Delete" 
+							Command="{Binding DeleteItemCommand}"
+							Style="{DynamicResource CrudButtonStyle}" d:LayoutOverrides="Height"/>
+                        <Button Command="{Binding SaveItemCommand}" Content="Save" Style="{DynamicResource CrudButtonStyle}" d:LayoutOverrides="Height"/>
+                        <Button Command="{Binding CancelEditItemCommand, Mode=OneWay}" Content="Cancel" Style="{DynamicResource CrudButtonStyle}" d:LayoutOverrides="Height"/>
+                        <Button Command="{Binding ManageRFIDCommand}" Content="Manage Book's RFID" Style="{DynamicResource CrudButtonStyle}" d:LayoutOverrides="Height"/>
+
+                    </StackPanel>
 
                 </StackPanel>
             </Border>
@@ -39,30 +52,35 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="textBoxFilterText"  TextWrapping="Wrap" Width="200"/>
                     <Button x:Name="button" 
-                            Content="Search"
-                            Command="{Binding FilterCommand}"
-                            CommandParameter="{Binding Text, ElementName=textBoxFilterText}"/>
+						Content="Search"
+						Command="{Binding FilterCommand}"
+						CommandParameter="{Binding Text, ElementName=textBoxFilterText}"/>
                 </StackPanel>
-                <ListBox IsSynchronizedWithCurrentItem="True"
-            		DisplayMemberPath="BookTitle"
-            		ItemsSource="{Binding ItemsCollectionView}" 
-            		FontSize="26.667" 
-            		FontFamily="Simplified Arabic" Height="456.119"/>
+                <DataGrid IsSynchronizedWithCurrentItem="True"
+                    
+					DisplayMemberPath="BookTitle"
+					ItemsSource="{Binding ItemsCollectionView}" 
+					FontSize="26.667" 
+					FontFamily="Simplified Arabic" Height="456.119">
+                    <i1:Interaction.Behaviors>
+                        <wpf:ScrollDataGridRowIntoView/>
+                    </i1:Interaction.Behaviors>
+                </DataGrid>
 
             </StackPanel>
 
             <StackPanel  Orientation="Vertical"
-                         Margin="10,0,0,32.96" 
-                         Width="300" HorizontalAlignment="Left">
+				Margin="10,0,0,32.96" 
+				Width="300" HorizontalAlignment="Left">
                 <StackPanel.Resources>
-                    <Style  TargetType="TextBox">
+                    <Style  TargetType="{x:Type TextBox}">
                         <Setter Property="FontSize" Value="20"/>
                     </Style>
-                    <Style  TargetType="TextBlock">
+                    <Style  TargetType="{x:Type TextBlock}">
                         <Setter Property="FontSize" Value="20"/>
                         <Setter Property="FontFamily" Value="Comic Sans MS"/>
                     </Style>
-                    <Style  TargetType="ComboBox">
+                    <Style  TargetType="{x:Type ComboBox}">
                         <Setter Property="FontSize" Value="20"/>
                     </Style>
                 </StackPanel.Resources>
@@ -73,7 +91,7 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Subject" />
                     <ComboBox Text="{Binding ItemsCollectionView/Subject, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"
-                              ItemsSource="{Binding Subjects}"/>
+						ItemsSource="{Binding Subjects}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock><Run Text="Author(s)"/></TextBlock>
@@ -82,17 +100,17 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock  Text="Call Number"/>
                     <TextBox Text="{Binding ItemsCollectionView/CallNumber, UpdateSourceTrigger=PropertyChanged}"
-                             Validation.ErrorTemplate="{StaticResource validationTemplate}"/>
+						Validation.ErrorTemplate="{StaticResource validationTemplate}"/>
 
 
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="Section" />
                     <ComboBox ItemsSource="{Binding BookSectionsCollectionView}"
-            			SelectedValuePath="Id" 
-            			IsSynchronizedWithCurrentItem="True"
-            			SelectedValue="{Binding ItemsCollectionView/SectionId}"
-            			DisplayMemberPath="Name"/>
+						SelectedValuePath="Id" 
+						IsSynchronizedWithCurrentItem="True"
+						SelectedValue="{Binding ItemsCollectionView/SectionId}"
+						DisplayMemberPath="Name"/>
 
                 </StackPanel>
                 <StackPanel Orientation="Vertical">

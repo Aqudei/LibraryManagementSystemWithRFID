@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2015Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\AlarmApp\AlarmApp.csproj">
+			<Name>AlarmApp</Name>
+			<Project>{A6E00BE6-2AED-475A-8C4C-2ECC75FA770F}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ritchell.library.infrastructure\ritchell.library.infrastructure.csproj">
+			<Name>ritchell.library.infrastructure</Name>
+			<Project>{141A8CB7-66F0-4AF7-A086-0648F5753110}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ritchell.library.model\ritchell.library.model.csproj">
+			<Name>ritchell.library.model</Name>
+			<Project>{99D28668-0517-43E3-9812-235FC8C0F86B}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ritchell.library.presentation.common\ritchell.library.presentation.common.csproj">
+			<Name>ritchell.library.presentation.common</Name>
+			<Project>{62168E2A-D814-4293-BCA3-4E5DFA8EB183}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ritchell.library.reporting\ritchell.library.reporting.csproj">
+			<Name>ritchell.library.reporting</Name>
+			<Project>{879129A7-1FB8-4F7D-AE9B-F5E8099708C1}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ritchell.library.ui\ritchell.library.ui.csproj">
+			<Name>ritchell.library.ui</Name>
+			<Project>{3EEE1708-42E1-4726-8ABA-03E19A23C07B}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\ritchell.library.ui.client\ritchell.library.ui.client.csproj">
+			<Name>ritchell.library.ui.client</Name>
+			<Project>{B56EA2DD-59B6-4CB3-BEB9-72D037FC7871}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

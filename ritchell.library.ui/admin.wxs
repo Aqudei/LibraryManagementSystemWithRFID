@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="ritchell.library.ui.Binaries">
+            <Component Id="cmpCC191A5AC1612796000642B83F55DC70" Guid="{0452AB8A-6013-4A5C-84BD-AE4762C745F1}">
+                <File Id="filC74A7FC9AF15C012340EB84CDA9B797E" Source="$(var.ritchell.library.ui.TargetDir)\ritchell.library.ui.exe" />
+            </Component>
+            <Component Id="cmp32C8A9342FA9602799A94C0740455806" Guid="{2408D496-9FA7-4F6F-8BA5-A810D046CDD0}">
+                <File Id="fil012A27EF53C0C04D4E78DD5B8E2C0C95" Source="$(var.ritchell.library.ui.TargetDir)\ritchell.library.ui.exe.config" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ritchell.library.ui.Binaries">
+            <ComponentRef Id="cmpCC191A5AC1612796000642B83F55DC70" />
+            <ComponentRef Id="cmp32C8A9342FA9602799A94C0740455806" />
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ritchell.library.ui.Satellites" />
+    </Fragment>
+</Wix>
